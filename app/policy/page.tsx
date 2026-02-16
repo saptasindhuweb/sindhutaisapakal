@@ -54,7 +54,7 @@ const Policy = () => {
               onClick={() => setActiveTab(tab)}
               className={`relative pb-2 transition text-sm ${
                 activeTab === tab
-                  ? "text-black after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:w-6 after:h-[3px] after:bg-yellow-400 after:rounded-full"
+                  ? "text-black after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:w-6 after:h-[3px] after:bg-sky-500 after:rounded-full"
                   : "text-gray-500 hover:text-black"
               }`}
             >

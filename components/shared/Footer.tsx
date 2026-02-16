@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from "next/navigation";
-import { IoLogoFacebook, IoLogoInstagram, IoLogoYoutube } from "react-icons/io5";
+import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoYoutube } from "react-icons/io5";
 import { MdLocationOn, MdPhone, MdMail } from "react-icons/md";
 
 const Footer = () => {
@@ -21,7 +21,7 @@ const Footer = () => {
             className="w-28 mb-4"
           />
           <p className="text-xs font-semibold leading-relaxed">
-            Saptasindhu Mahila Adhar,
+            'Saptasindhu' Mahila Adhar,
             <br />
             Balsangopan And Shikshan Sanstha
           </p>
@@ -34,8 +34,8 @@ const Footer = () => {
           <ul className="space-y-2 text-xs text-gray-300">
             <li onClick={()=>router.push("/maii")} className="hover:text-white cursor-pointer">Maai</li>
             <li onClick={()=>router.push("/about")} className="hover:text-white cursor-pointer">About us</li>
-            <li onClick={()=>router.push("/#")} className="hover:text-white cursor-pointer">Mission</li>
             <li onClick={()=>router.push("/gallery")} className="hover:text-white cursor-pointer">Gallery</li>
+            <li onClick={()=>router.push("/#")} className="hover:text-white cursor-pointer">Supporters</li>
             <li onClick={()=>router.push("/policy")} className="hover:text-white cursor-pointer">Policy</li>
           </ul>
         </div>
@@ -48,7 +48,7 @@ const Footer = () => {
           <div className="flex items-start gap-2 mb-3">
             <MdLocationOn className="text-yellow-400 mt-1 flex-shrink-0 text-sm" />
             <p className="text-xs leading-relaxed flex-1">
-              Belhekar Vasti, Near Vasantdada Sugar Institute,
+              Belhekar Vasti, Near Vasantdada Sugar Institute, AM College Road
               <br />
               Manjari (Bk), Tal. Haveli, Dist. Pune – 412 307
             </p>
@@ -81,7 +81,7 @@ const Footer = () => {
             तुम्ही गणगोत व्हा !..
           </div>
 
-          <button onClick={()=>router.push("/donate")} className="mt-6 bg-yellow-400 text-black px-6 py-3 rounded font-semibold hover:bg-yellow-500 transition">
+          <button onClick={()=>router.push("/donate")} className="mt-6 bg-sky-500 text-white px-6 py-3 rounded font-semibold hover:bg-sky-600 transition">
             Donate Here
           </button>
         </div>
@@ -105,6 +105,9 @@ const Footer = () => {
             </a>
             <a href="https://www.facebook.com/saptasindhutaisapakal" target="_blank">
               <IoLogoFacebook className="cursor-pointer"/>
+            </a>
+            <a href="https://www.facebook.com/saptasindhutaisapakal" target="_blank">
+            <IoLogoLinkedin className="cursor-pointer"/>
             </a>
             Supported by Mr Umesh Tharkude.
           </div>

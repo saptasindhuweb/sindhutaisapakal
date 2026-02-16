@@ -132,7 +132,7 @@ const Donate = () => {
                                     .getElementById("donation-form")
                                     ?.scrollIntoView({ behavior: "smooth" })
                             }
-                            className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-2 rounded-lg"
+                            className="bg-sky-500 hover:bg-yellow-500 text-black font-semibold px-8 py-2 rounded-lg"
                         >
                             Donate Here
                         </button>
@@ -160,7 +160,7 @@ const Donate = () => {
                                     <button
                                         onClick={() => setType("one-time")}
                                         className={`px-8 py-3 rounded-lg font-medium border ${type === "one-time"
-                                            ? "bg-yellow-400 text-white border-yellow-400"
+                                            ? "bg-sky-500 text-white border-yellow-400"
                                             : "border-gray-300 text-gray-600"
                                             }`}
                                     >
@@ -170,7 +170,7 @@ const Donate = () => {
                                     <button
                                         onClick={() => setType("monthly")}
                                         className={`px-8 py-3 rounded-lg font-medium border ${type === "monthly"
-                                            ? "bg-yellow-400 text-white border-yellow-400"
+                                            ? "bg-sky-500 text-white border-yellow-400"
                                             : "border-gray-300 text-gray-600"
                                             }`}
                                     >
@@ -211,7 +211,7 @@ const Donate = () => {
                                             if (!amount || amount < 100) return;
                                             setStep("details");
                                         }}
-                                        className="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-10 py-4 rounded-xl mb-6"
+                                        className="bg-sky-500 hover:bg-yellow-500 text-white font-semibold px-10 py-4 rounded-xl mb-6"
                                     >
                                         Proceed To Donate
                                     </button>
@@ -291,7 +291,7 @@ const Donate = () => {
                                 <div className="text-center mt-6">
                                     <button
                                         onClick={handleDonate}
-                                        className="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold px-10 py-4 rounded-xl"
+                                        className="bg-sky-500 hover:bg-yellow-500 text-white font-semibold px-10 py-4 rounded-xl"
                                     >
                                         Proceed To Donate
                                     </button>

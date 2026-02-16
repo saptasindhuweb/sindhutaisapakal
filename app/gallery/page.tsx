@@ -152,7 +152,7 @@ const Gallery = () => {
                   <img
                     src={img}
                     alt=""
-                    className="w-full object-cover rounded-2xl hover:scale-[1.02] transition duration-300 cursor-zoom-in"
+                    className="w-full object-cover rounded-2xl hover:scale-[1.02] transition duration-300 cursor-pointer"
                     onClick={() => setExpandedImage(img)}
                   />
                 </div>

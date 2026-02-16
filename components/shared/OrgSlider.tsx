@@ -87,7 +87,7 @@ const OrgSlider = () => {
       <div className="col-span-6">
         <h1 className="text-md font-semibold tracking-wide mb-6 flex items-center gap-2">
           <span className="w-14 h-[2px] bg-black" />
-          Founder : 'Padmashri' Dr. Sou. Sindhutai Sapakal
+          Founder : 'Padmashri' Dr. Sou. Sindhutai Sapakal (Maai)
         </h1>
 
         <h2 className="text-3xl font-bold mb-10 ml-16">

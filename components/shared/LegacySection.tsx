@@ -22,11 +22,11 @@ const LegacySection = () => {
         <div className="col-span-1" />
 
         <div className="col-span-6 py-16 mx-16">
-          <h2 className="text-4xl font-bold text-black mb-6">
+          <h2 className="text-4xl font-bold text-white mb-6">
             The Legacy and <br /> The Responsibility
           </h2>
 
-          <p className="text-black leading-relaxed max-w-2xl text-sm">
+          <p className="text-white leading-relaxed max-w-2xl text-sm">
             Sindhutai gave away her own daughter “Mamata” to the Shrimant Dagdu
             Sheth Halwai trust of Pune, to eliminate the feeling of partiality
             between her own child and the adopted children. Years later and
@@ -37,11 +37,11 @@ const LegacySection = () => {
           </p>
 
           <div className="flex gap-4 mt-8">
-            <Button onClick={() => router.push("/mamtatai")} className="bg-yellow-400 text-black px-6 py-3 font-semibold rounded hover:bg-yellow-500 transition">
+            <Button onClick={() => router.push("/mamtatai")} className="bg-sky-500 text-white px-6 py-3 font-semibold rounded hover:bg-sky-600 transition">
               About Mamatatai
             </Button>
 
-            <Button onClick={() => router.push("/donate")} className="bg-yellow-400 text-black px-6 py-3 font-semibold rounded hover:bg-yellow-500 transition">
+            <Button onClick={() => router.push("/donate")} className="bg-sky-500 text-white px-6 py-3 font-semibold rounded hover:bg-sky-600 transition">
               Appeal for Donation
             </Button>
           </div>

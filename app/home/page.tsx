@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import DonateCTA from "@/components/shared/DonateCTA";
 import LegacySection from "@/components/shared/LegacySection";
 import NgoFocus from "@/components/shared/NgoFocus";
@@ -9,26 +10,49 @@ import StatsSection from "@/components/shared/StatsSection";
 import SupportersSlider from "@/components/shared/SupportersSlider";
 import usePageReady from "@/hooks/usePageReady";
 
+const heroImages = [
+  "/assets/images/bg-heros.png",
+  "/assets/images/bg-maii.png",
+  "/assets/images/bg-mamtatai.png",
+];
+
+const AUTO_SCROLL_TIME = 5000; // 5 seconds
+
 const Home = () => {
+  const [activeHeroIndex, setActiveHeroIndex] = useState(0);
+
   const isPageReady = usePageReady([
-    "/assets/images/bg-heros.png",
+    ...heroImages,
     "/assets/images/1.png",
     "/assets/images/2.png",
   ]);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, AUTO_SCROLL_TIME);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const goPrev = () => {
+    setActiveHeroIndex(
+      (prev) => (prev - 1 + heroImages.length) % heroImages.length
+    );
+  };
+
+  const goNext = () => {
+    setActiveHeroIndex((prev) => (prev + 1) % heroImages.length);
+  };
 
   if (!isPageReady) {
     return <PageLoader />;
   }
 
   return (
-    <>
-      <section
-        className="relative w-full h-screen bg-cover bg-top grayscale"
-        style={{ backgroundImage: "url('/assets/images/bg-heros.png')" , color: "gray"}}
-      >
-        <div className="absolute inset-0 bg-black/40" />
-        
-      </section>
+    <main className="w-full pt-40 bg-white">
+      {/* HERO CAROUSEL */}
+      
 
 
       <section className="bg-white py-20 grid grid-cols-8">
@@ -126,7 +150,7 @@ const Home = () => {
       <LegacySection />
       <SupportersSlider />
       <DonateCTA />
-    </>
+    </main>
   );
 };
 

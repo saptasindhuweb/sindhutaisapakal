@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import DonateCTA from "@/components/shared/DonateCTA";
 import LegacySection from "@/components/shared/LegacySection";
 import NgoFocus from "@/components/shared/NgoFocus";
@@ -10,27 +11,113 @@ import SupportersSlider from "@/components/shared/SupportersSlider";
 import usePageReady from "@/hooks/usePageReady";
 import { useRouter } from "next/navigation";
 
+/* shadcn carousel */
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+
+/* ===== HERO IMAGES ===== */
+const heroImages = [
+  "/assets/carousel/3.jpg",
+  "/assets/carousel/1.jpg",
+  "/assets/carousel/2.jpg",
+];
+
 const Home = () => {
   const isPageReady = usePageReady([
-    "/assets/images/bg-heros.png",
+    ...heroImages,
     "/assets/images/1.png",
     "/assets/images/2.png",
   ]);
 
   const router = useRouter();
+
   if (!isPageReady) {
     return <PageLoader />;
   }
 
   return (
     <>
-      <section
-        className="relative w-full h-[950px] bg-cover bg-top "
-        style={{ backgroundImage: "url('/assets/images/bg-heros.png')" , color: "gray"}}
-      >
-        <div className="absolute inset-0 bg-black/40" />
-        
+      {/* ===== HERO CAROUSEL (FIXED IMAGE SIZE) ===== */}
+      <section className="w-full bg-white">
+        <div className="grid grid-cols-8">
+
+          {/* LEFT SPACER */}
+          <div className="col-span-1" />
+
+          {/* CENTER COLUMN */}
+          <div className="col-span-6 relative flex items-center justify-center">
+
+            <Carousel
+              className="w-full flex justify-center"
+              plugins={[
+                Autoplay({
+                  delay: 5000,
+                  stopOnInteraction: true,
+                }),
+              ]}
+            >
+              <CarouselContent>
+
+                {heroImages.map((img, index) => (
+                  <CarouselItem key={index} className="flex justify-center">
+                    {/* FIXED IMAGE CONTAINER */}
+                    <div
+                      className="
+                  flex items-center justify-center
+                  bg-white
+                "
+                      style={{
+                        width: "1600px",
+                        height: "900px",
+                      }}
+                    >
+                      <img
+                        src={img}
+                        alt={`Hero slide ${index + 1}`}
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+
+              </CarouselContent>
+
+              {/* PREV */}
+              <CarouselPrevious
+                className="
+            absolute left-[-4rem] top-1/2 -translate-y-1/2
+            h-12 w-12
+            bg-black/60 text-white
+            hover:bg-black/80
+          "
+              />
+
+              {/* NEXT */}
+              <CarouselNext
+                className="
+            absolute right-[-4rem] top-1/2 -translate-y-1/2
+            h-12 w-12
+            bg-black/60 text-white
+            hover:bg-black/80
+          "
+              />
+
+            </Carousel>
+          </div>
+
+          {/* RIGHT SPACER */}
+          <div className="col-span-1" />
+
+        </div>
       </section>
+
+
 
 
       <section className="bg-white py-20 grid grid-cols-8">
@@ -38,42 +125,41 @@ const Home = () => {
 
         </div>
         <div className=" col-span-6">
-            <div className=" grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-gray-500 mb-2">Maai</p>
+          <div className=" grid md:grid-cols-2 gap-12 items-center">
+            <div>
 
-                <h2 className="text-3xl font-bold leading-tight">
-                  Padma Shri Dr. Sou. Sindhutai Sapakal <br />
-                  Mother of orphans
-                </h2>
+              <h2 className="text-3xl font-bold leading-tight">
+                Padma Shri Dr. Sou. Sindhutai Sapakal (Maai) <br />
+                Mother of Orphans
+              </h2>
 
-                <p className="mt-4 text-gray-600 leading-relaxed">
-                  A soul out of life’s hardship was born as Mother to over a thousand
-                  children and devoted her entire life to social service. After 70
-                  years of lifespan (Born: 1948 – Died: 2022), she raised a grand
-                  family of 220 sons-in-laws, 50 daughters-in-laws.
-                </p>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                A soul out of life’s hardship was born as Mother to over a thousand
+                children and devoted her entire life to social service. After 70
+                years of lifespan (Born: 1948 – Died: 2022), she raised a grand
+                family of 220 sons-in-laws, 50 daughters-in-laws.
+              </p>
 
-                <p className="mt-3 text-gray-600 leading-relaxed">
-                  She adopted more than 1200 orphaned children and provided them
-                  food, shelter, and education. She was honored with Padmashri in
-                  2021.
-                </p>
+              <p className="mt-3 text-gray-600 leading-relaxed">
+                She adopted more than 1200 orphaned children and provided them
+                food, shelter, and education. She was honored with Padma Shri in
+                2021.
+              </p>
 
-                <button onClick={() => router.push("/maii")} className="mt-5 text-sm font-semibold text-gray-700 hover:underline cursor-pointer">
-                  Read More
-                </button>
-              </div>
+              <button onClick={() => router.push("/maii")} className="mt-5 text-sm font-semibold text-sky-700 hover:underline cursor-pointer">
+                Read More
+              </button>
+            </div>
 
-              <div className="flex justify-end">
-                <img
-                  src="/assets/images/1.png"
-                  alt="Sindhutai Sapkal"
-                  className="rounded-3xl max-w-md w-full object-cover"
-                />
-              </div>
+            <div className="flex justify-end">
+              <img
+                src="/assets/images/1.png"
+                alt="Sindhutai Sapkal"
+                className="rounded-3xl max-w-md w-full object-cover"
+              />
             </div>
           </div>
+        </div>
         <div className=" col-span-1">
 
         </div>
@@ -85,48 +171,52 @@ const Home = () => {
         </div>
         <div className=" col-span-6">
           <div className=" grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <img
-              src="/assets/images/2.png"
-              alt="Children with Mai"
-              className="rounded-3xl max-w-md w-full object-cover"
-            />
-          </div>
+            <div>
+              <img
+                src="/assets/images/2.png"
+                alt="Children with Mai"
+                className="rounded-3xl max-h-90 max-w-md w-full object-cover"
+              />
+            </div>
 
-          <div>
-            <h2 className="text-3xl font-bold leading-tight">
-              ‘Saptasindhu’ Mahila Adhar Balsangopan And Shikshan Sanstha
-            </h2>
+            <div>
+              <h2 className="text-3xl font-bold leading-tight">
+                The Legacy and The Responsibility
+              </h2>
 
-            <p className="mt-4 text-gray-600 leading-relaxed">
-              Founded in 1998 by Padmashri Dr. Sou. Sindhutai Sapakal (Maai),
-              the organization supports orphaned and underprivileged children.
-            </p>
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                Sindhutai gave away her own daughter “Mamata” to the Shrimant Dagdu
+                Sheth Halwai trust of Pune, to eliminate the feeling of partiality
+                between her own child and the adopted children. 
+              </p>
 
-            <p className="mt-3 text-gray-600 leading-relaxed">
-              Over the years, it has expanded its reach across Maharashtra,
-              providing shelter, education, and emotional support.
-            </p>
+              <p className="mt-3 text-gray-600 leading-relaxed">
+                Years later and
+                after completing her education, Mamata-tai – as she is lovingly
+                called by the children, started assisting “Maai”. After the sad
+                demise of Sindhutai in Jan 2022, Mamata Sindhutai Sapakal undertook
+                the responsibility of children
+              </p>
 
-            <div className="mt-4 flex gap-6 text-sm font-semibold text-gray-600">
-              <span onClick={() => {router.push("/maii")}} className="cursor-pointer hover:underline">Read More</span>
-              <span onClick={() => (router.push("/sanmati"))} className="cursor-pointer hover:underline">
-                Saptasindhu
-              </span>
+              <div className="mt-4 flex gap-6 text-sm font-semibold text-sky-700">
+                <span onClick={() => { router.push("/mamtatai") }} className="cursor-pointer hover:underline">Read More</span>
+                {/* <span onClick={() => (router.push("/sanmati"))} className="cursor-pointer hover:underline">
+                  Saptasindhu
+                </span> */}
+              </div>
             </div>
           </div>
-        </div>
         </div>
         <div className="col-span-1">
 
         </div>
       </section>
 
-      <StatsSection/>
       <OrgSlider />
-      <NgoFocus />
-      <LegacySection />
+      {/* <NgoFocus /> */}
+      {/* <LegacySection /> */}
       <SupportersSlider />
+      <StatsSection />
       <DonateCTA />
     </>
   );

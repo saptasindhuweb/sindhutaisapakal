@@ -270,7 +270,7 @@ const SanmatiBalNiketan = () => {
                                 {tab.label}
 
                                 {activeTab === tab.key && (
-                                    <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-[3px] bg-yellow-400 rounded-full" />
+                                    <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-[3px] bg-sky-500 rounded-full" />
                                 )}
                             </button>
                         ))}

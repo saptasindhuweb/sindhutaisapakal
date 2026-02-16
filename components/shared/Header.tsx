@@ -7,11 +7,10 @@ const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Home style header
-  const isHomePage =
-    pathname === "/" || pathname === "/home" || pathname === "/donate";
+  const isHomePage = pathname === "/" || pathname === "/home";
+  const isOverlayHeaderPage = pathname === "/donate";
 
-  const linkColor = isHomePage ? "text-white" : "text-black";
+  const linkColor = isOverlayHeaderPage ? "text-white" : "text-black";
 
   // Active route check
   const isActive = (path: string) => pathname === path;
@@ -31,15 +30,17 @@ const Header = () => {
       {label}
 
       {isActive(path) && (
-        <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-6 h-[3px] bg-yellow-400 rounded-full" />
+        <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-6 h-[3px] bg-sky-500 rounded-full" />
       )}
     </div>
   );
 
   return (
     <div
-      className={`absolute top-0 w-full z-50 grid grid-cols-8 items-center py-8 ${
-        isHomePage ? "text-white" : "text-black"
+      className={`absolute top-0 w-full z-50 grid grid-cols-8 items-center py-6 ${
+        isOverlayHeaderPage ? "text-white" : "text-black"
+      } ${
+        isHomePage ? "bg-white/95 backdrop-blur-sm border-b border-black/10" : ""
       }`}
     >
       {/* LEFT GUTTER */}
@@ -57,7 +58,7 @@ const Header = () => {
 
         {/* NAV ITEMS */}
         <NavItem label="Home" path="/" />
-        <NavItem label="Maai" path="/maii" />
+        <NavItem label="The Founder" path="/maii" />
         <NavItem label="About Us" path="/about" />
         <NavItem label="Gallery" path="/gallery" />
         <NavItem label="Contact Us" path="/contact" />
@@ -66,7 +67,7 @@ const Header = () => {
         {/* DONATE BUTTON */}
         <Button
           onClick={() => router.push("/donate")}
-          className="bg-yellow-300 rounded-full text-xl text-black px-8 py-6 hover:bg-yellow-400"
+          className="bg-sky-500 rounded-full text-xl text-white px-8 py-6 hover:bg-sky-600 cursor-pointer"
         >
           Donate Here
         </Button>

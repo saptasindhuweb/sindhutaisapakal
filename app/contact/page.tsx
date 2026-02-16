@@ -165,7 +165,7 @@ const Contact = () => {
                 />
 
                 <div className="col-span-2 flex justify-center mt-4">
-                  <button type="submit" className="bg-yellow-400 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-all transform hover:scale-105 shadow-lg">
+                  <button type="submit" className="bg-sky-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-all transform hover:scale-105 shadow-lg">
                     Submit
                   </button>
                 </div>

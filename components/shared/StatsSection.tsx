@@ -6,22 +6,22 @@ type StatItem = {
 
 const stats: StatItem[] = [
   {
-    icon: "/assets/icons/nurtured.png",
+    icon: "/assets/images/cows.jpg",
     value: "1200+",
     label: "Orphans Nurtured",
   },
   {
-    icon: "/assets/icons/care.png",
+    icon: "/assets/images/cows.jpg",
     value: "260+",
     label: "Orphans in Care",
   },
   {
-    icon: "/assets/icons/organisations.png",
+    icon: "/assets/images/cows.jpg",
     value: "6",
     label: "Organisations",
   },
   {
-    icon: "/assets/icons/cow.png",
+    icon: "/assets/images/cows.jpg",
     value: "250+",
     label: "Cows under care",
   },
@@ -43,14 +43,14 @@ const StatsSection = () => {
               <img
                 src={item.icon}
                 alt={item.label}
-                className="h-25 w-25 object-contain mb-4"
+                className="h-40 w-40 object-contain mb-4"
               />
 
-              <p className="text-4xl font-bold text-amber-300">
+              <p className="text-3xl font-bold text-sky-400">
                 {item.value}
               </p>
 
-              <p className=" text-xl font-semibold mt-2 text-gray-600">
+              <p className=" text-lg font-semibold mt-2 text-gray-600">
                 {item.label}
               </p>
             </div>
