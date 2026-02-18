@@ -85,12 +85,11 @@ const Maai: React.FC = () => {
           <div className="flex items-center gap-4 mb-8">
           </div>
 
-          {/* Image overlaps */}
           <div className="relative z-10">
             <img
               src="/assets/images/bg-maii.png"
               alt="Maai"
-              className="w-full h-full object-cover grayscale rounded-3xl -mb-32"
+              className="w-full max-h-150 object-cover grayscale rounded-3xl -mb-32 object-[center_40%]"
             />
           </div>
         </div>
@@ -254,7 +253,7 @@ const Maai: React.FC = () => {
             <img
               src="/assets/images/bg-mamtatai.png"
               alt="Maai"
-              className="w-full h-full object-cover grayscale rounded-3xl -mb-32"
+              className="w-full max-h-150 object-cover grayscale rounded-3xl -mb-32"
             />
 
             <div className="absolute inset-0 flex items-center pl-12">
