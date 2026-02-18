@@ -28,6 +28,30 @@ const heroImages = [
   "/assets/carousel/2.jpg",
 ];
 
+const latestUpdates = [
+  {
+    title: "New Education Support Drive Launched",
+    description:
+      "A new learning support initiative has started to provide books, mentoring, and skill training for children across our homes.",
+    date: "January 15, 2026",
+    image: "/assets/images/maii5.jpg",
+  },
+  {
+    title: "Health Camp Completed Across Centers",
+    description:
+      "A multi-center medical camp was conducted with routine checkups, nutrition consultations, and essential medicine support.",
+    date: "December 8, 2025",
+    image: "/assets/images/maii6.jpg",
+  },
+  {
+    title: "Community Volunteers Joined Child Care Programs",
+    description:
+      "New volunteers were onboarded to assist with child engagement, after-school learning, and emotional wellbeing activities.",
+    date: "November 22, 2025",
+    image: "/assets/images/maii7.jpg",
+  },
+];
+
 const Home = () => {
   const isPageReady = usePageReady([
     ...heroImages,
@@ -210,6 +234,41 @@ const Home = () => {
         <div className="col-span-1">
 
         </div>
+      </section>
+
+      <section className="bg-white py-16 grid grid-cols-8">
+        <div className="col-span-1" />
+        <div className="col-span-6">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="w-16 h-[2px] bg-black" />
+            <h2 className="text-2xl font-bold tracking-wide">LATEST UPDATES</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {latestUpdates.map((item) => (
+              <article
+                key={`${item.title}-${item.date}`}
+                className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden"
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-5">
+                  <p className="text-xs text-slate-500 mb-2">{item.date}</p>
+                  <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-slate-700 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        <div className="col-span-1" />
       </section>
 
       <OrgSlider />
