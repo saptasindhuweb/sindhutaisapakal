@@ -23,9 +23,9 @@ import Autoplay from "embla-carousel-autoplay";
 
 /* ===== HERO IMAGES ===== */
 const heroImages = [
+  "/assets/carousel/2.jpg",
   "/assets/carousel/3.jpg",
   "/assets/carousel/1.jpg",
-  "/assets/carousel/2.jpg",
 ];
 
 const latestUpdates = [
@@ -69,20 +69,25 @@ const Home = () => {
     <>
       {/* ===== HERO CAROUSEL (FIXED IMAGE SIZE) ===== */}
       <section className="w-full bg-white">
-        <div className="grid grid-cols-8">
+        {/* <div className="grid grid-cols-8"> */}
 
           {/* LEFT SPACER */}
-          <div className="col-span-1" />
+          {/* <div className="col-span-1" /> */}
 
           {/* CENTER COLUMN */}
-          <div className="col-span-6 relative flex items-center justify-center">
+          <div className=" relative flex items-center justify-center">
 
             <Carousel
               className="w-full flex justify-center"
+              opts={{
+                loop:true
+              }}
               plugins={[
                 Autoplay({
                   delay: 5000,
-                  stopOnInteraction: true,
+                  stopOnInteraction: false,
+                  stopOnMouseEnter:true,
+                  
                 }),
               ]}
             >
@@ -113,32 +118,32 @@ const Home = () => {
               </CarouselContent>
 
               {/* PREV */}
-              <CarouselPrevious
+              {/* <CarouselPrevious
                 className="
             absolute left-[-4rem] top-1/2 -translate-y-1/2
             h-12 w-12
             bg-black/60 text-white
             hover:bg-black/80
           "
-              />
+              /> */}
 
               {/* NEXT */}
-              <CarouselNext
+              {/* <CarouselNext
                 className="
             absolute right-[-4rem] top-1/2 -translate-y-1/2
             h-12 w-12
             bg-black/60 text-white
             hover:bg-black/80
           "
-              />
+              /> */}
 
             </Carousel>
           </div>
 
           {/* RIGHT SPACER */}
-          <div className="col-span-1" />
+          {/* <div className="col-span-1" /> */}
 
-        </div>
+        {/* </div> */}
       </section>
 
 
