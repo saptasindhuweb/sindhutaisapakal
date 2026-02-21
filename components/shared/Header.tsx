@@ -61,7 +61,7 @@ const Header = () => {
         <NavItem label="The Founder" path="/maii" />
         <NavItem label="About Us" path="/about" />
         <NavItem label="Gallery" path="/gallery" />
-        <NavItem label="Contact Us" path="/contact" />
+        <NavItem label="Milestones" path="/milestones" />
         <NavItem label="Supporters" path="/supporters" />
 
         {/* DONATE BUTTON */}

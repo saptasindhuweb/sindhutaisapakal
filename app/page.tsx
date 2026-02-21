@@ -71,54 +71,54 @@ const Home = () => {
       <section className="w-full bg-white">
         {/* <div className="grid grid-cols-8"> */}
 
-          {/* LEFT SPACER */}
-          {/* <div className="col-span-1" /> */}
+        {/* LEFT SPACER */}
+        {/* <div className="col-span-1" /> */}
 
-          {/* CENTER COLUMN */}
-          <div className=" relative flex items-center justify-center">
+        {/* CENTER COLUMN */}
+        <div className=" relative flex items-center justify-center">
 
-            <Carousel
-              className="w-full flex justify-center"
-              opts={{
-                loop:true
-              }}
-              plugins={[
-                Autoplay({
-                  delay: 5000,
-                  stopOnInteraction: false,
-                  stopOnMouseEnter:true,
-                  
-                }),
-              ]}
-            >
-              <CarouselContent>
+          <Carousel
+            className="w-full flex justify-center"
+            opts={{
+              loop: true
+            }}
+            plugins={[
+              Autoplay({
+                delay: 5000,
+                stopOnInteraction: false,
+                stopOnMouseEnter: true,
 
-                {heroImages.map((img, index) => (
-                  <CarouselItem key={index} className="flex justify-center">
-                    {/* FIXED IMAGE CONTAINER */}
-                    <div
-                      className="
+              }),
+            ]}
+          >
+            <CarouselContent>
+
+              {heroImages.map((img, index) => (
+                <CarouselItem key={index} className="flex justify-center">
+                  {/* FIXED IMAGE CONTAINER */}
+                  <div
+                    className="
                   flex items-center justify-center
                   bg-white
                 "
-                      style={{
-                        width: "1600px",
-                        height: "900px",
-                      }}
-                    >
-                      <img
-                        src={img}
-                        alt={`Hero slide ${index + 1}`}
-                        className="h-full w-full object-contain"
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
+                    style={{
+                      width: "1600px",
+                      height: "900px",
+                    }}
+                  >
+                    <img
+                      src={img}
+                      alt={`Hero slide ${index + 1}`}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
 
-              </CarouselContent>
+            </CarouselContent>
 
-              {/* PREV */}
-              {/* <CarouselPrevious
+            {/* PREV */}
+            {/* <CarouselPrevious
                 className="
             absolute left-[-4rem] top-1/2 -translate-y-1/2
             h-12 w-12
@@ -127,8 +127,8 @@ const Home = () => {
           "
               /> */}
 
-              {/* NEXT */}
-              {/* <CarouselNext
+            {/* NEXT */}
+            {/* <CarouselNext
                 className="
             absolute right-[-4rem] top-1/2 -translate-y-1/2
             h-12 w-12
@@ -137,11 +137,11 @@ const Home = () => {
           "
               /> */}
 
-            </Carousel>
-          </div>
+          </Carousel>
+        </div>
 
-          {/* RIGHT SPACER */}
-          {/* <div className="col-span-1" /> */}
+        {/* RIGHT SPACER */}
+        {/* <div className="col-span-1" /> */}
 
         {/* </div> */}
       </section>
@@ -184,7 +184,7 @@ const Home = () => {
               <img
                 src="/assets/images/1.png"
                 alt="Sindhutai Sapkal"
-                className="rounded-3xl max-w-md w-full object-cover"
+                className="rounded-3xl max-w-md w-full object-cover h-[420px] object-[center_25%]"
               />
             </div>
           </div>
@@ -204,7 +204,7 @@ const Home = () => {
               <img
                 src="/assets/images/2.png"
                 alt="Children with Mai"
-                className="rounded-3xl max-h-90 max-w-md w-full object-cover"
+                className="rounded-3xl h-[420px] max-w-md w-full object-cover"
               />
             </div>
 
@@ -216,7 +216,7 @@ const Home = () => {
               <p className="mt-4 text-gray-600 leading-relaxed">
                 Sindhutai gave away her own daughter “Mamata” to the Shrimant Dagdu
                 Sheth Halwai trust of Pune, to eliminate the feeling of partiality
-                between her own child and the adopted children. 
+                between her own child and the adopted children.
               </p>
 
               <p className="mt-3 text-gray-600 leading-relaxed">
@@ -242,12 +242,21 @@ const Home = () => {
       </section>
 
       <section className="bg-white py-16 grid grid-cols-8">
-        <div className="col-span-1" />
-        <div className="col-span-6">
-          <div className="flex items-center gap-3 mb-8">
+        <div className="col-span-8 grid grid-cols-8 w-full justify-end items-center mb-8">
+          <div className=" col-span-1 flex items-center justify-end pr-2">
+
+
             <span className="w-16 h-[2px] bg-black" />
-            <h2 className="text-2xl font-bold tracking-wide">LATEST UPDATES</h2>
           </div>
+
+          {/* <div className=" col-span-7 flex items-center gap-3 mb-8"> */}
+
+          {/* <span className="w-16 h-[2px] bg-black" /> */}
+          <h2 className="text-2xl font-bold tracking-wide col-span-4">LATEST UPDATES</h2>
+          {/* </div> */}
+        </div>
+        <div className="col-span-1"/>
+        <div className="col-span-6">
 
           <div className="grid md:grid-cols-3 gap-6">
             {latestUpdates.map((item) => (

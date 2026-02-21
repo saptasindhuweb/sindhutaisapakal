@@ -2,7 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { HoverCard } from "../ui/hover-card";
 import { IoChevronForward } from "react-icons/io5";
+import { HoverCardTrigger, HoverCardContent } from "../ui/hover-card";
 
 const orgs = [
   {
@@ -13,40 +15,40 @@ const orgs = [
   },
   {
     title: "Tirthrup Shaikshanik Vasatigruh",
-    desc: "A transitional shelter for orphaned children.",
+    desc: "A transitional child shelter for one and all and not the orphans.",
     img: "/assets/images/tirthrup.png",
     route: "/tirthrup",
 
   },
   {
     title: "Gopika Gai Rakshan Kendra",
-    desc: "Care and protection for cows.",
+    desc: "Maai’s care for orphans was extended to animals, especially cows",
     img: "/assets/images/gopika.png",
     route: "/gopika",
 
   },
 
-  {
-    title: "Mamta Bal Sadan, Saswad",
-    desc: "Orphanage for Girls",
-    img: "/assets/images/mamta.png",
-    route: "/mamta",
+  // {
+  //   title: "Mamta Bal Sadan, Saswad",
+  //   desc: "Orphanage for Girls",
+  //   img: "/assets/images/mamta.png",
+  //   route: "/mamta",
 
-  },
-  {
-    title: "Savitribai Phule Mulinche Vasatigruh",
-    desc: "Motivates and supports to needy and tribal girls to get educated.",
-    img: "/assets/images/savitribai.jpg",
-    route: "/savitribai",
+  // },
+  // {
+  //   title: "Savitribai Phule Mulinche Vasatigruh",
+  //   desc: "Motivates and supports to needy and tribal girls to get educated.",
+  //   img: "/assets/images/savitribai.jpg",
+  //   route: "/savitribai",
 
-  },
-  {
-    title: "Shree Manshanti Chhatralay, Shirur",
-    desc: "Its home to destitute and needy childrenlly cows.",
-    img: "/assets/images/shree.png",
-    route: "/shree",
+  // },
+  // {
+  //   title: "Shree Manshanti Chhatralay, Shirur",
+  //   desc: "Its home to destitute and needy childrenlly cows.",
+  //   img: "/assets/images/shree.png",
+  //   route: "/shree",
 
-  }
+  // }
 ];
 
 const CARDS_PER_SLIDE = 3;
@@ -72,93 +74,78 @@ const OrgSlider = () => {
     startIndex,
     startIndex + CARDS_PER_SLIDE
   );
-
+  const [tooltip, setTooltip] = useState({
+    visible: false,
+    x: 0,
+    y: 0,
+  });
   return (
-    <section className="py-20 bg-white grid grid-cols-8">
-      {/* Backward button in left column */}
-      <div className="col-span-1 flex flex-col items-center justify-center mt-14 h-full text-center">
-        <button
-          onClick={prevSlide}
-        >
-          <IoChevronForward className=" text-4xl rotate-180" />
-        </button>
+    <section className="bg-white py-16 grid grid-cols-8">
+      <div className="col-span-8 grid grid-cols-8 w-full justify-end items-center mb-8">
+        <div className=" col-span-1 flex items-center justify-end pr-2">
+
+
+          <span className="w-16 h-[2px] bg-black" />
+        </div>
+
+        {/* <div className=" col-span-7 flex items-center gap-3 mb-8"> */}
+
+        {/* <span className="w-16 h-[2px] bg-black" /> */}
+        <h2 className="text-2xl font-bold tracking-wide col-span-4">OUR ORGANISATIONS</h2>
+        {/* </div> */}
       </div>
+      <div className="col-span-1" />
 
       <div className="col-span-6">
-        <h1 className="text-md font-semibold tracking-wide mb-6 flex items-center gap-2">
-          <span className="w-14 h-[2px] bg-black" />
-          Founder : 'Padmashri' Dr. Sou. Sindhutai Sapakal (Maai)
-        </h1>
 
-        <h2 className="text-3xl font-bold mb-10 ml-16">
-          'Saptasindhu' Mahila Adhar Balsangopan <br />
-          And Shikshan Sanstha
-        </h2>
-
-        {/* FIXED 3-CARD SLIDER (no scroll) */}
-        <div className="ml-16 mr-16">
-          <div className="grid grid-cols-3 gap-6">
-            {visibleCards.map((org, i) => (
-              <div
-                key={i}
-                className="relative h-[360px] rounded-3xl overflow-hidden group"
-              >
-                {/* Image */}
-                <img
-                  src={org.img}
-                  alt={org.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/45" />
-
-                {/* Content */}
-                <div className="relative z-10 h-full p-8 grid grid-rows-3 justify-between text-white">
-                  <div className=" row-span-2 h-full grid grid-rows-2">
-                    <h3 className=" row-span-1 text-2xl font-bold leading-snug mt-10">
-                      {org.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-white/90 leading-relaxed flex h-full items-center">
-                      {org.desc}
-                    </p>
-                  </div>
-
-                  <button onClick={() => router.push(`${org.route}`)} className=" mt-10 row-span-1 w-fit h-fit bg-white text-black text-sm font-semibold px-6 py-2 rounded-sm hover:bg-gray-100 transition">
-                    Learn more
-                  </button>
-                </div>
-              </div>
-
-
-
-            ))}
-          </div>
-
-          <div className="flex justify-center gap-3 mt-6 ">
-            {Array.from({ length: TOTAL_SLIDES }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentSlide(i)}
-                className={`h-2.5 w-2.5 rounded-full transition ${i === currentSlide
-                  ? "bg-gray-800 scale-125"
-                  : "bg-gray-300"
-                  }`}
+        <div className="grid md:grid-cols-3 gap-6 cursor-pointer relative">
+          {orgs.map((item) => (
+            <article
+              key={item.title}
+              onClick={() => router.push(item.route)}
+              onMouseEnter={(e) =>
+                setTooltip({ visible: true, x: e.clientX, y: e.clientY })
+              }
+              onMouseMove={(e) =>
+                setTooltip({ visible: true, x: e.clientX, y: e.clientY })
+              }
+              onMouseLeave={() =>
+                setTooltip({ visible: false, x: 0, y: 0 })
+              }
+              className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden"
+            >
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
               />
-            ))}
-          </div>
+              <div className="p-5">
+                <h3 className="text-lg font-semibold mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-slate-700">
+                  {item.desc}
+                </p>
+              </div>
+            </article>
+          ))}
         </div>
-      </div>
 
-      {/* Forward button in right column */}
-      <div className="col-span-1 flex flex-col items-center justify-center mt-14 h-full text-center">
-        <button
-          onClick={nextSlide}
-          className=""
-        >
-          <IoChevronForward className=" text-4xl" />
-        </button>
+        {/* CURSOR TOOLTIP */}
+        {tooltip.visible && (
+          <div
+            className="fixed z-50 pointer-events-none bg-black text-white text-xs px-3 py-1 rounded-md"
+            style={{
+              top: tooltip.y + 12,
+              left: tooltip.x + 12,
+            }}
+          >
+            Click to know more
+          </div>
+        )}
+
       </div>
+      <div className="col-span-1" />
     </section>
   );
 };
