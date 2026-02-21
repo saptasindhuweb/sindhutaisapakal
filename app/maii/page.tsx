@@ -98,7 +98,7 @@ const Maai: React.FC = () => {
       </section>
 
       {/* ================= MAAI CONTENT ================= */}
-      <section className="bg-[#fff7e6] pt-40 pb-20 grid grid-cols-8">
+      <section className="bg-sky-50 pt-40 pb-20 grid grid-cols-8">
         <div className="col-span-1" />
 
         <div className="col-span-6">
@@ -234,7 +234,7 @@ const Maai: React.FC = () => {
         </div>
 
         <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
-          MAMTA SINDHUTAI SAPAKAL
+          LEGACY AND THE RESPONSIBILITY
         </p>
         <div className="col-span-1" />
 
@@ -252,9 +252,9 @@ const Maai: React.FC = () => {
             />
 
             <div className="absolute inset-0 flex items-center pl-12">
-              <h1 className="text-white text-4xl font-bold max-w-md ">
-                The Legacy and <br /> The Responsibility
-              </h1>
+              {/* <h1 className="text-white text-4xl font-bold max-w-md ">
+                Mamata Sindhutai Sapakal
+              </h1> */}
             </div>
           </div>
         </div>
@@ -264,7 +264,7 @@ const Maai: React.FC = () => {
 
 
       {/* ================= CONTENT ================= */}
-      <section className="bg-[#fff7e6] pt-40 pb-20 grid grid-cols-8">
+      <section className="bg-sky-50 pt-40 pb-20 grid grid-cols-8">
         <div className="col-span-1" />
 
         <div className="col-span-6">
@@ -309,7 +309,7 @@ const Maai: React.FC = () => {
         </p>
         <div className="col-span-1" />
         <div className="col-span-6 grid grid-cols-4 gap-8">
-          {["mamtatai1.png", "mamtatai2.png", "mamtatai3.png", "mamtatai4.png"].map((img, i) => (
+          {["mamtatai4.png", "mamtatai3.png", "mamtatai1.png", "mamtatai2.png"].map((img, i) => (
             <img
               key={i}
               src={`/assets/images/${img}`}
@@ -321,7 +321,7 @@ const Maai: React.FC = () => {
         <div className="col-span-1" />
       </section>
 
-      <section className="bg-[#fff7e6] pt-14 mt-12  grid grid-cols-8">
+      <section className="bg-sky-50 pt-14 mt-12  grid grid-cols-8">
         <div className="col-span-1 flex items-center justify-end px-4 mb-4">
           <span className="w-20 h-[2px] bg-black" />
         </div>
@@ -357,7 +357,7 @@ const Maai: React.FC = () => {
           <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/VIDEO_ID"
+              src="https://www.youtube.com/watch?v=-uyFrWYJa7U&list=PL8gCb0gPpoBzaV06cjOFTE8-3ZdW5Y9xa"
               title="Mamata Sindhutai Sapakal"
               allowFullScreen
             />

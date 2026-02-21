@@ -1,5 +1,6 @@
 import React from "react";
 import { Award } from "lucide-react";
+import { GiLaurelsTrophy } from "react-icons/gi";
 
 type AchievementItem = {
     title: string;
@@ -88,16 +89,17 @@ const achievements: AchievementItem[] = [
 const Achievements: React.FC = () => {
     return (
         <section className="py-12 grid grid-cols-8">
-            <div className="col-span-1 flex items-center justify-end px-4 mb-4">
-                <span className="w-20 h-[2px] bg-black" />
-            </div>
-            <p className="col-span-7 text-lg font-bold tracking-wide mb-8 flex items-center gap-2">
-                Recognition
-            </p>
+        <div className="col-span-1 flex items-center justify-end px-4 mb-4">
+          <span className="w-20 h-[2px] bg-black" />
+        </div>
+
+        <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
+          RECOGNITIONS
+        </p>
 
             <div className="col-span-1" />
 
-            <div className="col-span-7 lg:col-span-6">
+            <div className="col-span-7 lg:col-span-6 mt-12">
                 <div className="relative space-y-6">
                     <div className="absolute left-6 sm:left-16 top-30 bottom-20 w-px bg-slate-300" />
 
@@ -105,8 +107,8 @@ const Achievements: React.FC = () => {
                         <article key={`${item.title}-${item.year}`} className="relative">
                             <div className="absolute top-25 left-21 w-6 sm:w-8 h-px bg-slate-300 z-20" />
                             <div className="absolute left-6 sm:left-16 top-20 -translate-x-1/2 z-10">
-                                <div className="w-10 h-10 rounded-full bg-white border-2 border-slate-400 shadow-sm flex items-center justify-center">
-                                    <Award className="w-4 h-4 text-slate-600" />
+                                <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center">
+                                    <GiLaurelsTrophy className="w-10 h-10 text-slate-600" />
                                 </div>
                             </div>
 
