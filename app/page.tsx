@@ -149,7 +149,7 @@ const Home = () => {
 
 
 
-      <section className="bg-white py-20 grid grid-cols-8">
+      <section className="bg-white py-10 grid grid-cols-8">
         <div className=" col-span-1">
 
         </div>

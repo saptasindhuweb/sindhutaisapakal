@@ -134,7 +134,7 @@ const Maai: React.FC = () => {
       </section>
 
       {/* ================= ORGANISATION ================= */}
-      <section className="bg-white py-20 grid grid-cols-8">
+      {/* <section className="bg-white py-20 grid grid-cols-8">
         <div className="col-span-1 flex items-center justify-end px-4 mb-4">
           <span className="w-20 h-[2px] bg-black" />
         </div>
@@ -144,11 +144,9 @@ const Maai: React.FC = () => {
         <div className="col-span-1 " />
 
         <div className="col-span-6">
-          {/* Heading */}
           <div className="flex items-center gap-4 mb-12">
           </div>
 
-          {/* Cards */}
           <div className="grid md:grid-cols-3 gap-10 mx-16">
             {[
               {
@@ -197,17 +195,14 @@ const Maai: React.FC = () => {
                 key={i}
                 className="relative h-[360px] rounded-3xl overflow-hidden group"
               >
-                {/* Image */}
                 <img
                   src={org.img}
                   alt={org.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-black/45" />
 
-                {/* Content */}
                 <div className="relative z-10 h-full p-8 grid grid-rows-3 justify-between text-white">
                   <div className=" row-span-2 h-full grid grid-rows-2">
                     <h3 className=" row-span-1 text-2xl font-bold leading-snug mt-10">
@@ -228,7 +223,7 @@ const Maai: React.FC = () => {
         </div>
 
         <div className="col-span-1" />
-      </section>
+      </section> */}
 
       <Achievements />
 

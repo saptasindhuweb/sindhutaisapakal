@@ -92,7 +92,7 @@ const Achievements: React.FC = () => {
                 <span className="w-20 h-[2px] bg-black" />
             </div>
             <p className="col-span-7 text-lg font-bold tracking-wide mb-8 flex items-center gap-2">
-                ACHIEVEMENTS
+                Recognition
             </p>
 
             <div className="col-span-1" />
