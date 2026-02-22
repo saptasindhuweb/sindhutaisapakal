@@ -16,7 +16,7 @@ export const events: EventItem[] = [
     shortDescription: "Free medical checkups across multiple centers.",
     description:
       "A large-scale health camp was organized providing medical consultations, diagnostics, and medicines to children and staff.",
-    coverImage: "/assets/images/1.png",
+    coverImage: "/assets/images/mamta-4.png",
     images: ["/assets/images/tirthrup1.png", "/assets/images/gopika1.png", "/assets/images/gopika2.png", "/assets/images/gopika3.png"],
   },
   {

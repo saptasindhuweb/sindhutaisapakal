@@ -86,6 +86,44 @@ const MilestonesPage = () => {
                         </div>
 
                         <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
+                            Padma Shri Dr. Sindhutai Sapkal's Yashodamaai Rashtria Puraskar
+                        </p>
+                        <div className="col-span-1" />
+
+
+                        <div className="col-span-6 mt-10">
+                            {renderGrid(pastEvents)}
+                        </div>
+                    </section>
+                )}
+                {pastEvents.length > 0 && (
+                    <section className=" grid grid-cols-8">
+                        <div className="col-span-1 flex items-center justify-end px-4 mb-4">
+                            <span className="w-20 h-[2px] bg-black" />
+                        </div>
+
+                        <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
+                            Zhep
+                        </p>
+                        <div className="col-span-1" />
+
+
+                        <div className="col-span-6 mt-10">
+                            {renderGrid(pastEvents)}
+                        </div>
+                    </section>
+                )}
+
+                {/* ===== PAST EVENTS ===== */}
+
+                {/* ===== PAST EVENTS ===== */}
+                {pastEvents.length > 0 && (
+                    <section className=" grid grid-cols-8">
+                        <div className="col-span-1 flex items-center justify-end px-4 mb-4">
+                            <span className="w-20 h-[2px] bg-black" />
+                        </div>
+
+                        <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
                             Past Events
                         </p>
                         <div className="col-span-1" />

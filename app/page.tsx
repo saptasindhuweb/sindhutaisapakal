@@ -268,7 +268,7 @@ const Home = () => {
           {/* <span className="w-16 h-[2px] bg-black" /> */}
           <div className=" col-span-6 flex justify-between">
             <h2 className="text-2xl font-bold tracking-wide ">LATEST UPDATES</h2>
-            <h3 onClick={() => router.push("/milestones")} className=" text-sky-400 cursor-pointer hover:text-sky-500">More Updates</h3>
+            <h3 onClick={() => router.push("/milestones")} className=" text-sky-700 cursor-pointer hover:text-sky-800">More Updates</h3>
 
           </div>
           {/* </div> */}
