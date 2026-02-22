@@ -2,10 +2,50 @@
 
 import DonateCTA from "@/components/shared/DonateCTA";
 import PageLoader from "@/components/shared/PageLoader";
+import StatsSection from "@/components/shared/StatsSection";
 import usePageReady from "@/hooks/usePageReady";
+import router from "next/router";
 
 const About = () => {
     const isPageReady = usePageReady();
+
+    const timelineData = [
+        {
+            year: "1919",
+            title: "Innovating from the start",
+            description:
+                "The foundation of the organisation was laid with a vision to serve humanity with compassion, dignity and responsibility.",
+            image: "/assets/images/maii1.jpg",
+        },
+        {
+            year: "1921",
+            title: "Graduating our first class",
+            description:
+                "The organisation expanded its outreach and began structured care and education programs for children in need.",
+            image: "/assets/images/maii2.jpg",
+        },
+        {
+            year: "1950",
+            title: "Expansion of care homes",
+            description:
+                "Multiple institutions were established to provide shelter, education and healthcare to orphans and the underprivileged.",
+            image: "/assets/images/maii3.jpg",
+        },
+        {
+            year: "2021",
+            title: "Padma Shri Recognition",
+            description:
+                "Recognition at the national level for decades of selfless service and dedication towards society.",
+            image: "/assets/images/maii4.jpg",
+        },
+        {
+            year: "2022",
+            title: "New Item",
+            description:
+                "Recognition at the national level for decades of selfless service and dedication towards society.",
+            image: "/assets/images/maii5.jpg",
+        },
+    ];
 
     if (!isPageReady) {
         return <PageLoader />;
@@ -13,16 +53,380 @@ const About = () => {
 
     return (
         <main className="w-full">
+            {/* ================= HERO + STATS + ORG STRUCTURE ================= */}
+            <section className="w-full pt-28 pb-24 ">
+                <div className="w-full ">
+                    {/* OUTER CARD */}
+                    <div className="w-full rounded-[32px] py-16">
+
+                        {/* ===== HERO TEXT ===== */}
+                        <div className="grid grid-cols-8 text-center ">
+                            <div className="col-span-1">
+
+                            </div>
+                            <div className="col-span-6">
+
+                                <h1 className="text-4xl font-bold text-[#0f4c5c] leading-tight">
+                                    Serving humanity with compassion,
+                                    <br />
+                                    dignity and responsibility
+                                </h1>
+
+                                <p className="mt-4 text-gray-600">
+                                    Inspired by Padma Shri Dr. Sindhutai Sapkal, our organisation
+                                    works tirelessly to nurture orphans, protect animals and uplift
+                                    the underprivileged.
+                                </p>
+                            </div>
+                            <div className="col-span-1">
+
+                            </div>
+                        </div>
+
+                        {/* ===== STATS ===== */}
+                        {/* <div className="w-full grid grid-cols-8">
+                            <div className="col-span-1">
+
+                            </div>
+                            <div className="col-span-6">
+
+                                <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+                                    {[
+                                        {
+                                            icon: "/assets/images/cows.jpg",
+                                            value: "1200+",
+                                            label: "Orphans Nurtured",
+                                        },
+                                        {
+                                            icon: "/assets/images/cows.jpg",
+                                            value: "260+",
+                                            label: "Orphans in Care",
+                                        },
+                                        {
+                                            icon: "/assets/images/cows.jpg",
+                                            value: "6",
+                                            label: "Organisations",
+                                        },
+                                        {
+                                            icon: "/assets/images/cows.jpg",
+                                            value: "250+",
+                                            label: "Cows under Care",
+                                        },
+                                    ].map((stat, i) => (
+                                        <div
+                                            key={i}
+                                            className="bg-[#f6fbfd] rounded-2xl p-6 flex items-center gap-4"
+                                        >
+                                            <img
+                                                src={stat.icon}
+                                                alt=""
+                                                className="w-14 h-14 rounded-xl object-cover"
+                                            />
+                                            <div>
+                                                <p className="text-2xl font-bold text-[#0f4c5c]">
+                                                    {stat.value}
+                                                </p>
+                                                <p className="text-sm text-gray-600">
+                                                    {stat.label}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="col-span-1">
+
+                            </div>
+
+                        </div> */}
+                        <StatsSection />
+
+                        <div className="bg-white py-16 grid grid-cols-8">
+                            <div className="col-span-8 grid grid-cols-8 w-full justify-end items-center mb-8">
+                                <div className=" col-span-1 flex items-center justify-end pr-2">
+
+
+                                    <span className="w-16 h-[2px] bg-black" />
+                                </div>
+
+                                {/* <div className=" col-span-7 flex items-center gap-3 mb-8"> */}
+
+                                {/* <span className="w-16 h-[2px] bg-black" /> */}
+                                <h2 className="text-2xl font-bold tracking-wide col-span-4">FOUNDERS</h2>
+                                {/* </div> */}
+                            </div>
+                            <div className="col-span-1" />
+
+                            {/* ROW 1 — 4 FOUNDERS */}
+                            <div className="col-span-6 grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+                                {[
+                                    { name: "Founder Name 1", img: "/assets/images/maii1.jpg" },
+                                    { name: "Founder Name 2", img: "/assets/images/maii2.jpg" },
+                                    { name: "Founder Name 3", img: "/assets/images/maii3.jpg" },
+                                    { name: "Founder Name 4", img: "/assets/images/maii4.jpg" },
+                                ].map((person, i) => (
+                                    <div
+                                        key={i}
+                                        className="overflow-hidden rounded-2xl bg-[#f6fbfd]"
+                                    >
+                                        {/* IMAGE */}
+                                        <img
+                                            src={person.img}
+                                            alt={person.name}
+                                            className="w-full h-[260px] object-cover"
+                                        />
+
+                                        {/* NAME */}
+                                        <div className="py-4 text-center">
+                                            <p className="font-semibold text-[#0f4c5c]">
+                                                {person.name}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* ROW 2 — 3 FOUNDERS */}
+                            <div className="col-span-8 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                                {[
+                                    { name: "Founder Name 5", img: "/assets/images/maii5.jpg" },
+                                    { name: "Founder Name 6", img: "/assets/images/maii6.jpg" },
+                                    { name: "Founder Name 7", img: "/assets/images/maii7.jpg" },
+                                ].map((person, i) => (
+                                    <div
+                                        key={i}
+                                        className="overflow-hidden rounded-2xl bg-[#f6fbfd]"
+                                    >
+                                        {/* IMAGE */}
+                                        <img
+                                            src={person.img}
+                                            alt={person.name}
+                                            className="w-full h-[260px] object-cover"
+                                        />
+
+                                        {/* NAME */}
+                                        <div className="py-4 text-center">
+                                            <p className="font-semibold text-[#0f4c5c]">
+                                                {person.name}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            {/* ================= ORGANISATION TIMELINE ================= */}
+            <section className="bg-white grid grid-cols-8 ">
+                <div className="col-span-8 grid grid-cols-8 w-full justify-end items-center mb-18">
+                    <div className=" col-span-1 flex items-center justify-end pr-2">
+
+
+                        <span className="w-16 h-[2px] bg-black" />
+                    </div>
+
+                    {/* <div className=" col-span-7 flex items-center gap-3 mb-8"> */}
+
+                    {/* <span className="w-16 h-[2px] bg-black" /> */}
+                    <h2 className="text-2xl font-bold tracking-wide col-span-4">JOURNEY</h2>
+                    {/* </div> */}
+                </div>
+                <div className="col-span-1" />
+
+                <div className="col-span-6 mx-auto px-6">
+                    {/* Section Heading */}
+
+                    {/* Timeline Wrapper */}
+                    <div className="relative">
+                        {/* Vertical Line */}
+                        <div className="absolute left-1/2 top-0 h-full w-[2px] bg-gray-300 -translate-x-1/2" />
+
+                        <div className="space-y-32">
+                            {timelineData.map((item, index) => {
+                                const isLeft = index % 2 === 0;
+
+                                return (
+                                    <div
+                                        key={index}
+                                        className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative"
+                                    >
+                                        {/* DOT */}
+                                        <div className="absolute left-1/2 w-4 h-4 bg-sky-500 rounded-full -translate-x-1/2 z-10" />
+
+                                        {/* LEFT SIDE */}
+                                        {isLeft ? (
+                                            <>
+                                                {/* TEXT */}
+                                                <div className="md:pr-16 text-right">
+                                                    <h3 className="text-3xl font-bold mb-2">
+                                                        {item.year}
+                                                    </h3>
+                                                    <h4 className="text-xl font-semibold mb-4">
+                                                        {item.title}
+                                                    </h4>
+                                                    <p className="text-gray-600 leading-relaxed">
+                                                        {item.description}
+                                                    </p>
+                                                </div>
+
+                                                {/* IMAGE */}
+                                                <div className="md:pl-16">
+                                                    <img
+                                                        src={item.image}
+                                                        alt={item.title}
+                                                        className="w-full h-[280px] object-cover rounded-2xl"
+                                                    />
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                {/* IMAGE */}
+                                                <div className="md:pr-16 order-2 md:order-1">
+                                                    <img
+                                                        src={item.image}
+                                                        alt={item.title}
+                                                        className="w-full h-[280px] object-cover rounded-2xl"
+                                                    />
+                                                </div>
+
+                                                {/* TEXT */}
+                                                <div className="md:pl-16 order-1 md:order-2">
+                                                    <h3 className="text-3xl font-bold mb-2">
+                                                        {item.year}
+                                                    </h3>
+                                                    <h4 className="text-xl font-semibold mb-4">
+                                                        {item.title}
+                                                    </h4>
+                                                    <p className="text-gray-600 leading-relaxed">
+                                                        {item.description}
+                                                    </p>
+                                                </div>
+                                            </>
+                                        )}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            <section className="bg-white grid grid-cols-8 mt-30">
+                <div className="col-span-8 grid grid-cols-8 w-full justify-end items-center mb-18">
+                    <div className=" col-span-1 flex items-center justify-end pr-2">
+
+
+                        <span className="w-16 h-[2px] bg-black" />
+                    </div>
+
+                    {/* <div className=" col-span-7 flex items-center gap-3 mb-8"> */}
+
+                    {/* <span className="w-16 h-[2px] bg-black" /> */}
+                    <h2 className="text-2xl font-bold tracking-wide col-span-4">ORGANISATONS</h2>
+                    {/* </div> */}
+                </div>
+                <div className="col-span-1" />
+                <div className=" col-span-6">
+                    <div className=" grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+
+                            <h2 className="text-3xl font-bold leading-tight">
+                                Sanmati
+                            </h2>
+
+                            <p className="mt-4 text-gray-600 leading-relaxed">
+                                A soul out of life’s hardship was born as Mother to over a thousand
+                                children and devoted her entire life to social service. After 70
+                                years of lifespan (Born: 1948 – Died: 2022), she raised a grand
+                                family of 220 sons-in-laws, 50 daughters-in-laws.
+                            </p>
+
+                            <p className="mt-3 text-gray-600 leading-relaxed">
+                                She adopted more than 1200 orphaned children and provided them
+                                food, shelter, and education. She was honored with Padma Shri in
+                                2021.
+                            </p>
+
+                            <button onClick={() => router.push("/maii")} className="mt-5 text-sm font-semibold text-sky-700 hover:underline cursor-pointer">
+                                Read More
+                            </button>
+                        </div>
+
+                        <div className="flex justify-end">
+                            <img
+                                src="/assets/images/sanmati.png"
+                                alt="Sindhutai Sapkal"
+                                className="rounded-3xl max-w-md w-full object-cover h-[420px] object-[center_25%]"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className=" col-span-1">
+
+                </div>
+            </section>
+
+
+            <section className="bg-white py-20 grid grid-cols-8">
+                <div className=" col-span-1">
+
+                </div>
+                <div className=" col-span-6">
+                    <div className=" grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <img
+                                src="/assets/images/gopika.png"
+                                alt="Children with Mai"
+                                className="rounded-3xl h-[420px] max-w-md w-full object-cover"
+                            />
+                        </div>
+
+                        <div>
+                            <h2 className="text-3xl font-bold leading-tight">
+                                Gopika
+                            </h2>
+
+                            <p className="mt-4 text-gray-600 leading-relaxed">
+                                Sindhutai gave away her own daughter “Mamata” to the Shrimant Dagdu
+                                Sheth Halwai trust of Pune, to eliminate the feeling of partiality
+                                between her own child and the adopted children.
+                            </p>
+
+                            <p className="mt-3 text-gray-600 leading-relaxed">
+                                Years later and
+                                after completing her education, Mamata-tai – as she is lovingly
+                                called by the children, started assisting “Maai”. After the sad
+                                demise of Sindhutai in Jan 2022, Mamata Sindhutai Sapakal undertook
+                                the responsibility of children
+                            </p>
+
+                            <div className="mt-4 flex gap-6 text-sm font-semibold text-sky-700">
+                                <span onClick={() => { router.push("/mamtatai") }} className="cursor-pointer hover:underline">Read More</span>
+                                {/* <span onClick={() => (router.push("/sanmati"))} className="cursor-pointer hover:underline">
+                  Saptasindhu
+                </span> */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-span-1">
+
+                </div>
+            </section>
+
 
             {/* ================= ABOUT HEADER ================= */}
             <section className="py-20 bg-white grid grid-cols-8 mt-20">
-                <div className="col-span-1 flex items-center justify-end px-4 mb-4">
-                    <span className="w-20 h-[2px] bg-black" />
-                </div>
 
-                <p className=" col-span-7 text-sm font-semibold tracking-wide mb-4 flex items-center gap-2">
-                    ABOUT US
-                </p>
+
+
                 <div className="col-span-1">
                 </div>
 
@@ -55,7 +459,7 @@ const About = () => {
                 <div className="col-span-1" />
 
                 <div className="col-span-6">
-                    <h2 className="text-3xl font-bold mb-10">OUR <br/>VALUES</h2>
+                    <h2 className="text-3xl font-bold mb-10">OUR VALUES</h2>
 
                     <div className="grid md:grid-cols-2 gap-12">
                         {/* LEFT VALUES */}
@@ -120,7 +524,7 @@ const About = () => {
 
             <DonateCTA />
 
-        </main>
+        </main >
     );
 };
 

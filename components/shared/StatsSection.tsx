@@ -34,23 +34,25 @@ const StatsSection = () => {
 
       </div>
       <div className="col-span-6">
-        <div className="flex flex-row gap-4 justify-between items-center rounded-3xl bg-gray-50 py-12 px-12 shadow-sm">
+        <div className="flex flex-row gap-4 justify-between items-center rounded-3xl  py-4 px-12 shadow-sm">
           {stats.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center"
+              className="flex flex-col items-center text-center rounded-2xl"
             >
-              <img
-                src={item.icon}
-                alt={item.label}
-                className="h-40 w-40 object-contain mb-4"
-              />
+              <div className="h-40 w-40  flex items-center justify-center">
+                <img
+                  src={item.icon}
+                  alt={item.label}
+                  className="h-32 w-32 object-cover rounded-xl"
+                />
+              </div>
 
-              <p className="text-3xl font-bold text-sky-400">
+              <p className="text-2xl font-bold text-sky-400">
                 {item.value}
               </p>
 
-              <p className=" text-lg font-semibold mt-2 text-gray-600">
+              <p className=" text-sm font-semibold mt-2 text-gray-600">
                 {item.label}
               </p>
             </div>

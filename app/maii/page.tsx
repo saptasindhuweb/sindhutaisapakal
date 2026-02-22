@@ -10,7 +10,50 @@ const Maai: React.FC = () => {
 
   const [isPageReady, setIsPageReady] = useState(false);
   const router = useRouter()
+  const [activeAlbum, setActiveAlbum] = useState<typeof albums[0] | null>(null);
 
+
+  const albums = [
+    {
+      id: "dignitaries",
+      title: "Tai with Dignitaries",
+      cover: "/assets/images/mamtatai5.png",
+      images: [
+        "/assets/images/mamtatai5.png",
+        "/assets/images/mamtatai6.png",
+      ],
+    },
+    {
+      id: "festivals",
+      title: "Tai at Festivals",
+      cover: "/assets/images/mamtatai8.png",
+      images: [
+        "/assets/images/mamtatai7.png",
+        "/assets/images/mamtatai8.png",
+      ],
+    },
+    {
+      id: "children",
+      title: "Tai with Children",
+      cover: "/assets/images/mamtatai6.png",
+      images: [
+        "/assets/images/mamtatai1.png",
+        "/assets/images/mamtatai2.png",
+        "/assets/images/mamtatai3.png",
+      ],
+    },
+    {
+      id: "journey",
+      title: "Life & Journey",
+      cover: "/assets/images/mamtatai5.png",
+      images: [
+        "/assets/images/mamtatai4.png",
+        "/assets/images/mamtatai5.png",
+      ],
+    },
+  ];
+
+  const [openAlbum, setOpenAlbum] = useState<string | null>(null);
   const imageSources = useMemo(
     () => [
       "/assets/images/bg-maii.png",
@@ -321,29 +364,77 @@ const Maai: React.FC = () => {
         <div className="col-span-1" />
       </section>
 
-      <section className="bg-sky-50 pt-14 mt-12  grid grid-cols-8">
+      <section className="bg-sky-50 pt-14 mt-12 grid grid-cols-8">
+        {/* heading */}
         <div className="col-span-1 flex items-center justify-end px-4 mb-4">
           <span className="w-20 h-[2px] bg-black" />
         </div>
 
-        <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
+        <p className="col-span-7 text-lg font-bold tracking-wide mb-6">
           ALBUM
         </p>
+
         <div className="col-span-1" />
 
-        <div className="col-span-6 grid grid-cols-2 gap-10">
-          {["mamtatai5.png", "mamtatai6.png", "mamtatai7.png", "mamtatai8.png"].map((img, i) => (
-            <img
-              key={i}
-              src={`/assets/images/${img}`}
-              alt=""
-              className="rounded-3xl object-cover"
-            />
+        {/* ALBUM GRID */}
+        <div className="col-span-6 grid md:grid-cols-2 gap-10">
+          {albums.map((album) => (
+            <div
+              key={album.id}
+              onClick={() => setActiveAlbum(album)}
+              className="relative cursor-pointer rounded-3xl overflow-hidden group"
+            >
+              <img
+                src={album.cover}
+                alt={album.title}
+                className="w-full h-[320px] object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+
+              {/* overlay */}
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                <h3 className="text-white text-2xl font-bold text-center px-4">
+                  {album.title}
+                </h3>
+              </div>
+            </div>
           ))}
         </div>
+
         <div className="col-span-1" />
       </section>
 
+
+      {activeAlbum && (
+        <div className="fixed inset-0 z-[100] bg-black/90 flex flex-col">
+          {/* HEADER */}
+          <div className="flex items-center justify-between px-6 py-4 text-white">
+            <h2 className="text-2xl font-bold">
+              {activeAlbum.title}
+            </h2>
+
+            <button
+              onClick={() => setActiveAlbum(null)}
+              className="text-3xl font-bold hover:opacity-70"
+            >
+              ×
+            </button>
+          </div>
+
+          {/* CONTENT */}
+          <div className="flex-1 overflow-y-auto px-6 pb-10">
+            <div className="grid md:grid-cols-3 gap-6">
+              {activeAlbum.images.map((img, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt=""
+                  className="rounded-2xl object-cover hover:scale-[1.02] transition"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
       <section className=" pt-14 mt-12  grid grid-cols-8">
         <div className="col-span-1 flex items-center justify-end px-4 mb-4">
           <span className="w-20 h-[2px] bg-black" />
@@ -353,14 +444,15 @@ const Maai: React.FC = () => {
           VIDEOS
         </p>
         <div className="col-span-1" />
-        <div className="col-span-6 grid grid-cols-2">
+        <div className="col-span-6 ">
           <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/watch?v=-uyFrWYJa7U&list=PL8gCb0gPpoBzaV06cjOFTE8-3ZdW5Y9xa"
-              title="Mamata Sindhutai Sapakal"
-              allowFullScreen
-            />
+            <iframe width="100%" height="100%"
+              src="https://www.youtube.com/embed/videoseries?list=PL8gCb0gPpoBxaQW5Qr-g14eA3-Y0RPc2N"
+              // frameborder="0"
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allow="autoplay; encrypted-media"
+            >
+            </iframe>
           </div>
         </div>
         <div className="col-span-1" />
