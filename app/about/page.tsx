@@ -155,10 +155,31 @@ const About = () => {
                                 <h2 className="text-2xl font-bold tracking-wide col-span-4">FOUNDERS</h2>
                                 {/* </div> */}
                             </div>
+
+                            <div className=" col-span-8 grid grid-cols-4 p-8">
+                                <div className="col-span-1" />
+                                <div className="col-span-2 flex flex-col items-center justify-center">
+
+                                    <img
+                                        src="/assets/images/1.png"
+                                        alt="Sindhutai Sapkal"
+                                        className="rounded-3xl w-full object-cover h-[470px] object-[center_25%]"
+                                    />
+                                <p className=" text-center text-2xl font-extrabold tracking-tight text-balance">
+                                    Padma Shri Dr. Sou. Sindhutai Sapakal (Maai)
+                                </p>
+                                </div>
+                                <div className="col-span-1" />
+
+
+                            </div>
+
                             <div className="col-span-1" />
 
                             {/* ROW 1 — 4 FOUNDERS */}
-                            <div className="col-span-6 grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+
+                            <div className="col-span-6 grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 mt-10">
+
                                 {[
                                     { name: "Founder Name 1", img: "/assets/images/maii1.jpg" },
                                     { name: "Founder Name 2", img: "/assets/images/maii2.jpg" },
