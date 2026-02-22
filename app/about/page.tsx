@@ -4,7 +4,12 @@ import DonateCTA from "@/components/shared/DonateCTA";
 import PageLoader from "@/components/shared/PageLoader";
 import StatsSection from "@/components/shared/StatsSection";
 import usePageReady from "@/hooks/usePageReady";
+import { Goal } from "lucide-react";
 import router from "next/router";
+import { GiBullseye } from "react-icons/gi";
+import { TiEye } from "react-icons/ti";
+import { PiPlantFill } from "react-icons/pi";
+
 
 const About = () => {
     const isPageReady = usePageReady();
@@ -53,20 +58,20 @@ const About = () => {
 
     return (
         <main className="w-full">
-            {/* ================= HERO + STATS + ORG STRUCTURE ================= */}
-            <section className="w-full pt-28 pb-24 ">
-                <div className="w-full ">
+            {/* ================= HERO + STATS + ORG STRUCTURE ================= */}<section className="relative w-full pt-28 pb-24 overflow-hidden">
+                {/* ===== BACKGROUND LAYER ===== */}
+                <div className="absolute inset-x-0 top-0 h-[48%]  z-0" />
+                {/* ===== CONTENT LAYER ===== */}
+                <div className="relative z- w-full">
                     {/* OUTER CARD */}
-                    <div className="w-full rounded-[32px] py-16">
+                    <div className="w-full rounded-2xl mt-8">
 
                         {/* ===== HERO TEXT ===== */}
-                        <div className="grid grid-cols-8 text-center ">
-                            <div className="col-span-1">
+                        <div className="grid grid-cols-8 text-center bg-[#eef8fb] rounded-2xl py-28 pb-40">
+                            <div className="col-span-1" />
 
-                            </div>
                             <div className="col-span-6">
-
-                                <h1 className="text-4xl font-bold text-[#0f4c5c] leading-tight">
+                                <h1 className="text-4xl font-bold text-[#0f4c5c] leading-tight ">
                                     Serving humanity with compassion,
                                     <br />
                                     dignity and responsibility
@@ -78,68 +83,15 @@ const About = () => {
                                     the underprivileged.
                                 </p>
                             </div>
-                            <div className="col-span-1">
 
-                            </div>
+                            <div className="col-span-1" />
                         </div>
 
-                        {/* ===== STATS ===== */}
-                        {/* <div className="w-full grid grid-cols-8">
-                            <div className="col-span-1">
+                        {/* ===== STATS (OVERLAPS BACKGROUND) ===== */}
+                        <div className="-mt-47">
+                            <StatsSection />
+                        </div>
 
-                            </div>
-                            <div className="col-span-6">
-
-                                <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-                                    {[
-                                        {
-                                            icon: "/assets/images/cows.jpg",
-                                            value: "1200+",
-                                            label: "Orphans Nurtured",
-                                        },
-                                        {
-                                            icon: "/assets/images/cows.jpg",
-                                            value: "260+",
-                                            label: "Orphans in Care",
-                                        },
-                                        {
-                                            icon: "/assets/images/cows.jpg",
-                                            value: "6",
-                                            label: "Organisations",
-                                        },
-                                        {
-                                            icon: "/assets/images/cows.jpg",
-                                            value: "250+",
-                                            label: "Cows under Care",
-                                        },
-                                    ].map((stat, i) => (
-                                        <div
-                                            key={i}
-                                            className="bg-[#f6fbfd] rounded-2xl p-6 flex items-center gap-4"
-                                        >
-                                            <img
-                                                src={stat.icon}
-                                                alt=""
-                                                className="w-14 h-14 rounded-xl object-cover"
-                                            />
-                                            <div>
-                                                <p className="text-2xl font-bold text-[#0f4c5c]">
-                                                    {stat.value}
-                                                </p>
-                                                <p className="text-sm text-gray-600">
-                                                    {stat.label}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="col-span-1">
-
-                            </div>
-
-                        </div> */}
-                        <StatsSection />
 
                         <div className="bg-white py-16 grid grid-cols-8">
                             <div className="col-span-8 grid grid-cols-8 w-full justify-end items-center mb-8">
@@ -165,9 +117,9 @@ const About = () => {
                                         alt="Sindhutai Sapkal"
                                         className="rounded-3xl w-full object-cover h-[470px] object-[center_25%]"
                                     />
-                                <p className=" text-center text-2xl font-extrabold tracking-tight text-balance">
-                                    Padma Shri Dr. Sou. Sindhutai Sapakal (Maai)
-                                </p>
+                                    <p className=" text-center text-2xl font-extrabold tracking-tight text-balance">
+                                        Padma Shri Dr. Sou. Sindhutai Sapakal (Maai)
+                                    </p>
                                 </div>
                                 <div className="col-span-1" />
 
@@ -443,6 +395,51 @@ const About = () => {
             </section>
 
 
+
+             <section className="bg-white grid grid-cols-8 mt-30">
+
+                <div className="col-span-1" />
+                <div className=" col-span-6">
+                    <div className=" grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+
+                            <h2 className="text-3xl font-bold leading-tight">
+                                Tirthrup
+                            </h2>
+
+                            <p className="mt-4 text-gray-600 leading-relaxed">
+                                A soul out of life’s hardship was born as Mother to over a thousand
+                                children and devoted her entire life to social service. After 70
+                                years of lifespan (Born: 1948 – Died: 2022), she raised a grand
+                                family of 220 sons-in-laws, 50 daughters-in-laws.
+                            </p>
+
+                            <p className="mt-3 text-gray-600 leading-relaxed">
+                                She adopted more than 1200 orphaned children and provided them
+                                food, shelter, and education. She was honored with Padma Shri in
+                                2021.
+                            </p>
+
+                            <button onClick={() => router.push("/maii")} className="mt-5 text-sm font-semibold text-sky-700 hover:underline cursor-pointer">
+                                Read More
+                            </button>
+                        </div>
+
+                        <div className="flex justify-end">
+                            <img
+                                src="/assets/images/sanmati.png"
+                                alt="Sindhutai Sapkal"
+                                className="rounded-3xl max-w-md w-full object-cover h-[420px] object-[center_25%]"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className=" col-span-1">
+
+                </div>
+            </section>
+
+
             {/* ================= ABOUT HEADER ================= */}
             <section className="py-20 bg-white grid grid-cols-8 mt-20">
 
@@ -456,7 +453,7 @@ const About = () => {
                     <div className="grid md:grid-cols-2 gap-16">
                         {/* LEFT */}
                         <div>
-                            <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
+                            <h2 className="text-3xl font-bold mb-4 flex gap-4 items-center "><GiBullseye/> OUR MISSION</h2>
                             <p className="text-gray-700 leading-relaxed">
                                 We are committed to work tirelessly & selﬂessly for the holistic welfare and upliftment of the orphans, the poor, the needy, the neglected and the underprivileged elements of the society, irrespective of their cast, religion, creed or gender, through their empowerment and rehabilitation, so as to welcome them as contributing members of the mainstream society.
                             </p>
@@ -464,7 +461,7 @@ const About = () => {
 
                         {/* RIGHT */}
                         <div>
-                            <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
+                            <h2 className="text-3xl font-bold mb-4 flex gap-4 items-center "><TiEye/> OUR VALUES</h2>
                             <p className="text-gray-700 leading-relaxed">
                                 We see every sheltered child as a future responsible citizen and strive to provide them every opportunity for self-reliance. As representatives of Mai and her institutions, we commit to reaching and helping every weak, neglected, and needy individual, not only in our society or country, but across the entire world.
                             </p>
@@ -476,15 +473,15 @@ const About = () => {
             </section>
 
             {/* ================= VALUES SECTION ================= */}
-            <section className="bg-[#fff7e6] py-20 grid grid-cols-8">
+            <section className="bg-sky-50 py-20 grid grid-cols-8">
                 <div className="col-span-1" />
 
                 <div className="col-span-6">
-                    <h2 className="text-3xl font-bold mb-10">OUR VALUES</h2>
+                    <h2 className="text-3xl font-bold mb-10 flex gap-4 items-center"><PiPlantFill/>OUR VALUES</h2>
 
                     <div className="grid md:grid-cols-2 gap-12">
                         {/* LEFT VALUES */}
-                        <ul className="space-y-6 text-gray-600 list-disc list-inside marker:text-gray-600">
+                        <ul className="space-y-6  list-disc list-inside ">
                             <li>
                                 <strong>Love</strong>
                                 <p className="ml-6">
@@ -508,7 +505,7 @@ const About = () => {
                         </ul>
 
                         {/* RIGHT VALUES */}
-                        <ul className="space-y-6 text-gray-600 list-disc list-inside marker:text-gray-600">
+                        <ul className="space-y-6 list-disc list-inside ">
                             <li>
                                 <strong>Trust</strong>
                                 <p className=" ml-6">

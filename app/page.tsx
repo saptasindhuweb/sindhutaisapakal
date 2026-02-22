@@ -10,6 +10,7 @@ import StatsSection from "@/components/shared/StatsSection";
 import SupportersSlider from "@/components/shared/SupportersSlider";
 import usePageReady from "@/hooks/usePageReady";
 import { useRouter } from "next/navigation";
+import { events } from "@/lib/data/events";
 
 /* shadcn carousel */
 import {
@@ -61,9 +62,22 @@ const Home = () => {
 
   const router = useRouter();
 
+  const recentCompletedEvents = React.useMemo(() => {
+    const today = new Date();
+
+    return events
+      .filter((event) => new Date(event.date) < today) // past events
+      .sort(
+        (a, b) =>
+          new Date(b.date).getTime() - new Date(a.date).getTime()
+      ) // most recent first
+      .slice(0, 3); // only 3
+  }, []);
   if (!isPageReady) {
     return <PageLoader />;
   }
+
+
 
   return (
     <>
@@ -252,30 +266,40 @@ const Home = () => {
           {/* <div className=" col-span-7 flex items-center gap-3 mb-8"> */}
 
           {/* <span className="w-16 h-[2px] bg-black" /> */}
-          <h2 className="text-2xl font-bold tracking-wide col-span-4">LATEST UPDATES</h2>
+          <div className=" col-span-6 flex justify-between">
+            <h2 className="text-2xl font-bold tracking-wide ">LATEST UPDATES</h2>
+            <h3 onClick={() => router.push("/milestones")} className=" text-sky-400 cursor-pointer hover:text-sky-500">More Updates</h3>
+
+          </div>
           {/* </div> */}
         </div>
-        <div className="col-span-1"/>
+        <div className="col-span-1" />
         <div className="col-span-6">
 
           <div className="grid md:grid-cols-3 gap-6">
-            {latestUpdates.map((item) => (
+            {recentCompletedEvents.map((item) => (
               <article
-                key={`${item.title}-${item.date}`}
-                className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden"
+                key={item.id}
+                onClick={() => router.push(`/milestones/${item.id}`)}
+                className="cursor-pointer rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-md transition"
               >
                 <img
-                  src={item.image}
+                  src={item.coverImage}
                   alt={item.title}
                   className="w-full h-48 object-cover"
                 />
+
                 <div className="p-5">
-                  <p className="text-xs text-slate-500 mb-2">{item.date}</p>
+                  <p className="text-xs text-slate-500 mb-2">
+                    {new Date(item.date).toDateString()}
+                  </p>
+
                   <h3 className="text-lg font-semibold text-slate-900 mb-2">
                     {item.title}
                   </h3>
+
                   <p className="text-sm text-slate-700 leading-relaxed">
-                    {item.description}
+                    {item.shortDescription}
                   </p>
                 </div>
               </article>

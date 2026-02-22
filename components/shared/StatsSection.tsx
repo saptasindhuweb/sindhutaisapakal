@@ -34,7 +34,7 @@ const StatsSection = () => {
 
       </div>
       <div className="col-span-6">
-        <div className="flex flex-row gap-4 justify-between items-center rounded-3xl  py-4 px-12 shadow-sm">
+        <div className="flex flex-row gap-4 justify-between items-center rounded-3xl bg-white  py-4 px-12 shadow-sm">
           {stats.map((item, index) => (
             <div
               key={index}
