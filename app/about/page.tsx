@@ -52,6 +52,31 @@ const About = () => {
         },
     ];
 
+    const maaiParivarData = [
+        {
+            parent: "Vanvasi Gopalkrushna Bahuddeshiy Mandal, Amravati",
+            children: [
+                {
+                    name: "Mamata Bal Sadan, Saswad, Pune",
+                    img: "/assets/images/maii1.jpg",
+                },
+                {
+                    name: "Savitribai Phule Muliche Vasatigruh, Chikhaldara",
+                    img: "/assets/images/maii2.jpg",
+                },
+            ],
+        },
+        {
+            parent: "The Mother Global Foundation, Pune",
+            children: [
+                {
+                    name: "Shree Manashanti Chhatralaya, Shirur",
+                    img: "/assets/images/maii3.jpg",
+                },
+            ],
+        },
+    ];
+
     if (!isPageReady) {
         return <PageLoader />;
     }
@@ -537,6 +562,55 @@ const About = () => {
                     </div>
                 </div>
 
+                <div className="col-span-1" />
+            </section>
+
+            {/* ================= MAAI PARIVAR ================= */}
+            <section className="bg-white grid grid-cols-8 mt-30">
+                <div className="col-span-8 grid grid-cols-8 w-full justify-end items-center mb-18">
+                    <div className=" col-span-1 flex items-center justify-end pr-2">
+                        <span className="w-16 h-[2px] bg-black" />
+                    </div>
+                    <h2 className="text-2xl font-bold tracking-wide col-span-4">
+                        MAAI PARIVAR
+                    </h2>
+                </div>
+
+                <div className="col-span-1" />
+                <div className="col-span-6 space-y-14">
+                    {maaiParivarData.map((group) => (
+                        <div key={group.parent} className="space-y-6">
+                            <h3 className="text-2xl font-bold text-black">
+                                {group.parent}
+                            </h3>
+
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {group.children.map((org) => (
+                                    <div
+                                        key={org.name}
+                                        className="group relative overflow-hidden rounded-2xl  shadow-sm"
+                                    >
+                                        <img
+                                            src={org.img}
+                                            alt={org.name}
+                                            className="w-full h-[240px] object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                                        />
+
+                                        <div className="py-4 text-center px-4">
+                                            <p className="font-semibold text-[#0f4c5c]">
+                                                {org.name}
+                                            </p>
+                                        </div>
+
+                                        <div className="absolute inset-0 flex items-center justify-center bg-black/55 text-white text-sm font-semibold opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                            Click to know more
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
                 <div className="col-span-1" />
             </section>
 
