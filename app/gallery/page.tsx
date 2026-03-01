@@ -123,20 +123,20 @@ const Gallery = () => {
   }
 
   return (
-    <main className="w-full bg-white mt-20">
+    <main className="w-full bg-white md:mt-20">
 
       {gallerySections.map((section, idx) => (
-        <section key={idx} className="py-20 grid grid-cols-8">
+        <section key={idx} className="py-20 grid grid-cols-8 max-sm:hidden">
 
-                   <div className="col-span-1 flex items-center justify-end px-4 mb-4">
-                    <span className="w-20 h-[2px] bg-black" />
-                </div>
+          <div className="col-span-1 flex items-center justify-end px-4 mb-4">
+            <span className="w-20 h-[2px] bg-black" />
+          </div>
 
-                <p className=" col-span-7 text-sm font-semibold tracking-wide mb-4 flex items-center gap-2">
-                {section.title}
-                </p>
-                <div className="col-span-1">
-                </div>
+          <p className=" col-span-7 text-sm font-semibold tracking-wide mb-4 flex items-center gap-2">
+            {section.title}
+          </p>
+          <div className="col-span-1">
+          </div>
 
           <div className="col-span-6">
             <div className="flex items-center gap-4 mb-10">
@@ -164,7 +164,40 @@ const Gallery = () => {
         </section>
       ))}
 
-      <DonateCTA/>
+
+      {/* ================= MOBILE GALLERY ================= */}
+      {gallerySections.map((section, idx) => (
+        <section key={idx} className="py-4 px-4 bg-white md:hidden">
+
+          {/* Heading */}
+          <div className="flex items-center gap-3 mb-8">
+            <span className="w-10 h-[2px] bg-black" />
+            <p className="text-sm font-semibold tracking-wide">
+              {section.title}
+            </p>
+          </div>
+
+          {/* 2-Column Masonry */}
+          <div className="columns-2 gap-4 space-y-4">
+            {section.images.map((img, i) => (
+              <div
+                key={i}
+                className="break-inside-avoid overflow-hidden rounded-xl"
+              >
+                <img
+                  src={img}
+                  alt=""
+                  className="w-full object-cover rounded-xl active:scale-[0.98] transition cursor-pointer"
+                  onClick={() => setExpandedImage(img)}
+                />
+              </div>
+            ))}
+          </div>
+
+        </section>
+      ))}
+
+      <DonateCTA />
 
       <ImageLightbox
         imageSrc={expandedImage}

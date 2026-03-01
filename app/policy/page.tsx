@@ -42,41 +42,82 @@ const Policy = () => {
   }
 
   return (
-    <main className="w-full mt-20">
-      {/* ================= POLICY TABS ================= */}
-      <section className="pt-28 pb-10 bg-white grid grid-cols-8">
-        <div className="col-span-1" />
+    <>
+      <main className="w-full mt-20 max-sm:hidden">
+        {/* ================= POLICY TABS ================= */}
+        <section className="pt-28 pb-10 bg-white grid grid-cols-8">
+          <div className="col-span-1" />
 
-        <div className="col-span-6 flex gap-12 text-sm font-medium">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`relative pb-2 transition text-sm ${
-                activeTab === tab
+          <div className="col-span-6 flex gap-12 text-sm font-medium">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`relative pb-2 transition text-sm ${activeTab === tab
                   ? "text-black after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:w-6 after:h-[3px] after:bg-sky-500 after:rounded-full"
                   : "text-gray-500 hover:text-black"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
+                  }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
 
-        <div className="col-span-1" />
-      </section>
+          <div className="col-span-1" />
+        </section>
 
-      {/* ================= POLICY CONTENT ================= */}
-      <section className="bg-[#fff7e6] py-16 grid grid-cols-8">
-        <div className="col-span-1" />
+        {/* ================= POLICY CONTENT ================= */}
+        <section className="bg-[#fff7e6] py-16 grid grid-cols-8">
+          <div className="col-span-1" />
 
-        <div className="col-span-6 text-sm text-gray-800 leading-relaxed">
-          {renderContent()}
-        </div>
+          <div className="col-span-6 text-sm text-gray-800 leading-relaxed">
+            {renderContent()}
+          </div>
 
-        <div className="col-span-1" />
-      </section>
-    </main>
+          <div className="col-span-1" />
+        </section>
+      </main>
+
+
+      {/* ================= MOBILE POLICY PAGE ================= */}
+      <main className="w-full  md:hidden">
+
+        {/* ===== TABS ===== */}
+        <section className="pt-4 pb-6 bg-white px-4">
+
+          <div className="flex gap-6 overflow-x-auto text-sm font-medium pb-2">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`relative whitespace-nowrap pb-2 transition ${activeTab === tab
+                  ? "text-black"
+                  : "text-gray-500"
+                  }`}
+              >
+                {tab}
+
+                {activeTab === tab && (
+                  <span className="absolute left-0 bottom-0 w-full h-[2px] bg-sky-500 rounded-full" />
+                )}
+              </button>
+            ))}
+          </div>
+
+        </section>
+
+
+        {/* ===== CONTENT ===== */}
+        <section className="bg-[#fff7e6] py-10 px-4">
+
+          <div className="text-sm text-gray-800 leading-relaxed space-y-4">
+            {renderContent()}
+          </div>
+
+        </section>
+
+      </main>
+    </>
   );
 };
 

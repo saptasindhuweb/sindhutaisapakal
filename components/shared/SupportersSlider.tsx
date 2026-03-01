@@ -1,3 +1,5 @@
+import  { useRouter } from "next/navigation";
+
 const supporters = [
   { name: "Bharati Vidyapeeth", img: "/assets/images/bharti.png" },
   { name: "Nobel Hospital", img: "/assets/images/nobel.png" },
@@ -6,8 +8,10 @@ const supporters = [
 ];
 
 const SupportersSlider = () => {
+  const router = useRouter();
   return (
-      <section className="bg-white py-16 grid grid-cols-8">
+    <>
+      <section className="bg-white py-16 grid grid-cols-8 max-sm:hidden">
         <div className="col-span-8 grid grid-cols-8 w-full justify-end items-center mb-8">
           <div className=" col-span-1 flex items-center justify-end pr-2">
 
@@ -21,35 +25,87 @@ const SupportersSlider = () => {
           <h2 className="text-2xl font-bold tracking-wide col-span-4">OUR SUPPORTERS</h2>
           {/* </div> */}
         </div>
-        <div className="col-span-1"/>
+        <div className="col-span-1" />
         <div className="col-span-6">
 
-        <h2 className="text-xl font-semibold mb-10 ">
+          <h2 className="text-xl font-semibold mb-10 ">
             We are advancing forward, thanks to the countless helping hands that have reached us !
-            <br/>Some noble souls came through to us in our tough times, and we think of them as Maai’s blessings.
-        </h2>
+            <br />Some noble souls came through to us in our tough times, and we think of them as Maai’s blessings.
+          </h2>
 
-        {/* cards */}
-        <div className="grid md:grid-cols-4 gap-8 ">
-          {supporters.map((s, i) => (
-             <div
+          {/* cards */}
+          <div className="grid md:grid-cols-4 gap-8 ">
+            {supporters.map((s, i) => (
+              <div
                 key={i}
                 className="bg-gray-100 p-4 rounded-xl text-center"
-                >
+              >
                 <img
-                    src={s.img}
-                    className="rounded-lg mb-4"
-                    alt={s.name}
+                  src={s.img}
+                  className="rounded-lg mb-4"
+                  alt={s.name}
                 />
                 <p className="font-medium text-lg py-2 px-6">{s.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* right spacer */}
+        <div className="col-span-1" />
+      </section>
+
+
+
+
+      {/* ===== OUR SUPPORTERS - MOBILE ONLY ===== */}
+      <section className="bg-white py-12 p-4 md:hidden">
+
+        {/* Header */}
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-10 h-[2px] bg-black" />
+            <h2 className="text-xl font-bold tracking-wide">
+              OUR SUPPORTERS
+            </h2>
+          </div>
+
+          <h3
+            onClick={() => router.push("/supporters")}
+            className="text-sky-700 text-sm font-medium cursor-pointer hover:underline"
+          >
+            Know More →
+          </h3>
+        </div>
+
+        {/* Description */}
+        <p className="text-sm text-slate-600 leading-relaxed mb-8">
+          We are advancing forward, thanks to the countless helping hands that have reached us!
+          <br className="hidden sm:block" />
+          Some noble souls came through to us in our tough times, and we think of them as Maai’s blessings.
+        </p>
+
+        {/* Cards */}
+        <div className="grid grid-cols-2 gap-4">
+          {supporters.map((s, i) => (
+            <div
+              key={i}
+              className="bg-gray-100 p-3 rounded-xl text-center active:scale-[0.97] transition"
+            >
+              <img
+                src={s.img}
+                alt={s.name}
+                className="rounded-lg mb-3 h-24 w-full object-cover"
+              />
+              <p className="font-medium text-sm">
+                {s.name}
+              </p>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* right spacer */}
-      <div className="col-span-1" />
-    </section>
+      </section>
+    </>
   );
 };
 

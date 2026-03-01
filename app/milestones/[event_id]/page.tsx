@@ -15,44 +15,128 @@ const EventDetailPage = () => {
     );
 
     return (
-        <main className="py-28 mt-20 grid grid-cols-8 bg-white">
-            <div className="col-span-1" />
-            <div className="col-span-6">
+        <>
+            <main className="py-28 mt-20 grid grid-cols-8 bg-white max-sm:hidden">
+                <div className="col-span-1" />
+                <div className="col-span-6">
+                    {/* COVER */}
+                    <img
+                        src={event.coverImage}
+                        className="w-full h-[500px] object-cover rounded-3xl mb-10"
+                    />
+
+                    {/* DETAILS */}
+                    <p className="text-sm text-gray-500 mb-2">
+                        {new Date(event.date).toDateString()}
+                    </p>
+
+                    <h1 className="text-3xl font-bold mb-6">
+                        {event.title}
+                    </h1>
+
+                    <p className="text-gray-700 leading-relaxed mb-10">
+                        {event.description}
+                    </p>
+
+                    {/* EXTRA PHOTOS */}
+                    {/* EXTRA PHOTOS — MASONRY GRID */}
+                    {event.images && event.images.length > 0 && (
+                        <div className="mb-16">
+                            <h2 className="text-2xl font-bold mb-6">
+                                Event Gallery
+                            </h2>
+
+                            <div className="columns-1 sm:columns-2 md:columns-3 gap-6">
+                                {event.images.map((img, i) => (
+                                    <img
+                                        key={i}
+                                        src={img}
+                                        alt=""
+                                        className="mb-6 w-full rounded-2xl object-cover break-inside-avoid"
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* UPCOMING EVENTS */}
+                    {upcomingEvents.length > 0 && (
+                        <>
+                            <h2 className="text-2xl font-bold mb-6">
+                                Upcoming Events
+                            </h2>
+
+                            <div className="grid md:grid-cols-3 gap-6">
+                                {upcomingEvents.map((item) => (
+                                    <div
+                                        key={item.id}
+                                        onClick={() =>
+                                            router.push(`/milestones/${item.id}`)
+                                        }
+                                        className="cursor-pointer rounded-2xl border bg-white shadow-sm overflow-hidden"
+                                    >
+                                        <img
+                                            src={item.coverImage}
+                                            className="h-40 w-full object-cover"
+                                        />
+                                        <div className="p-4">
+                                            <p className="text-xs text-gray-500 mb-1">
+                                                {new Date(item.date).toDateString()}
+                                            </p>
+                                            <p className="font-semibold">
+                                                {item.title}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </>
+                    )}
+                </div>
+                <div className="col-span-1" />
+            </main>
+
+            {/* ================= MOBILE EVENT DETAIL ================= */}
+            <main className="py-4 bg-white px-4 md:hidden">
+
                 {/* COVER */}
-                <img
-                    src={event.coverImage}
-                    className="w-full h-[500px] object-cover rounded-3xl mb-10"
-                />
+                <div className="w-full h-64 overflow-hidden rounded-2xl mb-8">
+                    <img
+                        src={event.coverImage}
+                        alt={event.title}
+                        className="w-full h-full object-cover"
+                    />
+                </div>
 
                 {/* DETAILS */}
-                <p className="text-sm text-gray-500 mb-2">
+                <p className="text-xs text-gray-500 mb-2">
                     {new Date(event.date).toDateString()}
                 </p>
 
-                <h1 className="text-3xl font-bold mb-6">
+                <h1 className="text-2xl font-bold mb-5">
                     {event.title}
                 </h1>
 
-                <p className="text-gray-700 leading-relaxed mb-10">
+                <p className="text-sm text-gray-700 leading-relaxed mb-10">
                     {event.description}
                 </p>
 
-                {/* EXTRA PHOTOS */}
-                {/* EXTRA PHOTOS — MASONRY GRID */}
+                {/* EVENT GALLERY */}
                 {event.images && event.images.length > 0 && (
-                    <div className="mb-16">
-                        <h2 className="text-2xl font-bold mb-6">
+                    <div className="mb-14">
+                        <h2 className="text-lg font-bold mb-6">
                             Event Gallery
                         </h2>
 
-                        <div className="columns-1 sm:columns-2 md:columns-3 gap-6">
+                        <div className="columns-2 gap-4 space-y-4">
                             {event.images.map((img, i) => (
-                                <img
-                                    key={i}
-                                    src={img}
-                                    alt=""
-                                    className="mb-6 w-full rounded-2xl object-cover break-inside-avoid"
-                                />
+                                <div key={i} className="break-inside-avoid overflow-hidden rounded-xl">
+                                    <img
+                                        src={img}
+                                        alt=""
+                                        className="w-full object-cover rounded-xl"
+                                    />
+                                </div>
                             ))}
                         </div>
                     </div>
@@ -60,40 +144,39 @@ const EventDetailPage = () => {
 
                 {/* UPCOMING EVENTS */}
                 {upcomingEvents.length > 0 && (
-                    <>
-                        <h2 className="text-2xl font-bold mb-6">
+                    <div>
+                        <h2 className="text-lg font-bold mb-6">
                             Upcoming Events
                         </h2>
 
-                        <div className="grid md:grid-cols-3 gap-6">
+                        <div className="space-y-6">
                             {upcomingEvents.map((item) => (
                                 <div
                                     key={item.id}
-                                    onClick={() =>
-                                        router.push(`/milestones/${item.id}`)
-                                    }
-                                    className="cursor-pointer rounded-2xl border bg-white shadow-sm overflow-hidden"
+                                    onClick={() => router.push(`/milestones/${item.id}`)}
+                                    className="cursor-pointer rounded-2xl border bg-white shadow-sm overflow-hidden active:scale-[0.98] transition"
                                 >
                                     <img
                                         src={item.coverImage}
-                                        className="h-40 w-full object-cover"
+                                        alt={item.title}
+                                        className="h-48 w-full object-cover"
                                     />
                                     <div className="p-4">
                                         <p className="text-xs text-gray-500 mb-1">
                                             {new Date(item.date).toDateString()}
                                         </p>
-                                        <p className="font-semibold">
+                                        <p className="text-sm font-semibold">
                                             {item.title}
                                         </p>
                                     </div>
                                 </div>
                             ))}
                         </div>
-                    </>
+                    </div>
                 )}
-            </div>
-            <div className="col-span-1" />
-        </main>
+
+            </main>
+        </>
     );
 };
 

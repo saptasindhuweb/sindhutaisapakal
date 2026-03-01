@@ -88,50 +88,101 @@ const achievements: AchievementItem[] = [
 
 const Achievements: React.FC = () => {
     return (
-        <section className="py-12 grid grid-cols-8">
-        <div className="col-span-1 flex items-center justify-end px-4 mb-4">
-          <span className="w-20 h-[2px] bg-black" />
-        </div>
+        <>
+            <section className="py-12 grid grid-cols-8 max-sm:hidden">
+                <div className="col-span-1 flex items-center justify-end px-4 mb-4">
+                    <span className="w-20 h-[2px] bg-black" />
+                </div>
 
-        <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
-          RECOGNITIONS
-        </p>
+                <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
+                    RECOGNITIONS
+                </p>
 
-            <div className="col-span-1" />
+                <div className="col-span-1" />
 
-            <div className="col-span-7 lg:col-span-6 mt-12">
-                <div className="relative space-y-6">
-                    <div className="absolute left-6 sm:left-16 top-30 bottom-20 w-px bg-slate-300" />
+                <div className="col-span-7 lg:col-span-6 mt-12">
+                    <div className="relative space-y-6">
+                        <div className="absolute left-6 sm:left-16 top-30 bottom-20 w-px bg-slate-300" />
 
-                    {achievements.map((item) => (
-                        <article key={`${item.title}-${item.year}`} className="relative">
-                            <div className="absolute top-25 left-21 w-6 sm:w-8 h-px bg-slate-300 z-20" />
-                            <div className="absolute left-6 sm:left-16 top-20 -translate-x-1/2 z-10">
-                                <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center">
-                                    <GiLaurelsTrophy className="w-10 h-10 text-slate-600" />
-                                </div>
-                            </div>
-
-                            <div className="ml-14 sm:ml-30 rounded-xl border border-slate-200 bg-white/95 shadow-lg px-4 sm:px-6 py-5">
-                                <div className="grid grid-cols-1 md:grid-cols-[220px_minmax(0,1fr)] gap-4 md:gap-6 items-start">
-                                    <img
-                                        src={item.image}
-                                        alt={item.imageAlt}
-                                        className={`h-44 w-full md:w-[220px] object-cover rounded-lg shadow ${item.imageClassName ?? "object-center"}`}
-                                    />
-
-                                    <div>
-                                        <p className="text-xs sm:text-sm text-slate-500 mb-1">{item.year}</p>
-                                        <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
-                                        <p className="text-xs sm:text-sm text-slate-700 leading-relaxed text-justify">{item.description}</p>
+                        {achievements.map((item) => (
+                            <article key={`${item.title}-${item.year}`} className="relative">
+                                <div className="absolute top-25 left-21 w-6 sm:w-8 h-px bg-slate-300 z-20" />
+                                <div className="absolute left-6 sm:left-16 top-20 -translate-x-1/2 z-10">
+                                    <div className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center">
+                                        <GiLaurelsTrophy className="w-10 h-10 text-slate-600" />
                                     </div>
                                 </div>
+
+                                <div className="ml-14 sm:ml-30 rounded-xl border border-slate-200 bg-white/95 shadow-lg px-4 sm:px-6 py-5">
+                                    <div className="grid grid-cols-1 md:grid-cols-[220px_minmax(0,1fr)] gap-4 md:gap-6 items-start">
+                                        <img
+                                            src={item.image}
+                                            alt={item.imageAlt}
+                                            className={`h-44 w-full md:w-[220px] object-cover rounded-lg shadow ${item.imageClassName ?? "object-center"}`}
+                                        />
+
+                                        <div>
+                                            <p className="text-xs sm:text-sm text-slate-500 mb-1">{item.year}</p>
+                                            <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+                                            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed text-justify">{item.description}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= RECOGNITIONS - MOBILE ONLY ================= */}
+            <section className="py-10 bg-white p-4 md:hidden">
+
+                {/* Heading */}
+                <div className="flex items-center gap-3 mb-8">
+                    <span className="w-10 h-[2px] bg-black" />
+                    <h2 className="text-lg font-bold tracking-wide">
+                        RECOGNITIONS
+                    </h2>
+                </div>
+
+                {/* Cards */}
+                <div className="space-y-8">
+                    {achievements.map((item) => (
+                        <article
+                            key={`${item.title}-${item.year}`}
+                            className="rounded-2xl border border-slate-200 bg-white shadow-md p-4"
+                        >
+                            {/* Trophy + Year */}
+                            <div className="flex items-center gap-3 mb-3">
+                                <div className="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center">
+                                    <GiLaurelsTrophy className="w-5 h-5 text-slate-600" />
+                                </div>
+                                <p className="text-xs text-slate-500">
+                                    {item.year}
+                                </p>
                             </div>
+
+                            {/* Image */}
+                            <img
+                                src={item.image}
+                                alt={item.imageAlt}
+                                className={`w-full h-48 object-cover rounded-lg mb-4 ${item.imageClassName ?? "object-center"}`}
+                            />
+
+                            {/* Content */}
+                            <h3 className="text-base font-bold text-slate-900 mb-2">
+                                {item.title}
+                            </h3>
+
+                            <p className="text-sm text-slate-700 leading-relaxed text-justify">
+                                {item.description}
+                            </p>
                         </article>
                     ))}
                 </div>
-            </div>
-        </section>
+
+            </section>
+        </>
     );
 };
 

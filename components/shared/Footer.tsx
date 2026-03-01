@@ -5,20 +5,126 @@ import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoYoutube } from "
 import { MdLocationOn, MdPhone, MdMail } from "react-icons/md";
 
 const Footer = () => {
-  
+
   const router = useRouter()
 
   return (
-    <footer className="bg-black text-gray-300 pt-16 grid grid-cols-8">
+    <>
+      <footer className="bg-black text-gray-300 pt-16 grid grid-cols-8 max-sm:hidden">
 
-      <div className="col-span-1"></div>
-      <div className="col-span-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="col-span-1"></div>
+        <div className="col-span-6 grid grid-cols-1 md:grid-cols-4 gap-12">
 
-        <div>
+          <div>
+            <img
+              src="/assets/images/logo.png"
+              alt="Logo"
+              className="w-28 mb-4"
+            />
+            <p className="text-xs font-semibold leading-relaxed">
+              'Saptasindhu' Mahila Adhar,
+              <br />
+              Balsangopan And Shikshan Sanstha
+            </p>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-4 text-xs">
+              Quick Links
+            </h4>
+            <ul className="space-y-2 text-xs text-gray-300">
+              <li onClick={() => router.push("/maii")} className="hover:text-white cursor-pointer">Maai</li>
+              <li onClick={() => router.push("/about")} className="hover:text-white cursor-pointer">About us</li>
+              <li onClick={() => router.push("/gallery")} className="hover:text-white cursor-pointer">Gallery</li>
+              <li onClick={() => router.push("/#")} className="hover:text-white cursor-pointer">Supporters</li>
+              <li onClick={() => router.push("/policy")} className="hover:text-white cursor-pointer">Policy</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-4 text-xs">
+              Contact Us
+            </h4>
+
+            <div className="flex items-start gap-2 mb-3">
+              <MdLocationOn className="text-yellow-400 mt-1 flex-shrink-0 text-sm" />
+              <p className="text-xs leading-relaxed flex-1">
+                Belhekar Vasti, Near Vasantdada Sugar Institute, AM College Road
+                <br />
+                Manjari (Bk), Tal. Haveli, Dist. Pune – 412 307
+              </p>
+            </div>
+
+            <div className="space-y-1 mb-3">
+              <div className="flex items-center gap-2">
+                <MdPhone className="text-yellow-400 flex-shrink-0 text-sm" />
+                <span className="text-xs">+91 93265 35224</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MdPhone className="text-yellow-400 flex-shrink-0 text-sm" />
+                <span className="text-xs">+91 93710 74256</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MdPhone className="text-yellow-400 flex-shrink-0 text-sm" />
+                <span className="text-xs">+91 97308 31701</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <MdMail className="text-yellow-400 flex-shrink-0 text-sm" />
+              <span className="text-xs">saptasindhu99@gmail.com</span>
+            </div>
+          </div>
+
+          <div className="flex flex-col justify-between items-end text-right">
+            <div className="text-white text-3xl font-bold leading-snug">
+              मी माई झाले,<br />
+              तुम्ही गणगोत व्हा !..
+            </div>
+
+            <button onClick={() => router.push("/donate")} className="mt-6 bg-sky-500 text-white px-6 py-3 rounded font-semibold hover:bg-sky-600 transition">
+              Donate Here
+            </button>
+          </div>
+        </div>
+
+        <div className="col-span-1"></div>
+
+        <div className="border-t border-yellow-200 mt-12 col-span-8 mx-48">
+          <div className="max-w-7xl mx-auto  py-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-300">
+            <div>
+              © 2025 sindhutaisapakal.org. All rights reserved.{" "}
+              <span className="underline cursor-pointer">Privacy Policy</span>
+            </div>
+
+            <div className="mt-3 md:mt-0 flex items-center justify-center gap-4 text-gray-300">
+              <a href="https://www.youtube.com/@saptasindhutaisapakal" target="_blank">
+                <IoLogoYoutube className="cursor-pointer" />
+              </a>
+              <a href="https://www.instagram.com/saptasindhutaisapakal/" target="_blank">
+                <IoLogoInstagram className="cursor-pointer" />
+              </a>
+              <a href="https://www.facebook.com/saptasindhutaisapakal" target="_blank">
+                <IoLogoFacebook className="cursor-pointer" />
+              </a>
+              <a href="https://www.facebook.com/saptasindhutaisapakal" target="_blank">
+                <IoLogoLinkedin className="cursor-pointer" />
+              </a>
+              Supported by Mr Umesh Tharkude.
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* ===== FOOTER - MOBILE ONLY ===== */}
+      <footer className="bg-black text-gray-300 pt-12 pb-6 px-6 md:hidden">
+
+        {/* Logo + Title */}
+        <div className="text-center mb-10">
           <img
             src="/assets/images/logo.png"
             alt="Logo"
-            className="w-28 mb-4"
+            className="w-24 mx-auto mb-4"
           />
           <p className="text-xs font-semibold leading-relaxed">
             'Saptasindhu' Mahila Adhar,
@@ -27,93 +133,96 @@ const Footer = () => {
           </p>
         </div>
 
-        <div>
-          <h4 className="text-white font-semibold mb-4 text-xs">
+        {/* Quick Links */}
+        <div className="mb-10">
+          <h4 className="text-white font-semibold mb-4 text-sm text-center">
             Quick Links
           </h4>
-          <ul className="space-y-2 text-xs text-gray-300">
-            <li onClick={()=>router.push("/maii")} className="hover:text-white cursor-pointer">Maai</li>
-            <li onClick={()=>router.push("/about")} className="hover:text-white cursor-pointer">About us</li>
-            <li onClick={()=>router.push("/gallery")} className="hover:text-white cursor-pointer">Gallery</li>
-            <li onClick={()=>router.push("/#")} className="hover:text-white cursor-pointer">Supporters</li>
-            <li onClick={()=>router.push("/policy")} className="hover:text-white cursor-pointer">Policy</li>
+          <ul className="space-y-3 text-sm text-center">
+            <li onClick={() => router.push("/maii")} className="hover:text-white cursor-pointer">Maai</li>
+            <li onClick={() => router.push("/about")} className="hover:text-white cursor-pointer">About us</li>
+            <li onClick={() => router.push("/gallery")} className="hover:text-white cursor-pointer">Gallery</li>
+            <li onClick={() => router.push("/#")} className="hover:text-white cursor-pointer">Supporters</li>
+            <li onClick={() => router.push("/policy")} className="hover:text-white cursor-pointer">Policy</li>
           </ul>
         </div>
 
-        <div>
-          <h4 className="text-white font-semibold mb-4 text-xs">
+        {/* Contact */}
+        <div className="mb-10">
+          <h4 className="text-white font-semibold mb-4 text-sm text-center">
             Contact Us
           </h4>
 
-          <div className="flex items-start gap-2 mb-3">
-            <MdLocationOn className="text-yellow-400 mt-1 flex-shrink-0 text-sm" />
-            <p className="text-xs leading-relaxed flex-1">
+          <div className="flex items-start gap-3 mb-4">
+            <MdLocationOn className="text-yellow-400 mt-1 flex-shrink-0 text-base" />
+            <p className="text-xs leading-relaxed">
               Belhekar Vasti, Near Vasantdada Sugar Institute, AM College Road
               <br />
               Manjari (Bk), Tal. Haveli, Dist. Pune – 412 307
             </p>
           </div>
 
-          <div className="space-y-1 mb-3">
+          <div className="space-y-2 mb-4">
             <div className="flex items-center gap-2">
-              <MdPhone className="text-yellow-400 flex-shrink-0 text-sm" />
+              <MdPhone className="text-yellow-400 text-sm" />
               <span className="text-xs">+91 93265 35224</span>
             </div>
             <div className="flex items-center gap-2">
-              <MdPhone className="text-yellow-400 flex-shrink-0 text-sm" />
+              <MdPhone className="text-yellow-400 text-sm" />
               <span className="text-xs">+91 93710 74256</span>
             </div>
             <div className="flex items-center gap-2">
-              <MdPhone className="text-yellow-400 flex-shrink-0 text-sm" />
+              <MdPhone className="text-yellow-400 text-sm" />
               <span className="text-xs">+91 97308 31701</span>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <MdMail className="text-yellow-400 flex-shrink-0 text-sm" />
+            <MdMail className="text-yellow-400 text-sm" />
             <span className="text-xs">saptasindhu99@gmail.com</span>
           </div>
         </div>
 
-        <div className="flex flex-col justify-between items-end text-right">
-          <div className="text-white text-3xl font-bold leading-snug">
-            मी माई झाले,<br />
-            तुम्ही गणगोत व्हा !..
-          </div>
-
-          <button onClick={()=>router.push("/donate")} className="mt-6 bg-sky-500 text-white px-6 py-3 rounded font-semibold hover:bg-sky-600 transition">
-            Donate Here
-          </button>
+        {/* Marathi Line */}
+        <div className="text-white text-xl font-bold text-center leading-snug mb-8">
+          मी माई झाले,<br />
+          तुम्ही गणगोत व्हा !..
         </div>
-      </div>
 
-      <div className="col-span-1"></div>
+        {/* Donate Button */}
+        <button
+          onClick={() => router.push("/donate")}
+          className="w-full bg-sky-500 text-white py-3 rounded-md font-semibold mb-10 active:scale-[0.97] transition"
+        >
+          Donate Here
+        </button>
 
-      <div className="border-t border-yellow-200 mt-12 col-span-8 mx-48">
-        <div className="max-w-7xl mx-auto  py-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-300">
-          <div>
-            © 2025 sindhutaisapakal.org. All rights reserved.{" "}
-            <span className="underline cursor-pointer">Privacy Policy</span>
-          </div>
+        {/* Divider */}
+        <div className="border-t border-yellow-200 pt-6 text-center text-xs text-gray-400">
+          © 2025 sindhutaisapakal.org. All rights reserved.
+          <div className="underline cursor-pointer mt-2">Privacy Policy</div>
 
-          <div className="mt-3 md:mt-0 flex items-center justify-center gap-4 text-gray-300">
+          {/* Social Icons */}
+          <div className="flex justify-center gap-5 mt-5 text-lg">
             <a href="https://www.youtube.com/@saptasindhutaisapakal" target="_blank">
-              <IoLogoYoutube className="cursor-pointer"/>
+              <IoLogoYoutube />
             </a>
             <a href="https://www.instagram.com/saptasindhutaisapakal/" target="_blank">
-              <IoLogoInstagram className="cursor-pointer"/>
+              <IoLogoInstagram />
             </a>
             <a href="https://www.facebook.com/saptasindhutaisapakal" target="_blank">
-              <IoLogoFacebook className="cursor-pointer"/>
+              <IoLogoFacebook />
             </a>
             <a href="https://www.facebook.com/saptasindhutaisapakal" target="_blank">
-            <IoLogoLinkedin className="cursor-pointer"/>
+              <IoLogoLinkedin />
             </a>
-            Supported by Mr Umesh Tharkude.
           </div>
+
+
         </div>
-      </div>
-    </footer>
+
+      </footer>
+    </>
   );
 };
 

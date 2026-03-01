@@ -82,14 +82,14 @@ const Home = () => {
   return (
     <>
       {/* ===== HERO CAROUSEL (FIXED IMAGE SIZE) ===== */}
-      <section className="w-full bg-white">
+      <section className="w-full bg-white max-sm:hidden">
         {/* <div className="grid grid-cols-8"> */}
 
         {/* LEFT SPACER */}
         {/* <div className="col-span-1" /> */}
 
         {/* CENTER COLUMN */}
-        <div className=" relative flex items-center justify-center">
+        <div className=" md:relative flex items-center justify-center">
 
           <Carousel
             className="w-full flex justify-center"
@@ -161,9 +161,44 @@ const Home = () => {
       </section>
 
 
+      {/* ===== HERO CAROUSEL RESPONSIVE ===== */}
+      <section className="w-full bg-white md:hidden">
+        <div className="w-full">
+          <Carousel
+            className="w-full"
+            opts={{ loop: true }}
+            plugins={[
+              Autoplay({
+                delay: 5000,
+                stopOnInteraction: false,
+                stopOnMouseEnter: true,
+              }),
+            ]}
+          >
+            <CarouselContent>
+              {heroImages.map((img, index) => (
+                <CarouselItem key={index}>
+                  <div className="w-full h-[220px] sm:h-[350px] md:h-[500px] lg:h-[650px] xl:h-[750px]">
+                    <img
+                      src={img}
+                      alt={`Hero slide ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
+      </section>
 
 
-      <section className="bg-white py-10 grid grid-cols-8">
+
+
+
+
+
+      <section className="bg-white py-10 grid grid-cols-8 max-sm:hidden">
         <div className=" col-span-1">
 
         </div>
@@ -208,7 +243,50 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="bg-white py-20 grid grid-cols-8">
+
+
+      <section className="bg-white py-10 p-4  md:hidden">
+
+        <div className=" col-span-6">
+          <div className="  gap-12 items-center">
+            <div className=" flex flex-col items-center gap-4">
+              <div className="flex justify-end">
+                <img
+                  src="/assets/images/1.png"
+                  alt="Sindhutai Sapkal"
+                  className="rounded-3xl max-w-md w-full object-cover h-[320px] object-[center_25%]"
+                />
+              </div>
+
+              <h2 className="text-xl font-bold leading-tight text-center">
+                Padma Shri Dr. Sou. Sindhutai Sapakal (Maai) <br />
+                Mother of Orphans
+              </h2>
+
+              <p className="mt-4 text-gray-600 leading-relaxed text-justify">
+                A soul out of life’s hardship was born as Mother to over a thousand
+                children and devoted her entire life to social service. After 70
+                years of lifespan (Born: 1948 – Died: 2022), she raised a grand
+                family of 220 sons-in-laws, 50 daughters-in-laws.
+              </p>
+
+              <p className="mt-3 text-gray-600 leading-relaxed text-justify">
+                She adopted more than 1200 orphaned children and provided them
+                food, shelter, and education. She was honored with Padma Shri in
+                2021.
+                <button onClick={() => router.push("/maii")} className=" text-sm font-semibold text-sky-700 hover:underline cursor-pointer">
+                  Read More
+                </button>
+              </p>
+
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <section className="bg-white py-20 grid grid-cols-8 max-sm:hidden">
         <div className=" col-span-1">
 
         </div>
@@ -255,7 +333,49 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="bg-white py-16 grid grid-cols-8">
+
+      <section className="bg-white py-10 p-4  md:hidden">
+
+        <div className=" col-span-6">
+          <div className="  gap-12 items-center">
+            <div className=" flex flex-col items-center gap-4">
+              <div className="flex justify-end">
+                <img
+                  src="/assets/images/2.png"
+                  alt="Sindhutai Sapkal"
+                  className="rounded-3xl max-w-md w-full object-cover h-[320px] object-[center_25%]"
+                />
+              </div>
+
+              <h2 className="text-xl font-bold leading-tight text-center">
+                Padma Shri Dr. Sou. Sindhutai Sapakal (Maai) <br />
+                Mother of Orphans
+              </h2>
+
+              <p className="mt-4 text-gray-600 leading-relaxed text-justify">
+                A soul out of life’s hardship was born as Mother to over a thousand
+                children and devoted her entire life to social service. After 70
+                years of lifespan (Born: 1948 – Died: 2022), she raised a grand
+                family of 220 sons-in-laws, 50 daughters-in-laws.
+              </p>
+
+              <p className="mt-3 text-gray-600 leading-relaxed text-justify">
+                She adopted more than 1200 orphaned children and provided them
+                food, shelter, and education. She was honored with Padma Shri in
+                2021.
+                <button onClick={() => router.push("/maii")} className=" text-sm font-semibold text-sky-700 hover:underline cursor-pointer">
+                  Read More
+                </button>
+              </p>
+
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <section className="bg-white py-16 grid grid-cols-8 max-sm:hidden">
         <div className="col-span-8 grid grid-cols-8 w-full justify-end items-center mb-8">
           <div className=" col-span-1 flex items-center justify-end pr-2">
 
@@ -307,6 +427,59 @@ const Home = () => {
           </div>
         </div>
         <div className="col-span-1" />
+      </section>
+
+
+      <section className="bg-white py-12 p-4 md:hidden">
+        {/* Header */}
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-10 h-[2px] bg-black" />
+            <h2 className="text-xl font-bold tracking-wide">
+              LATEST UPDATES
+            </h2>
+          </div>
+
+          <h3
+            onClick={() => router.push("/milestones")}
+            className="text-sky-700 text-sm font-medium cursor-pointer hover:underline"
+          >
+            More Updates →
+          </h3>
+        </div>
+
+        {/* Cards */}
+        <div className="space-y-6">
+          {recentCompletedEvents.map((item) => (
+            <article
+              key={item.id}
+              onClick={() => router.push(`/milestones/${item.id}`)}
+              className="cursor-pointer rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden active:scale-[0.98] transition"
+            >
+              {/* Image */}
+              <img
+                src={item.coverImage}
+                alt={item.title}
+                className="w-full h-52 object-cover"
+              />
+
+              {/* Content */}
+              <div className="p-4">
+                <p className="text-xs text-slate-500 mb-2">
+                  {new Date(item.date).toDateString()}
+                </p>
+
+                <h3 className="text-base font-semibold text-slate-900 mb-2 leading-snug">
+                  {item.title}
+                </h3>
+
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {item.shortDescription}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <OrgSlider />

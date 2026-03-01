@@ -20,131 +20,227 @@ const Gopika = () => {
   }
 
   return (
-    <main className="bg-white mt-20">
+    <>
+      <main className="bg-white mt-20 max-sm:hidden">
 
-      {/* ================= HERO / TITLE ================= */}
-      <section className="grid grid-cols-8 pt-24">
-        {/* LEFT LINE */}
-        <div className="col-span-1 flex items-start justify-end px-4">
-          <span className="w-20 h-[2px] bg-black mt-2" />
-        </div>
+        {/* ================= HERO / TITLE ================= */}
+        <section className="grid grid-cols-8 pt-24">
+          {/* LEFT LINE */}
+          <div className="col-span-1 flex items-start justify-end px-4">
+            <span className="w-20 h-[2px] bg-black mt-2" />
+          </div>
 
-        {/* TITLE */}
-        <div className="col-span-7">
-          <p className="font-bold tracking-wide">
-            GOPIKA GAI RAKSHAN KENDRA
-          </p>
-        </div>
-      </section>
+          {/* TITLE */}
+          <div className="col-span-7">
+            <p className="font-bold tracking-wide">
+              GOPIKA GAI RAKSHAN KENDRA
+            </p>
+          </div>
+        </section>
 
-      {/* ================= CONTENT + IMAGES ================= */}
-      <section className="grid grid-cols-8 pb-24 pt-4">
-        {/* LEFT GUTTER */}
-        <div className="col-span-1" />
+        {/* ================= CONTENT + IMAGES ================= */}
+        <section className="grid grid-cols-8 pb-24 pt-4">
+          {/* LEFT GUTTER */}
+          <div className="col-span-1" />
 
-        {/* TEXT CONTENT */}
-        <div className="col-span-4 mt-6">
-          <h1 className="text-3xl font-bold leading-snug pb-6">
+          {/* TEXT CONTENT */}
+          <div className="col-span-4 mt-6">
+            <h1 className="text-3xl font-bold leading-snug pb-6">
+              To care for the unproductive, abandoned cows
+            </h1>
+
+            <p className="text-xs text-gray-600 text-justify ">
+              <span className="font-semibold text-black">
+                Year of Establishment : 2007
+              </span>
+            </p>
+
+            <p className="text-xs text-gray-600 text-justify ">
+              The dedication and compassion shown by Maai towards both cows and
+              people in need is truly remarkable. It’s clear that her legacy lives
+              on through the work being carried out by the institution she founded.
+              The story of Maai’s connection with the cows and her journey of
+              overcoming adversity to become a mother to orphans is truly touching.
+            </p>
+
+            <p className="text-xs text-gray-600 text-justify ">
+              Caring for animals, especially cows, and providing them with shelter,
+              medical attention, and respect is a noble cause. It’s heartening to
+              see the efforts being made to improve the lives of old, sick, stray,
+              and abandoned cows.
+            </p>
+
+            <p className="text-xs text-gray-600 text-justify ">
+              For anyone who shares a love for animals and believes in the
+              importance of compassionate care, supporting institutions like Gopika
+              Gai Rakshan Kendra is a wonderful way to contribute. Providing
+              financial assistance can indeed make a significant difference in
+              ensuring that the mission Maai started continues to thrive.
+            </p>
+
+            <p className="text-xs text-gray-600 text-justify">
+              Thank you for sharing this message and making people aware of the
+              important work being done by the Gopika Gai Rakshan Kendra. Your
+              efforts to reach out for support and spread awareness about this cause
+              are greatly appreciated. The power of compassion and the impact that
+              one person’s actions can have on the lives of animals and the
+              community.
+            </p>
+          </div>
+
+          {/* RIGHT IMAGES */}
+          <div className="col-span-2 relative flex justify-start ml-12">
+            <img
+              src="/assets/images/gopika-heros-1.png"
+              alt="Gopika Gai Rakshan"
+              className="rounded-2xl shadow-lg w-48 h-48 relative z-10"
+            />
+            <img
+              src="/assets/images/gopika-heros-2.png"
+              alt="Cows shelter"
+              className="rounded-2xl shadow-xl w-55 absolute top-32 -right-5"
+            />
+          </div>
+
+          {/* RIGHT GUTTER */}
+          <div className="col-span-1" />
+        </section>
+
+        {/* ================= IMAGE GRID ================= */}
+        <section className="bg-[#fff7e6] py-20 grid grid-cols-8">
+          {/* LEFT GUTTER */}
+          <div className="col-span-1" />
+
+          {/* TITLE */}
+          <div className="col-span-6">
+            <p className="text-2xl font-bold">
+              Feel free to visit the institution or call us any time <br />
+              should you need more information.
+            </p>
+          </div>
+
+          <div className="col-span-1" />
+
+          {/* IMAGE GRID */}
+          <div className="col-span-1" />
+          <div className="col-span-6 grid grid-cols-5 gap-8 mt-12">
+            {[
+              "gopika1.png",
+              "gopika2.png",
+              "gopika3.png",
+              "gopika4.png",
+              "gopika5.png",
+            ].map((img, i) => (
+              <img
+                key={i}
+                src={`/assets/images/${img}`}
+                alt="Gopika Gallery"
+                className="rounded-2xl shadow-md"
+              />
+            ))}
+          </div>
+          <div className="col-span-1" />
+        </section>
+
+        {/* ================= CTA ================= */}
+        <DonateCTA />
+
+      </main>
+
+
+      {/* ================= MOBILE VERSION ================= */}
+      <main className="bg-white md:hidden">
+
+        {/* ===== TITLE ===== */}
+        <section className="pt-4 px-4">
+
+          <div className="flex items-center gap-3 mb-6">
+            <span className="w-10 h-[2px] bg-black" />
+            <p className="font-bold tracking-wide text-sm">
+              GOPIKA GAI RAKSHAN KENDRA
+            </p>
+          </div>
+
+          <h1 className="text-xl font-bold leading-snug mb-4">
             To care for the unproductive, abandoned cows
           </h1>
 
-          <p className="text-xs text-gray-600 text-justify ">
-            <span className="font-semibold text-black">
-              Year of Establishment : 2007
-            </span>
+          <p className="text-xs font-semibold mb-4">
+            Year of Establishment : 2007
           </p>
 
-          <p className="text-xs text-gray-600 text-justify ">
-            The dedication and compassion shown by Maai towards both cows and
-            people in need is truly remarkable. It’s clear that her legacy lives
-            on through the work being carried out by the institution she founded.
-            The story of Maai’s connection with the cows and her journey of
-            overcoming adversity to become a mother to orphans is truly touching.
-          </p>
-
-          <p className="text-xs text-gray-600 text-justify ">
-            Caring for animals, especially cows, and providing them with shelter,
-            medical attention, and respect is a noble cause. It’s heartening to
-            see the efforts being made to improve the lives of old, sick, stray,
-            and abandoned cows.
-          </p>
-
-          <p className="text-xs text-gray-600 text-justify ">
-            For anyone who shares a love for animals and believes in the
-            importance of compassionate care, supporting institutions like Gopika
-            Gai Rakshan Kendra is a wonderful way to contribute. Providing
-            financial assistance can indeed make a significant difference in
-            ensuring that the mission Maai started continues to thrive.
-          </p>
-
-          <p className="text-xs text-gray-600 text-justify">
-            Thank you for sharing this message and making people aware of the
-            important work being done by the Gopika Gai Rakshan Kendra. Your
-            efforts to reach out for support and spread awareness about this cause
-            are greatly appreciated. The power of compassion and the impact that
-            one person’s actions can have on the lives of animals and the
-            community.
-          </p>
-        </div>
-
-        {/* RIGHT IMAGES */}
-        <div className="col-span-2 relative flex justify-start ml-12">
-          <img
-            src="/assets/images/gopika-heros-1.png"
-            alt="Gopika Gai Rakshan"
-            className="rounded-2xl shadow-lg w-48 h-48 relative z-10"
-          />
-          <img
-            src="/assets/images/gopika-heros-2.png"
-            alt="Cows shelter"
-            className="rounded-2xl shadow-xl w-55 absolute top-32 -right-5"
-          />
-        </div>
-
-        {/* RIGHT GUTTER */}
-        <div className="col-span-1" />
-      </section>
-
-      {/* ================= IMAGE GRID ================= */}
-      <section className="bg-[#fff7e6] py-20 grid grid-cols-8">
-        {/* LEFT GUTTER */}
-        <div className="col-span-1" />
-
-        {/* TITLE */}
-        <div className="col-span-6">
-          <p className="text-2xl font-bold">
-            Feel free to visit the institution or call us any time <br />
-            should you need more information.
-          </p>
-        </div>
-
-        <div className="col-span-1" />
-
-        {/* IMAGE GRID */}
-        <div className="col-span-1" />
-        <div className="col-span-6 grid grid-cols-5 gap-8 mt-12">
-          {[
-            "gopika1.png",
-            "gopika2.png",
-            "gopika3.png",
-            "gopika4.png",
-            "gopika5.png",
-          ].map((img, i) => (
+          {/* HERO IMAGES - ONE ROW HEIGHT 30 */}
+          <div className="flex gap-3 mb-8">
             <img
-              key={i}
-              src={`/assets/images/${img}`}
-              alt="Gopika Gallery"
-              className="rounded-2xl shadow-md"
+              src="/assets/images/gopika-heros-1.png"
+              alt="Gopika Gai Rakshan"
+              className="w-1/2 h-30 object-cover rounded-xl shadow-md"
             />
-          ))}
-        </div>
-        <div className="col-span-1" />
-      </section>
+            <img
+              src="/assets/images/gopika-heros-2.png"
+              alt="Cows shelter"
+              className="w-1/2 h-30 object-cover rounded-xl shadow-md"
+            />
+          </div>
 
-      {/* ================= CTA ================= */}
-      <DonateCTA />
+          {/* CONTENT */}
+          <div className="text-gray-700 text-sm leading-relaxed space-y-4 text-justify">
+            <p>
+              Maai’s compassion extended beyond people to cows in need. Her
+              legacy continues through the institution she founded.
+            </p>
 
-    </main>
+            <p>
+              Caring for old, sick, stray and abandoned cows by providing
+              shelter, medical care and dignity is a noble cause.
+            </p>
+
+            <p>
+              Supporting Gopika Gai Rakshan Kendra ensures that Maai’s
+              mission continues to thrive and make a difference.
+            </p>
+
+            <p>
+              Thank you for helping spread awareness and supporting this
+              compassionate initiative.
+            </p>
+          </div>
+
+        </section>
+
+
+        {/* ===== IMAGE GRID ===== */}
+        <section className="bg-[#fff7e6] py-12 px-4 mt-10">
+
+          <p className="text-lg font-bold mb-8">
+            Feel free to visit the institution or call us anytime
+            for more information.
+          </p>
+
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              "gopika1.png",
+              "gopika2.png",
+              "gopika3.png",
+              "gopika4.png",
+              "gopika5.png",
+            ].map((img, i) => (
+              <img
+                key={i}
+                src={`/assets/images/${img}`}
+                alt="Gopika Gallery"
+                className="w-full h-32 object-cover rounded-xl shadow-sm"
+              />
+            ))}
+          </div>
+
+        </section>
+
+        <DonateCTA />
+
+      </main>
+
+    </>
   );
 };
 

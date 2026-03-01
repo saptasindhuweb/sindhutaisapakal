@@ -80,73 +80,118 @@ const OrgSlider = () => {
     y: 0,
   });
   return (
-    <section className="bg-white py-16 grid grid-cols-8">
-      <div className="col-span-8 grid grid-cols-8 w-full justify-end items-center mb-8">
-        <div className=" col-span-1 flex items-center justify-end pr-2">
+    <>
+      <section className="bg-white py-16 grid grid-cols-8 max-sm:hidden">
+        <div className="col-span-8 grid grid-cols-8 w-full justify-end items-center mb-8">
+          <div className=" col-span-1 flex items-center justify-end pr-2">
 
 
-          <span className="w-16 h-[2px] bg-black" />
+            <span className="w-16 h-[2px] bg-black" />
+          </div>
+
+          {/* <div className=" col-span-7 flex items-center gap-3 mb-8"> */}
+
+          {/* <span className="w-16 h-[2px] bg-black" /> */}
+          <h2 className="text-2xl font-bold tracking-wide col-span-4">OUR ORGANISATIONS</h2>
+          {/* </div> */}
+        </div>
+        <div className="col-span-1" />
+
+        <div className="col-span-6">
+
+          <div className="grid md:grid-cols-3 gap-6 cursor-pointer relative">
+            {orgs.map((item) => (
+              <article
+                key={item.title}
+                onClick={() => router.push(item.route)}
+                onMouseEnter={(e) =>
+                  setTooltip({ visible: true, x: e.clientX, y: e.clientY })
+                }
+                onMouseMove={(e) =>
+                  setTooltip({ visible: true, x: e.clientX, y: e.clientY })
+                }
+                onMouseLeave={() =>
+                  setTooltip({ visible: false, x: 0, y: 0 })
+                }
+                className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden"
+              >
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+                />
+                <div className="p-5">
+                  <h3 className="text-lg font-semibold mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-slate-700">
+                    {item.desc}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* CURSOR TOOLTIP */}
+          {tooltip.visible && (
+            <div
+              className="fixed z-50 pointer-events-none bg-black text-white text-xs px-3 py-1 rounded-md"
+              style={{
+                top: tooltip.y + 12,
+                left: tooltip.x + 12,
+              }}
+            >
+              Click to know more
+            </div>
+          )}
+
+        </div>
+        <div className="col-span-1" />
+      </section>
+
+      {/* ===== OUR ORGANISATIONS - MOBILE ONLY ===== */}
+      <section className="bg-white py-12 p-4 md:hidden">
+
+        {/* Header */}
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="w-10 h-[2px] bg-black" />
+            <h2 className="text-xl font-bold tracking-wide">
+              OUR ORGANISATIONS
+            </h2>
+          </div>
         </div>
 
-        {/* <div className=" col-span-7 flex items-center gap-3 mb-8"> */}
-
-        {/* <span className="w-16 h-[2px] bg-black" /> */}
-        <h2 className="text-2xl font-bold tracking-wide col-span-4">OUR ORGANISATIONS</h2>
-        {/* </div> */}
-      </div>
-      <div className="col-span-1" />
-
-      <div className="col-span-6">
-
-        <div className="grid md:grid-cols-3 gap-6 cursor-pointer relative">
+        {/* Cards */}
+        <div className="space-y-6">
           {orgs.map((item) => (
             <article
               key={item.title}
               onClick={() => router.push(item.route)}
-              onMouseEnter={(e) =>
-                setTooltip({ visible: true, x: e.clientX, y: e.clientY })
-              }
-              onMouseMove={(e) =>
-                setTooltip({ visible: true, x: e.clientX, y: e.clientY })
-              }
-              onMouseLeave={() =>
-                setTooltip({ visible: false, x: 0, y: 0 })
-              }
-              className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden"
+              className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden active:scale-[0.98] transition cursor-pointer"
             >
+              {/* Image */}
               <img
                 src={item.img}
                 alt={item.title}
-                className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+                className="w-full h-56 object-cover"
               />
-              <div className="p-5">
-                <h3 className="text-lg font-semibold mb-2">
+
+              {/* Content */}
+              <div className="p-4">
+                <h3 className="text-base font-semibold mb-2">
                   {item.title}
                 </h3>
-                <p className="text-sm text-slate-700">
+                <p className="text-sm text-slate-600 leading-relaxed">
                   {item.desc}
                 </p>
               </div>
             </article>
           ))}
         </div>
+      </section>
 
-        {/* CURSOR TOOLTIP */}
-        {tooltip.visible && (
-          <div
-            className="fixed z-50 pointer-events-none bg-black text-white text-xs px-3 py-1 rounded-md"
-            style={{
-              top: tooltip.y + 12,
-              left: tooltip.x + 12,
-            }}
-          >
-            Click to know more
-          </div>
-        )}
-
-      </div>
-      <div className="col-span-1" />
-    </section>
+    </>
   );
 };
 
