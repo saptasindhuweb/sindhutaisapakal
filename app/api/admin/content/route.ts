@@ -71,7 +71,22 @@ export async function PUT(request: NextRequest) {
     const serialized = `${JSON.stringify(body.content, null, 2)}\n`;
     await fs.writeFile(filePath, serialized, "utf8");
     return NextResponse.json({ ok: true });
-  } catch {
-    return NextResponse.json({ message: "Failed to save JSON file." }, { status: 500 });
+  } catch (error) {
+    const err = error as NodeJS.ErrnoException;
+
+    if (err?.code === "EROFS") {
+      return NextResponse.json(
+        {
+          message:
+            "This deployment is read-only. Vercel production cannot write to lib/data JSON files. Use a database or Git-based content workflow for production edits.",
+        },
+        { status: 501 }
+      );
+    }
+
+    return NextResponse.json(
+      { message: err?.message || "Failed to save JSON file." },
+      { status: 500 }
+    );
   }
 }
