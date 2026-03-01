@@ -1,0 +1,176 @@
+{
+  "hero": {
+    "desktopTitleLine1": "Serving humanity with compassion,",
+    "desktopTitleLine2": "dignity and responsibility",
+    "desktopDescription": "Inspired by Padma Shri Dr. Sindhutai Sapkal, our organisation works tirelessly to nurture orphans, protect animals and uplift the underprivileged.",
+    "mobileTitle": "Serving humanity with compassion, dignity and responsibility",
+    "mobileDescription": "Inspired by Padma Shri Dr. Sindhutai Sapkal, our organisation nurtures orphans, protects animals and uplifts the underprivileged."
+  },
+  "headings": {
+    "founders": "FOUNDERS",
+    "journey": "JOURNEY",
+    "organisations": "ORGANISATIONS",
+    "maaiParivar": "MAAI PARIVAR",
+    "mission": "OUR MISSION",
+    "values": "OUR VALUES"
+  },
+  "founders": {
+    "main": {
+      "name": "Padma Shri Dr. Sou. Sindhutai Sapakal (Maai)",
+      "image": "/assets/images/1.png",
+      "alt": "Sindhutai Sapkal"
+    },
+    "members": [
+      { "name": "Founder Name 1", "img": "/assets/images/maii1.jpg" },
+      { "name": "Founder Name 2", "img": "/assets/images/maii2.jpg" },
+      { "name": "Founder Name 3", "img": "/assets/images/maii3.jpg" },
+      { "name": "Founder Name 4", "img": "/assets/images/maii4.jpg" },
+      { "name": "Founder Name 5", "img": "/assets/images/maii5.jpg" },
+      { "name": "Founder Name 6", "img": "/assets/images/maii6.jpg" },
+      { "name": "Founder Name 7", "img": "/assets/images/maii7.jpg" }
+    ]
+  },
+  "journey": [
+    {
+      "year": "1919",
+      "title": "Innovating from the start",
+      "description": "The foundation of the organisation was laid with a vision to serve humanity with compassion, dignity and responsibility.",
+      "image": "/assets/images/maii1.jpg"
+    },
+    {
+      "year": "1921",
+      "title": "Graduating our first class",
+      "description": "The organisation expanded its outreach and began structured care and education programs for children in need.",
+      "image": "/assets/images/maii2.jpg"
+    },
+    {
+      "year": "1950",
+      "title": "Expansion of care homes",
+      "description": "Multiple institutions were established to provide shelter, education and healthcare to orphans and the underprivileged.",
+      "image": "/assets/images/maii3.jpg"
+    },
+    {
+      "year": "2021",
+      "title": "Padma Shri Recognition",
+      "description": "Recognition at the national level for decades of selfless service and dedication towards society.",
+      "image": "/assets/images/maii4.jpg"
+    },
+    {
+      "year": "2022",
+      "title": "New Item",
+      "description": "Recognition at the national level for decades of selfless service and dedication towards society.",
+      "image": "/assets/images/maii5.jpg"
+    }
+  ],
+  "organisations": [
+    {
+      "title": "Sanmati",
+      "image": "/assets/images/sanmati.png",
+      "alt": "Sanmati",
+      "descriptionDesktop": [
+        "A soul out of life's hardship was born as Mother to over a thousand children and devoted her entire life to social service. After 70 years of lifespan (Born: 1948 - Died: 2022), she raised a grand family of 220 sons-in-laws, 50 daughters-in-laws.",
+        "She adopted more than 1200 orphaned children and provided them food, shelter, and education. She was honored with Padma Shri in 2021."
+      ],
+      "descriptionMobile": [
+        "A soul out of life's hardship was born as Mother to over a thousand children and devoted her entire life to social service.",
+        "She adopted more than 1200 orphaned children and provided them food, shelter, and education."
+      ],
+      "readMoreRoute": "/maii"
+    },
+    {
+      "title": "Gopika",
+      "image": "/assets/images/gopika.png",
+      "alt": "Gopika",
+      "descriptionDesktop": [
+        "Sindhutai gave away her own daughter Mamata to the Shrimant Dagdu Sheth Halwai trust of Pune, to eliminate the feeling of partiality between her own child and the adopted children.",
+        "Years later and after completing her education, Mamata-tai started assisting Maai. After Sindhutai's demise in Jan 2022, Mamata Sindhutai Sapakal undertook the responsibility of children."
+      ],
+      "descriptionMobile": [
+        "Sindhutai gave away her own daughter Mamata to the Shrimant Dagdu Sheth Halwai trust of Pune, to eliminate the feeling of partiality between her own child and the adopted children.",
+        "After completing her education, Mamata-tai started assisting Maai. After Sindhutai's demise in Jan 2022, she undertook the responsibility of continuing her mission."
+      ],
+      "readMoreRoute": "/mamtatai"
+    },
+    {
+      "title": "Tirthrup",
+      "image": "/assets/images/tirthrup.png",
+      "alt": "Tirthrup",
+      "descriptionDesktop": [
+        "A soul out of life's hardship was born as Mother to over a thousand children and devoted her entire life to social service. After 70 years of lifespan (Born: 1948 - Died: 2022), she raised a grand family of 220 sons-in-laws, 50 daughters-in-laws.",
+        "She adopted more than 1200 orphaned children and provided them food, shelter, and education. She was honored with Padma Shri in 2021."
+      ],
+      "descriptionMobile": [
+        "Sindhutai gave away her own daughter Mamata to the Shrimant Dagdu Sheth Halwai trust of Pune, to eliminate the feeling of partiality between her own child and the adopted children.",
+        "After completing her education, Mamata-tai started assisting Maai. After Sindhutai's demise in Jan 2022, she undertook the responsibility of continuing her mission."
+      ],
+      "readMoreRoute": "/mamtatai"
+    }
+  ],
+  "aboutHeader": {
+    "missionText": "We are committed to work tirelessly and selflessly for the holistic welfare and upliftment of the orphans, the poor, the needy, the neglected and the underprivileged elements of society, irrespective of caste, religion, creed, or gender, through empowerment and rehabilitation.",
+    "valuesText": "We see every sheltered child as a future responsible citizen and strive to provide every opportunity for self-reliance. As representatives of Mai and her institutions, we commit to reaching and helping every weak, neglected, and needy individual.",
+    "mobileMissionText": "We are committed to work tirelessly and selflessly for the holistic welfare and upliftment of orphans, the poor and the underprivileged, empowering them to become contributing members of society.",
+    "mobileValuesText": "We see every sheltered child as a future responsible citizen and strive to provide opportunities for self-reliance while carrying Mai's spirit of compassion and service forward."
+  },
+  "coreValues": [
+    {
+      "title": "Love",
+      "desktopText": "Love is the global bond that brings human beings together and creates a society that aspires to touch the skies with its feet firmly grounded. That love is the very foundation of Mai's life-work.",
+      "mobileText": "The foundation of Mai's life-work and the bond that unites humanity."
+    },
+    {
+      "title": "Acceptance",
+      "desktopText": "As we walk the path of service, this teaching of Mai's perpetually enlightens our way: there is no bigger agony than that of being rejected, so fully accept the pain that comes your way first, and then strive towards overcoming it.",
+      "mobileText": "Embracing pain and rejection while striving to overcome it."
+    },
+    {
+      "title": "Awareness",
+      "desktopText": "Teach us to laugh, dear God, but never let us forget the tears that we shed in the past. Walking with the present, with a firm awareness of our past, prepares us for the future.",
+      "mobileText": "Remembering our past while walking confidently toward the future."
+    },
+    {
+      "title": "Trust",
+      "desktopText": "Mai's struggle and her work inspires us to trust ourselves always, to win the trust of others and to never lose it.",
+      "mobileText": "Trusting ourselves and never losing the trust of others."
+    },
+    {
+      "title": "Simplicity",
+      "desktopText": "Simplicity is synonymous with Mai's life and work, and it is our duty to maintain its sanctity at all costs.",
+      "mobileText": "Maintaining the purity and simplicity reflected in Mai's life."
+    },
+    {
+      "title": "Forgiveness",
+      "desktopText": "Forgiveness will always guide you on your way forward. This belief of Mai's always guides us in the right direction.",
+      "mobileText": "Forgiveness guiding us forward in the right direction."
+    },
+    {
+      "title": "Gratitude",
+      "desktopText": "We are, and will forever be grateful to the countless helping hands that we have been blessed with.",
+      "mobileText": "Forever thankful for the helping hands that support us."
+    }
+  ],
+  "maaiParivar": [
+    {
+      "parent": "Vanvasi Gopalkrushna Bahuddeshiy Mandal, Amravati",
+      "children": [
+        {
+          "name": "Mamata Bal Sadan, Saswad, Pune",
+          "img": "/assets/images/maii1.jpg"
+        },
+        {
+          "name": "Savitribai Phule Muliche Vasatigruh, Chikhaldara",
+          "img": "/assets/images/maii2.jpg"
+        }
+      ]
+    },
+    {
+      "parent": "The Mother Global Foundation, Pune",
+      "children": [
+        {
+          "name": "Shree Manashanti Chhatralaya, Shirur",
+          "img": "/assets/images/maii3.jpg"
+        }
+      ]
+    }
+  ]
+}

@@ -3,69 +3,70 @@
 import Achievements from "@/components/shared/Achievements";
 import DonateCTA from "@/components/shared/DonateCTA";
 import PageLoader from "@/components/shared/PageLoader";
+import maiiData from "@/lib/data/maii.json";
 import { useEffect, useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
+
+type Album = {
+  id: string;
+  title: string;
+  cover: string;
+  images: string[];
+};
+
+type MaiiData = {
+  preloadImages: string[];
+  headings: {
+    journey: string;
+    legacy: string;
+    legacyMobile: string;
+    memories: string;
+    album: string;
+    videos: string;
+  };
+  journey: {
+    heroImage: string;
+    heroAlt: string;
+    name: string;
+    dates: string;
+    placeOfBirth: string;
+    education: string;
+    marriage: string;
+    storyDesktop: string;
+    storyMobile: string;
+  };
+  legacy: {
+    heroImage: string;
+    heroAlt: string;
+    title: string;
+    subtitle: string;
+    desktopText: string;
+    mobileText: string;
+  };
+  memories: string[];
+  albums: Album[];
+  videos: {
+    playlistUrl: string;
+  };
+};
+
+const typedMaiiData = maiiData as MaiiData;
 
 const Maai: React.FC = () => {
-
   const [isPageReady, setIsPageReady] = useState(false);
-  const router = useRouter()
-  const [activeAlbum, setActiveAlbum] = useState<typeof albums[0] | null>(null);
+  const [activeAlbum, setActiveAlbum] = useState<Album | null>(null);
 
-
-  const albums = [
-    {
-      id: "dignitaries",
-      title: "Tai with Dignitaries",
-      cover: "/assets/images/mamtatai5.png",
-      images: [
-        "/assets/images/mamtatai5.png",
-        "/assets/images/mamtatai6.png",
-      ],
-    },
-    {
-      id: "festivals",
-      title: "Tai at Festivals",
-      cover: "/assets/images/mamtatai8.png",
-      images: [
-        "/assets/images/mamtatai7.png",
-        "/assets/images/mamtatai8.png",
-      ],
-    },
-    {
-      id: "children",
-      title: "Tai with Children",
-      cover: "/assets/images/mamtatai6.png",
-      images: [
-        "/assets/images/mamtatai1.png",
-        "/assets/images/mamtatai2.png",
-        "/assets/images/mamtatai3.png",
-      ],
-    },
-    {
-      id: "journey",
-      title: "Life & Journey",
-      cover: "/assets/images/mamtatai5.png",
-      images: [
-        "/assets/images/mamtatai4.png",
-        "/assets/images/mamtatai5.png",
-      ],
-    },
-  ];
-
-  const [openAlbum, setOpenAlbum] = useState<string | null>(null);
-  const imageSources = useMemo(
-    () => [
-      "/assets/images/bg-maii.png",
-      "/assets/images/sanmati.png",
-      "/assets/images/tirthrup.png",
-      "/assets/images/gopika.png",
-      "/assets/images/mamta.png",
-      "/assets/images/savitribai.jpg",
-      "/assets/images/shree.png",
-    ],
-    []
-  );
+  const imageSources = useMemo(() => {
+    const albumImages = typedMaiiData.albums.flatMap((album) => [album.cover, ...album.images]);
+    return Array.from(
+      new Set([
+        ...typedMaiiData.preloadImages,
+        typedMaiiData.journey.heroImage,
+        typedMaiiData.legacy.heroImage,
+        ...typedMaiiData.memories,
+        ...albumImages,
+      ])
+    );
+  }, []);
 
   useEffect(() => {
     let isCancelled = false;
@@ -112,27 +113,23 @@ const Maai: React.FC = () => {
   return (
     <>
       <main className="w-full mt-20 max-sm:hidden">
-
-        {/* ================= JOURNEY OF LIFE ================= */}
         <section className="pt-28 bg-white grid grid-cols-8">
           <div className="col-span-1 flex items-center justify-end px-4 mb-4">
             <span className="w-20 h-[2px] bg-black" />
           </div>
 
-          <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
-            JOURNEY OF LIFE
+          <p className="col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
+            {typedMaiiData.headings.journey}
           </p>
           <div className="col-span-1" />
 
-
           <div className="col-span-6">
-            <div className="flex items-center gap-4 mb-8">
-            </div>
+            <div className="flex items-center gap-4 mb-8"></div>
 
             <div className="relative z-10">
               <img
-                src="/assets/images/bg-maii.png"
-                alt="Maai"
+                src={typedMaiiData.journey.heroImage}
+                alt={typedMaiiData.journey.heroAlt}
                 className="w-full max-h-150 object-cover grayscale rounded-3xl -mb-32 object-[center_40%]"
               />
             </div>
@@ -141,245 +138,105 @@ const Maai: React.FC = () => {
           <div className="col-span-1" />
         </section>
 
-        {/* ================= MAAI CONTENT ================= */}
         <section className="bg-sky-50 pt-40 pb-20 grid grid-cols-8">
           <div className="col-span-1" />
 
           <div className="col-span-6">
-            <h2 className="text-4xl font-bold mb-1">MAAI</h2>
-            <p className="text-xs font-bold text-black mb-6">
-              14th Nov 1948 – 4th Jan 2022
-            </p>
+            <h2 className="text-4xl font-bold mb-1">{typedMaiiData.journey.name}</h2>
+            <p className="text-xs font-bold text-black mb-6">{typedMaiiData.journey.dates}</p>
 
-            <div className=" text-black leading-relaxed space-y-4">
+            <div className="text-black leading-relaxed space-y-4">
               <p>
-                <strong>Place of Birth:</strong> Pimpri Meghe village in Wardha
-                district Maharashtra.
+                <strong>Place of Birth:</strong> {typedMaiiData.journey.placeOfBirth}
               </p>
 
               <p>
-                <strong>Education:</strong> 4th Std.
+                <strong>Education:</strong> {typedMaiiData.journey.education}
               </p>
 
               <p>
-                <strong>Marriage:</strong> At the tender age of 12, she got married
-                to Shrihari Sapkal, a cowherd from Navargaon village in Wardha
-                District.
+                <strong>Marriage:</strong> {typedMaiiData.journey.marriage}
               </p>
 
-              <p className=" text-justify">
-                Her marriage did not last long. She fought against the exploitation of local women who collected dried cow dung. due to which her husband abandoned her at the age of 20 yrs. At that time She was pregnant. Sindhu Tai was thrown out of her husband’s house. In that period she gave birth to a baby girl. She cut her umbilical cord with the stone which was lying there. To survive she started begging and singing on the streets and rains in Amravati. With concern for her safety, she took shelter in a cremator. Once she saw a dead body burning. The last rites were over and the relatives of the departed had left. They had left some flour as a part of the last rituals for the departed soul. She took that flour, prepared a bhakari (roti), and baked it on the fire, which was still consuming the dead body. In her journey she saw hungry children begging around her. She took them under her wings. She gave them food and shelter in whatever way she could. This became mission of her life. Lovingly orphans children were call her Aai.In order to eliminate the feeling of partiality between her biological daughter and her adopted children, she intrusted her daughter to Shrimant Dagdushet Halwai Trust, Pune. She devoted her entire life to orphans. She was called “MAAI” She has been a “MOTHER” to many. She was an icon of love & Compassion. She sheltered thousands of orphans and gave them dignity in life. Her orphanage is an orphanage with a difference. Generally orphanages just keep their children up to the age of 18 MAAI keeps her children till they get their jobs or get married and settle in life. She taught the values of living and that’s why her children are living beautiful lives today
-              </p>
-
+              <p className="text-justify">{typedMaiiData.journey.storyDesktop}</p>
             </div>
           </div>
 
           <div className="col-span-1" />
         </section>
 
-        {/* ================= ORGANISATION ================= */}
-        {/* <section className="bg-white py-20 grid grid-cols-8">
-        <div className="col-span-1 flex items-center justify-end px-4 mb-4">
-          <span className="w-20 h-[2px] bg-black" />
-        </div>
-        <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
-          ORGANISATION
-        </p>
-        <div className="col-span-1 " />
-
-        <div className="col-span-6">
-          <div className="flex items-center gap-4 mb-12">
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-10 mx-16">
-            {[
-              {
-                title: "Sanmati Bal Niketan",
-                desc: "Dedicated to providing essential support to underprivileged children.",
-                img: "/assets/images/sanmati.png",
-                route: "/sanmati"
-              },
-              {
-                title: "Tirthrup Shaikshanik Vasatigruh",
-                desc: "A transitional child shelter for one and all and not the orphans.",
-                img: "/assets/images/tirthrup.png",
-                route: "/tirthrup"
-
-              },
-              {
-                title: "Gopika Gai Rakshan Kendra",
-                desc: "Maai’s care for orphans was extended to animals, especially cows.",
-                img: "/assets/images/gopika.png",
-                route: "/gopika"
-
-              },
-              {
-                title: "Mamta Bal Sadan, Saswad",
-                desc: "Orphanage for Girls",
-                img: "/assets/images/mamta.png",
-                route: "/mamta"
-
-              },
-              {
-                title: "Savitribai Phule Mulinche Vasatigruh",
-                desc: "Motivates and supports to needy and tribal girls to get educated.",
-                img: "/assets/images/savitribai.jpg",
-                route: "/savitribai"
-
-              },
-              {
-                title: "Shree Manshanti Chhatralay, Shirur",
-                desc: "Its home to destitute and needy childrenlly cows.",
-                img: "/assets/images/shree.png",
-                route: "/shree"
-
-              },
-            ].map((org, i) => (
-              <div
-                key={i}
-                className="relative h-[360px] rounded-3xl overflow-hidden group"
-              >
-                <img
-                  src={org.img}
-                  alt={org.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-
-                <div className="absolute inset-0 bg-black/45" />
-
-                <div className="relative z-10 h-full p-8 grid grid-rows-3 justify-between text-white">
-                  <div className=" row-span-2 h-full grid grid-rows-2">
-                    <h3 className=" row-span-1 text-2xl font-bold leading-snug mt-10">
-                      {org.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-white/90 leading-relaxed flex h-full items-center">
-                      {org.desc}
-                    </p>
-                  </div>
-
-                  <button onClick={() => router.push(`${org.route}`)} className=" mt-10 row-span-1 w-fit h-fit bg-white text-black text-sm font-semibold px-6 py-2 rounded-sm hover:bg-gray-100 transition">
-                    Learn more
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="col-span-1" />
-      </section> */}
-
         <Achievements />
-
 
         <section className="pt-28 bg-white grid grid-cols-8">
           <div className="col-span-1 flex items-center justify-end px-4 mb-4">
             <span className="w-20 h-[2px] bg-black" />
           </div>
 
-          <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
-            LEGACY AND THE RESPONSIBILITY
+          <p className="col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
+            {typedMaiiData.headings.legacy}
           </p>
           <div className="col-span-1" />
 
-
           <div className="col-span-6">
-            <div className="flex items-center gap-4 mb-8">
-            </div>
+            <div className="flex items-center gap-4 mb-8"></div>
 
-            {/* Image overlaps */}
             <div className="relative z-10">
               <img
-                src="/assets/images/bg-mamtatai.png"
-                alt="Maai"
+                src={typedMaiiData.legacy.heroImage}
+                alt={typedMaiiData.legacy.heroAlt}
                 className="w-full max-h-150 object-cover grayscale rounded-3xl -mb-32"
               />
 
-              <div className="absolute inset-0 flex items-center pl-12">
-                {/* <h1 className="text-white text-4xl font-bold max-w-md ">
-                Mamata Sindhutai Sapakal
-              </h1> */}
-              </div>
+              <div className="absolute inset-0 flex items-center pl-12"></div>
             </div>
           </div>
 
           <div className="col-span-1" />
         </section>
 
-
-        {/* ================= CONTENT ================= */}
         <section className="bg-sky-50 pt-40 pb-20 grid grid-cols-8">
           <div className="col-span-1" />
 
           <div className="col-span-6">
             <h2 className="text-4xl font-bold mb-2">
-              MAMATA SINDHUTAI SAPAKAL{" "}
-              <span className="text-lg font-normal">
-                THE MOTHER’S DAUGHTER
-              </span>
+              {typedMaiiData.legacy.title}{" "}
+              <span className="text-lg font-normal">{typedMaiiData.legacy.subtitle}</span>
             </h2>
 
-            <p className="text-sm text-gray-700 leading-relaxed text-justify">
-              After the sad demise of Sindhutai Sapakal in Jan 2022, Mamata Tai –
-              her biological child was entrusted the responsibility of being the
-              mother of Sindhutai’s 260 children. Going back to the early days,
-              Sindhutai had given away her daughter “Mamata” to the Shrimant Dagdu
-              Sheth Halwai trust of Pune, to eliminate the feeling of partiality
-              between her own child and the adopted children.
-              Years later and after completing education, Mamata-tai – as she is
-              lovingly called by the children, returned to help and assist
-              “Maai”. Mamata Tai and her team are determined to move ahead with
-              the spirit and devotion. Carrying on Sindhutai’s legacy of
-              dedication, devotion, affection, trust and love is not an easy
-              task.
-              During Maai’s lifetime, she has set up a banyan tree to help the
-              orphans, the poor and the needy, and Mamata-tai has taken this
-              responsibility to fulfil “Maai’s” vision and nourish this tree in
-              best of her capacity.
-            </p>
+            <p className="text-sm text-gray-700 leading-relaxed text-justify">{typedMaiiData.legacy.desktopText}</p>
           </div>
 
           <div className="col-span-1" />
         </section>
 
-        {/* ================= MEMORIES ================= */}
         <section className="pt-14 bg-white grid grid-cols-8">
           <div className="col-span-1 flex items-center justify-end px-4 mb-4">
             <span className="w-20 h-[2px] bg-black" />
           </div>
 
-          <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
-            MEMORIES
+          <p className="col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
+            {typedMaiiData.headings.memories}
           </p>
           <div className="col-span-1" />
           <div className="col-span-6 grid grid-cols-4 gap-8">
-            {["mamtatai4.png", "mamtatai3.png", "mamtatai1.png", "mamtatai2.png"].map((img, i) => (
-              <img
-                key={i}
-                src={`/assets/images/${img}`}
-                alt=""
-                className="rounded-2xl object-cover"
-              />
+            {typedMaiiData.memories.map((img, i) => (
+              <img key={i} src={img} alt="" className="rounded-2xl object-cover" />
             ))}
           </div>
           <div className="col-span-1" />
         </section>
 
         <section className="bg-sky-50 pt-14 mt-12 grid grid-cols-8">
-          {/* heading */}
           <div className="col-span-1 flex items-center justify-end px-4 mb-4">
             <span className="w-20 h-[2px] bg-black" />
           </div>
 
-          <p className="col-span-7 text-lg font-bold tracking-wide mb-6">
-            ALBUM
-          </p>
+          <p className="col-span-7 text-lg font-bold tracking-wide mb-6">{typedMaiiData.headings.album}</p>
 
           <div className="col-span-1" />
 
-          {/* ALBUM GRID */}
           <div className="col-span-6 grid md:grid-cols-2 gap-10">
-            {albums.map((album) => (
+            {typedMaiiData.albums.map((album) => (
               <div
                 key={album.id}
                 onClick={() => setActiveAlbum(album)}
@@ -391,11 +248,8 @@ const Maai: React.FC = () => {
                   className="w-full h-[320px] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
-                {/* overlay */}
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                  <h3 className="text-white text-2xl font-bold text-center px-4">
-                    {album.title}
-                  </h3>
+                  <h3 className="text-white text-2xl font-bold text-center px-4">{album.title}</h3>
                 </div>
               </div>
             ))}
@@ -404,56 +258,43 @@ const Maai: React.FC = () => {
           <div className="col-span-1" />
         </section>
 
-
         {activeAlbum && (
           <div className="fixed inset-0 z-[100] bg-black/90 flex flex-col">
-            {/* HEADER */}
             <div className="flex items-center justify-between px-6 py-4 text-white">
-              <h2 className="text-2xl font-bold">
-                {activeAlbum.title}
-              </h2>
+              <h2 className="text-2xl font-bold">{activeAlbum.title}</h2>
 
-              <button
-                onClick={() => setActiveAlbum(null)}
-                className="text-3xl font-bold hover:opacity-70"
-              >
-                ×
+              <button onClick={() => setActiveAlbum(null)} className="text-3xl font-bold hover:opacity-70">
+                X
               </button>
             </div>
 
-            {/* CONTENT */}
             <div className="flex-1 overflow-y-auto px-6 pb-10">
               <div className="grid md:grid-cols-3 gap-6">
                 {activeAlbum.images.map((img, i) => (
-                  <img
-                    key={i}
-                    src={img}
-                    alt=""
-                    className="rounded-2xl object-cover hover:scale-[1.02] transition"
-                  />
+                  <img key={i} src={img} alt="" className="rounded-2xl object-cover hover:scale-[1.02] transition" />
                 ))}
               </div>
             </div>
           </div>
         )}
-        <section className=" pt-14 mt-12  grid grid-cols-8">
+        <section className="pt-14 mt-12 grid grid-cols-8">
           <div className="col-span-1 flex items-center justify-end px-4 mb-4">
             <span className="w-20 h-[2px] bg-black" />
           </div>
 
-          <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
-            VIDEOS
+          <p className="col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
+            {typedMaiiData.headings.videos}
           </p>
           <div className="col-span-1" />
           <div className="col-span-6 ">
             <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
-              <iframe width="100%" height="100%"
-                src="https://www.youtube.com/embed/videoseries?list=PL8gCb0gPpoBxaQW5Qr-g14eA3-Y0RPc2N"
-                // frameborder="0"
+              <iframe
+                width="100%"
+                height="100%"
+                src={typedMaiiData.videos.playlistUrl}
                 referrerPolicy="strict-origin-when-cross-origin"
                 allow="autoplay; encrypted-media"
-              >
-              </iframe>
+              ></iframe>
             </div>
           </div>
           <div className="col-span-1" />
@@ -462,194 +303,133 @@ const Maai: React.FC = () => {
         <DonateCTA />
       </main>
 
-
-
-      {/* ================= MOBILE MAAI PAGE ================= */}
       <main className="w-full  md:hidden">
-
-        {/* JOURNEY OF LIFE */}
         <section className="pt-10 pb-6 bg-white p-4">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-10 h-[2px] bg-black" />
-            <h2 className="text-lg font-bold tracking-wide">
-              JOURNEY OF LIFE
-            </h2>
+            <h2 className="text-lg font-bold tracking-wide">{typedMaiiData.headings.journey}</h2>
           </div>
 
           <img
-            src="/assets/images/bg-maii.png"
-            alt="Maai"
+            src={typedMaiiData.journey.heroImage}
+            alt={typedMaiiData.journey.heroAlt}
             className="w-full h-64 object-cover grayscale rounded-2xl"
           />
         </section>
 
-
-        {/* MAAI CONTENT */}
         <section className="bg-sky-50 py-10 p-4">
-          <h2 className="text-2xl font-bold mb-1">MAAI</h2>
-          <p className="text-xs font-bold mb-6">
-            14th Nov 1948 – 4th Jan 2022
-          </p>
+          <h2 className="text-2xl font-bold mb-1">{typedMaiiData.journey.name}</h2>
+          <p className="text-xs font-bold mb-6">{typedMaiiData.journey.dates}</p>
 
           <div className="text-sm leading-relaxed space-y-4 text-justify">
-            <p><strong>Place of Birth:</strong> Pimpri Meghe, Wardha.</p>
-            <p><strong>Education:</strong> 4th Std.</p>
-            <p><strong>Marriage:</strong> Married at 12.</p>
-
             <p>
-              Her life was a story of strength, resilience, and unconditional love.
-              Abandoned while pregnant, she survived by begging and singing on streets.
-              She began caring for orphaned children and made it her life’s mission
-              to provide them dignity, shelter, and education.
+              <strong>Place of Birth:</strong> {typedMaiiData.journey.placeOfBirth}
             </p>
+            <p>
+              <strong>Education:</strong> {typedMaiiData.journey.education}
+            </p>
+            <p>
+              <strong>Marriage:</strong> {typedMaiiData.journey.marriage}
+            </p>
+
+            <p>{typedMaiiData.journey.storyMobile}</p>
           </div>
         </section>
 
-
         <Achievements />
 
-
-        {/* LEGACY SECTION */}
         <section className="pt-10 bg-white p-4">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-10 h-[2px] bg-black" />
-            <h2 className="text-lg font-bold tracking-wide">
-              LEGACY AND RESPONSIBILITY
-            </h2>
+            <h2 className="text-lg font-bold tracking-wide">{typedMaiiData.headings.legacyMobile}</h2>
           </div>
 
           <img
-            src="/assets/images/bg-mamtatai.png"
-            alt="Mamata Tai"
+            src={typedMaiiData.legacy.heroImage}
+            alt={typedMaiiData.legacy.heroAlt}
             className="w-full h-64 object-cover grayscale rounded-2xl mb-6"
           />
         </section>
 
-
-        {/* MAMATA CONTENT */}
         <section className="bg-sky-50 py-10 p-4">
-          <h2 className="text-xl font-bold mb-2">
-            MAMATA SINDHUTAI SAPAKAL
-          </h2>
+          <h2 className="text-xl font-bold mb-2">{typedMaiiData.legacy.title}</h2>
 
-          <p className="text-sm text-gray-700 leading-relaxed text-justify">
-            After Maai’s demise in 2022, Mamata Tai took responsibility for
-            continuing her mother’s mission. She carries forward the legacy of
-            compassion, dedication, and service to hundreds of children.
-          </p>
+          <p className="text-sm text-gray-700 leading-relaxed text-justify">{typedMaiiData.legacy.mobileText}</p>
         </section>
 
-
-        {/* MEMORIES */}
         <section className="pt-10 bg-white p-4">
           <div className="flex items-center gap-3 mb-6">
             <span className="w-10 h-[2px] bg-black" />
-            <h2 className="text-lg font-bold tracking-wide">
-              MEMORIES
-            </h2>
+            <h2 className="text-lg font-bold tracking-wide">{typedMaiiData.headings.memories}</h2>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            {["mamtatai4.png", "mamtatai3.png", "mamtatai1.png", "mamtatai2.png"].map((img, i) => (
-              <img
-                key={i}
-                src={`/assets/images/${img}`}
-                alt=""
-                className="rounded-xl object-cover h-40 w-full"
-              />
+            {typedMaiiData.memories.map((img, i) => (
+              <img key={i} src={img} alt="" className="rounded-xl object-cover h-40 w-full" />
             ))}
           </div>
         </section>
 
-
-        {/* ALBUM */}
         <section className="bg-sky-50 py-10 p-4">
           <div className="flex items-center gap-3 mb-6">
             <span className="w-10 h-[2px] bg-black" />
-            <h2 className="text-lg font-bold tracking-wide">
-              ALBUM
-            </h2>
+            <h2 className="text-lg font-bold tracking-wide">{typedMaiiData.headings.album}</h2>
           </div>
 
           <div className="space-y-6">
-            {albums.map((album) => (
+            {typedMaiiData.albums.map((album) => (
               <div
                 key={album.id}
                 onClick={() => setActiveAlbum(album)}
                 className="relative rounded-2xl overflow-hidden cursor-pointer"
               >
-                <img
-                  src={album.cover}
-                  alt={album.title}
-                  className="w-full h-56 object-cover"
-                />
+                <img src={album.cover} alt={album.title} className="w-full h-56 object-cover" />
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                  <h3 className="text-white text-lg font-bold text-center px-4">
-                    {album.title}
-                  </h3>
+                  <h3 className="text-white text-lg font-bold text-center px-4">{album.title}</h3>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-
-        {/* ALBUM MODAL MOBILE */}
         {activeAlbum && (
           <div className="fixed inset-0 z-[100] bg-black/95 flex flex-col md:hidden">
             <div className="flex items-center justify-between px-4 py-4 text-white">
-              <h2 className="text-lg font-bold">
-                {activeAlbum.title}
-              </h2>
+              <h2 className="text-lg font-bold">{activeAlbum.title}</h2>
 
-              <button
-                onClick={() => setActiveAlbum(null)}
-                className="text-3xl font-bold"
-              >
-                ×
+              <button onClick={() => setActiveAlbum(null)} className="text-3xl font-bold">
+                X
               </button>
             </div>
 
             <div className="flex-1 overflow-y-auto px-4 pb-10">
               <div className="space-y-4">
                 {activeAlbum.images.map((img, i) => (
-                  <img
-                    key={i}
-                    src={img}
-                    alt=""
-                    className="rounded-xl object-cover w-full"
-                  />
+                  <img key={i} src={img} alt="" className="rounded-xl object-cover w-full" />
                 ))}
               </div>
             </div>
           </div>
         )}
 
-
-        {/* VIDEOS */}
         <section className="pt-10 bg-white p-4">
           <div className="flex items-center gap-3 mb-6">
             <span className="w-10 h-[2px] bg-black" />
-            <h2 className="text-lg font-bold tracking-wide">
-              VIDEOS
-            </h2>
+            <h2 className="text-lg font-bold tracking-wide">{typedMaiiData.headings.videos}</h2>
           </div>
 
           <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/videoseries?list=PL8gCb0gPpoBxaQW5Qr-g14eA3-Y0RPc2N"
+              src={typedMaiiData.videos.playlistUrl}
               allow="autoplay; encrypted-media"
             />
           </div>
         </section>
 
         <DonateCTA />
-
       </main>
-
-
     </>
   );
 };

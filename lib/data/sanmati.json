@@ -1,0 +1,149 @@
+{
+  "title": "SANMATI BAL NIKETAN",
+  "subtitle": "Orphanage for Boys",
+  "yearInfoDesktop": "Year of Establishment 2001 In charge of the Organization : Mamata Sindhutai Sapakal, biological daughter of Maai.",
+  "yearInfoMobile": "Year of Establishment 2001 In charge: Mamata Sindhutai Sapakal",
+  "heroImages": {
+    "primary": {
+      "src": "/assets/images/sanmati-heros-1.png",
+      "alt": "Sanmati Bal Niketan"
+    },
+    "secondary": {
+      "src": "/assets/images/sanmati-heros-2.png",
+      "alt": "Sanmati Building"
+    }
+  },
+  "desktopParagraphs": [
+    "Sanmati Bal Niketan, located in Manjari, dist. Pune, is an organization dedicated to providing essential support and care to underprivileged children. The organization's primary focus is to fulfill the basic needs of children, including food, shelter, clothing, education, rehabilitation and giving them a secure atmosphere for self-development.",
+    "One of the key initiatives of Sanmati Bal Niketan is to ensure that school-going children receive an education. They facilitate the admission of these children into schools and colleges. Additionally, the organization maintains a strong supervisory role over the children to ensure their well-being and development.",
+    "The organization, apart from addressing the basic needs of the children, also strives to nurture their moral and social health. Various activities are organized to promote their holistic development. This includes cultural programs that coincide with festivals such as Diwali, Ganesh Festival, Shiv Jayanti, and Dahi-handi, which not only contribute to the children's social development but also help them participate in and enjoy cultural celebrations.",
+    "Sanmati Bal Niketan plays a significant role in building the confidence and competence of these children. By providing them with the necessary care, education, and support, the organization aims to integrate them into mainstream society. Their work revolves around lifting the weakest sections of society and giving them the opportunities they deserve.",
+    "The admission process for residential children at Sanmati Bal Niketan is conducted strictly through the Child Welfare Committee (CWC) of the Family and Child Welfare Department of Maharashtra State. This ensures that children in need are admitted based on a fair and regulated process. The organization accepts children aged 6 years and above, and there are no formal admission fees or restrictions based on religion, caste, or creed.",
+    "Overall, Sanmati Bal Niketan is making a significant impact by providing a safe and nurturing environment for underprivileged children, giving them the chance to grow, learn, and thrive despite their challenging circumstances."
+  ],
+  "mobileParagraphs": [
+    "Sanmati Bal Niketan in Manjari, Pune supports underprivileged children by providing food, shelter, clothing, education and rehabilitation in a secure environment.",
+    "The organization ensures education for school-going children and maintains supervision for their overall well-being.",
+    "Cultural programs during festivals like Diwali and Ganesh Festival promote holistic development and social integration.",
+    "Admissions are regulated through the Child Welfare Committee. Children aged 6+ are accepted without discrimination."
+  ],
+  "tabs": [
+    {
+      "key": "facilities",
+      "label": "Facilities"
+    },
+    {
+      "key": "activity",
+      "label": "Activity"
+    },
+    {
+      "key": "program",
+      "label": "Program"
+    },
+    {
+      "key": "festival",
+      "label": "Festival"
+    },
+    {
+      "key": "trip",
+      "label": "Trip"
+    },
+    {
+      "key": "successStories",
+      "label": "Success Stories"
+    }
+  ],
+  "gallery": {
+    "facilities": [
+      "/assets/gallery/sanmati/f1.png",
+      "/assets/gallery/sanmati/f2.png",
+      "/assets/gallery/sanmati/f3.png",
+      "/assets/gallery/sanmati/f4.png",
+      "/assets/gallery/sanmati/f5.png",
+      "/assets/gallery/sanmati/f6.png",
+      "/assets/gallery/sanmati/f7.png",
+      "/assets/gallery/sanmati/f8.png",
+      "/assets/gallery/sanmati/f9.png",
+      "/assets/gallery/sanmati/f10.png",
+      "/assets/gallery/sanmati/f11.png",
+      "/assets/gallery/sanmati/f12.png",
+      "/assets/gallery/sanmati/f13.png",
+      "/assets/gallery/sanmati/f14.png",
+      "/assets/gallery/sanmati/f15.png",
+      "/assets/gallery/sanmati/f16.png"
+    ],
+    "activity": [
+      "/assets/gallery/sanmati/a1.png",
+      "/assets/gallery/sanmati/a2.png",
+      "/assets/gallery/sanmati/a3.png",
+      "/assets/gallery/sanmati/a4.png",
+      "/assets/gallery/sanmati/a5.png",
+      "/assets/gallery/sanmati/a6.png",
+      "/assets/gallery/sanmati/a7.png",
+      "/assets/gallery/sanmati/a8.png",
+      "/assets/gallery/sanmati/a9.png",
+      "/assets/gallery/sanmati/a10.png",
+      "/assets/gallery/sanmati/a11.png",
+      "/assets/gallery/sanmati/a12.png",
+      "/assets/gallery/sanmati/a13.png",
+      "/assets/gallery/sanmati/a14.png",
+      "/assets/gallery/sanmati/a15.png",
+      "/assets/gallery/sanmati/a16.png"
+    ],
+    "program": [
+      "/assets/gallery/sanmati/p1.png",
+      "/assets/gallery/sanmati/p2.png",
+      "/assets/gallery/sanmati/p3.png",
+      "/assets/gallery/sanmati/p4.png",
+      "/assets/gallery/sanmati/p5.png",
+      "/assets/gallery/sanmati/p6.png",
+      "/assets/gallery/sanmati/p7.png",
+      "/assets/gallery/sanmati/p8.png"
+    ],
+    "festival": [
+      "/assets/gallery/sanmati/fe1.png",
+      "/assets/gallery/sanmati/fe2.png",
+      "/assets/gallery/sanmati/fe3.png",
+      "/assets/gallery/sanmati/fe4.png",
+      "/assets/gallery/sanmati/fe5.png",
+      "/assets/gallery/sanmati/fe6.png",
+      "/assets/gallery/sanmati/fe7.png"
+    ],
+    "trip": [
+      "/assets/gallery/sanmati/t1.png",
+      "/assets/gallery/sanmati/t2.png",
+      "/assets/gallery/sanmati/t3.png",
+      "/assets/gallery/sanmati/t4.png",
+      "/assets/gallery/sanmati/t5.png",
+      "/assets/gallery/sanmati/t6.png",
+      "/assets/gallery/sanmati/t7.png",
+      "/assets/gallery/sanmati/t8.png"
+    ]
+  },
+  "successStories": [
+    {
+      "image": "/assets/gallery/sanmati/s1.png",
+      "name": "Madhav Narayan Mohite",
+      "subtitle": "Pursuing Diploma in Electrical Engineering",
+      "extra": "Second Year, JSPM College"
+    },
+    {
+      "image": "/assets/gallery/sanmati/s2.png",
+      "name": "Noor Aslam Shaikh",
+      "subtitle": "Pursuing Diploma in Computer",
+      "extra": "Second Year, JSPM College"
+    },
+    {
+      "image": "/assets/gallery/sanmati/s3.png",
+      "name": "Rupesh Namdev Shinde",
+      "subtitle": "Pursuing Diploma in Mechanical Engineering",
+      "extra": "Third Year, Wadia College"
+    },
+    {
+      "image": "/assets/gallery/sanmati/s4.png",
+      "name": "Shubham Kundan Gaikwad",
+      "subtitle": "Pursuing Hotel Management",
+      "extra": "Second Year, Bharati Vidyapith"
+    }
+  ]
+}

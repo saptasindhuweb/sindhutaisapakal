@@ -1,0 +1,32 @@
+{
+  "hero": {
+    "title": "GOPIKA GAI RAKSHAN KENDRA",
+    "subtitle": "To care for the unproductive, abandoned cows",
+    "yearLabel": "Year of Establishment : 2007",
+    "primaryImage": "/assets/images/gopika-heros-1.png",
+    "primaryAlt": "Gopika Gai Rakshan",
+    "secondaryImage": "/assets/images/gopika-heros-2.png",
+    "secondaryAlt": "Cows shelter"
+  },
+  "desktopParagraphs": [
+    "The dedication and compassion shown by Maai towards both cows and people in need is truly remarkable. It is clear that her legacy lives on through the work being carried out by the institution she founded. The story of Maai's connection with the cows and her journey of overcoming adversity to become a mother to orphans is truly touching.",
+    "Caring for animals, especially cows, and providing them with shelter, medical attention, and respect is a noble cause. It is heartening to see the efforts being made to improve the lives of old, sick, stray, and abandoned cows.",
+    "For anyone who shares a love for animals and believes in the importance of compassionate care, supporting institutions like Gopika Gai Rakshan Kendra is a wonderful way to contribute. Providing financial assistance can indeed make a significant difference in ensuring that the mission Maai started continues to thrive.",
+    "Thank you for sharing this message and making people aware of the important work being done by the Gopika Gai Rakshan Kendra. Your efforts to reach out for support and spread awareness about this cause are greatly appreciated. The power of compassion and the impact that one person's actions can have on the lives of animals and the community."
+  ],
+  "mobileParagraphs": [
+    "Maai's compassion extended beyond people to cows in need. Her legacy continues through the institution she founded.",
+    "Caring for old, sick, stray and abandoned cows by providing shelter, medical care and dignity is a noble cause.",
+    "Supporting Gopika Gai Rakshan Kendra ensures that Maai's mission continues to thrive and make a difference.",
+    "Thank you for helping spread awareness and supporting this compassionate initiative."
+  ],
+  "galleryCtaDesktop": "Feel free to visit the institution or call us any time should you need more information.",
+  "galleryCtaMobile": "Feel free to visit the institution or call us anytime for more information.",
+  "galleryImages": [
+    "/assets/images/gopika1.png",
+    "/assets/images/gopika2.png",
+    "/assets/images/gopika3.png",
+    "/assets/images/gopika4.png",
+    "/assets/images/gopika5.png"
+  ]
+}

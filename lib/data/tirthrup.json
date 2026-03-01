@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "title": "TIRTHRUP SHAIKSHANIK VASATIGRUH",
+    "subtitle": "Cultivating Hope for Tomorrow, Nurturing underprivileged Children with the Care They Deserve.",
+    "primaryImage": "/assets/images/tirthrup-heros-1.png",
+    "primaryAlt": "Children",
+    "secondaryImage": "/assets/images/tirthrup-heros-2.png",
+    "secondaryAlt": "Group"
+  },
+  "desktopParagraphs": [
+    "We are a transitional child shelter facility run by the Saptasindhu Mahila Adhar, Balsangopan And Shikshan Sanstha Manjari, Pune-412307, founded by Padmashri Dr. Sou. Sindhutai Sapakal, fondly called Maai by all the children whose lives she touched through her love and compassion.",
+    "Under this parent institution, the Tirtharup Shaikshanik Vasatigruh was founded and inaugurated in 2017. Formal registration with all concerned authorities was completed in 2023, and we are now working to the best of our ability to fulfill our purpose."
+  ],
+  "desktopNutshellHeading": "Here is what the institution does, in a nutshell:",
+  "desktopNutshellText": "A transitional child shelter refers to a designated facility that provides care, support, and refuge for children who are not technically orphans but share a similar plight due to diverse challenging circumstances. These circumstances might include family disruption, neglect, or abandonment. The shelter offers a secure environment where children can access essential services, education, emotional support, and guidance while long-term living arrangements are determined or rehabilitative efforts are undertaken. We appeal to you to join our cause in any capacity so we can help these socially challenged children move toward a better future.",
+  "mobileParagraphs": [
+    "We are a transitional child shelter facility run by the Saptasindhu Mahila Adhar, Balsangopan and Shikshan Sanstha, founded by Padmashri Dr. Sou. Sindhutai Sapakal.",
+    "Tirtharup Shaikshanik Vasatigruh was founded in 2017 and formally registered in 2023 to provide structured support for children in vulnerable situations.",
+    "A transitional shelter offers care, education, emotional support, and a secure environment for children facing neglect, abandonment, or family disruption while long-term rehabilitation is arranged.",
+    "We appeal to you to join our cause and help these socially challenged children build a better future."
+  ],
+  "mobileNutshellHeading": "Here is what the institution does:",
+  "galleryCtaDesktop": "Feel free to visit the institution or call us any time should you need more information.",
+  "galleryCtaMobile": "Feel free to visit the institution or call us anytime for more information.",
+  "galleryImages": [
+    "/assets/images/tirthrup1.png",
+    "/assets/images/tirthrup2.png",
+    "/assets/images/tirthrup3.png",
+    "/assets/images/tirthrup4.png"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "title": "SAVITRIBAI PHULE MULINCHE VASATIGRUH - CHIKHALDARA",
+  "heroText": "Established in 1992 at Chikhaldara, Amravati CEO : Mr. Arun Sapkal, Maai's elder son Current Beneficiaries : 50",
+  "points": [
+    "The organisation is working for a refuge to needy, destitute, Tribal girls.",
+    "The organization is doing some exemplary work in the remote areas.",
+    "Provide the basic necessities of food, shelter, cloth and medical care.",
+    "Motivates and supports needy and tribal girls to get educated."
+  ],
+  "images": [
+    {
+      "src": "/assets/images/savitribai-1.png",
+      "alt": "Savitribai Work"
+    },
+    {
+      "src": "/assets/images/savitribai-2.png",
+      "alt": "Savitribai Children"
+    },
+    {
+      "src": "/assets/images/savitribai-3.png",
+      "alt": "Savitribai Outreach"
+    },
+    {
+      "src": "/assets/images/savitribai-4.png",
+      "alt": "Savitribai Education"
+    }
+  ]
+}

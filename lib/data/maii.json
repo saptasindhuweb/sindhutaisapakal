@@ -1,0 +1,89 @@
+{
+  "preloadImages": [
+    "/assets/images/bg-maii.png",
+    "/assets/images/bg-mamtatai.png",
+    "/assets/images/mamtatai1.png",
+    "/assets/images/mamtatai2.png",
+    "/assets/images/mamtatai3.png",
+    "/assets/images/mamtatai4.png",
+    "/assets/images/mamtatai5.png",
+    "/assets/images/mamtatai6.png",
+    "/assets/images/mamtatai7.png",
+    "/assets/images/mamtatai8.png"
+  ],
+  "headings": {
+    "journey": "JOURNEY OF LIFE",
+    "legacy": "LEGACY AND THE RESPONSIBILITY",
+    "legacyMobile": "LEGACY AND RESPONSIBILITY",
+    "memories": "MEMORIES",
+    "album": "ALBUM",
+    "videos": "VIDEOS"
+  },
+  "journey": {
+    "heroImage": "/assets/images/bg-maii.png",
+    "heroAlt": "Maai",
+    "name": "MAAI",
+    "dates": "14th Nov 1948 - 4th Jan 2022",
+    "placeOfBirth": "Pimpri Meghe village in Wardha district Maharashtra.",
+    "education": "4th Std.",
+    "marriage": "At the tender age of 12, she got married to Shrihari Sapkal, a cowherd from Navargaon village in Wardha District.",
+    "storyDesktop": "Her marriage did not last long. She fought against the exploitation of local women who collected dried cow dung, due to which her husband abandoned her at the age of 20 years. At that time she was pregnant. Sindhu Tai was thrown out of her husband's house. In that period she gave birth to a baby girl. She cut her umbilical cord with a stone lying nearby. To survive, she started begging and singing on the streets and in trains in Amravati. With concern for her safety, she took shelter in a crematorium. Once she saw a dead body burning. The last rites were over and the relatives of the departed had left some flour as a part of the final rituals. She took that flour, prepared a bhakari and baked it on the fire. In her journey she saw hungry children begging around her. She took them under her wings and gave them food and shelter in whatever way she could. This became the mission of her life. Lovingly, orphaned children called her Aai. In order to eliminate the feeling of partiality between her biological daughter and her adopted children, she entrusted her daughter to Shrimant Dagdusheth Halwai Trust, Pune. She devoted her entire life to orphans and was called Maai. She has been a mother to many. She was an icon of love and compassion. She sheltered thousands of orphans and gave them dignity in life. Her orphanage is an orphanage with a difference. Generally orphanages keep children up to the age of 18, while Maai kept her children till they got their jobs or got married and settled in life. She taught the values of living, and that is why her children are living beautiful lives today.",
+    "storyMobile": "Her life was a story of strength, resilience, and unconditional love. Abandoned while pregnant, she survived by begging and singing on streets. She began caring for orphaned children and made it her life's mission to provide them dignity, shelter, and education."
+  },
+  "legacy": {
+    "heroImage": "/assets/images/bg-mamtatai.png",
+    "heroAlt": "Mamata Tai",
+    "title": "MAMATA SINDHUTAI SAPAKAL",
+    "subtitle": "THE MOTHER'S DAUGHTER",
+    "desktopText": "After the sad demise of Sindhutai Sapakal in Jan 2022, Mamata Tai, her biological child, was entrusted the responsibility of being the mother of Sindhutai's 260 children. Going back to the early days, Sindhutai had given away her daughter Mamata to the Shrimant Dagdu Sheth Halwai trust of Pune, to eliminate the feeling of partiality between her own child and the adopted children. Years later and after completing education, Mamata-tai, as she is lovingly called by the children, returned to help and assist Maai. Mamata Tai and her team are determined to move ahead with the same spirit and devotion. Carrying on Sindhutai's legacy of dedication, affection, trust, and love is not an easy task. During Maai's lifetime, she had set up a banyan tree to help the orphans, the poor, and the needy, and Mamata-tai has taken this responsibility to fulfill Maai's vision and nourish this tree to the best of her capacity.",
+    "mobileText": "After Maai's demise in 2022, Mamata Tai took responsibility for continuing her mother's mission. She carries forward the legacy of compassion, dedication, and service to hundreds of children."
+  },
+  "memories": [
+    "/assets/images/mamtatai4.png",
+    "/assets/images/mamtatai3.png",
+    "/assets/images/mamtatai1.png",
+    "/assets/images/mamtatai2.png"
+  ],
+  "albums": [
+    {
+      "id": "dignitaries",
+      "title": "Tai with Dignitaries",
+      "cover": "/assets/images/mamtatai5.png",
+      "images": [
+        "/assets/images/mamtatai5.png",
+        "/assets/images/mamtatai6.png"
+      ]
+    },
+    {
+      "id": "festivals",
+      "title": "Tai at Festivals",
+      "cover": "/assets/images/mamtatai8.png",
+      "images": [
+        "/assets/images/mamtatai7.png",
+        "/assets/images/mamtatai8.png"
+      ]
+    },
+    {
+      "id": "children",
+      "title": "Tai with Children",
+      "cover": "/assets/images/mamtatai6.png",
+      "images": [
+        "/assets/images/mamtatai1.png",
+        "/assets/images/mamtatai2.png",
+        "/assets/images/mamtatai3.png"
+      ]
+    },
+    {
+      "id": "journey",
+      "title": "Life & Journey",
+      "cover": "/assets/images/mamtatai5.png",
+      "images": [
+        "/assets/images/mamtatai4.png",
+        "/assets/images/mamtatai5.png"
+      ]
+    }
+  ],
+  "videos": {
+    "playlistUrl": "https://www.youtube.com/embed/videoseries?list=PL8gCb0gPpoBxaQW5Qr-g14eA3-Y0RPc2N"
+  }
+}
