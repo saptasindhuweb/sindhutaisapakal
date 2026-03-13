@@ -120,30 +120,55 @@
       "/assets/gallery/sanmati/t8.png"
     ]
   },
+  "successStoriesIntro": [
+    "When a child enters any institution, they usually come from some kind of difficult or adverse situation. Very often, these are children who have been pushed out of the mainstream, and bringing them back into it becomes the institution's biggest responsibility.",
+    "The aim is to ensure that whatever has happened in their past does not affect their future, and to help them build a life that takes shape in the right direction. For this, we address every need of the child with care within the institution.",
+    "This work is carried out with utmost attention. Along with food, clothing, and shelter, the child is given education based on their interests, training according to their ability, and support to help them stand on their own feet.",
+    "We fully understand that these children, who will become an integral part of society in the future, must be physically, mentally, emotionally, and socially capable - because a stronger child means a stronger society.",
+    "Here, we are sharing some success stories with you."
+  ],
   "successStories": [
     {
-      "image": "/assets/gallery/sanmati/s1.png",
+      "image": "/assets/images/founders/2.png",
       "name": "Madhav Narayan Mohite",
-      "subtitle": "Pursuing Diploma in Electrical Engineering",
-      "extra": "Second Year, JSPM College"
+      "subtitle": "Working with CITIUS Tech, Pune",
+      "extra": ""
     },
     {
-      "image": "/assets/gallery/sanmati/s2.png",
-      "name": "Noor Aslam Shaikh",
-      "subtitle": "Pursuing Diploma in Computer",
-      "extra": "Second Year, JSPM College"
-    },
-    {
-      "image": "/assets/gallery/sanmati/s3.png",
+      "image": "/assets/images/founders/2.png",
       "name": "Rupesh Namdev Shinde",
-      "subtitle": "Pursuing Diploma in Mechanical Engineering",
-      "extra": "Third Year, Wadia College"
+      "subtitle": "Working with",
+      "extra": ""
     },
     {
-      "image": "/assets/gallery/sanmati/s4.png",
+      "image": "/assets/images/founders/2.png",
       "name": "Shubham Kundan Gaikwad",
-      "subtitle": "Pursuing Hotel Management",
-      "extra": "Second Year, Bharati Vidyapith"
+      "subtitle": "Completed Hotel Management",
+      "extra": ""
+    },
+    {
+      "image": "/assets/images/founders/2.png",
+      "name": "Pradeep Gajanan Kadam",
+      "subtitle": "Working with Padgilwar Corporation, Pune",
+      "extra": ""
+    },
+    {
+      "image": "/assets/images/founders/2.png",
+      "name": "Aditya Arbat",
+      "subtitle": "Working with Sanmati Bal Niketan, Manjari BK., Pune",
+      "extra": ""
+    },
+    {
+      "image": "/assets/images/founders/2.png",
+      "name": "Akshaykumar Lenka",
+      "subtitle": "Working with BRINKS India Pvt. Ltd., Pune",
+      "extra": ""
+    },
+    {
+      "image": "/assets/images/founders/2.png",
+      "name": "Meghnath Panchal",
+      "subtitle": "Working with Serum Institute of India, Pune",
+      "extra": ""
     }
   ]
 }

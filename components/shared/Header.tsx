@@ -66,13 +66,18 @@ const Header = () => {
   return (
     <>
       <div
-        className={`md:sticky top-0 w-full z-50 grid grid-cols-8 items-center py-6 max-sm:hidden ${
+        className={`md:sticky top-0 w-full z-50 grid grid-cols-8 items-center py-2 lg:py-3 max-sm:hidden ${
           isOverlayHeaderPage ? "text-white" : "text-black"
         } ${isHomePage ? "bg-white/95 backdrop-blur-sm border-b border-black/10" : "bg-white/95 backdrop-blur-sm"}`}
       >
         <div className="col-span-1" />
         <div className="col-span-6 flex justify-between items-center">
-          <img onClick={() => router.push("/")} src="/assets/images/branding/logo.png" className="h-[90px] cursor-pointer" alt="Logo" />
+          <img
+            onClick={() => router.push("/")}
+            src="/assets/images/branding/logo.png"
+            className="h-[64px] lg:h-[74px] xl:h-[90px] cursor-pointer"
+            alt="Logo"
+          />
 
           <NavItem label={labels.home} path="/" />
           <NavItem label={labels.founder} path="/maii" />
@@ -102,7 +107,7 @@ const Header = () => {
 
           <Button
             onClick={() => router.push("/donate")}
-            className="bg-sky-500 rounded-full text-xl text-white px-8 py-6 hover:bg-sky-600 cursor-pointer"
+            className="bg-sky-500 rounded-full text-base lg:text-lg text-white px-6 lg:px-8 py-3 lg:py-4 hover:bg-sky-600 cursor-pointer"
           >
             {labels.donate}
           </Button>

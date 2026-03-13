@@ -39,6 +39,7 @@ type SanmatiData = {
     festival: string[];
     trip: string[];
   };
+  successStoriesIntro?: string[];
   successStories: SuccessStory[];
 };
 
@@ -168,11 +169,19 @@ const SanmatiBalNiketan = () => {
               </div>
             ) : (
               <div className="relative">
-                <div className="flex justify-center gap-8 items-start">
+                {typedSanmatiData.successStoriesIntro?.length ? (
+                  <div className="mb-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 text-sm text-gray-700 leading-relaxed space-y-3">
+                    {typedSanmatiData.successStoriesIntro.map((line, idx) => (
+                      <p key={idx}>{line}</p>
+                    ))}
+                  </div>
+                ) : null}
+
+                <div className="grid grid-cols-4 gap-8 items-start">
                   {typedSanmatiData.successStories.map((story, i) => {
                     return (
-                      <div key={i} className="w-64 text-center transition-all duration-300">
-                        <img src={story.image} alt={story.name} className="w-full h-64 object-cover rounded-2xl mb-4" />
+                      <div key={i} className="text-center transition-all duration-300 rounded-2xl border border-slate-200 bg-white p-4">
+                        <img src={story.image} alt={story.name} className="w-full h-52 object-cover rounded-xl mb-4" />
 
                         <h4 className="font-semibold text-sm">{story.name}</h4>
                         <p className="text-xs text-gray-600">{story.subtitle}</p>
@@ -258,6 +267,14 @@ const SanmatiBalNiketan = () => {
             </div>
           ) : (
             <div className="space-y-8">
+              {typedSanmatiData.successStoriesIntro?.length ? (
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-gray-700 leading-relaxed space-y-3">
+                  {typedSanmatiData.successStoriesIntro.map((line, idx) => (
+                    <p key={idx}>{line}</p>
+                  ))}
+                </div>
+              ) : null}
+
               {typedSanmatiData.successStories.map((story, i) => (
                 <div key={i} className="text-center">
                   <img src={story.image} alt={story.name} className="w-full h-64 object-cover rounded-2xl mb-4" />
