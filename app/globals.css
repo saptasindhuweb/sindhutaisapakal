@@ -123,3 +123,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes donateBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.donate-blink {
+  animation: donateBlink 1s ease-in-out infinite;
+}

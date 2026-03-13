@@ -83,7 +83,7 @@ const Trithrup = () => {
           <div className="col-span-1" />
         </section>
 
-        <section className="bg-[#fff7e6] py-18 grid grid-cols-8">
+        <section className=" py-18 grid grid-cols-8">
           <div className="col-span-1" />
 
           <div className="col-span-6">
@@ -139,7 +139,7 @@ const Trithrup = () => {
           </div>
         </section>
 
-        <section className="bg-[#fff7e6] py-12 px-4 mt-10">
+        <section className=" py-12 px-4 mt-10">
           <p className="text-lg font-bold mb-8">{typedTirthrupData.galleryCtaMobile}</p>
 
           <div className="grid grid-cols-2 gap-4">

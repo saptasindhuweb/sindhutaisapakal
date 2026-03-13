@@ -23,7 +23,7 @@ const orgs = [
   {
     title: "Gopika Gai Rakshan Kendra",
     desc: "Maai’s care for orphans was extended to animals, especially cows",
-    img: "/assets/images/gopika.png",
+    img: "/assets/images/gopika.jpg",
     route: "/gopika",
 
   },

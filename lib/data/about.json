@@ -1,13 +1,14 @@
 {
   "hero": {
-    "desktopTitleLine1": "Serving humanity with compassion,",
-    "desktopTitleLine2": "dignity and responsibility",
-    "desktopDescription": "Inspired by Padma Shri Dr. Sindhutai Sapkal, our organisation works tirelessly to nurture orphans, protect animals and uplift the underprivileged.",
-    "mobileTitle": "Serving humanity with compassion, dignity and responsibility",
-    "mobileDescription": "Inspired by Padma Shri Dr. Sindhutai Sapkal, our organisation nurtures orphans, protects animals and uplifts the underprivileged."
+    "desktopTitleLine1": "Serving Abandoned People, Turning Anguish Silently Into New Dawn Horizons... Unceasingly.",
+    "desktopTitleLine2": "",
+    "desktopDescription": "'Saptasindhu' Mahila Adhar Balsangopan And Shikshan Sanstha founded in 1998 by Padmashri Dr. Sou. Sindhutai Sapakal (Maai), the organization supports orphaned and underprivileged children. Over the years, it has expanded its reach across Maharashtra, providing shelter, education, and emotional support.",
+    "mobileTitle": "Serving Abandoned People, Turning Anguish Silently Into New Dawn Horizons... Unceasingly.",
+    "mobileDescription": "'Saptasindhu' Mahila Adhar Balsangopan And Shikshan Sanstha founded in 1998 by Padmashri Dr. Sou. Sindhutai Sapakal (Maai), the organization supports orphaned and underprivileged children. Over the years, it has expanded its reach across Maharashtra, providing shelter, education, and emotional support."
   },
   "headings": {
     "founders": "FOUNDERS",
+    "managingCommittee": "MANAGING COMMITTEE",
     "journey": "JOURNEY",
     "organisations": "ORGANISATIONS",
     "maaiParivar": "MAAI PARIVAR",
@@ -21,89 +22,122 @@
       "alt": "Sindhutai Sapkal"
     },
     "members": [
-      { "name": "Founder Name 1", "img": "/assets/images/maii1.jpg" },
-      { "name": "Founder Name 2", "img": "/assets/images/maii2.jpg" },
-      { "name": "Founder Name 3", "img": "/assets/images/maii3.jpg" },
-      { "name": "Founder Name 4", "img": "/assets/images/maii4.jpg" },
-      { "name": "Founder Name 5", "img": "/assets/images/maii5.jpg" },
-      { "name": "Founder Name 6", "img": "/assets/images/maii6.jpg" },
-      { "name": "Founder Name 7", "img": "/assets/images/maii7.jpg" }
+      {
+        "name": "Mamata Sindhutai Sapakal",
+        "role": "President",
+        "img": "/assets/images/mamta.png"
+      },
+      {
+        "name": "Saniya Riyaz Shaikh",
+        "role": "Working President",
+        "img": "/assets/images/mamtatai3.png"
+      },
+      {
+        "name": "Seema Dipak Ghadge",
+        "role": "Secretary",
+        "img": "/assets/images/mamtatai4.png"
+      }
     ]
   },
+  "managingCommittee": [
+    {
+      "name": "Mamata Sindhutai Sapakal",
+      "role": "President",
+      "img": "/assets/images/mamta.png"
+    },
+    {
+      "name": "Prabha Sureshkumar Vairalkar",
+      "role": "Vice President",
+      "img": "/assets/images/mamtatai1.png"
+    },
+    {
+      "name": "Saniya Riyaz Shaikh",
+      "role": "Working President",
+      "img": "/assets/images/mamtatai3.png"
+    },
+    {
+      "name": "Seema Dipak Ghadge",
+      "role": "Secretary",
+      "img": "/assets/images/mamtatai4.png"
+    },
+    {
+      "name": "Ujjwala Balkrushna Prabhat",
+      "role": "Deputy Secretary",
+      "img": "/assets/images/mamtatai2.png"
+    },
+    {
+      "name": "Rupali Vijaykumar Kurangatti",
+      "role": "Treasurer",
+      "img": "/assets/images/mamtatai5.png"
+    },
+    {
+      "name": "Kranti Ashok Garve",
+      "role": "Member",
+      "img": "/assets/images/mamtatai6.png"
+    },
+    {
+      "name": "Chhaya Subhash Wagh",
+      "role": "Member",
+      "img": "/assets/images/mamtatai7.png"
+    },
+    {
+      "name": "Lipi Makarand Inamdar",
+      "role": "Member",
+      "img": "/assets/images/mamtatai8.png"
+    }
+  ],
   "journey": [
     {
-      "year": "1919",
-      "title": "Innovating from the start",
-      "description": "The foundation of the organisation was laid with a vision to serve humanity with compassion, dignity and responsibility.",
-      "image": "/assets/images/maii1.jpg"
-    },
-    {
-      "year": "1921",
-      "title": "Graduating our first class",
-      "description": "The organisation expanded its outreach and began structured care and education programs for children in need.",
-      "image": "/assets/images/maii2.jpg"
-    },
-    {
-      "year": "1950",
-      "title": "Expansion of care homes",
-      "description": "Multiple institutions were established to provide shelter, education and healthcare to orphans and the underprivileged.",
-      "image": "/assets/images/maii3.jpg"
-    },
-    {
-      "year": "2021",
-      "title": "Padma Shri Recognition",
-      "description": "Recognition at the national level for decades of selfless service and dedication towards society.",
-      "image": "/assets/images/maii4.jpg"
-    },
-    {
-      "year": "2022",
-      "title": "New Item",
-      "description": "Recognition at the national level for decades of selfless service and dedication towards society.",
-      "image": "/assets/images/maii5.jpg"
+      "year": "2019",
+      "title": "Shahu, Phule, Ambedkar Award 2019",
+      "awardDate": "Awarded on 13th March 2024",
+      "description": "The \"Shahu, Phule, Ambedkar Award\" is an award by the Govt. of Maharashtra. The award is given to the registered organizations working in various fields of social justice, doing social reforms in the state, and taking Maharashtra forward as a social reformist state.",
+      "image": "/assets/images/nobel.png",
+      "link": "https://maharashtralokmanch.com/2024/03/13/sindhutai-sapkals-saptasindhu-organization-awarded-shahu-phule-ambedkar-award/"
     }
   ],
   "organisations": [
     {
-      "title": "Sanmati",
+      "title": "Sanmati Bal Niketan",
       "image": "/assets/images/sanmati.png",
       "alt": "Sanmati",
       "descriptionDesktop": [
-        "A soul out of life's hardship was born as Mother to over a thousand children and devoted her entire life to social service. After 70 years of lifespan (Born: 1948 - Died: 2022), she raised a grand family of 220 sons-in-laws, 50 daughters-in-laws.",
-        "She adopted more than 1200 orphaned children and provided them food, shelter, and education. She was honored with Padma Shri in 2021."
+        "Sanmati Bal Niketan, located in Manjari, Dist.: Pune, is an organization dedicated to providing essential support and care to underprivileged children.",
+        "The organization's primary focus is to fulfill the basic needs of children, including food, shelter, clothing, education, rehabilitation and giving them a secure atmosphere for self-development."
       ],
       "descriptionMobile": [
-        "A soul out of life's hardship was born as Mother to over a thousand children and devoted her entire life to social service.",
-        "She adopted more than 1200 orphaned children and provided them food, shelter, and education."
+        "Sanmati Bal Niketan, located in Manjari, Dist.: Pune, is an organization dedicated to providing essential support and care to underprivileged children.",
+        "The organization's primary focus is to fulfill the basic needs of children, including food, shelter, clothing, education, rehabilitation and giving them a secure atmosphere for self-development."
       ],
-      "readMoreRoute": "/maii"
+      "readMoreRoute": "/sanmati"
     },
     {
-      "title": "Gopika",
-      "image": "/assets/images/gopika.png",
-      "alt": "Gopika",
-      "descriptionDesktop": [
-        "Sindhutai gave away her own daughter Mamata to the Shrimant Dagdu Sheth Halwai trust of Pune, to eliminate the feeling of partiality between her own child and the adopted children.",
-        "Years later and after completing her education, Mamata-tai started assisting Maai. After Sindhutai's demise in Jan 2022, Mamata Sindhutai Sapakal undertook the responsibility of children."
-      ],
-      "descriptionMobile": [
-        "Sindhutai gave away her own daughter Mamata to the Shrimant Dagdu Sheth Halwai trust of Pune, to eliminate the feeling of partiality between her own child and the adopted children.",
-        "After completing her education, Mamata-tai started assisting Maai. After Sindhutai's demise in Jan 2022, she undertook the responsibility of continuing her mission."
-      ],
-      "readMoreRoute": "/mamtatai"
-    },
-    {
-      "title": "Tirthrup",
+      "title": "Tirtharup Shaikshanik Vastigruh",
       "image": "/assets/images/tirthrup.png",
-      "alt": "Tirthrup",
+      "alt": "Tirtharup Shaikshanik Vastigruh",
       "descriptionDesktop": [
-        "A soul out of life's hardship was born as Mother to over a thousand children and devoted her entire life to social service. After 70 years of lifespan (Born: 1948 - Died: 2022), she raised a grand family of 220 sons-in-laws, 50 daughters-in-laws.",
-        "She adopted more than 1200 orphaned children and provided them food, shelter, and education. She was honored with Padma Shri in 2021."
+        "Sanmati Bal Niketan, located in Manjari, Dist.: Pune, is an organization dedicated to providing essential support and care to underprivileged children.",
+        "The organization's primary focus is to fulfill the basic needs of children, including food, shelter, clothing, education, rehabilitation and giving them a secure atmosphere for self-development."
       ],
       "descriptionMobile": [
-        "Sindhutai gave away her own daughter Mamata to the Shrimant Dagdu Sheth Halwai trust of Pune, to eliminate the feeling of partiality between her own child and the adopted children.",
-        "After completing her education, Mamata-tai started assisting Maai. After Sindhutai's demise in Jan 2022, she undertook the responsibility of continuing her mission."
+        "Sanmati Bal Niketan, located in Manjari, Dist.: Pune, is an organization dedicated to providing essential support and care to underprivileged children.",
+        "The organization's primary focus is to fulfill the basic needs of children, including food, shelter, clothing, education, rehabilitation and giving them a secure atmosphere for self-development."
       ],
-      "readMoreRoute": "/mamtatai"
+      "readMoreRoute": "/tirthrup"
+    },
+    {
+      "title": "Gopika Gaai Rakshan Kendra",
+      "image": "/assets/images/gopika.jpg",
+      "alt": "Gopika Gaai Rakshan Kendra",
+      "descriptionDesktop": [
+        "The dedication and compassion shown by Maai towards both cows and people in need is truly remarkable.",
+        "Her legacy lives on through the work being carried out by the institution she founded. The story of Maai's connection with the cows and her journey of overcoming adversity to become a mother to orphans is truly touching."
+      ],
+      "descriptionMobile": [
+        "The dedication and compassion shown by Maai towards both cows and people in need is truly remarkable.",
+        "Her legacy lives on through the work being carried out by the institution she founded."
+      ],
+      "readMoreRoute": "/gopika"
     }
   ],
   "aboutHeader": {
@@ -155,11 +189,11 @@
       "children": [
         {
           "name": "Mamata Bal Sadan, Saswad, Pune",
-          "img": "/assets/images/maii1.jpg"
+          "img": "/assets/images/mamta.png"
         },
         {
           "name": "Savitribai Phule Muliche Vasatigruh, Chikhaldara",
-          "img": "/assets/images/maii2.jpg"
+          "img": "/assets/images/savitribai.jpg"
         }
       ]
     },
@@ -168,7 +202,7 @@
       "children": [
         {
           "name": "Shree Manashanti Chhatralaya, Shirur",
-          "img": "/assets/images/maii3.jpg"
+          "img": "/assets/images/manashanti.jpg"
         }
       ]
     }

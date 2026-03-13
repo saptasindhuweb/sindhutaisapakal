@@ -80,40 +80,65 @@ const MilestonesPage = () => {
                     )}
 
                     {/* ===== PAST EVENTS ===== */}
-                    {pastEvents.length > 0 && (
-                        <section className=" grid grid-cols-8">
-                            <div className="col-span-1 flex items-center justify-end px-4 mb-4">
-                                <span className="w-20 h-[2px] bg-black" />
-                            </div>
+                    <section className=" grid grid-cols-8">
+                        <div className="col-span-1 flex items-center justify-end px-4 mb-4">
+                            <span className="w-20 h-[2px] bg-black" />
+                        </div>
+                        <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
+                            Padma Shri Dr. Sindhutai Sapkal's Yashodamaai Rashtria Puraskar
+                        </p>
+                        <div className="col-span-1" />
+                        <div className=" col-span-6">
 
-                            <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
-                                Padma Shri Dr. Sindhutai Sapkal's Yashodamaai Rashtria Puraskar
+
+                            <p className=" col-span-7 text-justify text-sm text-slate-700 leading-relaxed">
+                                Padma Shri Dr. Sau. Sindhutai Sapakal’s work, her contribution to the upliftment of the
+                                underprivileged, and her love for orphaned children are well known. Even today, there are
+                                many individuals and organisations in society who continue to work in their own way for
+                                disadvantaged and vulnerable communities, especially orphaned and destitute children and
+                                women.
+                                Among these, one individual and one organisation are honoured each year with the Padma
+                                Shri Dr. Sau Sindhutai Sapakal Yashodamaai National Award on Maai’s remembrance day,
+                                that is, 4th January. The selection of both the individual and the organisation for this award is
+                                done with great thought and care. On Maai’s Remembrance Day, these awards are
+                                presented by respected dignitaries.
+                                The purpose of these awards is to ensure that Maai’s blessings and the inspiration drawn
+                                from her life’s work reach as many social workers as possible, giving them the strength and
+                                energy to continue their journey of service.
                             </p>
-                            <div className="col-span-1" />
+
+                        </div>
+                        <div className="col-span-1" />
+
+                    </section>
 
 
-                            <div className="col-span-6 mt-10">
-                                {renderGrid(pastEvents)}
-                            </div>
-                        </section>
-                    )}
-                    {pastEvents.length > 0 && (
-                        <section className=" grid grid-cols-8">
-                            <div className="col-span-1 flex items-center justify-end px-4 mb-4">
-                                <span className="w-20 h-[2px] bg-black" />
-                            </div>
+                    <section className=" grid grid-cols-8">
+                        <div className="col-span-1 flex items-center justify-end px-4 mb-4">
+                            <span className="w-20 h-[2px] bg-black" />
+                        </div>
+                        <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
+                            Zhep
+                        </p>
+                        <div className="col-span-1" />
+                        <div className=" col-span-6">
 
-                            <p className=" col-span-7 text-lg font-bold tracking-wide mb-4 flex items-center gap-2">
-                                Zhep
+
+                            <p className=" col-span-7 text-justify text-sm text-slate-700 leading-relaxed">
+                                This initiative is conducted so that the children in the institution are introduced to subjects beyond their regular school curriculum and develop interest in them.
+
+                                Under the theme experts from different fields are invited over a period of ten days to share knowledge and interact with the children. Their sessions, along with follow-up discussions, are organised as part of the programme. In addition, activities like trekking and visits to various organisations are also included.
+
+                                Zep is not just a camp. It is a platform that goes beyond academics, helping children discover their hidden talents and laying the foundation for essential life skills.
+
                             </p>
-                            <div className="col-span-1" />
 
+                            
 
-                            <div className="col-span-6 mt-10">
-                                {renderGrid(pastEvents)}
-                            </div>
-                        </section>
-                    )}
+                        </div>
+                        <div className="col-span-1" />
+
+                    </section>
 
                     {/* ===== PAST EVENTS ===== */}
 

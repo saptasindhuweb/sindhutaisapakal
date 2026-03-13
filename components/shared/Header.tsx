@@ -59,7 +59,7 @@ const Header = () => {
   return (
     <>
       <div
-        className={`md:absolute top-0 w-full z-50 grid grid-cols-8 items-center py-6 max-sm:hidden ${isOverlayHeaderPage ? "text-white" : "text-black"
+        className={`md:sticky top-0 w-full z-50 grid grid-cols-8 items-center py-6 max-sm:hidden ${isOverlayHeaderPage ? "text-white" : "text-black"
           } ${isHomePage ? "bg-white/95 backdrop-blur-sm border-b border-black/10" : ""
           }`}
       >
@@ -97,7 +97,7 @@ const Header = () => {
         <div className="col-span-1" />
       </div>
 
-      <div className="md:hidden flex items-center justify-between p-4 w-screen">
+      <div className="md:hidden sticky top-0 z-50 flex items-center justify-between p-4 w-screen bg-white/95 backdrop-blur-sm border-b border-black/10">
         <img onClick={()=> router.push('/')} src="/assets/images/logo.png" className="h-[45px] cursor-pointer" alt="Logo" />
         <Sheet>
           <SheetTrigger>

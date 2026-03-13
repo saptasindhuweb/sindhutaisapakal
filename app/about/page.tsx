@@ -9,17 +9,27 @@ import router from "next/router";
 import { GiBullseye } from "react-icons/gi";
 import { TiEye } from "react-icons/ti";
 import { PiPlantFill } from "react-icons/pi";
+import { useRouter } from "next/navigation";
 
 type Founder = {
   name: string;
+  role?: string;
+  img: string;
+};
+
+type CommitteeMember = {
+  name: string;
+  role: string;
   img: string;
 };
 
 type JourneyItem = {
   year: string;
   title: string;
+  awardDate?: string;
   description: string;
   image: string;
+  link?: string;
 };
 
 type OrganisationItem = {
@@ -57,6 +67,7 @@ const typedAboutData = aboutData as {
   };
   headings: {
     founders: string;
+    managingCommittee: string;
     journey: string;
     organisations: string;
     maaiParivar: string;
@@ -71,6 +82,7 @@ const typedAboutData = aboutData as {
     };
     members: Founder[];
   };
+  managingCommittee: CommitteeMember[];
   journey: JourneyItem[];
   organisations: OrganisationItem[];
   aboutHeader: {
@@ -85,13 +97,11 @@ const typedAboutData = aboutData as {
 
 const About = () => {
   const isPageReady = usePageReady();
-
-  const foundersRowOne = typedAboutData.founders.members.slice(0, 4);
-  const foundersRowTwo = typedAboutData.founders.members.slice(4, 7);
+  const router = useRouter();
 
   const sanmati = typedAboutData.organisations[0];
-  const gopika = typedAboutData.organisations[1];
-  const tirthrup = typedAboutData.organisations[2];
+  const tirthrup = typedAboutData.organisations[1];
+  const gopika = typedAboutData.organisations[2];
 
   const leftValues = typedAboutData.coreValues.slice(0, 3);
   const rightValues = typedAboutData.coreValues.slice(3);
@@ -112,8 +122,12 @@ const About = () => {
               <div className="col-span-6">
                 <h1 className="text-4xl font-bold text-[#0f4c5c] leading-tight ">
                   {typedAboutData.hero.desktopTitleLine1}
-                  <br />
-                  {typedAboutData.hero.desktopTitleLine2}
+                  {typedAboutData.hero.desktopTitleLine2 ? (
+                    <>
+                      <br />
+                      {typedAboutData.hero.desktopTitleLine2}
+                    </>
+                  ) : null}
                 </h1>
 
                 <p className="mt-4 text-gray-600">{typedAboutData.hero.desktopDescription}</p>
@@ -151,28 +165,41 @@ const About = () => {
               </div>
 
               <div className="col-span-1" />
-
-              <div className="col-span-6 grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 mt-10">
-                {foundersRowOne.map((person, i) => (
+              <div className="col-span-6 grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 mt-10">
+                {typedAboutData.founders.members.map((person, i) => (
                   <div key={i} className="overflow-hidden rounded-2xl bg-[#f6fbfd]">
                     <img src={person.img} alt={person.name} className="w-full h-[260px] object-cover" />
                     <div className="py-4 text-center">
                       <p className="font-semibold text-[#0f4c5c]">{person.name}</p>
+                      {person.role ? <p className="text-sm text-gray-600 mt-1">{person.role}</p> : null}
                     </div>
                   </div>
                 ))}
+              </div>
+              <div className="col-span-1" />
+
+              <div className="col-span-8 grid grid-cols-8 w-full justify-end items-center mt-10 mb-6">
+                <div className="col-span-1 flex items-center justify-end pr-2">
+                  <span className="w-16 h-[2px] bg-black" />
+                </div>
+                <h2 className="text-2xl font-bold tracking-wide col-span-4">{typedAboutData.headings.managingCommittee}</h2>
               </div>
 
-              <div className="col-span-8 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                {foundersRowTwo.map((person, i) => (
-                  <div key={i} className="overflow-hidden rounded-2xl bg-[#f6fbfd]">
-                    <img src={person.img} alt={person.name} className="w-full h-[260px] object-cover" />
-                    <div className="py-4 text-center">
-                      <p className="font-semibold text-[#0f4c5c]">{person.name}</p>
+              <div className="col-span-1" />
+              <div className="col-span-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {typedAboutData.managingCommittee.map((member) => (
+                    <div key={member.name} className="overflow-hidden rounded-2xl bg-[#f6fbfd]">
+                      <img src={member.img} alt={member.name} className="w-full h-[260px] object-cover" />
+                      <div className="py-4 text-center px-3">
+                        <p className="font-semibold text-[#0f4c5c]">{member.name}</p>
+                        <p className="text-sm text-gray-600 mt-1">{member.role}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
+              <div className="col-span-1" />
             </div>
           </div>
         </div>
@@ -210,6 +237,23 @@ const About = () => {
                 <img src={person.img} alt={person.name} className="w-full h-40 object-cover" />
                 <div className="py-3 text-center">
                   <p className="text-sm font-semibold text-[#0f4c5c]">{person.name}</p>
+                  {person.role ? <p className="text-xs text-gray-600 mt-1">{person.role}</p> : null}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-3 mb-6 mt-8">
+            <span className="w-10 h-[2px] bg-black" />
+            <h2 className="text-lg font-bold tracking-wide">{typedAboutData.headings.managingCommittee}</h2>
+          </div>
+          <div className="grid grid-cols-2 gap-4 mb-8">
+            {typedAboutData.managingCommittee.map((member) => (
+              <div key={member.name} className="overflow-hidden rounded-xl bg-[#f6fbfd]">
+                <img src={member.img} alt={member.name} className="w-full h-36 object-cover" />
+                <div className="py-3 text-center px-2">
+                  <p className="text-sm font-semibold text-[#0f4c5c]">{member.name}</p>
+                  <p className="text-xs text-gray-600 mt-1">{member.role}</p>
                 </div>
               </div>
             ))}
@@ -236,7 +280,13 @@ const About = () => {
                 const isLeft = index % 2 === 0;
 
                 return (
-                  <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative">
+                  <a
+                    key={index}
+                    href={item.link || "#"}
+                    target={item.link ? "_blank" : undefined}
+                    rel={item.link ? "noopener noreferrer" : undefined}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative group"
+                  >
                     <div className="absolute left-1/2 w-4 h-4 bg-sky-500 rounded-full -translate-x-1/2 z-10" />
 
                     {isLeft ? (
@@ -244,6 +294,7 @@ const About = () => {
                         <div className="md:pr-16 text-right">
                           <h3 className="text-3xl font-bold mb-2">{item.year}</h3>
                           <h4 className="text-xl font-semibold mb-4">{item.title}</h4>
+                          {item.awardDate ? <p className="text-sm text-sky-700 font-semibold mb-3">{item.awardDate}</p> : null}
                           <p className="text-gray-600 leading-relaxed">{item.description}</p>
                         </div>
 
@@ -251,7 +302,7 @@ const About = () => {
                           <img
                             src={item.image}
                             alt={item.title}
-                            className="w-full h-[280px] object-cover rounded-2xl"
+                            className="w-full h-[280px] object-cover rounded-2xl transition-transform duration-300 group-hover:scale-[1.02]"
                           />
                         </div>
                       </>
@@ -268,11 +319,12 @@ const About = () => {
                         <div className="md:pl-16 order-1 md:order-2">
                           <h3 className="text-3xl font-bold mb-2">{item.year}</h3>
                           <h4 className="text-xl font-semibold mb-4">{item.title}</h4>
+                          {item.awardDate ? <p className="text-sm text-sky-700 font-semibold mb-3">{item.awardDate}</p> : null}
                           <p className="text-gray-600 leading-relaxed">{item.description}</p>
                         </div>
                       </>
                     )}
-                  </div>
+                  </a>
                 );
               })}
             </div>
@@ -291,19 +343,26 @@ const About = () => {
 
           <div className="space-y-16">
             {typedAboutData.journey.map((item, index) => (
-              <div key={index} className="relative pl-12">
+              <a
+                key={index}
+                href={item.link || "#"}
+                target={item.link ? "_blank" : undefined}
+                rel={item.link ? "noopener noreferrer" : undefined}
+                className="relative pl-12 block"
+              >
                 <div className="absolute left-4 top-2 w-3 h-3 bg-sky-500 rounded-full -translate-x-1/2 z-10" />
 
                 <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-4">
                   <h3 className="text-xl font-bold mb-1">{item.year}</h3>
 
                   <h4 className="text-base font-semibold mb-3">{item.title}</h4>
+                  {item.awardDate ? <p className="text-xs text-sky-700 font-semibold mb-3">{item.awardDate}</p> : null}
 
                   <img src={item.image} alt={item.title} className="w-full h-44 object-cover rounded-lg mb-3" />
 
                   <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -341,7 +400,7 @@ const About = () => {
               <img
                 src={sanmati.image}
                 alt={sanmati.alt}
-                className="rounded-3xl max-w-md w-full object-cover h-[420px] object-[center_25%]"
+                className="rounded-3xl max-w-md w-full object-cover h-[420px] object-[center_5%]"
               />
             </div>
           </div>
@@ -357,7 +416,7 @@ const About = () => {
 
         <div className="space-y-6">
           <div className="w-full h-60 overflow-hidden rounded-2xl">
-            <img src={sanmati.image} alt={sanmati.alt} className="w-full h-full object-cover" />
+            <img src={sanmati.image} alt={sanmati.alt} className="w-full h-full object-cover object-top " />
           </div>
 
           <div>
@@ -384,7 +443,7 @@ const About = () => {
         <div className="col-span-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <img src={gopika.image} alt={gopika.alt} className="rounded-3xl h-[420px] max-w-md w-full object-cover" />
+              <img src={gopika.image} alt={gopika.alt} className="rounded-3xl h-[420px] max-w-md w-full object-cover object-left" />
             </div>
 
             <div>
@@ -415,7 +474,12 @@ const About = () => {
       <section className="bg-white py-12 px-4 md:hidden">
         <div className="space-y-6">
           <div className="w-full h-60 overflow-hidden rounded-2xl">
-            <img src={gopika.image} alt={gopika.alt} className="w-full h-full object-cover" />
+            <img
+              src={gopika.image}
+              alt={gopika.alt}
+              className="w-full h-full object-cover"
+              style={{ objectPosition: "left center" }}
+            />
           </div>
 
           <div>

@@ -11,12 +11,12 @@ const stats: StatItem[] = [
     label: "Orphans Nurtured",
   },
   {
-    icon: "/assets/images/cows.jpg",
+    icon: "/assets/images/orphans-in-care.jpg",
     value: "260+",
     label: "Orphans in Care",
   },
   {
-    icon: "/assets/images/cows.jpg",
+    icon: "/assets/images/organisations.jpg",
     value: "6",
     label: "Organisations",
   },

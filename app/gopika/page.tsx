@@ -81,7 +81,7 @@ const Gopika = () => {
           <div className="col-span-1" />
         </section>
 
-        <section className="bg-[#fff7e6] py-20 grid grid-cols-8">
+        <section className=" py-20 grid grid-cols-8">
           <div className="col-span-1" />
 
           <div className="col-span-6">
@@ -133,7 +133,7 @@ const Gopika = () => {
           </div>
         </section>
 
-        <section className="bg-[#fff7e6] py-12 px-4 mt-10">
+        <section className="py-12 px-4 mt-10">
           <p className="text-lg font-bold mb-8">{typedGopikaData.galleryCtaMobile}</p>
 
           <div className="grid grid-cols-2 gap-4">
