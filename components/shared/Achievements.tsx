@@ -17,7 +17,7 @@ const achievements: AchievementItem[] = [
         year: "2021",
         description:
             "Sindhutai Sapkal, known as the Mother of Orphans, received the Padma Shri in 2021 for her lifelong service to orphaned and abandoned children. She raised over 1,500 children and rehabilitated marginalized communities through compassion, care, and advocacy.",
-        image: "/assets/images/maii1.jpg",
+        image: "/assets/images/maii/maii1.jpg",
         imageAlt: "Padma Shri Award recognition",
         imageClassName: "object-[center_18%]",
     },
@@ -26,7 +26,7 @@ const achievements: AchievementItem[] = [
         year: "2013",
         description:
             "This recognition honored her unmatched maternal care and resilience in raising over 1,500 orphaned and abandoned children as her own, while providing shelter, education, and guidance.",
-        image: "/assets/images/maii2.jpg",
+        image: "/assets/images/maii/maii2.jpg",
         imageAlt: "National Award for Iconic Mother",
         imageClassName: "object-[center_18%]",
     },
@@ -35,7 +35,7 @@ const achievements: AchievementItem[] = [
         year: "2017",
         description:
             "She was honored for extraordinary contributions to women empowerment and child welfare, including decades of work supporting vulnerable children and marginalized communities.",
-        image: "/assets/images/maii3.jpg",
+        image: "/assets/images/maii/maii3.jpg",
         imageAlt: "Nari Shakti Award",
         imageClassName: "object-[center_14%]",
     },
@@ -44,7 +44,7 @@ const achievements: AchievementItem[] = [
         year: "2016",
         description:
             "Conferred in recognition of her lifelong social work, this honor acknowledged her transformative humanitarian efforts and service to underprivileged children.",
-        image: "/assets/images/maii4.jpg",
+        image: "/assets/images/maii/maii4.jpg",
         imageAlt: "Doctor of Literature honor",
         imageClassName: "object-[center_18%]",
     },
@@ -53,7 +53,7 @@ const achievements: AchievementItem[] = [
         year: "2021",
         description:
             "This distinction recognized her exceptional commitment to society and her decades of nurturing children while inspiring communities with resilience and selfless service.",
-        image: "/assets/images/maii5.jpg",
+        image: "/assets/images/maii/maii5.jpg",
         imageAlt: "Doctor of Literature Wardha honor",
         imageClassName: "object-[center_18%]",
     },
@@ -62,7 +62,7 @@ const achievements: AchievementItem[] = [
         year: "2015",
         description:
             "An international honor recognizing her contribution to humanity through sheltering children, promoting social harmony, and serving vulnerable communities.",
-        image: "/assets/images/maii6.jpg",
+        image: "/assets/images/maii/maii6.jpg",
         imageAlt: "Ahmadiyya Muslim Peace Prize",
         imageClassName: "object-bottom",
     },
@@ -71,7 +71,7 @@ const achievements: AchievementItem[] = [
         year: "International Recognition",
         description:
             "These awards celebrated her remarkable humanitarian mission and global impact through compassion-driven care for orphaned and abandoned children.",
-        image: "/assets/images/maii7.jpg",
+        image: "/assets/images/maii/maii7.jpg",
         imageAlt: "International humanitarian awards",
         imageClassName: "object-[center_18%]",
     },
@@ -80,7 +80,7 @@ const achievements: AchievementItem[] = [
         year: "1986 - 2013",
         description:
             "Her autobiography Mee Vanvasi was published in 1986. The Marathi biopic Mee Sindhutai Sapkal released in 2010 and premiered at the 54th London Film Festival. The documentary Anathanchi Yashoda followed in 2013.",
-        image: "/assets/images/maii8.png",
+        image: "/assets/images/maii/maii8.png",
         imageAlt: "Biopic and documentary milestones",
         imageClassName: "object-center",
     },
@@ -187,3 +187,4 @@ const Achievements: React.FC = () => {
 };
 
 export default Achievements;
+

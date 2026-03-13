@@ -5,11 +5,11 @@
   "yearInfoMobile": "Year of Establishment 2001 In charge: Mamata Sindhutai Sapakal",
   "heroImages": {
     "primary": {
-      "src": "/assets/images/sanmati-heros-1.png",
+      "src": "/assets/images/sanmati/sanmati-heros-1.png",
       "alt": "Sanmati Bal Niketan"
     },
     "secondary": {
-      "src": "/assets/images/sanmati-heros-2.png",
+      "src": "/assets/images/sanmati/sanmati-heros-2.png",
       "alt": "Sanmati Building"
     }
   },
@@ -147,3 +147,4 @@
     }
   ]
 }
+

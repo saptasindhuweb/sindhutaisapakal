@@ -6,7 +6,7 @@ import PageLoader from "@/components/shared/PageLoader";
 import sanmatiData from "@/lib/data/sanmati.json";
 import usePageReady from "@/hooks/usePageReady";
 
-type TabKey = "facilities" | "activity" | "program" | "festival" | "trip" | "successStories";
+type TabKey = "campus" | "activities" | "festivals" | "successStories";
 
 type SuccessStory = {
   image: string;
@@ -32,10 +32,6 @@ type SanmatiData = {
   };
   desktopParagraphs: string[];
   mobileParagraphs: string[];
-  tabs: {
-    key: TabKey;
-    label: string;
-  }[];
   gallery: {
     facilities: string[];
     activity: string[];
@@ -49,23 +45,41 @@ type SanmatiData = {
 const typedSanmatiData = sanmatiData as SanmatiData;
 
 const SanmatiBalNiketan = () => {
+  const sectionTabs: { key: TabKey; label: string }[] = [
+    { key: "campus", label: "Campus" },
+    { key: "activities", label: "Activities" },
+    { key: "festivals", label: "Festivals" },
+    { key: "successStories", label: "Success Stories" },
+  ];
+
+  const sectionImages = useMemo(
+    () => ({
+      campus: typedSanmatiData.gallery.facilities,
+      activities: [
+        ...typedSanmatiData.gallery.activity,
+        ...typedSanmatiData.gallery.program,
+        ...typedSanmatiData.gallery.trip,
+      ],
+      festivals: typedSanmatiData.gallery.festival,
+    }),
+    []
+  );
+
   const preloadImages = useMemo(
     () => [
       typedSanmatiData.heroImages.primary.src,
       typedSanmatiData.heroImages.secondary.src,
-      ...typedSanmatiData.gallery.facilities,
-      ...typedSanmatiData.gallery.activity,
-      ...typedSanmatiData.gallery.program,
-      ...typedSanmatiData.gallery.festival,
-      ...typedSanmatiData.gallery.trip,
+      ...sectionImages.campus,
+      ...sectionImages.activities,
+      ...sectionImages.festivals,
       ...typedSanmatiData.successStories.map((story) => story.image),
     ],
-    []
+    [sectionImages]
   );
 
   const isPageReady = usePageReady(preloadImages);
 
-  const [activeTab, setActiveTab] = useState<TabKey>("facilities");
+  const [activeTab, setActiveTab] = useState<TabKey>("campus");
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
 
   if (!isPageReady) {
@@ -74,7 +88,7 @@ const SanmatiBalNiketan = () => {
 
   return (
     <>
-      <main className="bg-white mt-20 max-sm:hidden">
+      <main className="bg-white max-sm:hidden">
         <section className="grid grid-cols-8 py-24">
           <div className="col-span-1 flex items-center justify-end px-4 mb-4">
             <span className="w-20 h-[2px] bg-black" />
@@ -124,7 +138,7 @@ const SanmatiBalNiketan = () => {
 
           <div className="col-span-6">
             <div className="flex justify-center gap-16 mb-14 text-sm font-semibold">
-              {typedSanmatiData.tabs.map((tab) => (
+              {sectionTabs.map((tab) => (
                 <button
                   key={tab.key}
                   onClick={() => setActiveTab(tab.key)}
@@ -141,7 +155,7 @@ const SanmatiBalNiketan = () => {
 
             {activeTab !== "successStories" ? (
               <div className="columns-1 sm:columns-2 md:columns-4 gap-6 space-y-6">
-                {typedSanmatiData.gallery[activeTab as Exclude<TabKey, "successStories">].map((img, i) => (
+                {sectionImages[activeTab as Exclude<TabKey, "successStories">].map((img, i) => (
                   <div key={i} className="break-inside-avoid rounded-2xl overflow-hidden">
                     <img
                       src={img}
@@ -214,7 +228,7 @@ const SanmatiBalNiketan = () => {
 
         <section className="pb-20 px-4">
           <div className="flex gap-6 overflow-x-auto pb-4 mb-8 text-sm font-semibold">
-            {typedSanmatiData.tabs.map((tab) => (
+            {sectionTabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
@@ -231,7 +245,7 @@ const SanmatiBalNiketan = () => {
 
           {activeTab !== "successStories" ? (
             <div className="columns-2 gap-4 space-y-4">
-              {typedSanmatiData.gallery[activeTab as Exclude<TabKey, "successStories">].map((img, i) => (
+              {sectionImages[activeTab as Exclude<TabKey, "successStories">].map((img, i) => (
                 <div key={i} className="break-inside-avoid rounded-xl overflow-hidden">
                   <img
                     src={img}

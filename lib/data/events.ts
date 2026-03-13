@@ -16,8 +16,13 @@ export const events: EventItem[] = [
     shortDescription: "Free medical checkups across multiple centers.",
     description:
       "A large-scale health camp was organized providing medical consultations, diagnostics, and medicines to children and staff.",
-    coverImage: "/assets/images/mamta-4.png",
-    images: ["/assets/images/tirthrup1.png", "/assets/images/gopika1.png", "/assets/images/gopika2.png", "/assets/images/gopika3.png"],
+    coverImage: "/assets/images/mamtatai/mamta-4.png",
+    images: [
+      "/assets/images/tirthrup/tirthrup1.png",
+      "/assets/images/gopika/gopika1.jpg",
+      "/assets/images/gopika/gopika2.jpg",
+      "/assets/images/gopika/gopika3.jpg",
+    ],
   },
   {
     id: "education-drive-2025",
@@ -26,7 +31,7 @@ export const events: EventItem[] = [
     shortDescription: "Books, uniforms and mentoring support.",
     description:
       "The education drive focused on providing essential learning material and mentorship to children across homes.",
-    coverImage: "/assets/images/2.png",
+    coverImage: "/assets/images/founders/2.png",
   },
   {
     id: "anniversary-2025",
@@ -35,7 +40,7 @@ export const events: EventItem[] = [
     shortDescription: "Celebrating years of service and compassion.",
     description:
       "A commemorative event celebrating the foundation’s journey with supporters and well-wishers.",
-    coverImage: "/assets/images/gopika2.png",
+    coverImage: "/assets/images/gopika/gopika2.jpg",
   },
   {
     id: "tree-plantation-2026",
@@ -44,7 +49,7 @@ export const events: EventItem[] = [
     shortDescription: "Planting for a greener future.",
     description:
       "An environmental initiative involving children and volunteers to plant saplings.",
-    coverImage: "/assets/images/gopika3.png",
+    coverImage: "/assets/images/gopika/gopika3.jpg",
   },
   {
     id: "sports-meet-2026",
@@ -53,7 +58,7 @@ export const events: EventItem[] = [
     shortDescription: "Encouraging fitness and teamwork.",
     description:
       "Children from different homes participated in track, field, and team sports.",
-    coverImage: "/assets/images/gopika4.png",
+    coverImage: "/assets/images/gopika/gopika4.jpg",
   },
   {
     id: "fundraiser-2026",
@@ -62,6 +67,6 @@ export const events: EventItem[] = [
     shortDescription: "Supporting future initiatives.",
     description:
       "A fundraiser event aimed at raising support for upcoming projects.",
-    coverImage: "/assets/images/gopika5.png",
+    coverImage: "/assets/images/gopika/gopika5.png",
   },
 ];

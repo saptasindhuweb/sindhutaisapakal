@@ -6,22 +6,22 @@ type StatItem = {
 
 const stats: StatItem[] = [
   {
-    icon: "/assets/images/cows.jpg",
+    icon: "/assets/images/misc/cows.jpg",
     value: "1200+",
     label: "Orphans Nurtured",
   },
   {
-    icon: "/assets/images/orphans-in-care.jpg",
+    icon: "/assets/images/misc/orphans-in-care.jpg",
     value: "260+",
     label: "Orphans in Care",
   },
   {
-    icon: "/assets/images/organisations.jpg",
+    icon: "/assets/images/misc/organisations.jpg",
     value: "6",
     label: "Organisations",
   },
   {
-    icon: "/assets/images/cows.jpg",
+    icon: "/assets/images/misc/cows.jpg",
     value: "250+",
     label: "Cows under care",
   },
@@ -104,3 +104,4 @@ const StatsSection = () => {
 };
 
 export default StatsSection;
+

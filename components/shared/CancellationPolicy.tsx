@@ -50,7 +50,11 @@ const CancellationPolicy = () => {
         <p className="ml-4">
           In the event that you believe an error has been made in your donation,
           please contact us immediately at saptasindhu99@gmail.com or
-          +91 93265 35224. We will review the matter, and if an error is found to
+          {" "}
+          <a href="https://wa.me/919326535224" target="_blank" rel="noopener noreferrer" className="underline">
+            +91 93265 35224
+          </a>
+          . We will review the matter, and if an error is found to
           have occurred, we may, at our discretion, address the issue
           appropriately.
         </p>
@@ -69,7 +73,12 @@ const CancellationPolicy = () => {
           5. Saptasindhu Mahila Adhar Balsangopan aani Shikshan Sanstha
         </h3>
         <p className="ml-4">Email: saptasindhu99@gmail.com</p>
-        <p className="ml-4">Phone: +91 93265 35224</p>
+        <p className="ml-4">
+          Phone:{" "}
+          <a href="https://wa.me/919326535224" target="_blank" rel="noopener noreferrer" className="underline">
+            +91 93265 35224
+          </a>
+        </p>
         <p className="ml-4">
           Address: Belhekar Vasti, Near Vasantdada Sugar Institute, Manjari (Bk),
           Tal. Haveli, Dist. Pune – 412 307

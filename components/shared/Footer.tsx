@@ -4,23 +4,19 @@ import { useRouter } from "next/navigation";
 import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoYoutube } from "react-icons/io5";
 import { MdLocationOn, MdPhone, MdMail } from "react-icons/md";
 
-const Footer = () => {
+const MAP_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.1897700914246!2d73.97553257519165!3d18.520324582573185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c25e621417f3%3A0x1f02fe66ca156265!2sSanmati%20Bal%20Niketan!5e0!3m2!1sen!2sin!4v1773434262617!5m2!1sen!2sin" ;
 
-  const router = useRouter()
+const Footer = () => {
+  const router = useRouter();
 
   return (
     <>
       <footer className="bg-black text-gray-300 pt-16 grid grid-cols-8 max-sm:hidden">
-
         <div className="col-span-1"></div>
         <div className="col-span-6 grid grid-cols-1 md:grid-cols-4 gap-12">
-
           <div>
-            <img
-              src="/assets/images/logo.png"
-              alt="Logo"
-              className="w-28 mb-4"
-            />
+            <img src="/assets/images/branding/logo.png" alt="Logo" className="w-28 mb-4" />
             <p className="text-xs font-semibold leading-relaxed">
               'Saptasindhu' Mahila Adhar,
               <br />
@@ -29,36 +25,49 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4 text-xs">
-              Quick Links
-            </h4>
+            <h4 className="text-white font-semibold mb-4 text-xs">Quick Links</h4>
             <ul className="space-y-2 text-xs text-gray-300">
-              <li onClick={() => router.push("/maii")} className="hover:text-white cursor-pointer">Maai</li>
-              <li onClick={() => router.push("/about")} className="hover:text-white cursor-pointer">About us</li>
-              <li onClick={() => router.push("/gallery")} className="hover:text-white cursor-pointer">Gallery</li>
-              <li onClick={() => router.push("/#")} className="hover:text-white cursor-pointer">Supporters</li>
-              <li onClick={() => router.push("/policy")} className="hover:text-white cursor-pointer">Policy</li>
+              <li onClick={() => router.push("/maii")} className="hover:text-white cursor-pointer">
+                Maai
+              </li>
+              <li onClick={() => router.push("/about")} className="hover:text-white cursor-pointer">
+                About us
+              </li>
+              <li onClick={() => router.push("/gallery")} className="hover:text-white cursor-pointer">
+                Gallery
+              </li>
+              <li onClick={() => router.push("/supporters")} className="hover:text-white cursor-pointer">
+                Supporters
+              </li>
+              <li onClick={() => router.push("/policy")} className="hover:text-white cursor-pointer">
+                Policy
+              </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4 text-xs">
-              Contact Us
-            </h4>
+            <h4 className="text-white font-semibold mb-4 text-xs">Contact Us</h4>
 
             <div className="flex items-start gap-2 mb-3">
               <MdLocationOn className="text-yellow-400 mt-1 flex-shrink-0 text-sm" />
               <p className="text-xs leading-relaxed flex-1">
                 Belhekar Vasti, Near Vasantdada Sugar Institute, AM College Road
                 <br />
-                Manjari (Bk), Tal. Haveli, Dist. Pune – 412 307
+                Manjari (Bk), Tal. Haveli, Dist. Pune - 412 307
               </p>
             </div>
 
             <div className="space-y-1 mb-3">
               <div className="flex items-center gap-2">
                 <MdPhone className="text-yellow-400 flex-shrink-0 text-sm" />
-                <span className="text-xs">+91 93265 35224</span>
+                <a
+                  href="https://wa.me/919326535224"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs hover:underline"
+                >
+                  +91 93265 35224
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <MdPhone className="text-yellow-400 flex-shrink-0 text-sm" />
@@ -70,62 +79,84 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 mb-4">
               <MdMail className="text-yellow-400 flex-shrink-0 text-sm" />
               <span className="text-xs">saptasindhu99@gmail.com</span>
             </div>
+
+            <iframe
+              src={MAP_EMBED_URL}
+              title="Saptasindhu Location Map"
+              loading="lazy"
+              className="w-full h-32 rounded-md border border-slate-700"
+            />
           </div>
 
-          <div className="flex flex-col justify-between items-end text-right">
-            <div className="text-white text-3xl font-bold leading-snug">
-              मी माई झाले,<br />
-              तुम्ही गणगोत व्हा !..
-            </div>
+          <div className="flex flex-col justify-start items-end text-right">
+            <div className="text-white text-2xl font-bold leading-snug">मी माय झाले, तुम्ही गणगोत व्हा !..</div>
 
-            <button onClick={() => router.push("/donate")} className="mt-6 bg-sky-500 text-white px-6 py-3 rounded font-semibold hover:bg-sky-600 transition">
+            <button
+              onClick={() => router.push("/donate")}
+              className="mt-6 bg-sky-500 text-white px-6 py-3 rounded font-semibold hover:bg-sky-600 transition"
+            >
               Donate Here
             </button>
+
+            <div className="mt-5 flex items-center gap-4 text-gray-200">
+              <a
+                href="https://www.facebook.com/sanmati.balniketan"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <IoLogoFacebook className="cursor-pointer text-xl" />
+              </a>
+              <a
+                href="https://www.instagram.com/sanmatibalniketan"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <IoLogoInstagram className="cursor-pointer text-xl" />
+              </a>
+              <a
+                href="https://www.youtube.com/@padmashridrsindhutaisapakal"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+              >
+                <IoLogoYoutube className="cursor-pointer text-xl" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/saptasindhu-mahila-adhar-balsangopan-and-shikshan-sanstha/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <IoLogoLinkedin className="cursor-pointer text-xl" />
+              </a>
+            </div>
           </div>
         </div>
 
         <div className="col-span-1"></div>
 
         <div className="border-t border-yellow-200 mt-12 col-span-8 mx-48">
-          <div className="max-w-7xl mx-auto  py-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-300">
+          <div className="max-w-7xl mx-auto py-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-300">
             <div>
               © 2025 sindhutaisapakal.org. All rights reserved.{" "}
-              <span className="underline cursor-pointer">Privacy Policy</span>
+              <span className="underline cursor-pointer" onClick={() => router.push("/policy")}>
+                Privacy Policy
+              </span>
             </div>
-
-            <div className="mt-3 md:mt-0 flex items-center justify-center gap-4 text-gray-300">
-              <a href="https://www.youtube.com/@saptasindhutaisapakal" target="_blank">
-                <IoLogoYoutube className="cursor-pointer" />
-              </a>
-              <a href="https://www.instagram.com/saptasindhutaisapakal/" target="_blank">
-                <IoLogoInstagram className="cursor-pointer" />
-              </a>
-              <a href="https://www.facebook.com/saptasindhutaisapakal" target="_blank">
-                <IoLogoFacebook className="cursor-pointer" />
-              </a>
-              <a href="https://www.facebook.com/saptasindhutaisapakal" target="_blank">
-                <IoLogoLinkedin className="cursor-pointer" />
-              </a>
-              Supported by Mr Umesh Tharkude.
-            </div>
+            <div className="mt-3 md:mt-0">Supported by Mr Umesh Tharkude.</div>
           </div>
         </div>
       </footer>
 
-      {/* ===== FOOTER - MOBILE ONLY ===== */}
       <footer className="bg-black text-gray-300 pt-12 pb-6 px-6 md:hidden">
-
-        {/* Logo + Title */}
         <div className="text-center mb-10">
-          <img
-            src="/assets/images/logo.png"
-            alt="Logo"
-            className="w-24 mx-auto mb-4"
-          />
+          <img src="/assets/images/branding/logo.png" alt="Logo" className="w-24 mx-auto mb-4" />
           <p className="text-xs font-semibold leading-relaxed">
             'Saptasindhu' Mahila Adhar,
             <br />
@@ -133,39 +164,50 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Quick Links */}
         <div className="mb-10">
-          <h4 className="text-white font-semibold mb-4 text-sm text-center">
-            Quick Links
-          </h4>
+          <h4 className="text-white font-semibold mb-4 text-sm text-center">Quick Links</h4>
           <ul className="space-y-3 text-sm text-center">
-            <li onClick={() => router.push("/maii")} className="hover:text-white cursor-pointer">Maai</li>
-            <li onClick={() => router.push("/about")} className="hover:text-white cursor-pointer">About us</li>
-            <li onClick={() => router.push("/gallery")} className="hover:text-white cursor-pointer">Gallery</li>
-            <li onClick={() => router.push("/#")} className="hover:text-white cursor-pointer">Supporters</li>
-            <li onClick={() => router.push("/policy")} className="hover:text-white cursor-pointer">Policy</li>
+            <li onClick={() => router.push("/maii")} className="hover:text-white cursor-pointer">
+              Maai
+            </li>
+            <li onClick={() => router.push("/about")} className="hover:text-white cursor-pointer">
+              About us
+            </li>
+            <li onClick={() => router.push("/gallery")} className="hover:text-white cursor-pointer">
+              Gallery
+            </li>
+            <li onClick={() => router.push("/supporters")} className="hover:text-white cursor-pointer">
+              Supporters
+            </li>
+            <li onClick={() => router.push("/policy")} className="hover:text-white cursor-pointer">
+              Policy
+            </li>
           </ul>
         </div>
 
-        {/* Contact */}
-        <div className="mb-10">
-          <h4 className="text-white font-semibold mb-4 text-sm text-center">
-            Contact Us
-          </h4>
+        <div className="mb-8">
+          <h4 className="text-white font-semibold mb-4 text-sm text-center">Contact Us</h4>
 
           <div className="flex items-start gap-3 mb-4">
             <MdLocationOn className="text-yellow-400 mt-1 flex-shrink-0 text-base" />
             <p className="text-xs leading-relaxed">
               Belhekar Vasti, Near Vasantdada Sugar Institute, AM College Road
               <br />
-              Manjari (Bk), Tal. Haveli, Dist. Pune – 412 307
+              Manjari (Bk), Tal. Haveli, Dist. Pune - 412 307
             </p>
           </div>
 
           <div className="space-y-2 mb-4">
             <div className="flex items-center gap-2">
               <MdPhone className="text-yellow-400 text-sm" />
-              <span className="text-xs">+91 93265 35224</span>
+              <a
+                href="https://wa.me/919326535224"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs hover:underline"
+              >
+                +91 93265 35224
+              </a>
             </div>
             <div className="flex items-center gap-2">
               <MdPhone className="text-yellow-400 text-sm" />
@@ -177,53 +219,63 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mb-4">
             <MdMail className="text-yellow-400 text-sm" />
             <span className="text-xs">saptasindhu99@gmail.com</span>
           </div>
+
+          <iframe
+            src={MAP_EMBED_URL}
+            title="Saptasindhu Location Map Mobile"
+            loading="lazy"
+            className="w-full h-44 rounded-md border border-slate-700"
+          />
         </div>
 
-        {/* Marathi Line */}
-        <div className="text-white text-xl font-bold text-center leading-snug mb-8">
-          मी माई झाले,<br />
-          तुम्ही गणगोत व्हा !..
-        </div>
+        <div className="text-white text-xl font-bold text-center leading-snug mb-8">मी माय झाले, तुम्ही गणगोत व्हा !..</div>
 
-        {/* Donate Button */}
         <button
           onClick={() => router.push("/donate")}
-          className="w-full bg-sky-500 text-white py-3 rounded-md font-semibold mb-10 active:scale-[0.97] transition"
+          className="w-full bg-sky-500 text-white py-3 rounded-md font-semibold mb-4 active:scale-[0.97] transition"
         >
           Donate Here
         </button>
 
-        {/* Divider */}
-        <div className="border-t border-yellow-200 pt-6 text-center text-xs text-gray-400">
-          © 2025 sindhutaisapakal.org. All rights reserved.
-          <div className="underline cursor-pointer mt-2">Privacy Policy</div>
-
-          {/* Social Icons */}
-          <div className="flex justify-center gap-5 mt-5 text-lg">
-            <a href="https://www.youtube.com/@saptasindhutaisapakal" target="_blank">
-              <IoLogoYoutube />
-            </a>
-            <a href="https://www.instagram.com/saptasindhutaisapakal/" target="_blank">
-              <IoLogoInstagram />
-            </a>
-            <a href="https://www.facebook.com/saptasindhutaisapakal" target="_blank">
-              <IoLogoFacebook />
-            </a>
-            <a href="https://www.facebook.com/saptasindhutaisapakal" target="_blank">
-              <IoLogoLinkedin />
-            </a>
-          </div>
-
-
+        <div className="flex justify-center gap-5 mb-8 text-xl">
+          <a href="https://www.facebook.com/sanmati.balniketan" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <IoLogoFacebook />
+          </a>
+          <a href="https://www.instagram.com/sanmatibalniketan" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <IoLogoInstagram />
+          </a>
+          <a
+            href="https://www.youtube.com/@padmashridrsindhutaisapakal"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
+            <IoLogoYoutube />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/saptasindhu-mahila-adhar-balsangopan-and-shikshan-sanstha/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <IoLogoLinkedin />
+          </a>
         </div>
 
+        <div className="border-t border-yellow-200 pt-6 text-center text-xs text-gray-400">
+          © 2025 sindhutaisapakal.org. All rights reserved.
+          <div className="underline cursor-pointer mt-2" onClick={() => router.push("/policy")}>
+            Privacy Policy
+          </div>
+        </div>
       </footer>
     </>
   );
 };
 
 export default Footer;
+

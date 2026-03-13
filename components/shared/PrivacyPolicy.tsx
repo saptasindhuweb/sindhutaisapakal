@@ -200,7 +200,12 @@ const PrivacyPolicy = () => {
             15. Saptasindhu Mahila Adhar Balsangopan aani Shikshan Sanstha
           </h3>
           <p className="mt-2 ml-4">Email: saptasindhu99@gmail.com</p>
-          <p className="mt-2 ml-4">Phone: +91 93265 35224</p>
+          <p className="mt-2 ml-4">
+            Phone:{" "}
+            <a href="https://wa.me/919326535224" target="_blank" rel="noopener noreferrer" className="underline">
+              +91 93265 35224
+            </a>
+          </p>
           <p className="mt-2 ml-4">
             Address: Belhekar Vasti, Near Vasantdada Sugar Institute, Manjari
             (Bk), Tal. Haveli, Dist. Pune – 412 307

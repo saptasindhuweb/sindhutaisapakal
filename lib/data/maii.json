@@ -1,15 +1,15 @@
 {
   "preloadImages": [
-    "/assets/images/bg-maii.png",
-    "/assets/images/bg-mamtatai.png",
-    "/assets/images/mamtatai1.png",
-    "/assets/images/mamtatai2.png",
-    "/assets/images/mamtatai3.png",
-    "/assets/images/mamtatai4.png",
-    "/assets/images/mamtatai5.png",
-    "/assets/images/mamtatai6.png",
-    "/assets/images/mamtatai7.png",
-    "/assets/images/mamtatai8.png"
+    "/assets/images/backgrounds/bg-maii.png",
+    "/assets/images/backgrounds/bg-mamtatai.png",
+    "/assets/images/mamtatai/mamtatai1.png",
+    "/assets/images/mamtatai/mamtatai2.png",
+    "/assets/images/mamtatai/mamtatai3.png",
+    "/assets/images/mamtatai/mamtatai4.png",
+    "/assets/images/mamtatai/mamtatai5.png",
+    "/assets/images/mamtatai/mamtatai6.png",
+    "/assets/images/mamtatai/mamtatai7.png",
+    "/assets/images/mamtatai/mamtatai8.png"
   ],
   "headings": {
     "journey": "JOURNEY OF LIFE",
@@ -20,7 +20,7 @@
     "videos": "VIDEOS"
   },
   "journey": {
-    "heroImage": "/assets/images/bg-maii.png",
+    "heroImage": "/assets/images/backgrounds/bg-maii.png",
     "heroAlt": "Maai",
     "name": "MAAI",
     "dates": "14th Nov 1948 - 4th Jan 2022",
@@ -31,7 +31,7 @@
     "storyMobile": "Her life was a story of strength, resilience, and unconditional love. Abandoned while pregnant, she survived by begging and singing on streets. She began caring for orphaned children and made it her life's mission to provide them dignity, shelter, and education."
   },
   "legacy": {
-    "heroImage": "/assets/images/bg-mamtatai.png",
+    "heroImage": "/assets/images/backgrounds/bg-mamtatai.png",
     "heroAlt": "Mamata Tai",
     "title": "MAMATA SINDHUTAI SAPAKAL",
     "subtitle": "THE MOTHER'S DAUGHTER",
@@ -39,47 +39,47 @@
     "mobileText": "After Maai's demise in 2022, Mamata Tai took responsibility for continuing her mother's mission. She carries forward the legacy of compassion, dedication, and service to hundreds of children."
   },
   "memories": [
-    "/assets/images/mamtatai4.png",
-    "/assets/images/mamtatai3.png",
-    "/assets/images/mamtatai1.png",
-    "/assets/images/mamtatai2.png"
+    "/assets/images/mamtatai/mamtatai4.png",
+    "/assets/images/mamtatai/mamtatai3.png",
+    "/assets/images/mamtatai/mamtatai1.png",
+    "/assets/images/mamtatai/mamtatai2.png"
   ],
   "albums": [
     {
       "id": "dignitaries",
       "title": "Tai with Dignitaries",
-      "cover": "/assets/images/mamtatai5.png",
+      "cover": "/assets/images/mamtatai/mamtatai5.png",
       "images": [
-        "/assets/images/mamtatai5.png",
-        "/assets/images/mamtatai6.png"
+        "/assets/images/mamtatai/mamtatai5.png",
+        "/assets/images/mamtatai/mamtatai6.png"
       ]
     },
     {
       "id": "festivals",
       "title": "Tai at Festivals",
-      "cover": "/assets/images/mamtatai8.png",
+      "cover": "/assets/images/mamtatai/mamtatai8.png",
       "images": [
-        "/assets/images/mamtatai7.png",
-        "/assets/images/mamtatai8.png"
+        "/assets/images/mamtatai/mamtatai7.png",
+        "/assets/images/mamtatai/mamtatai8.png"
       ]
     },
     {
       "id": "children",
       "title": "Tai with Children",
-      "cover": "/assets/images/mamtatai6.png",
+      "cover": "/assets/images/mamtatai/mamtatai6.png",
       "images": [
-        "/assets/images/mamtatai1.png",
-        "/assets/images/mamtatai2.png",
-        "/assets/images/mamtatai3.png"
+        "/assets/images/mamtatai/mamtatai1.png",
+        "/assets/images/mamtatai/mamtatai2.png",
+        "/assets/images/mamtatai/mamtatai3.png"
       ]
     },
     {
       "id": "journey",
       "title": "Life & Journey",
-      "cover": "/assets/images/mamtatai5.png",
+      "cover": "/assets/images/mamtatai/mamtatai5.png",
       "images": [
-        "/assets/images/mamtatai4.png",
-        "/assets/images/mamtatai5.png"
+        "/assets/images/mamtatai/mamtatai4.png",
+        "/assets/images/mamtatai/mamtatai5.png"
       ]
     }
   ],
@@ -87,3 +87,4 @@
     "playlistUrl": "https://www.youtube.com/embed/videoseries?list=PL8gCb0gPpoBxaQW5Qr-g14eA3-Y0RPc2N"
   }
 }
+

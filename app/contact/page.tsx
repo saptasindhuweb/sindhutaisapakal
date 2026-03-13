@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { MdLocationOn, MdPhone, MdMail } from "react-icons/md";
 
 const Contact = () => {
-  const isPageReady = usePageReady(["/assets/images/bg-contact.png"]);
+  const isPageReady = usePageReady(["/assets/images/backgrounds/bg-contact.png"]);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -75,7 +75,7 @@ const Contact = () => {
 
   return (
     <>
-      <main className="w-full mt-20 mb-10 max-sm:hidden">
+      <main className="w-full mb-10 max-sm:hidden">
 
         {/* ================= CONTACT HEADER ================= */}
         <section className="pt-28 pb-16 bg-white grid grid-cols-8">
@@ -107,7 +107,7 @@ const Contact = () => {
             <div
               className="relative rounded-2xl overflow-hidden p-10 border-4 border-black shadow-2xl"
               style={{
-                backgroundImage: "url('/assets/images/bg-contact.png')",
+                backgroundImage: "url('/assets/images/backgrounds/bg-contact.png')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -192,7 +192,14 @@ const Contact = () => {
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3 p-3  rounded-lg  transition">
                 <MdPhone className="text-xl text-yellow-500 flex-shrink-0" />
-                <span className="text-sm font-medium">+91 93265 35224</span>
+                <a
+                  href="https://wa.me/919326535224"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium hover:underline"
+                >
+                  +91 93265 35224 (WhatsApp)
+                </a>
               </div>
               <div className="flex items-center gap-3 p-3  rounded-lg  transition">
                 <MdPhone className="text-xl text-yellow-500 flex-shrink-0" />
@@ -208,6 +215,24 @@ const Contact = () => {
             <div className="flex items-center gap-3 p-3  rounded-lg  transition">
               <MdMail className="text-xl text-yellow-500 flex-shrink-0" />
               <span className="text-sm font-medium">saptasindhu99@gmail.com</span>
+            </div>
+
+            <a
+              href="https://wa.me/919326535224"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex mt-4 items-center justify-center rounded-lg bg-green-600 text-white px-4 py-2 text-sm font-semibold hover:bg-green-700 transition"
+            >
+              WhatsApp Quick Contact
+            </a>
+
+            <div className="mt-6 overflow-hidden rounded-xl border border-slate-200">
+              <iframe
+                src="https://www.google.com/maps?q=Belhekar%20Vasti%2C%20Near%20Vasantdada%20Sugar%20Institute%2C%20Manjari%20Bk%2C%20Pune%20412307&output=embed"
+                title="Saptasindhu Location Map"
+                loading="lazy"
+                className="w-full h-52"
+              />
             </div>
           </div>
 
@@ -243,7 +268,7 @@ const Contact = () => {
           <div
             className="relative rounded-2xl overflow-hidden p-6 border-2 border-black shadow-xl"
             style={{
-              backgroundImage: "url('/assets/images/bg-contact.png')",
+              backgroundImage: "url('/assets/images/backgrounds/bg-contact.png')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -339,7 +364,14 @@ const Contact = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <MdPhone className="text-lg text-yellow-500" />
-                <span>+91 93265 35224</span>
+                <a
+                  href="https://wa.me/919326535224"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  +91 93265 35224 (WhatsApp)
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <MdPhone className="text-lg text-yellow-500" />
@@ -356,6 +388,24 @@ const Contact = () => {
               <span>saptasindhu99@gmail.com</span>
             </div>
 
+            <a
+              href="https://wa.me/919326535224"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-lg bg-green-600 text-white px-4 py-2 text-sm font-semibold hover:bg-green-700 transition"
+            >
+              WhatsApp Quick Contact
+            </a>
+
+            <div className="overflow-hidden rounded-xl border border-slate-200">
+              <iframe
+                src="https://www.google.com/maps?q=Belhekar%20Vasti%2C%20Near%20Vasantdada%20Sugar%20Institute%2C%20Manjari%20Bk%2C%20Pune%20412307&output=embed"
+                title="Saptasindhu Location Map Mobile"
+                loading="lazy"
+                className="w-full h-56"
+              />
+            </div>
+
           </div>
 
         </section>
@@ -369,3 +419,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

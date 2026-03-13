@@ -9,20 +9,21 @@
   ],
   "images": [
     {
-      "src": "/assets/images/savitribai-1.png",
+      "src": "/assets/images/savitribai/savitribai-1.png",
       "alt": "Savitribai Work"
     },
     {
-      "src": "/assets/images/savitribai-2.png",
+      "src": "/assets/images/savitribai/savitribai-2.png",
       "alt": "Savitribai Children"
     },
     {
-      "src": "/assets/images/savitribai-3.png",
+      "src": "/assets/images/savitribai/savitribai-3.png",
       "alt": "Savitribai Outreach"
     },
     {
-      "src": "/assets/images/savitribai-4.png",
+      "src": "/assets/images/savitribai/savitribai-4.png",
       "alt": "Savitribai Education"
     }
   ]
 }
+

@@ -1,10 +1,10 @@
 import  { useRouter } from "next/navigation";
 
 const supporters = [
-  { name: "Bharati Vidyapeeth", img: "/assets/images/bharti.png" },
-  { name: "Nobel Hospital", img: "/assets/images/nobel.png" },
-  { name: "Villo Poonawala Foundation", img: "/assets/images/villo.png" },
-  { name: "Kalyani Technoforge Limited", img: "/assets/images/kalyani.png" },
+  { name: "Bharati Vidyapeeth", img: "/assets/images/supporters/bharti.png" },
+  { name: "Nobel Hospital", img: "/assets/images/supporters/nobel.png" },
+  { name: "Villo Poonawala Foundation", img: "/assets/images/supporters/villo.png" },
+  { name: "Kalyani Technoforge Limited", img: "/assets/images/supporters/kalyani.png" },
 ];
 
 const SupportersSlider = () => {
@@ -110,3 +110,4 @@ const SupportersSlider = () => {
 };
 
 export default SupportersSlider;
+

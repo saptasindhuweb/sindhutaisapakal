@@ -9,15 +9,15 @@ const Mamtatai = () => {
 
     const imageSources = useMemo(
         () => [
-            "/assets/images/bg-mamtatai.png",
-            "/assets/images/mamtatai1.png",
-            "/assets/images/mamtatai2.png",
-            "/assets/images/mamtatai3.png",
-            "/assets/images/mamtatai4.png",
-            "/assets/images/mamtatai5.png",
-            "/assets/images/mamtatai6.png",
-            "/assets/images/mamtatai7.png",
-            "/assets/images/mamtatai8.png",
+            "/assets/images/backgrounds/bg-mamtatai.png",
+            "/assets/images/mamtatai/mamtatai1.png",
+            "/assets/images/mamtatai/mamtatai2.png",
+            "/assets/images/mamtatai/mamtatai3.png",
+            "/assets/images/mamtatai/mamtatai4.png",
+            "/assets/images/mamtatai/mamtatai5.png",
+            "/assets/images/mamtatai/mamtatai6.png",
+            "/assets/images/mamtatai/mamtatai7.png",
+            "/assets/images/mamtatai/mamtatai8.png",
         ],
         []
     );
@@ -65,7 +65,7 @@ const Mamtatai = () => {
     }
 
     return (
-        <main className="w-full mt-20 bg-white">
+        <main className="w-full bg-white">
 
             <section className="pt-28 bg-white grid grid-cols-8">
                 <div className="col-span-1 flex items-center justify-end px-4 mb-4">
@@ -85,7 +85,7 @@ const Mamtatai = () => {
                     {/* Image overlaps */}
                     <div className="relative z-10">
                         <img
-                            src="/assets/images/bg-mamtatai.png"
+                            src="/assets/images/backgrounds/bg-mamtatai.png"
                             alt="Maai"
                             className="w-full h-full object-cover grayscale rounded-3xl -mb-32"
                         />
@@ -151,7 +151,7 @@ const Mamtatai = () => {
                     {["mamtatai1.png", "mamtatai2.png", "mamtatai3.png", "mamtatai4.png"].map((img, i) => (
                         <img
                             key={i}
-                            src={`/assets/images/${img}`}
+                            src={`/assets/images/mamtatai/${img}`}
                             alt=""
                             className="rounded-2xl object-cover"
                         />
@@ -174,7 +174,7 @@ const Mamtatai = () => {
                     {["mamtatai5.png", "mamtatai6.png", "mamtatai7.png", "mamtatai8.png"].map((img, i) => (
                         <img
                             key={i}
-                            src={`/assets/images/${img}`}
+                            src={`/assets/images/mamtatai/${img}`}
                             alt=""
                             className="rounded-3xl object-cover"
                         />
@@ -211,3 +211,4 @@ const Mamtatai = () => {
 };
 
 export default Mamtatai;
+

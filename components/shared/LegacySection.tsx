@@ -11,7 +11,7 @@ const LegacySection = () => {
     <section
       className="relative w-full bg-cover bg-center h-[460px]"
       style={{
-        backgroundImage: "url('/assets/images/bg-legacy.png')",
+        backgroundImage: "url('/assets/images/backgrounds/bg-legacy.png')",
       }}
     >
       {/* overlay */}
@@ -54,3 +54,4 @@ const LegacySection = () => {
 };
 
 export default LegacySection;
+

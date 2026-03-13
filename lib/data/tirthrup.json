@@ -2,9 +2,9 @@
   "hero": {
     "title": "TIRTHRUP SHAIKSHANIK VASATIGRUH",
     "subtitle": "Cultivating Hope for Tomorrow, Nurturing underprivileged Children with the Care They Deserve.",
-    "primaryImage": "/assets/images/tirthrup-heros-1.png",
+    "primaryImage": "/assets/images/tirthrup/tirthrup-heros-1.png",
     "primaryAlt": "Children",
-    "secondaryImage": "/assets/images/tirthrup-heros-2.png",
+    "secondaryImage": "/assets/images/tirthrup/tirthrup-heros-2.png",
     "secondaryAlt": "Group"
   },
   "desktopParagraphs": [
@@ -23,9 +23,10 @@
   "galleryCtaDesktop": "Feel free to visit the institution or call us any time should you need more information.",
   "galleryCtaMobile": "Feel free to visit the institution or call us anytime for more information.",
   "galleryImages": [
-    "/assets/images/tirthrup1.png",
-    "/assets/images/tirthrup2.png",
-    "/assets/images/tirthrup3.png",
-    "/assets/images/tirthrup4.png"
+    "/assets/images/tirthrup/tirthrup1.png",
+    "/assets/images/tirthrup/tirthrup2.png",
+    "/assets/images/tirthrup/tirthrup3.png",
+    "/assets/images/tirthrup/tirthrup4.png"
   ]
 }
+

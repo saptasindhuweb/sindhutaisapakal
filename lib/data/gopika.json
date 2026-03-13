@@ -3,9 +3,9 @@
     "title": "GOPIKA GAI RAKSHAN KENDRA",
     "subtitle": "To care for the unproductive, abandoned cows",
     "yearLabel": "Year of Establishment : 2007",
-    "primaryImage": "/assets/images/gopika-heros-1.png",
+    "primaryImage": "/assets/images/gopika/gopika-heros-1.png",
     "primaryAlt": "Gopika Gai Rakshan",
-    "secondaryImage": "/assets/images/gopika-heros-2.png",
+    "secondaryImage": "/assets/images/gopika/gopika-heros-2.png",
     "secondaryAlt": "Cows shelter"
   },
   "desktopParagraphs": [
@@ -23,10 +23,11 @@
   "galleryCtaDesktop": "Feel free to visit the institution or call us any time should you need more information.",
   "galleryCtaMobile": "Feel free to visit the institution or call us anytime for more information.",
   "galleryImages": [
-    "/assets/images/gopika1.jpg",
-    "/assets/images/gopika2.jpg",
-    "/assets/images/gopika3.jpg",
-    "/assets/images/gopika4.jpg",
-    "/assets/images/gopika5.jpg"
+    "/assets/images/gopika/gopika1.jpg",
+    "/assets/images/gopika/gopika2.jpg",
+    "/assets/images/gopika/gopika3.jpg",
+    "/assets/images/gopika/gopika4.jpg",
+    "/assets/images/gopika/gopika5.jpg"
   ]
 }
+

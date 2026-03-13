@@ -11,9 +11,9 @@ import SupportersSlider from "@/components/shared/SupportersSlider";
 import usePageReady from "@/hooks/usePageReady";
 
 const heroImages = [
-  "/assets/images/bg-heros.png",
-  "/assets/images/bg-maii.png",
-  "/assets/images/bg-mamtatai.png",
+  "/assets/images/backgrounds/bg-heros.png",
+  "/assets/images/backgrounds/bg-maii.png",
+  "/assets/images/backgrounds/bg-mamtatai.png",
 ];
 
 const AUTO_SCROLL_TIME = 5000; // 5 seconds
@@ -23,8 +23,8 @@ const Home = () => {
 
   const isPageReady = usePageReady([
     ...heroImages,
-    "/assets/images/1.png",
-    "/assets/images/2.png",
+    "/assets/images/founders/1.png",
+    "/assets/images/founders/2.png",
   ]);
 
   useEffect(() => {
@@ -89,7 +89,7 @@ const Home = () => {
 
               <div className="flex justify-end">
                 <img
-                  src="/assets/images/1.png"
+                  src="/assets/images/founders/1.png"
                   alt="Sindhutai Sapkal"
                   className="rounded-3xl max-w-md w-full object-cover"
                 />
@@ -109,7 +109,7 @@ const Home = () => {
           <div className=" grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src="/assets/images/2.png"
+              src="/assets/images/founders/2.png"
               alt="Children with Mai"
               className="rounded-3xl max-w-md w-full object-cover"
             />
@@ -155,3 +155,4 @@ const Home = () => {
 };
 
 export default Home;
+

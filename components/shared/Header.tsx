@@ -1,55 +1,62 @@
 'use client'
 
-import { Contact2Icon, MenuIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
+} from "@/components/ui/sheet";
 import { Separator } from "../ui/separator";
-import { GiHomeGarage } from "react-icons/gi";
-import { MdContactEmergency, MdContactPage, MdEventSeat, MdHome } from "react-icons/md";
+import { MdContactPage, MdHome } from "react-icons/md";
 import { PiPlant } from "react-icons/pi";
-import { FaFacebook, FaInstagram, FaLinkedin, FaPeopleRoof, FaTwitter, FaYoutube } from "react-icons/fa6";
+import { FaPeopleRoof } from "react-icons/fa6";
 import { RiGalleryView2 } from "react-icons/ri";
 import { GoMilestone } from "react-icons/go";
 import { FaPeopleCarry } from "react-icons/fa";
 import { BiDonateHeart } from "react-icons/bi";
 
-
 const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
+  const [language, setLanguage] = useState<"EN" | "MR">("EN");
+  const labels =
+    language === "MR"
+      ? {
+          home: "मुख्यपृष्ठ",
+          founder: "संस्थापिका",
+          about: "आमच्याबद्दल",
+          gallery: "गॅलरी",
+          milestones: "टप्पे",
+          supporters: "समर्थक",
+          contact: "संपर्क करा",
+          donate: "देणगी द्या",
+        }
+      : {
+          home: "Home",
+          founder: "The Founder",
+          about: "About Us",
+          gallery: "Gallery",
+          milestones: "Milestones",
+          supporters: "Supporters",
+          contact: "Contact Us",
+          donate: "Donate Here",
+        };
 
   const isHomePage = pathname === "/" || pathname === "/home";
   const isOverlayHeaderPage = pathname === "/donate";
-
   const linkColor = isOverlayHeaderPage ? "text-white" : "text-black";
 
-  // Active route check
   const isActive = (path: string) => pathname === path;
 
-  // Reusable Nav Item
-  const NavItem = ({
-    label,
-    path,
-  }: {
-    label: string;
-    path: string;
-  }) => (
-    <div
-      onClick={() => router.push(path)}
-      className={`relative font-semibold cursor-pointer ${linkColor}`}
-    >
+  const NavItem = ({ label, path }: { label: string; path: string }) => (
+    <div onClick={() => router.push(path)} className={`relative font-semibold cursor-pointer ${linkColor}`}>
       {label}
-
       {isActive(path) && (
         <span className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-6 h-[3px] bg-sky-500 rounded-full" />
       )}
@@ -59,126 +66,128 @@ const Header = () => {
   return (
     <>
       <div
-        className={`md:sticky top-0 w-full z-50 grid grid-cols-8 items-center py-6 max-sm:hidden ${isOverlayHeaderPage ? "text-white" : "text-black"
-          } ${isHomePage ? "bg-white/95 backdrop-blur-sm border-b border-black/10" : ""
-          }`}
+        className={`md:sticky top-0 w-full z-50 grid grid-cols-8 items-center py-6 max-sm:hidden ${
+          isOverlayHeaderPage ? "text-white" : "text-black"
+        } ${isHomePage ? "bg-white/95 backdrop-blur-sm border-b border-black/10" : "bg-white/95 backdrop-blur-sm"}`}
       >
-        {/* LEFT GUTTER */}
         <div className="col-span-1" />
-
-        {/* MAIN NAV */}
         <div className="col-span-6 flex justify-between items-center">
-          {/* LOGO */}
-          <img
-            onClick={() => router.push("/")}
-            src="/assets/images/logo.png"
-            className="h-[90px] cursor-pointer"
-            alt="Logo"
-          />
+          <img onClick={() => router.push("/")} src="/assets/images/branding/logo.png" className="h-[90px] cursor-pointer" alt="Logo" />
 
-          {/* NAV ITEMS */}
-          <NavItem label="Home" path="/" />
-          <NavItem label="The Founder" path="/maii" />
-          <NavItem label="About Us" path="/about" />
-          <NavItem label="Gallery" path="/gallery" />
-          <NavItem label="Milestones" path="/milestones" />
-          <NavItem label="Supporters" path="/supporters" />
+          <NavItem label={labels.home} path="/" />
+          <NavItem label={labels.founder} path="/maii" />
+          <NavItem label={labels.about} path="/about" />
+          <NavItem label={labels.gallery} path="/gallery" />
+          <NavItem label={labels.milestones} path="/milestones" />
+          <NavItem label={labels.supporters} path="/supporters" />
 
-          {/* DONATE BUTTON */}
+          <div className="flex items-center gap-2 border border-slate-300 rounded-full p-1">
+            <button
+              onClick={() => setLanguage("MR")}
+              className={`px-3 py-1 rounded-full text-xs font-semibold transition ${
+                language === "MR" ? "bg-sky-500 text-white" : "text-slate-600"
+              }`}
+            >
+              Mar
+            </button>
+            <button
+              onClick={() => setLanguage("EN")}
+              className={`px-3 py-1 rounded-full text-xs font-semibold transition ${
+                language === "EN" ? "bg-sky-500 text-white" : "text-slate-600"
+              }`}
+            >
+              Eng
+            </button>
+          </div>
+
           <Button
             onClick={() => router.push("/donate")}
             className="bg-sky-500 rounded-full text-xl text-white px-8 py-6 hover:bg-sky-600 cursor-pointer"
           >
-            Donate Here
+            {labels.donate}
           </Button>
         </div>
-
-        {/* RIGHT GUTTER */}
         <div className="col-span-1" />
       </div>
 
       <div className="md:hidden sticky top-0 z-50 flex items-center justify-between p-4 w-screen bg-white/95 backdrop-blur-sm border-b border-black/10">
-        <img onClick={()=> router.push('/')} src="/assets/images/logo.png" className="h-[45px] cursor-pointer" alt="Logo" />
-        <Sheet>
-          <SheetTrigger>
-            <MenuIcon />
-          </SheetTrigger>
-          <SheetContent>
-            <SheetHeader>
-              <SheetTitle>
-                <img onClick={()=>router.push('/')} src="/assets/images/logo.png" className="h-[30px] cursor-pointer" alt="Logo" />
+        <img onClick={() => router.push("/")} src="/assets/images/branding/logo.png" className="h-[45px] cursor-pointer" alt="Logo" />
 
-              </SheetTitle>
-              <Separator />
-              <div className="flex flex-col gap-5 mt-4">
-                <SheetClose className="flex items-center gap-3" onClick={()=>router.push('/')}>
-                  <MdHome className="inline-block mr-2 text-sm" />
-                  <span>Home</span>
-                </SheetClose>
-                <SheetClose className="flex items-center gap-3" onClick={()=>router.push('/maii')}>
-                  <PiPlant className="inline-block mr-2 text-sm" />
-                  <span>The Founder</span>
-                </SheetClose>
-                <SheetClose className="flex items-center gap-3" onClick={()=>router.push('/about')}>
-                  <FaPeopleRoof className="inline-block mr-2 text-sm" />
-                  <span>About Us</span>
-                </SheetClose>
-                <SheetClose className="flex items-center gap-3" onClick={()=>router.push('/gallery')}>
-                  <RiGalleryView2 className="inline-block mr-2 text-sm" />
-                  <span>Gallery</span>
-                </SheetClose>
-                <SheetClose className="flex items-center gap-3" onClick={()=>router.push('/milestones')}>
-                  <GoMilestone className="inline-block mr-2 text-sm" />
-                  <span>Milestones</span>
-                </SheetClose>
-                <SheetClose className="flex items-center gap-3" onClick={()=>router.push('/supporters')}>
-                  <FaPeopleCarry className="inline-block mr-2 text-sm" />
-                  <span>Supporters</span>
-                </SheetClose>
-                <SheetClose className="flex items-center gap-3" onClick={()=>router.push('/contact')}>
-                  <MdContactPage className="inline-block mr-2 text-sm" />
-                  <span>Contact Us</span>
-                </SheetClose>
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 border border-slate-300 rounded-full p-1">
+            <button
+              onClick={() => setLanguage("MR")}
+              className={`px-2 py-1 rounded-full text-[10px] font-semibold ${
+                language === "MR" ? "bg-sky-500 text-white" : "text-slate-600"
+              }`}
+            >
+              Mar
+            </button>
+            <button
+              onClick={() => setLanguage("EN")}
+              className={`px-2 py-1 rounded-full text-[10px] font-semibold ${
+                language === "EN" ? "bg-sky-500 text-white" : "text-slate-600"
+              }`}
+            >
+              Eng
+            </button>
+          </div>
 
-                <Separator/>
+          <Sheet>
+            <SheetTrigger>
+              <MenuIcon />
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>
+                  <img onClick={() => router.push("/")} src="/assets/images/branding/logo.png" className="h-[30px] cursor-pointer" alt="Logo" />
+                </SheetTitle>
+                <Separator />
+                <div className="flex flex-col gap-5 mt-4">
+                  <SheetClose className="flex items-center gap-3" onClick={() => router.push("/")}>
+                    <MdHome className="inline-block mr-2 text-sm" />
+                    <span>{labels.home}</span>
+                  </SheetClose>
+                  <SheetClose className="flex items-center gap-3" onClick={() => router.push("/maii")}>
+                    <PiPlant className="inline-block mr-2 text-sm" />
+                    <span>{labels.founder}</span>
+                  </SheetClose>
+                  <SheetClose className="flex items-center gap-3" onClick={() => router.push("/about")}>
+                    <FaPeopleRoof className="inline-block mr-2 text-sm" />
+                    <span>{labels.about}</span>
+                  </SheetClose>
+                  <SheetClose className="flex items-center gap-3" onClick={() => router.push("/gallery")}>
+                    <RiGalleryView2 className="inline-block mr-2 text-sm" />
+                    <span>{labels.gallery}</span>
+                  </SheetClose>
+                  <SheetClose className="flex items-center gap-3" onClick={() => router.push("/milestones")}>
+                    <GoMilestone className="inline-block mr-2 text-sm" />
+                    <span>{labels.milestones}</span>
+                  </SheetClose>
+                  <SheetClose className="flex items-center gap-3" onClick={() => router.push("/supporters")}>
+                    <FaPeopleCarry className="inline-block mr-2 text-sm" />
+                    <span>{labels.supporters}</span>
+                  </SheetClose>
+                  <SheetClose className="flex items-center gap-3" onClick={() => router.push("/contact")}>
+                    <MdContactPage className="inline-block mr-2 text-sm" />
+                    <span>{labels.contact}</span>
+                  </SheetClose>
 
-                <SheetClose className="flex items-center gap-3" onClick={()=>router.push('/donate')}>
-                  <BiDonateHeart className="inline-block mr-2 text-sm" />
-                  <span>Donate Here</span>
-                </SheetClose>
+                  <Separator />
 
-                <Separator/>
-
-                <SheetClose className="flex items-center gap-3" onClick={()=>router.push('/instagram')}>
-                  <FaInstagram className="inline-block mr-2 text-sm" />
-                  <span>Instagram</span>
-                </SheetClose>
-                <SheetClose className="flex items-center gap-3" onClick={()=>router.push('/facebook')}>
-                  <FaFacebook className="inline-block mr-2 text-sm" />
-                  <span>Facebook</span>
-                </SheetClose>
-                <SheetClose className="flex items-center gap-3" onClick={()=>router.push('/youtube')}>
-                  <FaYoutube className="inline-block mr-2 text-sm" />
-                  <span>YouTube</span>
-                </SheetClose>
-                <SheetClose className="flex items-center gap-3" onClick={()=>router.push('/twitter')}>
-                  <FaTwitter className="inline-block mr-2 text-sm" />
-                  <span>Twitter</span>
-                </SheetClose>
-                <SheetClose className="flex items-center gap-3" onClick={()=>router.push('/linkedin')}>
-                  <FaLinkedin className="inline-block mr-2 text-sm" />
-                  <span>LinkedIn</span>
-                </SheetClose>
-
-              </div>
-            </SheetHeader>
-          </SheetContent>
-        </Sheet>
-
-      {/* <Separator/> */}
+                  <SheetClose className="flex items-center gap-3" onClick={() => router.push("/donate")}>
+                    <BiDonateHeart className="inline-block mr-2 text-sm" />
+                    <span>{labels.donate}</span>
+                  </SheetClose>
+                </div>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </>
   );
 };
 
 export default Header;
+

@@ -43,7 +43,7 @@ const Policy = () => {
 
   return (
     <>
-      <main className="w-full mt-20 max-sm:hidden">
+      <main className="w-full max-sm:hidden">
         {/* ================= POLICY TABS ================= */}
         <section className="pt-28 pb-10 bg-white grid grid-cols-8">
           <div className="col-span-1" />

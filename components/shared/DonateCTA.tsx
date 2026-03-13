@@ -17,7 +17,7 @@ const DonateCTA = () => {
           <div
             className="relative overflow-hidden rounded-3xl bg-cover bg-center"
             style={{
-              backgroundImage: "url('/assets/images/bg-donate.png')",
+              backgroundImage: "url('/assets/images/backgrounds/bg-donate.png')",
             }}
           >
             {/* overlay */}
@@ -53,7 +53,7 @@ const DonateCTA = () => {
         <div
           className="relative overflow-hidden rounded-2xl bg-cover bg-center"
           style={{
-            backgroundImage: "url('/assets/images/bg-donate.png')",
+            backgroundImage: "url('/assets/images/backgrounds/bg-donate.png')",
           }}
         >
           {/* Overlay */}
@@ -92,3 +92,4 @@ const DonateCTA = () => {
 };
 
 export default DonateCTA;
+

@@ -16,7 +16,7 @@ const EventDetailPage = () => {
 
     return (
         <>
-            <main className="py-28 mt-20 grid grid-cols-8 bg-white max-sm:hidden">
+            <main className="py-28 grid grid-cols-8 bg-white max-sm:hidden">
                 <div className="col-span-1" />
                 <div className="col-span-6">
                     {/* COVER */}

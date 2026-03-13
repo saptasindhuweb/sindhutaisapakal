@@ -8,8 +8,8 @@ import { IoChevronForward } from "react-icons/io5";
 
 const Donate = () => {
     const isPageReady = usePageReady([
-        "/assets/images/bg-heros-donate.png",
-        "/assets/images/qr-code.png",
+        "/assets/images/backgrounds/bg-heros-donate.png",
+        "/assets/images/branding/qr-code.png",
     ]);
     const [type, setType] = useState("one-time");
     const [amount, setAmount] = useState<number | null>(null);
@@ -109,7 +109,7 @@ const Donate = () => {
 
                 <section
                     className="relative w-full h-screen bg-cover bg-top "
-                    style={{ backgroundImage: "url('/assets/images/bg-heros-donate.png')" }}
+                    style={{ backgroundImage: "url('/assets/images/backgrounds/bg-heros-donate.png')" }}
                 >
                     <div className="absolute inset-0 bg-black/50" />
 
@@ -336,7 +336,15 @@ const Donate = () => {
                                 </p>
 
                                 <p className="text-sm text-gray-600">
-                                    +91 93265 35224 &nbsp;&nbsp;
+                                    <a
+                                        href="https://wa.me/919326535224"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:underline"
+                                    >
+                                        +91 93265 35224
+                                    </a>{" "}
+                                    &nbsp;&nbsp;
                                     +91 93710 74256 &nbsp;&nbsp;
                                     +91 97308 31701
                                 </p>
@@ -354,7 +362,7 @@ const Donate = () => {
                                     UPI ID : saptasindhumahila132@sbi
                                 </p>
                                 <img
-                                    src="/assets/images/qr-code.png"
+                                    src="/assets/images/branding/qr-code.png"
                                     alt="UPI QR Code"
                                     className="mx-auto w-72"
                                 />
@@ -375,7 +383,7 @@ const Donate = () => {
                 {/* ===== HERO ===== */}
                 <section
                     className="relative w-full h-[70vh] bg-cover bg-top"
-                    style={{ backgroundImage: "url('/assets/images/bg-heros-donate.png')" }}
+                    style={{ backgroundImage: "url('/assets/images/backgrounds/bg-heros-donate.png')" }}
                 >
                     <div className="absolute inset-0 bg-black/50" />
 
@@ -571,7 +579,7 @@ const Donate = () => {
                         </p>
 
                         <img
-                            src="/assets/images/qr-code.png"
+                            src="/assets/images/branding/qr-code.png"
                             alt="UPI QR Code"
                             className="mx-auto w-52"
                         />
@@ -587,3 +595,4 @@ const Donate = () => {
 };
 
 export default Donate;
+

@@ -10,20 +10,20 @@ const orgs = [
   {
     title: "Sanmati Bal Niketan",
     desc: "Dedicated to providing essential support to underprivileged children.",
-    img: "/assets/images/sanmati.png",
+    img: "/assets/images/sanmati/sanmati.png",
     route: "/sanmati",
   },
   {
     title: "Tirthrup Shaikshanik Vasatigruh",
     desc: "A transitional child shelter for one and all and not the orphans.",
-    img: "/assets/images/tirthrup.png",
+    img: "/assets/images/tirthrup/tirthrup.png",
     route: "/tirthrup",
 
   },
   {
     title: "Gopika Gai Rakshan Kendra",
     desc: "Maai’s care for orphans was extended to animals, especially cows",
-    img: "/assets/images/gopika.jpg",
+    img: "/assets/images/gopika/gopika.jpg",
     route: "/gopika",
 
   },
@@ -31,21 +31,21 @@ const orgs = [
   // {
   //   title: "Mamta Bal Sadan, Saswad",
   //   desc: "Orphanage for Girls",
-  //   img: "/assets/images/mamta.png",
+  //   img: "/assets/images/mamtatai/mamta.png",
   //   route: "/mamta",
 
   // },
   // {
   //   title: "Savitribai Phule Mulinche Vasatigruh",
   //   desc: "Motivates and supports to needy and tribal girls to get educated.",
-  //   img: "/assets/images/savitribai.jpg",
+  //   img: "/assets/images/savitribai/savitribai.jpg",
   //   route: "/savitribai",
 
   // },
   // {
   //   title: "Shree Manshanti Chhatralay, Shirur",
   //   desc: "Its home to destitute and needy childrenlly cows.",
-  //   img: "/assets/images/shree.png",
+  //   img: "/assets/images/shree/shree.png",
   //   route: "/shree",
 
   // }

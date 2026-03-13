@@ -18,24 +18,24 @@
   "founders": {
     "main": {
       "name": "Padma Shri Dr. Sou. Sindhutai Sapakal (Maai)",
-      "image": "/assets/images/1.png",
+      "image": "/assets/images/founders/1.png",
       "alt": "Sindhutai Sapkal"
     },
     "members": [
       {
         "name": "Mamata Sindhutai Sapakal",
         "role": "President",
-        "img": "/assets/images/mamta.png"
+        "img": "/assets/images/mamtatai/mamta.png"
       },
       {
         "name": "Saniya Riyaz Shaikh",
         "role": "Working President",
-        "img": "/assets/images/mamtatai3.png"
+        "img": "/assets/images/mamtatai/mamtatai3.png"
       },
       {
         "name": "Seema Dipak Ghadge",
         "role": "Secretary",
-        "img": "/assets/images/mamtatai4.png"
+        "img": "/assets/images/mamtatai/mamtatai4.png"
       }
     ]
   },
@@ -43,47 +43,47 @@
     {
       "name": "Mamata Sindhutai Sapakal",
       "role": "President",
-      "img": "/assets/images/mamta.png"
+      "img": "/assets/images/mamtatai/mamta.png"
     },
     {
       "name": "Prabha Sureshkumar Vairalkar",
       "role": "Vice President",
-      "img": "/assets/images/mamtatai1.png"
+      "img": "/assets/images/mamtatai/mamtatai1.png"
     },
     {
       "name": "Saniya Riyaz Shaikh",
       "role": "Working President",
-      "img": "/assets/images/mamtatai3.png"
+      "img": "/assets/images/mamtatai/mamtatai3.png"
     },
     {
       "name": "Seema Dipak Ghadge",
       "role": "Secretary",
-      "img": "/assets/images/mamtatai4.png"
+      "img": "/assets/images/mamtatai/mamtatai4.png"
     },
     {
       "name": "Ujjwala Balkrushna Prabhat",
       "role": "Deputy Secretary",
-      "img": "/assets/images/mamtatai2.png"
+      "img": "/assets/images/mamtatai/mamtatai2.png"
     },
     {
       "name": "Rupali Vijaykumar Kurangatti",
       "role": "Treasurer",
-      "img": "/assets/images/mamtatai5.png"
+      "img": "/assets/images/mamtatai/mamtatai5.png"
     },
     {
       "name": "Kranti Ashok Garve",
       "role": "Member",
-      "img": "/assets/images/mamtatai6.png"
+      "img": "/assets/images/mamtatai/mamtatai6.png"
     },
     {
       "name": "Chhaya Subhash Wagh",
       "role": "Member",
-      "img": "/assets/images/mamtatai7.png"
+      "img": "/assets/images/mamtatai/mamtatai7.png"
     },
     {
       "name": "Lipi Makarand Inamdar",
       "role": "Member",
-      "img": "/assets/images/mamtatai8.png"
+      "img": "/assets/images/mamtatai/mamtatai8.png"
     }
   ],
   "journey": [
@@ -92,14 +92,14 @@
       "title": "Shahu, Phule, Ambedkar Award 2019",
       "awardDate": "Awarded on 13th March 2024",
       "description": "The \"Shahu, Phule, Ambedkar Award\" is an award by the Govt. of Maharashtra. The award is given to the registered organizations working in various fields of social justice, doing social reforms in the state, and taking Maharashtra forward as a social reformist state.",
-      "image": "/assets/images/nobel.png",
+      "image": "/assets/images/supporters/nobel.png",
       "link": "https://maharashtralokmanch.com/2024/03/13/sindhutai-sapkals-saptasindhu-organization-awarded-shahu-phule-ambedkar-award/"
     }
   ],
   "organisations": [
     {
       "title": "Sanmati Bal Niketan",
-      "image": "/assets/images/sanmati.png",
+      "image": "/assets/images/sanmati/sanmati.png",
       "alt": "Sanmati",
       "descriptionDesktop": [
         "Sanmati Bal Niketan, located in Manjari, Dist.: Pune, is an organization dedicated to providing essential support and care to underprivileged children.",
@@ -113,7 +113,7 @@
     },
     {
       "title": "Tirtharup Shaikshanik Vastigruh",
-      "image": "/assets/images/tirthrup.png",
+      "image": "/assets/images/tirthrup/tirthrup.png",
       "alt": "Tirtharup Shaikshanik Vastigruh",
       "descriptionDesktop": [
         "Sanmati Bal Niketan, located in Manjari, Dist.: Pune, is an organization dedicated to providing essential support and care to underprivileged children.",
@@ -127,7 +127,7 @@
     },
     {
       "title": "Gopika Gaai Rakshan Kendra",
-      "image": "/assets/images/gopika.jpg",
+      "image": "/assets/images/gopika/gopika.jpg",
       "alt": "Gopika Gaai Rakshan Kendra",
       "descriptionDesktop": [
         "The dedication and compassion shown by Maai towards both cows and people in need is truly remarkable.",
@@ -189,11 +189,11 @@
       "children": [
         {
           "name": "Mamata Bal Sadan, Saswad, Pune",
-          "img": "/assets/images/mamta.png"
+          "img": "/assets/images/mamtatai/mamta.png"
         },
         {
           "name": "Savitribai Phule Muliche Vasatigruh, Chikhaldara",
-          "img": "/assets/images/savitribai.jpg"
+          "img": "/assets/images/savitribai/savitribai.jpg"
         }
       ]
     },
@@ -202,9 +202,10 @@
       "children": [
         {
           "name": "Shree Manashanti Chhatralaya, Shirur",
-          "img": "/assets/images/manashanti.jpg"
+          "img": "/assets/images/misc/manashanti.jpg"
         }
       ]
     }
   ]
 }
+

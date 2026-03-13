@@ -10,7 +10,7 @@ export const zhepEvents: EventItem[] = [
     date: "2022-01-01",
     shortDescription: "A life-skills and talent-discovery camp for children.",
     description: zhepDescription,
-    coverImage: "/assets/images/bg-legacy.png",
+    coverImage: "/assets/images/backgrounds/bg-legacy.png",
   },
   {
     id: "zhep-2023",
@@ -18,7 +18,7 @@ export const zhepEvents: EventItem[] = [
     date: "2023-01-01",
     shortDescription: "A life-skills and talent-discovery camp for children.",
     description: zhepDescription,
-    coverImage: "/assets/images/bg-legacy.png",
+    coverImage: "/assets/images/backgrounds/bg-legacy.png",
   },
   {
     id: "zhep-2024",
@@ -26,7 +26,7 @@ export const zhepEvents: EventItem[] = [
     date: "2024-01-01",
     shortDescription: "A life-skills and talent-discovery camp for children.",
     description: zhepDescription,
-    coverImage: "/assets/images/bg-legacy.png",
+    coverImage: "/assets/images/backgrounds/bg-legacy.png",
   },
   {
     id: "zhep-2025",
@@ -34,6 +34,7 @@ export const zhepEvents: EventItem[] = [
     date: "2025-01-01",
     shortDescription: "A life-skills and talent-discovery camp for children.",
     description: zhepDescription,
-    coverImage: "/assets/images/bg-legacy.png",
+    coverImage: "/assets/images/backgrounds/bg-legacy.png",
   },
 ];
+

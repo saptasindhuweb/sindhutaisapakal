@@ -112,7 +112,7 @@ const Maai: React.FC = () => {
 
   return (
     <>
-      <main className="w-full mt-20 max-sm:hidden">
+      <main className="w-full max-sm:hidden">
         <section className="pt-28 bg-white grid grid-cols-8">
           <div className="col-span-1 flex items-center justify-end px-4 mb-4">
             <span className="w-20 h-[2px] bg-black" />

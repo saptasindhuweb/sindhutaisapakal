@@ -8,7 +8,7 @@
     "maai": {
       "title": "Padma Shri Dr. Sou. Sindhutai Sapakal (Maai)",
       "subtitle": "Mother of Orphans",
-      "image": "/assets/images/1.png",
+      "image": "/assets/images/founders/1.png",
       "alt": "Sindhutai Sapkal",
       "paragraphs": [
         "A soul out of life's hardship was born as Mother to over a thousand children and devoted her entire life to social service. After 70 years of lifespan (Born: 1948 - Died: 2022), she raised a grand family of 220 sons-in-laws, 50 daughters-in-laws.",
@@ -19,7 +19,7 @@
     },
     "legacy": {
       "title": "The Legacy and The Responsibility",
-      "image": "/assets/images/2.png",
+      "image": "/assets/images/founders/2.png",
       "alt": "Children with Mai",
       "paragraphs": [
         "Sindhutai gave away her own daughter Mamata to the Shrimant Dagdu Sheth Halwai trust of Pune, to eliminate the feeling of partiality between her own child and the adopted children.",
@@ -35,3 +35,4 @@
     "moreLabelMobile": "More Updates ->"
   }
 }
+

@@ -112,10 +112,10 @@ const About = () => {
 
   return (
     <main className="w-full">
-      <section className="relative w-full pt-28 pb-24 overflow-hidden max-sm:hidden">
+      <section className="relative w-full pb-24 overflow-hidden max-sm:hidden">
         <div className="absolute inset-x-0 top-0 h-[48%] z-0" />
         <div className="relative z- w-full">
-          <div className="w-full rounded-2xl mt-8">
+          <div className="w-full rounded-2xl ">
             <div className="grid grid-cols-8 text-center bg-[#eef8fb] rounded-2xl py-28 pb-40">
               <div className="col-span-1" />
 
@@ -187,17 +187,13 @@ const About = () => {
 
               <div className="col-span-1" />
               <div className="col-span-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <ul className="space-y-3 text-gray-700 list-disc list-inside">
                   {typedAboutData.managingCommittee.map((member) => (
-                    <div key={member.name} className="overflow-hidden rounded-2xl bg-[#f6fbfd]">
-                      <img src={member.img} alt={member.name} className="w-full h-[260px] object-cover" />
-                      <div className="py-4 text-center px-3">
-                        <p className="font-semibold text-[#0f4c5c]">{member.name}</p>
-                        <p className="text-sm text-gray-600 mt-1">{member.role}</p>
-                      </div>
-                    </div>
+                    <li key={member.name}>
+                      {member.name} - {member.role}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
               <div className="col-span-1" />
             </div>
@@ -247,17 +243,13 @@ const About = () => {
             <span className="w-10 h-[2px] bg-black" />
             <h2 className="text-lg font-bold tracking-wide">{typedAboutData.headings.managingCommittee}</h2>
           </div>
-          <div className="grid grid-cols-2 gap-4 mb-8">
+          <ul className="space-y-2 text-sm text-gray-700 list-disc list-inside mb-8">
             {typedAboutData.managingCommittee.map((member) => (
-              <div key={member.name} className="overflow-hidden rounded-xl bg-[#f6fbfd]">
-                <img src={member.img} alt={member.name} className="w-full h-36 object-cover" />
-                <div className="py-3 text-center px-2">
-                  <p className="text-sm font-semibold text-[#0f4c5c]">{member.name}</p>
-                  <p className="text-xs text-gray-600 mt-1">{member.role}</p>
-                </div>
-              </div>
+              <li key={member.name}>
+                {member.name} - {member.role}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 

@@ -37,7 +37,7 @@ const Gopika = () => {
 
   return (
     <>
-      <main className="bg-white mt-20 max-sm:hidden">
+      <main className="bg-white max-sm:hidden">
         <section className="grid grid-cols-8 pt-24">
           <div className="col-span-1 flex items-start justify-end px-4">
             <span className="w-20 h-[2px] bg-black mt-2" />

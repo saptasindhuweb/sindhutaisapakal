@@ -4,7 +4,7 @@
     {
       "name": "Padma Shri Dr. Sou. Sindhutai Sapakal (Maai)",
       "title": "Mother of Orphans",
-      "img": "/assets/images/1.png",
+      "img": "/assets/images/founders/1.png",
       "blurb1": "A soul out of life's hardship was born as Mother to over a thousand children and devoted her entire life to social service. After 70 years of lifespan (Born: 1948 - Died: 2022), she raised a grand family of 220 sons-in-laws, 50 daughters-in-laws.",
       "blurb2": "She adopted more than 1200 orphaned children and provided them food, shelter, and education. She was honored with Padma Shri in 2021.",
       "href": "/maii"
@@ -12,7 +12,7 @@
     {
       "name": "Mamata Tai Sapakal",
       "title": "Carrying the Legacy",
-      "img": "/assets/images/maii2.jpg",
+      "img": "/assets/images/maii/maii2.jpg",
       "blurb1": "Mamata Tai has stood beside Maai's mission for decades, guiding and nurturing generations of children with warmth and resolve.",
       "blurb2": "She continues to expand the family and strengthen institutions that care for the underprivileged.",
       "href": "/mamtatai"
@@ -20,7 +20,7 @@
     {
       "name": "Sanmati Support Circle",
       "title": "Community of Care",
-      "img": "/assets/images/sanmati.png",
+      "img": "/assets/images/sanmati/sanmati.png",
       "blurb1": "A collective of well-wishers who support education, shelter, and daily needs across Maai's institutions.",
       "blurb2": "Their consistent involvement helps build stable homes and opportunities for every child.",
       "href": "/maii"
@@ -28,29 +28,30 @@
     {
       "name": "Gopika Initiative",
       "title": "Future Builders",
-      "img": "/assets/images/gopika.png",
+      "img": "/assets/images/gopika/gopika.jpg",
       "blurb1": "Focused on empowering girls through education and mentorship, inspired by Maai's lifelong commitment.",
       "blurb2": "The initiative nurtures leadership, confidence, and self-reliance.",
       "href": "/maii"
     }
   ],
   "supportersGridA": [
-    { "name": "Supporter 1", "img": "/assets/images/maii1.jpg" },
-    { "name": "Supporter 2", "img": "/assets/images/maii2.jpg" },
-    { "name": "Supporter 3", "img": "/assets/images/maii3.jpg" },
-    { "name": "Supporter 4", "img": "/assets/images/maii4.jpg" },
-    { "name": "Supporter 5", "img": "/assets/images/maii5.jpg" },
-    { "name": "Supporter 6", "img": "/assets/images/maii6.jpg" }
+    { "name": "Supporter 1", "img": "/assets/images/maii/maii1.jpg" },
+    { "name": "Supporter 2", "img": "/assets/images/maii/maii2.jpg" },
+    { "name": "Supporter 3", "img": "/assets/images/maii/maii3.jpg" },
+    { "name": "Supporter 4", "img": "/assets/images/maii/maii4.jpg" },
+    { "name": "Supporter 5", "img": "/assets/images/maii/maii5.jpg" },
+    { "name": "Supporter 6", "img": "/assets/images/maii/maii6.jpg" }
   ],
   "supportersGridB": [
-    { "name": "Supporter 7", "img": "/assets/images/maii1.jpg" },
-    { "name": "Supporter 8", "img": "/assets/images/maii2.jpg" },
-    { "name": "Supporter 9", "img": "/assets/images/maii3.jpg" },
-    { "name": "Supporter 10", "img": "/assets/images/maii4.jpg" },
-    { "name": "Supporter 11", "img": "/assets/images/maii5.jpg" },
-    { "name": "Supporter 12", "img": "/assets/images/maii6.jpg" },
-    { "name": "Supporter 13", "img": "/assets/images/maii7.jpg" },
-    { "name": "Supporter 14", "img": "/assets/images/maii1.jpg" }
+    { "name": "Supporter 7", "img": "/assets/images/maii/maii1.jpg" },
+    { "name": "Supporter 8", "img": "/assets/images/maii/maii2.jpg" },
+    { "name": "Supporter 9", "img": "/assets/images/maii/maii3.jpg" },
+    { "name": "Supporter 10", "img": "/assets/images/maii/maii4.jpg" },
+    { "name": "Supporter 11", "img": "/assets/images/maii/maii5.jpg" },
+    { "name": "Supporter 12", "img": "/assets/images/maii/maii6.jpg" },
+    { "name": "Supporter 13", "img": "/assets/images/maii/maii7.jpg" },
+    { "name": "Supporter 14", "img": "/assets/images/maii/maii1.jpg" }
   ],
   "mobileReadMoreLabel": "Read More ->"
 }
+

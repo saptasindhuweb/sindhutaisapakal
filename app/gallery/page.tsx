@@ -181,7 +181,7 @@ const Gallery = () => {
   }
 
   return (
-    <main className="w-full bg-white md:mt-20">
+    <main className="w-full bg-white">
       {yearlyAlbumSections.map((section, idx) => (
         <section key={`${section.id}-${idx}`} className="py-20 grid grid-cols-8 max-sm:hidden">
           <div className="col-span-1 flex items-center justify-end px-4 mb-4">
@@ -371,4 +371,3 @@ const Gallery = () => {
 };
 
 export default Gallery;
-
