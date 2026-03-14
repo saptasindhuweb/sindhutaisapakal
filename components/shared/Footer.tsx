@@ -149,7 +149,7 @@ const Footer = () => {
                 Privacy Policy
               </span>
             </div>
-            <div className="mt-3 md:mt-0">Supported by Mr Umesh Tharkude.</div>
+            <div className="mt-3 md:mt-0"></div>
           </div>
         </div>
       </footer>
@@ -232,7 +232,7 @@ const Footer = () => {
           />
         </div>
 
-        <div className="text-white text-xl font-bold text-center leading-snug mb-8">मी माय झाले, तुम्ही गणगोत व्हा !..</div>
+        <div className="text-white text-xl font-bold text-center leading-snug mb-8">मी माय झाले,<br/></> तुम्ही गणगोत व्हा !..</div>
 
         <button
           onClick={() => router.push("/donate")}
