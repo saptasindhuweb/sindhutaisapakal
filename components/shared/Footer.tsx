@@ -93,7 +93,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col justify-start items-end text-right">
-            <div className="text-white text-2xl font-bold leading-snug">मी माय झाले, तुम्ही गणगोत व्हा !..</div>
+            <div className="text-white text-2xl font-bold leading-snug">मी माय झाले,<br/> तुम्ही गणगोत व्हा !..</div>
 
             <button
               onClick={() => router.push("/donate")}
@@ -232,7 +232,7 @@ const Footer = () => {
           />
         </div>
 
-        <div className="text-white text-xl font-bold text-center leading-snug mb-8">मी माय झाले,<br/></> तुम्ही गणगोत व्हा !..</div>
+        <div className="text-white text-xl font-bold text-center leading-snug mb-8">मी माय झाले,<br/> तुम्ही गणगोत व्हा !..</div>
 
         <button
           onClick={() => router.push("/donate")}
