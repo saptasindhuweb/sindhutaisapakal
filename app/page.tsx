@@ -67,56 +67,28 @@ const Home = () => {
 
   return (
     <>
-      <section className="w-full bg-white max-sm:hidden">
-        <div className="md:relative flex items-center justify-center">
-          <Carousel
-            className="w-full flex justify-center"
-            opts={{ loop: true }}
-            plugins={[
-              Autoplay({
-                delay: 5000,
-                stopOnInteraction: false,
-                stopOnMouseEnter: true,
-              }),
-            ]}
-          >
-            <CarouselContent>
-              {typedHomeData.heroImages.map((img, index) => (
-                <CarouselItem key={index} className="flex justify-center">
-                  <div className="flex items-center justify-center bg-white" style={{ width: "1600px", height: "900px" }}>
-                    <img src={img} alt={`Hero slide ${index + 1}`} className="h-full w-full object-contain" />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
-      </section>
-
-      <section className="w-full bg-white md:hidden">
-        <div className="w-full">
-          <Carousel
-            className="w-full"
-            opts={{ loop: true }}
-            plugins={[
-              Autoplay({
-                delay: 5000,
-                stopOnInteraction: false,
-                stopOnMouseEnter: true,
-              }),
-            ]}
-          >
-            <CarouselContent>
-              {typedHomeData.heroImages.map((img, index) => (
-                <CarouselItem key={index}>
-                  <div className="w-full h-[220px] sm:h-[350px] md:h-[500px] lg:h-[650px] xl:h-[750px]">
-                    <img src={img} alt={`Hero slide ${index + 1}`} className="w-full h-full object-cover" />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
+      <section className="w-full bg-white">
+        <Carousel
+          className="w-full"
+          opts={{ loop: true }}
+          plugins={[
+            Autoplay({
+              delay: 5000,
+              stopOnInteraction: false,
+              stopOnMouseEnter: true,
+            }),
+          ]}
+        >
+          <CarouselContent>
+            {typedHomeData.heroImages.map((img, index) => (
+              <CarouselItem key={index}>
+                <div className="w-full h-[220px] sm:h-[350px] md:h-[500px] lg:h-[650px] xl:h-[780px]">
+                  <img src={img} alt={`Hero slide ${index + 1}`} className="w-full h-full object-cover" />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </section>
 
       <section className="bg-white py-10 grid grid-cols-8 max-sm:hidden">

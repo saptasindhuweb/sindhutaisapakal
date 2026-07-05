@@ -52,7 +52,7 @@ const Header = () => {
 
   const isHomePage = pathname === "/" || pathname === "/home";
   const isOverlayHeaderPage = pathname === "/donate";
-  const linkColor = isOverlayHeaderPage ? "text-white" : "text-black";
+  const linkColor = isOverlayHeaderPage ? "text-black" : "text-black";
 
   const isActive = (path: string) => pathname === path;
 
@@ -69,7 +69,7 @@ const Header = () => {
     <>
       <div
         className={`md:sticky top-0 w-full z-50 grid grid-cols-8 items-center py-2 lg:py-3 max-xl:hidden ${
-          isOverlayHeaderPage ? "text-white" : "text-black"
+          isOverlayHeaderPage ? "text-black" : "text-black"
         } ${isHomePage ? "bg-white/95 backdrop-blur-sm border-b border-black/10" : "bg-white/95 backdrop-blur-sm"}`}
       >
         <div className="col-span-1" />
