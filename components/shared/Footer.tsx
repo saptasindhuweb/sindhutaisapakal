@@ -107,33 +107,37 @@ const Footer = () => {
                 href="https://www.facebook.com/sanmati.balniketan"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Facebook"
+                aria-label="Follow Saptasindhu on Facebook"
               >
                 <IoLogoFacebook className="cursor-pointer text-xl" />
+                <span className="sr-only">Facebook – Sanmati Bal Niketan</span>
               </a>
               <a
                 href="https://www.instagram.com/sanmatibalniketan"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram"
+                aria-label="Follow Saptasindhu on Instagram"
               >
                 <IoLogoInstagram className="cursor-pointer text-xl" />
+                <span className="sr-only">Instagram – Sanmati Bal Niketan</span>
               </a>
               <a
                 href="https://www.youtube.com/@padmashridrsindhutaisapakal"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="YouTube"
+                aria-label="Watch Saptasindhu on YouTube"
               >
                 <IoLogoYoutube className="cursor-pointer text-xl" />
+                <span className="sr-only">YouTube – Padma Shri Dr. Sindhutai Sapakal</span>
               </a>
               <a
                 href="https://www.linkedin.com/company/saptasindhu-mahila-adhar-balsangopan-and-shikshan-sanstha/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn"
+                aria-label="Connect with Saptasindhu on LinkedIn"
               >
                 <IoLogoLinkedin className="cursor-pointer text-xl" />
+                <span className="sr-only">LinkedIn – Saptasindhu Mahila Adhar Balsangopan And Shikshan Sanstha</span>
               </a>
             </div>
           </div>
@@ -242,27 +246,31 @@ const Footer = () => {
         </button>
 
         <div className="flex justify-center gap-5 mb-8 text-xl">
-          <a href="https://www.facebook.com/sanmati.balniketan" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <a href="https://www.facebook.com/sanmati.balniketan" target="_blank" rel="noopener noreferrer" aria-label="Follow Saptasindhu on Facebook">
             <IoLogoFacebook />
+            <span className="sr-only">Facebook – Sanmati Bal Niketan</span>
           </a>
-          <a href="https://www.instagram.com/sanmatibalniketan" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="https://www.instagram.com/sanmatibalniketan" target="_blank" rel="noopener noreferrer" aria-label="Follow Saptasindhu on Instagram">
             <IoLogoInstagram />
+            <span className="sr-only">Instagram – Sanmati Bal Niketan</span>
           </a>
           <a
             href="https://www.youtube.com/@padmashridrsindhutaisapakal"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="YouTube"
+            aria-label="Watch Saptasindhu on YouTube"
           >
             <IoLogoYoutube />
+            <span className="sr-only">YouTube – Padma Shri Dr. Sindhutai Sapakal</span>
           </a>
           <a
             href="https://www.linkedin.com/company/saptasindhu-mahila-adhar-balsangopan-and-shikshan-sanstha/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn"
+            aria-label="Connect with Saptasindhu on LinkedIn"
           >
             <IoLogoLinkedin />
+            <span className="sr-only">LinkedIn – Saptasindhu Mahila Adhar Balsangopan And Shikshan Sanstha</span>
           </a>
         </div>
 

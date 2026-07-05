@@ -17,8 +17,69 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sindhutai Sapakal",
-  description: "",
+  title: {
+    default: "Sindhutai Sapakal | Mother of Orphans",
+    template: "%s | Sindhutai Sapakal",
+  },
+  description:
+    "Saptasindhu Mahila Adhar Balsangopan And Shikshan Sanstha – the NGO founded by Padma Shri Dr. Sou. Sindhutai Sapakal (Maai). Dedicated to providing shelter, education, and care for orphaned and underprivileged children across Maharashtra since 1998.",
+  keywords: [
+    "Sindhutai Sapakal",
+    "Saptasindhu",
+    "Maai",
+    "Mother of Orphans",
+    "orphanage Maharashtra",
+    "donate NGO India",
+    "Padma Shri Sindhutai",
+    "Mamata Sindhutai Sapakal",
+    "underprivileged children",
+    "child welfare Maharashtra",
+  ],
+  authors: [{ name: "Saptasindhu Mahila Adhar Balsangopan And Shikshan Sanstha" }],
+  creator: "Saptasindhu Mahila Adhar Balsangopan And Shikshan Sanstha",
+  publisher: "Saptasindhu Mahila Adhar Balsangopan And Shikshan Sanstha",
+  // Resolves relative image paths in og/twitter tags.
+  // NEXT_PUBLIC_SITE_URL → set in Vercel env vars (e.g. https://sindhutaisapakal.org)
+  // VERCEL_URL           → automatically injected by Vercel on every deployment
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      (process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : "http://localhost:3000")
+  ),
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "Sindhutai Sapakal",
+    title: "Sindhutai Sapakal | Mother of Orphans",
+    description:
+      "Saptasindhu Mahila Adhar Balsangopan And Shikshan Sanstha – founded by Padma Shri Sindhutai Sapakal. Providing shelter, education, and care for orphaned children across Maharashtra since 1998.",
+    images: [
+      {
+        url: "/assets/images/founders/1.png",
+        width: 1200,
+        height: 630,
+        alt: "Padma Shri Dr. Sou. Sindhutai Sapakal – Mother of Orphans",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sindhutai Sapakal | Mother of Orphans",
+    description:
+      "NGO founded by Padma Shri Sindhutai Sapakal — providing shelter, education, and love to orphaned children across Maharashtra.",
+    images: ["/assets/images/founders/1.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -30,6 +91,51 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        {/* JSON-LD – Organisation structured data (boosts rich results + text-to-code ratio) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "NGO",
+              name: "Saptasindhu Mahila Adhar Balsangopan And Shikshan Sanstha",
+              alternateName: "Sindhutai Sapakal NGO",
+              url: "https://sindhutaisapakal.org",
+              logo: "https://sindhutaisapakal.org/assets/images/branding/logo.png",
+              image: "https://sindhutaisapakal.org/assets/images/founders/1.png",
+              description:
+                "Founded by Padma Shri Dr. Sou. Sindhutai Sapakal (Maai) in 1998. Provides shelter, education, food, and care to orphaned and underprivileged children across Maharashtra.",
+              foundingDate: "1998",
+              founder: {
+                "@type": "Person",
+                name: "Sindhutai Sapakal",
+                honorificPrefix: "Padma Shri Dr.",
+                birthDate: "1948-11-14",
+                deathDate: "2022-01-04",
+              },
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Belhekar Vasti, Near Vasantdada Sugar Institute, AM College Road",
+                addressLocality: "Manjari (Bk)",
+                addressRegion: "Maharashtra",
+                postalCode: "412307",
+                addressCountry: "IN",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+91-93265-35224",
+                contactType: "general",
+                availableLanguage: ["English", "Marathi"],
+              },
+              sameAs: [
+                "https://www.facebook.com/sanmati.balniketan",
+                "https://www.instagram.com/sanmatibalniketan",
+                "https://www.youtube.com/@padmashridrsindhutaisapakal",
+                "https://www.linkedin.com/company/saptasindhu-mahila-adhar-balsangopan-and-shikshan-sanstha/",
+              ],
+            }),
+          }}
+        />
       </head>
 
       <body
