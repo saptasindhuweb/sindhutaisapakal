@@ -3,12 +3,10 @@
 import * as React from "react";
 import DonateCTA from "@/components/shared/DonateCTA";
 import OrgSlider from "@/components/shared/OrgSlider";
-import PageLoader from "@/components/shared/PageLoader";
 import StatsSection from "@/components/shared/StatsSection";
 import SupportersSlider from "@/components/shared/SupportersSlider";
-import usePageReady from "@/hooks/usePageReady";
 import { useRouter } from "next/navigation";
-import { events } from "@/lib/data/events";
+import { Skeleton } from "@/components/ui/skeleton";
 import homeData from "@/lib/data/home.json";
 
 import {
@@ -43,27 +41,29 @@ type HomeData = {
 
 const typedHomeData = homeData as HomeData;
 
+interface MilestoneDoc {
+  _id: string;
+  slug: string;
+  title: string;
+  thumbnail: string;
+  shortDescription: string;
+  date: string;
+  youtubeLink?: string;
+  type: string;
+}
+
 const Home = () => {
-  const isPageReady = usePageReady([
-    ...typedHomeData.heroImages,
-    typedHomeData.sections.maai.image,
-    typedHomeData.sections.legacy.image,
-  ]);
-
   const router = useRouter();
+  const [recentUpdates, setRecentUpdates] = React.useState<MilestoneDoc[]>([]);
+  const [loadingUpdates, setLoadingUpdates] = React.useState(true);
 
-  const recentCompletedEvents = React.useMemo(() => {
-    const today = new Date();
-
-    return events
-      .filter((event) => new Date(event.date) < today)
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-      .slice(0, 3);
+  React.useEffect(() => {
+    fetch("/api/milestones?past=true&limit=3")
+      .then((r) => r.json())
+      .then((data) => setRecentUpdates(data.milestones ?? []))
+      .catch(() => setRecentUpdates([]))
+      .finally(() => setLoadingUpdates(false));
   }, []);
-
-  if (!isPageReady) {
-    return <PageLoader />;
-  }
 
   return (
     <>
@@ -204,7 +204,7 @@ const Home = () => {
               <p className="mt-3 text-gray-600 leading-relaxed">{typedHomeData.sections.legacy.paragraphs[1]}</p>
 
               <div className="mt-4 flex gap-6 text-sm font-semibold text-sky-700">
-                <span onClick={() => router.push(typedHomeData.sections.legacy.route)} className="cursor-pointer hover:underline">
+                <span onClick={() => router.push(typedHomeData.sections.legacy.route, { scroll: false })} className="cursor-pointer hover:underline">
                   {typedHomeData.sections.legacy.readMoreLabel}
                 </span>
               </div>
@@ -233,7 +233,7 @@ const Home = () => {
               <p className="mt-3 text-gray-600 leading-relaxed text-justify">
                 {typedHomeData.sections.legacy.paragraphs[1]}{" "}
                 <button
-                  onClick={() => router.push(typedHomeData.sections.legacy.route)}
+                  onClick={() => router.push(typedHomeData.sections.legacy.route, { scroll: false })}
                   className="text-sm font-semibold text-sky-700 hover:underline cursor-pointer"
                 >
                   {typedHomeData.sections.legacy.readMoreLabel}
@@ -260,23 +260,36 @@ const Home = () => {
         <div className="col-span-1" />
         <div className="col-span-6">
           <div className="grid md:grid-cols-3 gap-6">
-            {recentCompletedEvents.map((item) => (
-              <article
-                key={item.id}
-                onClick={() => router.push(`/milestones/${item.id}`)}
-                className="cursor-pointer rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-md transition"
-              >
-                <img src={item.coverImage} alt={item.title} className="w-full h-48 object-cover" />
-
-                <div className="p-5">
-                  <p className="text-xs text-slate-500 mb-2">{new Date(item.date).toDateString()}</p>
-
-                  <h3 className="text-lg font-semibold text-slate-900 mb-2">{item.title}</h3>
-
-                  <p className="text-sm text-slate-700 leading-relaxed">{item.shortDescription}</p>
-                </div>
-              </article>
-            ))}
+            {loadingUpdates
+              ? [1, 2, 3].map((i) => (
+                  <div key={i} className="rounded-2xl border border-slate-200 bg-white overflow-hidden">
+                    <Skeleton className="w-full h-48" />
+                    <div className="p-5 space-y-2">
+                      <Skeleton className="h-3 w-1/3" />
+                      <Skeleton className="h-5 w-3/4" />
+                      <Skeleton className="h-4 w-full" />
+                    </div>
+                  </div>
+                ))
+              : recentUpdates.map((item) => (
+                  <article
+                    key={item._id}
+                    onClick={() =>
+                      item.youtubeLink
+                        ? window.open(item.youtubeLink, "_blank", "noopener,noreferrer")
+                        : router.push(`/milestones/${item.slug}`)
+                    }
+                    className="cursor-pointer rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-md transition"
+                  >
+                    <img src={item.thumbnail} alt={item.title} className="w-full h-48 object-cover" />
+                    <div className="p-5">
+                      <p className="text-xs text-slate-500 mb-2">{new Date(item.date).toDateString()}</p>
+                      <h3 className="text-lg font-semibold text-slate-900 mb-2">{item.title}</h3>
+                      <p className="text-sm text-slate-700 leading-relaxed">{item.shortDescription}</p>
+                    </div>
+                  </article>
+                ))
+            }
           </div>
         </div>
         <div className="col-span-1" />
@@ -298,23 +311,36 @@ const Home = () => {
         </div>
 
         <div className="space-y-6">
-          {recentCompletedEvents.map((item) => (
-            <article
-              key={item.id}
-              onClick={() => router.push(`/milestones/${item.id}`)}
-              className="cursor-pointer rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden active:scale-[0.98] transition"
-            >
-              <img src={item.coverImage} alt={item.title} className="w-full h-52 object-cover" />
-
-              <div className="p-4">
-                <p className="text-xs text-slate-500 mb-2">{new Date(item.date).toDateString()}</p>
-
-                <h3 className="text-base font-semibold text-slate-900 mb-2 leading-snug">{item.title}</h3>
-
-                <p className="text-sm text-slate-600 leading-relaxed">{item.shortDescription}</p>
-              </div>
-            </article>
-          ))}
+          {loadingUpdates
+            ? [1, 2, 3].map((i) => (
+                <div key={i} className="rounded-2xl border border-slate-200 bg-white overflow-hidden">
+                  <Skeleton className="w-full h-52" />
+                  <div className="p-4 space-y-2">
+                    <Skeleton className="h-3 w-1/3" />
+                    <Skeleton className="h-5 w-3/4" />
+                    <Skeleton className="h-4 w-full" />
+                  </div>
+                </div>
+              ))
+            : recentUpdates.map((item) => (
+                <article
+                  key={item._id}
+                  onClick={() =>
+                    item.youtubeLink
+                      ? window.open(item.youtubeLink, "_blank", "noopener,noreferrer")
+                      : router.push(`/milestones/${item.slug}`)
+                  }
+                  className="cursor-pointer rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden active:scale-[0.98] transition"
+                >
+                  <img src={item.thumbnail} alt={item.title} className="w-full h-52 object-cover" />
+                  <div className="p-4">
+                    <p className="text-xs text-slate-500 mb-2">{new Date(item.date).toDateString()}</p>
+                    <h3 className="text-base font-semibold text-slate-900 mb-2 leading-snug">{item.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{item.shortDescription}</p>
+                  </div>
+                </article>
+              ))
+          }
         </div>
       </section>
 

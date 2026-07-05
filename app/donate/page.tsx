@@ -2,16 +2,10 @@
 
 import { useState } from "react";
 import DonateCTA from "@/components/shared/DonateCTA";
-import PageLoader from "@/components/shared/PageLoader";
-import usePageReady from "@/hooks/usePageReady";
 import { IoChevronForward } from "react-icons/io5";
 
 const Donate = () => {
-    const isPageReady = usePageReady([
-        "/assets/images/backgrounds/bg-heros-donate.png",
-        "/assets/images/branding/qr-code.png",
-    ]);
-    const [type, setType] = useState("one-time");
+      const [type, setType] = useState("one-time");
     const [amount, setAmount] = useState<number | null>(null);
 
     const presetAmounts = [500, 1000, 1500, 2000];
@@ -97,11 +91,6 @@ const Donate = () => {
         const razorpay = new (window as any).Razorpay(options);
         razorpay.open();
     };
-
-    if (!isPageReady) {
-        return <PageLoader />;
-    }
-
 
     return (
         <>

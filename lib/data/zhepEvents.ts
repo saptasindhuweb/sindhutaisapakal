@@ -35,6 +35,7 @@ export const zhepEvents: EventItem[] = [
     shortDescription: "A life-skills and talent-discovery camp for children.",
     description: zhepDescription,
     coverImage: "/assets/images/backgrounds/bg-legacy.png",
+    link: "https://www.youtube.com/watch?v=-uyFrWYJa7U&list=PL8gCb0gPpoBzaV06cjOFTE8-3ZdW5Y9xa",
   },
 ];
 

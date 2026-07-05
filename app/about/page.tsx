@@ -1,10 +1,8 @@
 "use client";
 
 import DonateCTA from "@/components/shared/DonateCTA";
-import PageLoader from "@/components/shared/PageLoader";
 import StatsSection from "@/components/shared/StatsSection";
 import aboutData from "@/lib/data/about.json";
-import usePageReady from "@/hooks/usePageReady";
 import router from "next/router";
 import { GiBullseye } from "react-icons/gi";
 import { TiEye } from "react-icons/ti";
@@ -96,7 +94,6 @@ const typedAboutData = aboutData as {
 };
 
 const About = () => {
-  const isPageReady = usePageReady();
   const router = useRouter();
 
   const sanmati = typedAboutData.organisations[0];
@@ -105,10 +102,6 @@ const About = () => {
 
   const leftValues = typedAboutData.coreValues.slice(0, 3);
   const rightValues = typedAboutData.coreValues.slice(3);
-
-  if (!isPageReady) {
-    return <PageLoader />;
-  }
 
   return (
     <main className="w-full">

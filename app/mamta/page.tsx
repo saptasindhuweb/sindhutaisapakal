@@ -1,9 +1,7 @@
 "use client";
 
 import DonateCTA from "@/components/shared/DonateCTA";
-import PageLoader from "@/components/shared/PageLoader";
 import mamtaData from "@/lib/data/mamta.json";
-import usePageReady from "@/hooks/usePageReady";
 
 type MamtaData = {
   title: string;
@@ -15,11 +13,6 @@ type MamtaData = {
 const typedMamtaData = mamtaData as MamtaData;
 
 const Mamta = () => {
-  const isPageReady = usePageReady(typedMamtaData.images);
-
-  if (!isPageReady) {
-    return <PageLoader />;
-  }
 
   return (
     <main className="bg-white">

@@ -5,10 +5,8 @@ import DonateCTA from "@/components/shared/DonateCTA";
 import LegacySection from "@/components/shared/LegacySection";
 import NgoFocus from "@/components/shared/NgoFocus";
 import OrgSlider from "@/components/shared/OrgSlider";
-import PageLoader from "@/components/shared/PageLoader";
 import StatsSection from "@/components/shared/StatsSection";
 import SupportersSlider from "@/components/shared/SupportersSlider";
-import usePageReady from "@/hooks/usePageReady";
 
 const heroImages = [
   "/assets/images/backgrounds/bg-heros.png",
@@ -21,11 +19,6 @@ const AUTO_SCROLL_TIME = 5000; // 5 seconds
 const Home = () => {
   const [activeHeroIndex, setActiveHeroIndex] = useState(0);
 
-  const isPageReady = usePageReady([
-    ...heroImages,
-    "/assets/images/founders/1.png",
-    "/assets/images/founders/2.png",
-  ]);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -44,10 +37,6 @@ const Home = () => {
   const goNext = () => {
     setActiveHeroIndex((prev) => (prev + 1) % heroImages.length);
   };
-
-  if (!isPageReady) {
-    return <PageLoader />;
-  }
 
   return (
     <main className="w-full pt-40 bg-white">

@@ -1,13 +1,10 @@
 'use client'
 
 import { useState } from "react";
-import PageLoader from "@/components/shared/PageLoader";
-import usePageReady from "@/hooks/usePageReady";
 import toast from "react-hot-toast";
 import { MdLocationOn, MdPhone, MdMail } from "react-icons/md";
 
 const Contact = () => {
-  const isPageReady = usePageReady(["/assets/images/backgrounds/bg-contact.png"]);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -68,10 +65,6 @@ const Contact = () => {
       toast.error("Network error. Please try again.");
     }
   };
-
-  if (!isPageReady) {
-    return <PageLoader />;
-  }
 
   return (
     <>

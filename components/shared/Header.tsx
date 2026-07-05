@@ -13,7 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Separator } from "../ui/separator";
-import { MdContactPage, MdHome } from "react-icons/md";
+import { MdContactPage, MdHome, MdArticle } from "react-icons/md";
 import { PiPlant } from "react-icons/pi";
 import { FaPeopleRoof } from "react-icons/fa6";
 import { RiGalleryView2 } from "react-icons/ri";
@@ -33,6 +33,7 @@ const Header = () => {
           about: "आमच्याबद्दल",
           gallery: "गॅलरी",
           milestones: "टप्पे",
+          blog: "ब्लॉग",
           supporters: "समर्थक",
           contact: "संपर्क करा",
           donate: "देणगी द्या",
@@ -43,6 +44,7 @@ const Header = () => {
           about: "About Us",
           gallery: "Gallery",
           milestones: "Milestones",
+          blog: "Blog",
           supporters: "Supporters",
           contact: "Contact Us",
           donate: "Donate Here",
@@ -66,7 +68,7 @@ const Header = () => {
   return (
     <>
       <div
-        className={`md:sticky top-0 w-full z-50 grid grid-cols-8 items-center py-2 lg:py-3 max-sm:hidden ${
+        className={`md:sticky top-0 w-full z-50 grid grid-cols-8 items-center py-2 lg:py-3 max-xl:hidden ${
           isOverlayHeaderPage ? "text-white" : "text-black"
         } ${isHomePage ? "bg-white/95 backdrop-blur-sm border-b border-black/10" : "bg-white/95 backdrop-blur-sm"}`}
       >
@@ -84,6 +86,7 @@ const Header = () => {
           <NavItem label={labels.about} path="/about" />
           <NavItem label={labels.gallery} path="/gallery" />
           <NavItem label={labels.milestones} path="/milestones" />
+          <NavItem label={labels.blog} path="/blogs" />
           <NavItem label={labels.supporters} path="/supporters" />
 
           <div className="flex items-center gap-2 border border-slate-300 rounded-full p-1">
@@ -115,8 +118,8 @@ const Header = () => {
         <div className="col-span-1" />
       </div>
 
-      <div className="md:hidden sticky top-0 z-50 flex items-center justify-between p-4 w-screen bg-white/95 backdrop-blur-sm border-b border-black/10">
-        <img onClick={() => router.push("/")} src="/assets/images/branding/logo.png" className="h-[45px] cursor-pointer" alt="Logo" />
+      <div className="xl:hidden sticky top-0 z-50 flex items-center justify-between md:px-36 px-3 py-3 w-full bg-white/95 backdrop-blur-sm border-b border-black/10">
+        <img onClick={() => router.push("/")} src="/assets/images/branding/logo.png" className="h-[45px] md:h-[65px] cursor-pointer" alt="Logo" />
 
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1 border border-slate-300 rounded-full p-1">
@@ -168,6 +171,10 @@ const Header = () => {
                   <SheetClose className="flex items-center gap-3" onClick={() => router.push("/milestones")}>
                     <GoMilestone className="inline-block mr-2 text-sm" />
                     <span>{labels.milestones}</span>
+                  </SheetClose>
+                  <SheetClose className="flex items-center gap-3" onClick={() => router.push("/blogs")}>
+                    <MdArticle className="inline-block mr-2 text-sm" />
+                    <span>{labels.blog}</span>
                   </SheetClose>
                   <SheetClose className="flex items-center gap-3" onClick={() => router.push("/supporters")}>
                     <FaPeopleCarry className="inline-block mr-2 text-sm" />

@@ -1,9 +1,7 @@
 "use client";
 
 import DonateCTA from "@/components/shared/DonateCTA";
-import PageLoader from "@/components/shared/PageLoader";
 import tirthrupData from "@/lib/data/tirthrup.json";
-import usePageReady from "@/hooks/usePageReady";
 
 type TirthrupData = {
   hero: {
@@ -27,15 +25,6 @@ type TirthrupData = {
 const typedTirthrupData = tirthrupData as TirthrupData;
 
 const Trithrup = () => {
-  const isPageReady = usePageReady([
-    typedTirthrupData.hero.primaryImage,
-    typedTirthrupData.hero.secondaryImage,
-    ...typedTirthrupData.galleryImages,
-  ]);
-
-  if (!isPageReady) {
-    return <PageLoader />;
-  }
 
   return (
     <>

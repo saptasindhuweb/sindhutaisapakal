@@ -1,11 +1,9 @@
 'use client'
 
 import CancellationPolicy from "@/components/shared/CancellationPolicy";
-import PageLoader from "@/components/shared/PageLoader";
 import PrivacyPolicy from "@/components/shared/PrivacyPolicy";
 import ShippingDeliveryPolicy from "@/components/shared/ShippingDiliveryPolicy";
 import TermsAndConditions from "@/components/shared/TermsAndConditions";
-import usePageReady from "@/hooks/usePageReady";
 import { useState } from "react";
 
 
@@ -19,7 +17,6 @@ const tabs = [
 type TabType = (typeof tabs)[number];
 
 const Policy = () => {
-  const isPageReady = usePageReady();
   const [activeTab, setActiveTab] = useState<TabType>("Privacy Policy");
 
   const renderContent = () => {
@@ -36,10 +33,6 @@ const Policy = () => {
         return null;
     }
   };
-
-  if (!isPageReady) {
-    return <PageLoader />;
-  }
 
   return (
     <>

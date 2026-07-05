@@ -1,9 +1,7 @@
 "use client";
 
 import DonateCTA from "@/components/shared/DonateCTA";
-import PageLoader from "@/components/shared/PageLoader";
 import shreeData from "@/lib/data/shree.json";
-import usePageReady from "@/hooks/usePageReady";
 
 type ShreeData = {
   title: string;
@@ -15,11 +13,6 @@ type ShreeData = {
 const typedShreeData = shreeData as ShreeData;
 
 const Shree = () => {
-  const isPageReady = usePageReady(typedShreeData.images);
-
-  if (!isPageReady) {
-    return <PageLoader />;
-  }
 
   return (
     <main className="bg-white">

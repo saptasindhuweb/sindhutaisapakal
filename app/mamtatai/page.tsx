@@ -1,68 +1,22 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import DonateCTA from "@/components/shared/DonateCTA";
-import PageLoader from "@/components/shared/PageLoader";
+import AlbumCard from "@/components/shared/AlbumCard";
+import AlbumLightbox from "@/components/shared/AlbumLightbox";
+
+const mamtataiAlbum = {
+  title: "Mamata Sindhutai Sapakal – Album",
+  images: [
+    "/assets/images/mamtatai/mamtatai5.png",
+    "/assets/images/mamtatai/mamtatai6.png",
+    "/assets/images/mamtatai/mamtatai7.png",
+    "/assets/images/mamtatai/mamtatai8.png",
+  ],
+};
 
 const Mamtatai = () => {
-    const [isPageReady, setIsPageReady] = useState(false);
-
-    const imageSources = useMemo(
-        () => [
-            "/assets/images/backgrounds/bg-mamtatai.png",
-            "/assets/images/mamtatai/mamtatai1.png",
-            "/assets/images/mamtatai/mamtatai2.png",
-            "/assets/images/mamtatai/mamtatai3.png",
-            "/assets/images/mamtatai/mamtatai4.png",
-            "/assets/images/mamtatai/mamtatai5.png",
-            "/assets/images/mamtatai/mamtatai6.png",
-            "/assets/images/mamtatai/mamtatai7.png",
-            "/assets/images/mamtatai/mamtatai8.png",
-        ],
-        []
-    );
-
-    useEffect(() => {
-        let isCancelled = false;
-
-        const waitForWindowLoad = new Promise<void>((resolve) => {
-            if (document.readyState === "complete") {
-                resolve();
-                return;
-            }
-
-            const onLoad = () => {
-                window.removeEventListener("load", onLoad);
-                resolve();
-            };
-
-            window.addEventListener("load", onLoad);
-        });
-
-        const preloadImage = (src: string) =>
-            new Promise<void>((resolve) => {
-                const image = new Image();
-                image.onload = () => resolve();
-                image.onerror = () => resolve();
-                image.src = src;
-            });
-
-        const preloadAllImages = Promise.all(imageSources.map(preloadImage));
-
-        Promise.all([waitForWindowLoad, preloadAllImages]).then(() => {
-            if (!isCancelled) {
-                setIsPageReady(true);
-            }
-        });
-
-        return () => {
-            isCancelled = true;
-        };
-    }, [imageSources]);
-
-    if (!isPageReady) {
-        return <PageLoader />;
-    }
+    const [albumOpen, setAlbumOpen] = useState(false);
 
     return (
         <main className="w-full bg-white">
@@ -170,15 +124,15 @@ const Mamtatai = () => {
                 </p>
                 <div className="col-span-1" />
 
-                <div className="col-span-6 grid grid-cols-2 gap-10">
-                    {["mamtatai5.png", "mamtatai6.png", "mamtatai7.png", "mamtatai8.png"].map((img, i) => (
-                        <img
-                            key={i}
-                            src={`/assets/images/mamtatai/${img}`}
-                            alt=""
-                            className="rounded-3xl object-cover"
-                        />
-                    ))}
+                <div className="col-span-6 grid grid-cols-2 gap-6">
+                  <div className="col-span-2 sm:col-span-1">
+                    <AlbumCard
+                      cover="/assets/images/mamtatai/mamtatai5.png"
+                      title="Mamata Sindhutai Sapakal"
+                      photoCount={mamtataiAlbum.images.length}
+                      onClick={() => setAlbumOpen(true)}
+                    />
+                  </div>
                 </div>
                 <div className="col-span-1" />
             </section>
@@ -206,6 +160,11 @@ const Mamtatai = () => {
             </section>
 
             <DonateCTA />
+
+            <AlbumLightbox
+              album={albumOpen ? mamtataiAlbum : null}
+              onClose={() => setAlbumOpen(false)}
+            />
         </main>
     );
 };

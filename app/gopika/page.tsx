@@ -1,9 +1,7 @@
 "use client";
 
 import DonateCTA from "@/components/shared/DonateCTA";
-import PageLoader from "@/components/shared/PageLoader";
 import gopikaData from "@/lib/data/gopika.json";
-import usePageReady from "@/hooks/usePageReady";
 
 type GopikaData = {
   hero: {
@@ -25,15 +23,6 @@ type GopikaData = {
 const typedGopikaData = gopikaData as GopikaData;
 
 const Gopika = () => {
-  const isPageReady = usePageReady([
-    typedGopikaData.hero.primaryImage,
-    typedGopikaData.hero.secondaryImage,
-    ...typedGopikaData.galleryImages,
-  ]);
-
-  if (!isPageReady) {
-    return <PageLoader />;
-  }
 
   return (
     <>

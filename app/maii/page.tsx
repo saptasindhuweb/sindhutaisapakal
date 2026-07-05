@@ -2,7 +2,8 @@
 
 import Achievements from "@/components/shared/Achievements";
 import DonateCTA from "@/components/shared/DonateCTA";
-import PageLoader from "@/components/shared/PageLoader";
+import AlbumCard from "@/components/shared/AlbumCard";
+import AlbumLightbox from "@/components/shared/AlbumLightbox";
 import maiiData from "@/lib/data/maii.json";
 import { useEffect, useMemo, useState } from "react";
 
@@ -52,63 +53,17 @@ type MaiiData = {
 const typedMaiiData = maiiData as MaiiData;
 
 const Maai: React.FC = () => {
-  const [isPageReady, setIsPageReady] = useState(false);
   const [activeAlbum, setActiveAlbum] = useState<Album | null>(null);
 
-  const imageSources = useMemo(() => {
-    const albumImages = typedMaiiData.albums.flatMap((album) => [album.cover, ...album.images]);
-    return Array.from(
-      new Set([
-        ...typedMaiiData.preloadImages,
-        typedMaiiData.journey.heroImage,
-        typedMaiiData.legacy.heroImage,
-        ...typedMaiiData.memories,
-        ...albumImages,
-      ])
-    );
-  }, []);
-
+  // Scroll to hash anchor on mount (after the DOM is fully painted)
   useEffect(() => {
-    let isCancelled = false;
-
-    const waitForWindowLoad = new Promise<void>((resolve) => {
-      if (document.readyState === "complete") {
-        resolve();
-        return;
-      }
-
-      const onLoad = () => {
-        window.removeEventListener("load", onLoad);
-        resolve();
-      };
-
-      window.addEventListener("load", onLoad);
-    });
-
-    const preloadImage = (src: string) =>
-      new Promise<void>((resolve) => {
-        const image = new Image();
-        image.onload = () => resolve();
-        image.onerror = () => resolve();
-        image.src = src;
-      });
-
-    const preloadAllImages = Promise.all(imageSources.map(preloadImage));
-
-    Promise.all([waitForWindowLoad, preloadAllImages]).then(() => {
-      if (!isCancelled) {
-        setIsPageReady(true);
-      }
-    });
-
-    return () => {
-      isCancelled = true;
-    };
-  }, [imageSources]);
-
-  if (!isPageReady) {
-    return <PageLoader />;
-  }
+    const hash = window.location.hash;
+    if (!hash) return;
+    setTimeout(() => {
+      const el = document.getElementById(hash.slice(1));
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 300);
+  }, []);
 
   return (
     <>
@@ -167,7 +122,7 @@ const Maai: React.FC = () => {
 
         <Achievements />
 
-        <section className="pt-28 bg-white grid grid-cols-8">
+        <section id="mamtatai" className="pt-28 bg-white grid grid-cols-8">
           <div className="col-span-1 flex items-center justify-end px-4 mb-4">
             <span className="w-20 h-[2px] bg-black" />
           </div>
@@ -237,46 +192,23 @@ const Maai: React.FC = () => {
 
           <div className="col-span-6 grid md:grid-cols-2 gap-10">
             {typedMaiiData.albums.map((album) => (
-              <div
+              <AlbumCard
                 key={album.id}
+                cover={album.cover}
+                title={album.title}
+                photoCount={album.images.length}
                 onClick={() => setActiveAlbum(album)}
-                className="relative cursor-pointer rounded-3xl overflow-hidden group"
-              >
-                <img
-                  src={album.cover}
-                  alt={album.title}
-                  className="w-full h-[320px] object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-
-                <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                  <h3 className="text-white text-2xl font-bold text-center px-4">{album.title}</h3>
-                </div>
-              </div>
+              />
             ))}
           </div>
 
           <div className="col-span-1" />
         </section>
 
-        {activeAlbum && (
-          <div className="fixed inset-0 z-[100] bg-black/90 flex flex-col">
-            <div className="flex items-center justify-between px-6 py-4 text-white">
-              <h2 className="text-2xl font-bold">{activeAlbum.title}</h2>
-
-              <button onClick={() => setActiveAlbum(null)} className="text-3xl font-bold hover:opacity-70">
-                X
-              </button>
-            </div>
-
-            <div className="flex-1 overflow-y-auto px-6 pb-10">
-              <div className="grid md:grid-cols-3 gap-6">
-                {activeAlbum.images.map((img, i) => (
-                  <img key={i} src={img} alt="" className="rounded-2xl object-cover hover:scale-[1.02] transition" />
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+        <AlbumLightbox
+          album={activeAlbum}
+          onClose={() => setActiveAlbum(null)}
+        />
         <section className="pt-14 mt-12 grid grid-cols-8">
           <div className="col-span-1 flex items-center justify-end px-4 mb-4">
             <span className="w-20 h-[2px] bg-black" />
@@ -378,38 +310,22 @@ const Maai: React.FC = () => {
 
           <div className="space-y-6">
             {typedMaiiData.albums.map((album) => (
-              <div
+              <AlbumCard
                 key={album.id}
+                cover={album.cover}
+                title={album.title}
+                photoCount={album.images.length}
                 onClick={() => setActiveAlbum(album)}
-                className="relative rounded-2xl overflow-hidden cursor-pointer"
-              >
-                <img src={album.cover} alt={album.title} className="w-full h-56 object-cover" />
-                <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                  <h3 className="text-white text-lg font-bold text-center px-4">{album.title}</h3>
-                </div>
-              </div>
+              />
             ))}
           </div>
         </section>
 
         {activeAlbum && (
-          <div className="fixed inset-0 z-[100] bg-black/95 flex flex-col md:hidden">
-            <div className="flex items-center justify-between px-4 py-4 text-white">
-              <h2 className="text-lg font-bold">{activeAlbum.title}</h2>
-
-              <button onClick={() => setActiveAlbum(null)} className="text-3xl font-bold">
-                X
-              </button>
-            </div>
-
-            <div className="flex-1 overflow-y-auto px-4 pb-10">
-              <div className="space-y-4">
-                {activeAlbum.images.map((img, i) => (
-                  <img key={i} src={img} alt="" className="rounded-xl object-cover w-full" />
-                ))}
-              </div>
-            </div>
-          </div>
+          <AlbumLightbox
+            album={activeAlbum}
+            onClose={() => setActiveAlbum(null)}
+          />
         )}
 
         <section className="pt-10 bg-white p-4">

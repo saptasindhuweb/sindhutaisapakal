@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import DonateCTA from "@/components/shared/DonateCTA";
 import ImageLightbox from "@/components/shared/ImageLightbox";
-import PageLoader from "@/components/shared/PageLoader";
+import AlbumCard from "@/components/shared/AlbumCard";
+import AlbumLightbox from "@/components/shared/AlbumLightbox";
 import galleryData from "@/lib/data/gallery.json";
 
 type GallerySection = {
@@ -125,60 +126,8 @@ const captionSections: CaptionSection[] = [
 ];
 
 const Gallery = () => {
-  const [isPageReady, setIsPageReady] = useState(false);
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
   const [activeAlbum, setActiveAlbum] = useState<Album | null>(null);
-
-  const imageSources = useMemo(
-    () => [
-      ...typedGalleryData.sections.flatMap((section) => section.images),
-      ...yearlyAlbumSections.flatMap((section) => section.albums.flatMap((album) => [album.cover, ...album.images])),
-      ...captionSections.flatMap((section) => section.photos.map((photo) => photo.src)),
-    ],
-    []
-  );
-
-  useEffect(() => {
-    let isCancelled = false;
-
-    const waitForWindowLoad = new Promise<void>((resolve) => {
-      if (document.readyState === "complete") {
-        resolve();
-        return;
-      }
-
-      const onLoad = () => {
-        window.removeEventListener("load", onLoad);
-        resolve();
-      };
-
-      window.addEventListener("load", onLoad);
-    });
-
-    const preloadImage = (src: string) =>
-      new Promise<void>((resolve) => {
-        const image = new Image();
-        image.onload = () => resolve();
-        image.onerror = () => resolve();
-        image.src = src;
-      });
-
-    const preloadAllImages = Promise.all(imageSources.map(preloadImage));
-
-    Promise.all([waitForWindowLoad, preloadAllImages]).then(() => {
-      if (!isCancelled) {
-        setIsPageReady(true);
-      }
-    });
-
-    return () => {
-      isCancelled = true;
-    };
-  }, [imageSources]);
-
-  if (!isPageReady) {
-    return <PageLoader />;
-  }
 
   return (
     <main className="w-full bg-white">
@@ -192,20 +141,13 @@ const Gallery = () => {
           <div className="col-span-6">
             <div className="grid md:grid-cols-2 gap-8">
               {section.albums.map((album) => (
-                <div
+                <AlbumCard
                   key={album.id}
+                  cover={album.cover}
+                  title={album.title}
+                  photoCount={album.images.length}
                   onClick={() => setActiveAlbum(album)}
-                  className="relative cursor-pointer rounded-3xl overflow-hidden group"
-                >
-                  <img
-                    src={album.cover}
-                    alt={`${section.title} ${album.title}`}
-                    className="w-full h-[300px] object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                    <h3 className="text-white text-2xl font-bold text-center px-4">{album.title}</h3>
-                  </div>
-                </div>
+                />
               ))}
             </div>
           </div>
@@ -247,12 +189,13 @@ const Gallery = () => {
           </div>
           <div className="space-y-4">
             {section.albums.map((album) => (
-              <div key={`${album.id}-m`} onClick={() => setActiveAlbum(album)} className="relative rounded-2xl overflow-hidden">
-                <img src={album.cover} alt={`${section.title} ${album.title}`} className="w-full h-56 object-cover" />
-                <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                  <h3 className="text-white text-lg font-bold text-center px-4">{album.title}</h3>
-                </div>
-              </div>
+              <AlbumCard
+                key={`${album.id}-m`}
+                cover={album.cover}
+                title={album.title}
+                photoCount={album.images.length}
+                onClick={() => setActiveAlbum(album)}
+              />
             ))}
           </div>
         </section>
@@ -336,30 +279,11 @@ const Gallery = () => {
 
       <DonateCTA />
 
-      {activeAlbum && (
-        <div className="fixed inset-0 z-[100] bg-black/90 flex flex-col">
-          <div className="flex items-center justify-between px-6 py-4 text-white">
-            <h2 className="text-2xl font-bold">{activeAlbum.title}</h2>
-            <button onClick={() => setActiveAlbum(null)} className="text-3xl font-bold hover:opacity-70">
-              X
-            </button>
-          </div>
-
-          <div className="flex-1 overflow-y-auto px-6 pb-10">
-            <div className="grid md:grid-cols-3 gap-6">
-              {activeAlbum.images.map((img, i) => (
-                <img
-                  key={`${img}-${i}`}
-                  src={img}
-                  alt=""
-                  className="rounded-2xl object-cover hover:scale-[1.02] transition cursor-pointer"
-                  onClick={() => setExpandedImage(img)}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+      <AlbumLightbox
+        album={activeAlbum}
+        onClose={() => setActiveAlbum(null)}
+        onImageClick={(src) => setExpandedImage(src)}
+      />
 
       <ImageLightbox
         imageSrc={expandedImage}

@@ -6,6 +6,8 @@ export type EventItem = {
   description: string;
   coverImage: string;
   images?: string[];
+  /** External link (YouTube, etc.) — if set, card opens this instead of the detail page */
+  link?: string;
 };
 
 export const events: EventItem[] = [

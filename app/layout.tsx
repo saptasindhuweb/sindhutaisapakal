@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import ImageLoadTracker from "@/components/shared/ImageLoadTracker";
 import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
@@ -32,9 +33,10 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         <Header />
+        <ImageLoadTracker />
         {children}
         <Toaster
           position="top-center"

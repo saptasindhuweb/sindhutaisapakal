@@ -2,9 +2,7 @@
 
 import { useMemo, useState } from "react";
 import ImageLightbox from "@/components/shared/ImageLightbox";
-import PageLoader from "@/components/shared/PageLoader";
 import sanmatiData from "@/lib/data/sanmati.json";
-import usePageReady from "@/hooks/usePageReady";
 
 type TabKey = "campus" | "activities" | "festivals" | "successStories";
 
@@ -78,14 +76,9 @@ const SanmatiBalNiketan = () => {
     [sectionImages]
   );
 
-  const isPageReady = usePageReady(preloadImages);
 
   const [activeTab, setActiveTab] = useState<TabKey>("campus");
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
-
-  if (!isPageReady) {
-    return <PageLoader />;
-  }
 
   return (
     <>

@@ -1,9 +1,7 @@
 "use client";
 
 import DonateCTA from "@/components/shared/DonateCTA";
-import PageLoader from "@/components/shared/PageLoader";
 import savitribaiData from "@/lib/data/savitribai.json";
-import usePageReady from "@/hooks/usePageReady";
 
 type SavitribaiImage = {
   src: string;
@@ -20,11 +18,6 @@ type SavitribaiData = {
 const typedSavitribaiData = savitribaiData as SavitribaiData;
 
 const Savitribai = () => {
-  const isPageReady = usePageReady(typedSavitribaiData.images.map((img) => img.src));
-
-  if (!isPageReady) {
-    return <PageLoader />;
-  }
 
   return (
     <main className="bg-white">

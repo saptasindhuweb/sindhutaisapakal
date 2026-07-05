@@ -137,3 +137,43 @@
 .donate-blink {
   animation: donateBlink 1s ease-in-out infinite;
 }
+
+/* ─── Image skeleton shimmer ───────────────────────────────────────────────────
+   Shows a pulsing gradient on every <img> while it is still loading.
+   Once the image finishes loading, the JS in ImageLoadTracker adds
+   data-img-loaded which removes the animation entirely.
+   The gradient sits behind the real image pixel content, so no layout
+   or existing classNames need to change.
+─────────────────────────────────────────────────────────────────────────────── */
+@keyframes img-skeleton-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+img:not([data-img-loaded]) {
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 25%,
+    #f3f4f6 50%,
+    #e5e7eb 75%
+  );
+  background-size: 400% 100%;
+  animation: img-skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+/* ─── Responsive base font scale ───────────────────────────────────────────────
+   Below the xl breakpoint (1280px) the desktop nav is hidden and the mobile
+   sidebar takes over. Scale the root font size down slightly so text-based
+   layouts that were designed for larger screens feel proportional.
+─────────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 1279px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+}
