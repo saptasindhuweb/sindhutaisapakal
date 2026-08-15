@@ -187,14 +187,51 @@ const About = () => {
               </div>
 
               <div className="col-span-1" />
-              <div className="col-span-6">
-                <ul className="space-y-3 text-gray-700 list-disc list-inside">
-                  {typedAboutData.managingCommittee.map((member) => (
-                    <li key={member.name}>
-                      {member.name} - {member.role}
-                    </li>
+              <div className="col-span-6 space-y-8 mb-10">
+                {/* Row 1: President & Vice President */}
+                <div className="grid grid-cols-2 max-w-2xl gap-8 mx-auto w-full">
+                  {typedAboutData.managingCommittee.filter(m => m.role === "President" || m.role === "Vice President").map((person, i) => (
+                    <div key={i} className="overflow-hidden rounded-2xl bg-[#f6fbfd]">
+                      <div className="relative h-[260px]">
+                        <Image src={person.img} alt={person.name} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover" loading="lazy" />
+                      </div>
+                      <div className="py-4 text-center">
+                        <p className="font-semibold text-[#0f4c5c]">{person.name}</p>
+                        <p className="text-sm text-gray-600 mt-1">{person.role}</p>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
+
+                {/* Row 2: Working President, Secretary, Deputy Secretary, Treasurer */}
+                <div className="grid grid-cols-4 gap-8">
+                  {typedAboutData.managingCommittee.filter(m => ["Working President", "Secretary", "Deputy Secretary", "Treasurer"].includes(m.role)).map((person, i) => (
+                    <div key={i} className="overflow-hidden rounded-2xl bg-[#f6fbfd]">
+                      <div className="relative h-[260px]">
+                        <Image src={person.img} alt={person.name} fill sizes="25vw" className="object-cover" loading="lazy" />
+                      </div>
+                      <div className="py-4 text-center">
+                        <p className="font-semibold text-[#0f4c5c]">{person.name}</p>
+                        <p className="text-sm text-gray-600 mt-1">{person.role}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Row 3: Members */}
+                <div className="grid grid-cols-3 gap-6 max-w-4xl mx-auto w-full">
+                  {typedAboutData.managingCommittee.filter(m => m.role === "Member").map((person, i) => (
+                    <div key={i} className="overflow-hidden rounded-2xl bg-[#f6fbfd]">
+                      <div className="relative h-[260px]">
+                        <Image src={person.img} alt={person.name} fill sizes="30vw" className="object-cover" loading="lazy" />
+                      </div>
+                      <div className="py-3 text-center">
+                        <p className="font-semibold text-[#0f4c5c] text-sm">{person.name}</p>
+                        <p className="text-xs text-gray-600 mt-1">{person.role}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
               <div className="col-span-1" />
             </div>
@@ -244,13 +281,53 @@ const About = () => {
             <span className="w-10 h-[2px] bg-black" />
             <h2 className="text-lg font-bold tracking-wide">{typedAboutData.headings.managingCommittee}</h2>
           </div>
-          <ul className="space-y-2 text-sm text-gray-700 list-disc list-inside mb-8">
-            {typedAboutData.managingCommittee.map((member) => (
-              <li key={member.name}>
-                {member.name} - {member.role}
-              </li>
-            ))}
-          </ul>
+
+          <div className="space-y-6 mb-8">
+            {/* Row 1: President & Vice President */}
+            <div className="grid grid-cols-2 gap-4">
+              {typedAboutData.managingCommittee.filter(m => m.role === "President" || m.role === "Vice President").map((person, i) => (
+                <div key={i} className="overflow-hidden rounded-xl bg-[#f6fbfd]">
+                  <div className="relative h-40">
+                    <Image src={person.img} alt={person.name} fill sizes="50vw" className="object-cover" loading="lazy" />
+                  </div>
+                  <div className="py-3 text-center">
+                    <p className="text-sm font-semibold text-[#0f4c5c]">{person.name}</p>
+                    <p className="text-xs text-gray-600 mt-1">{person.role}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Row 2: Working President, Secretary, Deputy Secretary, Treasurer */}
+            <div className="grid grid-cols-2 gap-4">
+              {typedAboutData.managingCommittee.filter(m => ["Working President", "Secretary", "Deputy Secretary", "Treasurer"].includes(m.role)).map((person, i) => (
+                <div key={i} className="overflow-hidden rounded-xl bg-[#f6fbfd]">
+                  <div className="relative h-40">
+                    <Image src={person.img} alt={person.name} fill sizes="50vw" className="object-cover" loading="lazy" />
+                  </div>
+                  <div className="py-3 text-center">
+                    <p className="text-sm font-semibold text-[#0f4c5c]">{person.name}</p>
+                    <p className="text-xs text-gray-600 mt-1">{person.role}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Row 3: Members */}
+            <div className="grid grid-cols-2 gap-4">
+              {typedAboutData.managingCommittee.filter(m => m.role === "Member").map((person, i) => (
+                <div key={i} className="overflow-hidden rounded-xl bg-[#f6fbfd]">
+                  <div className="relative h-40">
+                    <Image src={person.img} alt={person.name} fill sizes="50vw" className="object-cover" loading="lazy" />
+                  </div>
+                  <div className="py-3 text-center">
+                    <p className="text-sm font-semibold text-[#0f4c5c]">{person.name}</p>
+                    <p className="text-xs text-gray-600 mt-1">{person.role}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

@@ -221,7 +221,7 @@ const Contact = () => {
 
             <div className="mt-6 overflow-hidden rounded-xl border border-slate-200">
               <iframe
-                src="https://www.google.com/maps?q=Belhekar%20Vasti%2C%20Near%20Vasantdada%20Sugar%20Institute%2C%20Manjari%20Bk%2C%20Pune%20412307&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.1897700914246!2d73.97553257519165!3d18.520324582573185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c25e621417f3%3A0x1f02fe66ca156265!2sSanmati%20Bal%20Niketan!5e0!3m2!1sen!2sin!4v1773434262617!5m2!1sen!2sin"
                 title="Saptasindhu Location Map"
                 loading="lazy"
                 className="w-full h-52"
@@ -392,7 +392,7 @@ const Contact = () => {
 
             <div className="overflow-hidden rounded-xl border border-slate-200">
               <iframe
-                src="https://www.google.com/maps?q=Belhekar%20Vasti%2C%20Near%20Vasantdada%20Sugar%20Institute%2C%20Manjari%20Bk%2C%20Pune%20412307&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.1897700914246!2d73.97553257519165!3d18.520324582573185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c25e621417f3%3A0x1f02fe66ca156265!2sSanmati%20Bal%20Niketan!5e0!3m2!1sen!2sin!4v1773434262617!5m2!1sen!2sin"
                 title="Saptasindhu Location Map Mobile"
                 loading="lazy"
                 className="w-full h-56"
