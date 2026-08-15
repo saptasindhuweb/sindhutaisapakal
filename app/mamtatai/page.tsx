@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import DonateCTA from "@/components/shared/DonateCTA";
 import AlbumCard from "@/components/shared/AlbumCard";
@@ -38,10 +39,14 @@ const Mamtatai = () => {
 
                     {/* Image overlaps */}
                     <div className="relative z-10">
-                        <img
+                        <Image
                             src="/assets/images/backgrounds/bg-mamtatai.png"
                             alt="Maai"
-                            className="w-full h-full object-cover grayscale rounded-3xl -mb-32"
+                            width={1920}
+                            height={600}
+                            sizes="(max-width: 768px) 100vw, 75vw"
+                            className="w-full max-h-[37.5rem] object-cover grayscale rounded-3xl -mb-32"
+                            priority
                         />
 
                         <div className="absolute inset-0 flex items-center pl-12">
@@ -103,11 +108,14 @@ const Mamtatai = () => {
                 <div className="col-span-1" />
                 <div className="col-span-6 grid grid-cols-4 gap-8">
                     {["mamtatai1.png", "mamtatai2.png", "mamtatai3.png", "mamtatai4.png"].map((img, i) => (
-                        <img
+                        <Image
                             key={i}
                             src={`/assets/images/mamtatai/${img}`}
                             alt=""
-                            className="rounded-2xl object-cover"
+                            width={300}
+                            height={300}
+                            className="rounded-2xl object-cover w-full h-auto"
+                            loading="lazy"
                         />
                     ))}
                 </div>

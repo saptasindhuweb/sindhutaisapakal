@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -24,11 +25,13 @@ function BlogCard({ blog }: { blog: BlogDoc }) {
       onClick={() => router.push(`/blogs/${blog.slug}`)}
       className="cursor-pointer rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-md transition group"
     >
-      <div className="overflow-hidden h-52">
-        <img
+      <div className="overflow-hidden h-52 relative">
+        <Image
           src={blog.thumbnail}
           alt={blog.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
       </div>

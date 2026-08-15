@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { IoLogoFacebook, IoLogoInstagram, IoLogoLinkedin, IoLogoYoutube } from "react-icons/io5";
 import { MdLocationOn, MdPhone, MdMail } from "react-icons/md";
@@ -16,7 +17,7 @@ const Footer = () => {
         <div className="col-span-1"></div>
         <div className="col-span-6 grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
-            <img src="/assets/images/branding/logo.png" alt="Logo" className="w-28 mb-4" />
+            <Image src="/assets/images/branding/logo.png" alt="Logo" width={112} height={56} className="w-28 mb-4" />
             <p className="text-xs font-semibold leading-relaxed">
               'Saptasindhu' Mahila Adhar,
               <br />
@@ -160,7 +161,7 @@ const Footer = () => {
 
       <footer className="bg-black text-gray-300 pt-12 pb-6 px-6 md:hidden">
         <div className="text-center mb-10">
-          <img src="/assets/images/branding/logo.png" alt="Logo" className="w-24 mx-auto mb-4" />
+          <Image src="/assets/images/branding/logo.png" alt="Logo" width={96} height={48} className="w-24 mx-auto mb-4" />
           <p className="text-xs font-semibold leading-relaxed">
             'Saptasindhu' Mahila Adhar,
             <br />

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import DonateCTA from "@/components/shared/DonateCTA";
 import ImageLightbox from "@/components/shared/ImageLightbox";
@@ -166,12 +167,17 @@ const Gallery = () => {
             <div className="grid md:grid-cols-3 gap-6">
               {section.photos.map((photo, i) => (
                 <div key={`${section.id}-${i}`} className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                  <img
-                    src={photo.src}
-                    alt={photo.caption}
-                    className="w-full h-64 object-cover cursor-pointer"
-                    onClick={() => setExpandedImage(photo.src)}
-                  />
+                  <div className="relative h-64">
+                    <Image
+                      src={photo.src}
+                      alt={photo.caption}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover cursor-pointer"
+                      onClick={() => setExpandedImage(photo.src)}
+                      loading="lazy"
+                    />
+                  </div>
                   <p className="px-3 py-2 text-sm text-gray-700">{photo.caption}</p>
                 </div>
               ))}
@@ -210,12 +216,17 @@ const Gallery = () => {
           <div className="grid grid-cols-2 gap-4">
             {section.photos.map((photo, i) => (
               <div key={`${section.id}-m-${i}`} className="overflow-hidden rounded-xl border border-slate-200 bg-white">
-                <img
-                  src={photo.src}
-                  alt={photo.caption}
-                  className="w-full h-36 object-cover cursor-pointer"
-                  onClick={() => setExpandedImage(photo.src)}
-                />
+                <div className="relative h-36">
+                  <Image
+                    src={photo.src}
+                    alt={photo.caption}
+                    fill
+                    sizes="50vw"
+                    className="object-cover cursor-pointer"
+                    onClick={() => setExpandedImage(photo.src)}
+                    loading="lazy"
+                  />
+                </div>
                 <p className="px-2 py-2 text-xs text-gray-700">{photo.caption}</p>
               </div>
             ))}
@@ -240,11 +251,15 @@ const Gallery = () => {
             <div className="columns-1 sm:columns-2 md:columns-4 gap-6 space-y-6">
               {section.images.map((img, i) => (
                 <div key={i} className="overflow-hidden rounded-2xl break-inside-avoid">
-                  <img
+                  <Image
                     src={img}
                     alt=""
-                    className="w-full object-cover rounded-2xl hover:scale-[1.02] transition duration-300 cursor-pointer"
+                    width={800}
+                    height={600}
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
+                    className="w-full h-auto object-cover rounded-2xl hover:scale-[1.02] transition duration-300 cursor-pointer"
                     onClick={() => setExpandedImage(img)}
+                    loading="lazy"
                   />
                 </div>
               ))}
@@ -265,11 +280,15 @@ const Gallery = () => {
           <div className="columns-2 gap-4 space-y-4">
             {section.images.map((img, i) => (
               <div key={i} className="break-inside-avoid overflow-hidden rounded-xl">
-                <img
+                <Image
                   src={img}
                   alt=""
-                  className="w-full object-cover rounded-xl active:scale-[0.98] transition cursor-pointer"
+                  width={600}
+                  height={450}
+                  sizes="50vw"
+                  className="w-full h-auto object-cover rounded-xl active:scale-[0.98] transition cursor-pointer"
                   onClick={() => setExpandedImage(img)}
+                  loading="lazy"
                 />
               </div>
             ))}

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import { useEffect } from 'react';
 
 interface Album {
@@ -57,15 +58,18 @@ export default function AlbumLightbox({ album, onClose, onImageClick }: AlbumLig
       <div className="flex-1 overflow-y-auto px-6 py-6">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {album.images.map((src, i) => (
-            <div
+              <div
               key={i}
-              className="overflow-hidden rounded-xl group cursor-pointer"
+              className="relative overflow-hidden rounded-xl group cursor-pointer aspect-square"
               onClick={() => onImageClick?.(src)}
             >
-              <img
+              <Image
                 src={src}
                 alt={`${album.title} – ${i + 1}`}
-                className="w-full object-cover aspect-square transition-transform duration-300 group-hover:scale-105"
+                fill
+                sizes="(max-width: 768px) 50vw, 33vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
               />
             </div>
           ))}

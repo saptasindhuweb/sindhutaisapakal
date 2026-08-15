@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image";
 import Achievements from "@/components/shared/Achievements";
 import DonateCTA from "@/components/shared/DonateCTA";
 import AlbumCard from "@/components/shared/AlbumCard";
@@ -82,10 +83,14 @@ const Maai: React.FC = () => {
             <div className="flex items-center gap-4 mb-8"></div>
 
             <div className="relative z-10">
-              <img
+              <Image
                 src={typedMaiiData.journey.heroImage}
                 alt={typedMaiiData.journey.heroAlt}
-                className="w-full max-h-150 object-cover grayscale rounded-3xl -mb-32 object-[center_40%]"
+                width={1920}
+                height={600}
+                sizes="(max-width: 768px) 100vw, 75vw"
+                className="w-full max-h-[37.5rem] object-cover grayscale rounded-3xl -mb-32 object-[center_40%]"
+                priority
               />
             </div>
           </div>
@@ -136,10 +141,13 @@ const Maai: React.FC = () => {
             <div className="flex items-center gap-4 mb-8"></div>
 
             <div className="relative z-10">
-              <img
+              <Image
                 src={typedMaiiData.legacy.heroImage}
                 alt={typedMaiiData.legacy.heroAlt}
-                className="w-full max-h-150 object-cover grayscale rounded-3xl -mb-32"
+                width={1920}
+                height={600}
+                sizes="(max-width: 768px) 100vw, 75vw"
+                className="w-full max-h-[37.5rem] object-cover grayscale rounded-3xl -mb-32"
               />
 
               <div className="absolute inset-0 flex items-center pl-12"></div>
@@ -175,7 +183,7 @@ const Maai: React.FC = () => {
           <div className="col-span-1" />
           <div className="col-span-6 grid grid-cols-4 gap-8">
             {typedMaiiData.memories.map((img, i) => (
-              <img key={i} src={img} alt="" className="rounded-2xl object-cover" />
+              <Image key={i} src={img} alt="" width={300} height={300} className="rounded-2xl object-cover w-full h-auto" loading="lazy" />
             ))}
           </div>
           <div className="col-span-1" />
@@ -242,10 +250,14 @@ const Maai: React.FC = () => {
             <h2 className="text-lg font-bold tracking-wide">{typedMaiiData.headings.journey}</h2>
           </div>
 
-          <img
+          <Image
             src={typedMaiiData.journey.heroImage}
             alt={typedMaiiData.journey.heroAlt}
+            width={1200}
+            height={256}
+            sizes="100vw"
             className="w-full h-64 object-cover grayscale rounded-2xl"
+            priority
           />
         </section>
 
@@ -276,9 +288,12 @@ const Maai: React.FC = () => {
             <h2 className="text-lg font-bold tracking-wide">{typedMaiiData.headings.legacyMobile}</h2>
           </div>
 
-          <img
+          <Image
             src={typedMaiiData.legacy.heroImage}
             alt={typedMaiiData.legacy.heroAlt}
+            width={1200}
+            height={256}
+            sizes="100vw"
             className="w-full h-64 object-cover grayscale rounded-2xl mb-6"
           />
         </section>
@@ -297,7 +312,7 @@ const Maai: React.FC = () => {
 
           <div className="grid grid-cols-2 gap-4">
             {typedMaiiData.memories.map((img, i) => (
-              <img key={i} src={img} alt="" className="rounded-xl object-cover h-40 w-full" />
+              <Image key={i} src={img} alt="" width={400} height={160} className="rounded-xl object-cover h-40 w-full" loading="lazy" />
             ))}
           </div>
         </section>

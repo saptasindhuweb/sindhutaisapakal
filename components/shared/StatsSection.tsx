@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type StatItem = {
   icon: string;
   value: string;
@@ -42,9 +44,11 @@ const StatsSection = () => {
                 className="flex flex-col items-center text-center rounded-2xl"
               >
                 <div className="h-40 w-40  flex items-center justify-center">
-                  <img
+                  <Image
                     src={item.icon}
                     alt={item.label}
+                    width={128}
+                    height={128}
                     className="h-32 w-32 object-cover rounded-xl"
                   />
                 </div>
@@ -77,9 +81,11 @@ const StatsSection = () => {
               >
                 {/* Icon */}
                 <div className="h-20 w-20 flex items-center justify-center mb-3">
-                  <img
+                  <Image
                     src={item.icon}
                     alt={item.label}
+                    width={64}
+                    height={64}
                     className="h-16 w-16 object-cover rounded-lg"
                   />
                 </div>

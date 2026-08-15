@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 type ImageLightboxProps = {
@@ -76,14 +77,21 @@ const ImageLightbox = ({ imageSrc, onRequestClose, alt = "Expanded image preview
       >
         X
       </button>
-      <img
-        src={currentSrc}
-        alt={alt}
-        className={`max-h-[95vh] max-w-[96vw] w-auto object-contain rounded-xl transition-all duration-200 ${
-          isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
-        }`}
+      <div
+        className="relative max-h-[95vh] max-w-[96vw] w-auto"
         onClick={(event) => event.stopPropagation()}
-      />
+      >
+        <Image
+          src={currentSrc}
+          alt={alt}
+          width={1920}
+          height={1080}
+          className={`max-h-[95vh] max-w-[96vw] w-auto h-auto object-contain rounded-xl transition-all duration-200 ${
+            isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+          }`}
+          unoptimized={currentSrc.startsWith("blob:") || currentSrc.startsWith("http")}
+        />
+      </div>
     </div>
   );
 };

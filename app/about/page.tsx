@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import DonateCTA from "@/components/shared/DonateCTA";
 import StatsSection from "@/components/shared/StatsSection";
 import aboutData from "@/lib/data/about.json";
@@ -145,11 +146,16 @@ const About = () => {
               <div className="col-span-8 grid grid-cols-4 p-8">
                 <div className="col-span-1" />
                 <div className="col-span-2 flex flex-col items-center justify-center">
-                  <img
-                    src={typedAboutData.founders.main.image}
-                    alt={typedAboutData.founders.main.alt}
-                    className="rounded-3xl w-full object-cover h-[470px] object-[center_25%]"
-                  />
+                  <div className="relative w-full h-[470px] rounded-3xl overflow-hidden">
+                    <Image
+                      src={typedAboutData.founders.main.image}
+                      alt={typedAboutData.founders.main.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover object-[center_25%]"
+                      priority
+                    />
+                  </div>
                   <p className="text-center text-2xl font-extrabold tracking-tight text-balance">
                     {typedAboutData.founders.main.name}
                   </p>
@@ -161,7 +167,9 @@ const About = () => {
               <div className="col-span-6 grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 mt-10">
                 {typedAboutData.founders.members.map((person, i) => (
                   <div key={i} className="overflow-hidden rounded-2xl bg-[#f6fbfd]">
-                    <img src={person.img} alt={person.name} className="w-full h-[260px] object-cover" />
+                    <div className="relative h-[260px]">
+                      <Image src={person.img} alt={person.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
+                    </div>
                     <div className="py-4 text-center">
                       <p className="font-semibold text-[#0f4c5c]">{person.name}</p>
                       {person.role ? <p className="text-sm text-gray-600 mt-1">{person.role}</p> : null}
@@ -212,18 +220,18 @@ const About = () => {
           </div>
 
           <div className="flex flex-col items-center mb-10">
-            <img
-              src={typedAboutData.founders.main.image}
-              alt={typedAboutData.founders.main.alt}
-              className="rounded-2xl w-full h-72 object-cover object-[center_25%]"
-            />
+            <div className="relative w-full h-72 rounded-2xl overflow-hidden">
+              <Image src={typedAboutData.founders.main.image} alt={typedAboutData.founders.main.alt} fill sizes="100vw" className="object-cover object-[center_25%]" priority />
+            </div>
             <p className="text-center text-lg font-bold mt-4 text-[#0f4c5c]">{typedAboutData.founders.main.name}</p>
           </div>
 
           <div className="grid grid-cols-2 gap-4 mb-6">
             {typedAboutData.founders.members.map((person, i) => (
               <div key={i} className="overflow-hidden rounded-xl bg-[#f6fbfd]">
-                <img src={person.img} alt={person.name} className="w-full h-40 object-cover" />
+                <div className="relative h-40">
+                  <Image src={person.img} alt={person.name} fill sizes="50vw" className="object-cover" />
+                </div>
                 <div className="py-3 text-center">
                   <p className="text-sm font-semibold text-[#0f4c5c]">{person.name}</p>
                   {person.role ? <p className="text-xs text-gray-600 mt-1">{person.role}</p> : null}
@@ -284,21 +292,24 @@ const About = () => {
                         </div>
 
                         <div className="md:pl-16">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-full h-[280px] object-cover rounded-2xl transition-transform duration-300 group-hover:scale-[1.02]"
-                          />
+                          <div className="relative w-full h-[280px] rounded-2xl overflow-hidden">
+                            <Image
+                              src={item.image}
+                              alt={item.title}
+                              fill
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                              className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                              loading="lazy"
+                            />
+                          </div>
                         </div>
                       </>
                     ) : (
                       <>
                         <div className="md:pr-16 order-2 md:order-1">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="w-full h-[280px] object-cover rounded-2xl"
-                          />
+                          <div className="relative w-full h-[280px] rounded-2xl overflow-hidden">
+                            <Image src={item.image} alt={item.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" loading="lazy" />
+                          </div>
                         </div>
 
                         <div className="md:pl-16 order-1 md:order-2">
@@ -343,7 +354,9 @@ const About = () => {
                   <h4 className="text-base font-semibold mb-3">{item.title}</h4>
                   {item.awardDate ? <p className="text-xs text-sky-700 font-semibold mb-3">{item.awardDate}</p> : null}
 
-                  <img src={item.image} alt={item.title} className="w-full h-44 object-cover rounded-lg mb-3" />
+                  <div className="relative w-full h-44 rounded-lg overflow-hidden mb-3">
+                    <Image src={item.image} alt={item.title} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover" loading="lazy" />
+                  </div>
 
                   <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
                 </div>
@@ -382,11 +395,9 @@ const About = () => {
             </div>
 
             <div className="flex justify-end">
-              <img
-                src={sanmati.image}
-                alt={sanmati.alt}
-                className="rounded-3xl max-w-md w-full object-cover h-[420px] object-[center_5%]"
-              />
+              <div className="relative rounded-3xl max-w-md w-full h-[420px] overflow-hidden">
+                <Image src={sanmati.image} alt={sanmati.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-[center_5%]" />
+              </div>
             </div>
           </div>
         </div>
@@ -400,10 +411,8 @@ const About = () => {
         </div>
 
         <div className="space-y-6">
-          <div className="w-full h-60 overflow-hidden rounded-2xl">
-            <img src={sanmati.image} alt={sanmati.alt} className="w-full h-full object-cover object-top " />
-          </div>
-
+          <div className="relative w-full h-60 rounded-2xl overflow-hidden">
+            <Image src={sanmati.image} alt={sanmati.alt} fill sizes="100vw" className="object-cover object-top" />          </div>
           <div>
             <h3 className="text-2xl font-bold leading-snug">{sanmati.title}</h3>
 
@@ -428,7 +437,9 @@ const About = () => {
         <div className="col-span-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <img src={gopika.image} alt={gopika.alt} className="rounded-3xl h-[420px] max-w-md w-full object-cover object-left" />
+              <div className="relative rounded-3xl h-[420px] max-w-md w-full overflow-hidden">
+                <Image src={gopika.image} alt={gopika.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-left" />
+              </div>
             </div>
 
             <div>
@@ -458,13 +469,8 @@ const About = () => {
 
       <section className="bg-white py-12 px-4 md:hidden">
         <div className="space-y-6">
-          <div className="w-full h-60 overflow-hidden rounded-2xl">
-            <img
-              src={gopika.image}
-              alt={gopika.alt}
-              className="w-full h-full object-cover"
-              style={{ objectPosition: "left center" }}
-            />
+          <div className="relative w-full h-60 rounded-2xl overflow-hidden">
+            <Image src={gopika.image} alt={gopika.alt} fill sizes="100vw" className="object-cover object-left" />
           </div>
 
           <div>
@@ -507,11 +513,9 @@ const About = () => {
             </div>
 
             <div className="flex justify-end">
-              <img
-                src={tirthrup.image}
-                alt={tirthrup.alt}
-                className="rounded-3xl max-w-md w-full object-cover h-[420px] object-[center_25%]"
-              />
+              <div className="relative rounded-3xl max-w-md w-full h-[420px] overflow-hidden">
+                <Image src={tirthrup.image} alt={tirthrup.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-[center_25%]" />
+              </div>
             </div>
           </div>
         </div>
@@ -520,8 +524,8 @@ const About = () => {
 
       <section className="bg-white py-12 px-4 md:hidden">
         <div className="space-y-6">
-          <div className="w-full h-60 overflow-hidden rounded-2xl">
-            <img src={tirthrup.image} alt={tirthrup.alt} className="w-full h-full object-cover" />
+          <div className="relative w-full h-60 rounded-2xl overflow-hidden">
+            <Image src={tirthrup.image} alt={tirthrup.alt} fill sizes="100vw" className="object-cover" />
           </div>
 
           <div>
@@ -615,11 +619,9 @@ const About = () => {
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {group.children.map((org) => (
                   <div key={org.name} className="group relative overflow-hidden rounded-2xl shadow-sm">
-                    <img
-                      src={org.img}
-                      alt={org.name}
-                      className="w-full h-[240px] object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                    />
+                    <div className="relative h-[240px]">
+                      <Image src={org.img} alt={org.name} fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" />
+                    </div>
 
                     <div className="py-4 text-center px-4">
                       <p className="font-semibold text-[#0f4c5c]">{org.name}</p>
@@ -684,7 +686,9 @@ const About = () => {
               <div className="grid grid-cols-2 gap-4">
                 {group.children.map((org) => (
                   <div key={org.name} className="overflow-hidden rounded-xl bg-white shadow-sm">
-                    <img src={org.img} alt={org.name} className="w-full h-36 object-cover" />
+                    <div className="relative h-36">
+                      <Image src={org.img} alt={org.name} fill sizes="50vw" className="object-cover" loading="lazy" />
+                    </div>
 
                     <div className="py-3 text-center px-2">
                       <p className="text-sm font-semibold text-[#0f4c5c]">{org.name}</p>

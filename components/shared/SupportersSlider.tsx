@@ -1,3 +1,4 @@
+import Image from "next/image";
 import  { useRouter } from "next/navigation";
 
 const supporters = [
@@ -40,9 +41,11 @@ const SupportersSlider = () => {
                 key={i}
                 className="bg-gray-100 p-4 rounded-xl text-center"
               >
-                <img
+                <Image
                   src={s.img}
-                  className="rounded-lg mb-4"
+                  width={200}
+                  height={120}
+                  className="rounded-lg mb-4 w-full h-auto"
                   alt={s.name}
                 />
                 <p className="font-medium text-lg py-2 px-6">{s.name}</p>
@@ -92,9 +95,11 @@ const SupportersSlider = () => {
               key={i}
               className="bg-gray-100 p-3 rounded-xl text-center active:scale-[0.97] transition"
             >
-              <img
+              <Image
                 src={s.img}
                 alt={s.name}
+                width={200}
+                height={96}
                 className="rounded-lg mb-3 h-24 w-full object-cover"
               />
               <p className="font-medium text-sm">

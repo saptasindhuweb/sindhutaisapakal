@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image";
 import { MenuIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import { usePathname, useRouter } from "next/navigation";
@@ -74,11 +75,14 @@ const Header = () => {
       >
         <div className="col-span-1" />
         <div className="col-span-6 flex justify-between items-center">
-          <img
+          <Image
             onClick={() => router.push("/")}
             src="/assets/images/branding/logo.png"
-            className="h-[64px] lg:h-[74px] xl:h-[90px] cursor-pointer"
+            width={180}
+            height={90}
+            className="h-[64px] lg:h-[74px] xl:h-[90px] w-auto cursor-pointer"
             alt="Logo"
+            priority
           />
 
           <NavItem label={labels.home} path="/" />
@@ -119,7 +123,7 @@ const Header = () => {
       </div>
 
       <div className="xl:hidden sticky top-0 z-50 flex items-center justify-between md:px-36 px-3 py-3 w-full bg-white/95 backdrop-blur-sm border-b border-black/10">
-        <img onClick={() => router.push("/")} src="/assets/images/branding/logo.png" className="h-[45px] md:h-[65px] cursor-pointer" alt="Logo" />
+        <Image onClick={() => router.push("/")} src="/assets/images/branding/logo.png" width={180} height={65} className="h-[45px] md:h-[65px] w-auto cursor-pointer" alt="Logo" priority />
 
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1 border border-slate-300 rounded-full p-1">
@@ -148,7 +152,7 @@ const Header = () => {
             <SheetContent>
               <SheetHeader>
                 <SheetTitle>
-                  <img onClick={() => router.push("/")} src="/assets/images/branding/logo.png" className="h-[30px] cursor-pointer" alt="Logo" />
+                  <Image onClick={() => router.push("/")} src="/assets/images/branding/logo.png" width={120} height={30} className="h-[30px] w-auto cursor-pointer" alt="Logo" />
                 </SheetTitle>
                 <Separator />
                 <div className="flex flex-col gap-5 mt-4">

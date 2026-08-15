@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Award } from "lucide-react";
 import { GiLaurelsTrophy } from "react-icons/gi";
 
@@ -115,10 +116,13 @@ const Achievements: React.FC = () => {
 
                                 <div className="ml-14 sm:ml-30 rounded-xl border border-slate-200 bg-white/95 shadow-lg px-4 sm:px-6 py-5">
                                     <div className="grid grid-cols-1 md:grid-cols-[220px_minmax(0,1fr)] gap-4 md:gap-6 items-start">
-                                        <img
+                                        <Image
                                             src={item.image}
                                             alt={item.imageAlt}
+                                            width={220}
+                                            height={176}
                                             className={`h-44 w-full md:w-[220px] object-cover rounded-lg shadow ${item.imageClassName ?? "object-center"}`}
+                                            loading="lazy"
                                         />
 
                                         <div>
@@ -163,10 +167,13 @@ const Achievements: React.FC = () => {
                             </div>
 
                             {/* Image */}
-                            <img
+                            <Image
                                 src={item.image}
                                 alt={item.imageAlt}
+                                width={400}
+                                height={192}
                                 className={`w-full h-48 object-cover rounded-lg mb-4 ${item.imageClassName ?? "object-center"}`}
+                                loading="lazy"
                             />
 
                             {/* Content */}

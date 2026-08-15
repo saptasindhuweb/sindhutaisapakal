@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import DonateCTA from "@/components/shared/DonateCTA";
 import mamtaData from "@/lib/data/mamta.json";
 
@@ -47,7 +48,7 @@ const Mamta = () => {
 
         <div className="col-span-6 grid grid-cols-4 gap-8">
           {typedMamtaData.images.map((img, i) => (
-            <img key={i} src={img} alt="Mamta Bal Sadan" className="rounded-2xl shadow-md" />
+            <Image key={i} src={img} alt="Mamta Bal Sadan" width={300} height={300} className="rounded-2xl shadow-md w-full h-auto" loading="lazy" />
           ))}
         </div>
 

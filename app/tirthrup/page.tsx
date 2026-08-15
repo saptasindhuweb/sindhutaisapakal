@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import DonateCTA from "@/components/shared/DonateCTA";
 import tirthrupData from "@/lib/data/tirthrup.json";
 
@@ -57,14 +58,19 @@ const Trithrup = () => {
           </div>
 
           <div className="col-span-2 relative flex justify-start ml-12">
-            <img
+            <Image
               src={typedTirthrupData.hero.primaryImage}
               alt={typedTirthrupData.hero.primaryAlt}
-              className="rounded-2xl shadow-lg w-45 h-45 relative z-10"
+              width={180}
+              height={180}
+              className="rounded-2xl shadow-lg w-45 h-45 object-cover relative z-10"
+              priority
             />
-            <img
+            <Image
               src={typedTirthrupData.hero.secondaryImage}
               alt={typedTirthrupData.hero.secondaryAlt}
+              width={220}
+              height={220}
               className="rounded-2xl shadow-xl w-55 absolute top-32 -right-5"
             />
           </div>
@@ -83,7 +89,7 @@ const Trithrup = () => {
 
           <div className="col-span-6 grid grid-cols-4 gap-8 mt-12">
             {typedTirthrupData.galleryImages.map((img, i) => (
-              <img key={i} src={img} alt="" className="rounded-2xl shadow-md" />
+              <Image key={i} src={img} alt="" width={300} height={300} className="rounded-2xl shadow-md w-full h-auto" loading="lazy" />
             ))}
           </div>
 
@@ -103,16 +109,12 @@ const Trithrup = () => {
           <h1 className="text-xl font-bold leading-snug mb-6">{typedTirthrupData.hero.subtitle}</h1>
 
           <div className="flex gap-3 mb-8">
-            <img
-              src={typedTirthrupData.hero.primaryImage}
-              alt={typedTirthrupData.hero.primaryAlt}
-              className="w-1/2 h-30 object-cover rounded-xl shadow-md"
-            />
-            <img
-              src={typedTirthrupData.hero.secondaryImage}
-              alt={typedTirthrupData.hero.secondaryAlt}
-              className="w-1/2 h-30 object-cover rounded-xl shadow-md"
-            />
+            <div className="relative w-1/2 rounded-xl overflow-hidden shadow-md">
+              <Image src={typedTirthrupData.hero.primaryImage} alt={typedTirthrupData.hero.primaryAlt} width={400} height={120} sizes="50vw" className="w-full h-30 object-cover" priority />
+            </div>
+            <div className="relative w-1/2 rounded-xl overflow-hidden shadow-md">
+              <Image src={typedTirthrupData.hero.secondaryImage} alt={typedTirthrupData.hero.secondaryAlt} width={400} height={120} sizes="50vw" className="w-full h-30 object-cover" />
+            </div>
           </div>
 
           <div className="text-gray-700 text-sm leading-relaxed space-y-4 text-justify">
@@ -133,7 +135,7 @@ const Trithrup = () => {
 
           <div className="grid grid-cols-2 gap-4">
             {typedTirthrupData.galleryImages.map((img, i) => (
-              <img key={i} src={img} alt="" className="w-full h-32 object-cover rounded-xl shadow-sm" />
+              <Image key={i} src={img} alt="" width={400} height={128} className="w-full h-32 object-cover rounded-xl shadow-sm" loading="lazy" />
             ))}
           </div>
         </section>

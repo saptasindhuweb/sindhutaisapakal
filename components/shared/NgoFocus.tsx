@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const items = [
   {
     title: "Home & Education",
@@ -45,7 +47,7 @@ const NgoFocus = () => {
             className="flex flex-col rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition min-h-[300px]"
             >
             <div className="flex flex-col items-center justify-center px-6 py-10">
-                <img src={item.icon} className="h-20 mb-4" />
+                <Image src={item.icon} alt={item.title} width={80} height={80} className="h-20 w-20 mb-4" />
 
                 <h3 className="text-lg font-semibold text-orange-500 text-center">
                 {item.title}

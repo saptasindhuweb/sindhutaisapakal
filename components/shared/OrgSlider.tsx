@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { HoverCard } from "../ui/hover-card";
@@ -115,11 +116,15 @@ const OrgSlider = () => {
                 }
                 className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden"
               >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
-                />
+                <div className="relative w-full h-80">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 1200px) 50vw, 33vw"
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <div className="p-5">
                   <h3 className="text-lg font-semibold mb-2">
                     {item.title}
@@ -171,11 +176,15 @@ const OrgSlider = () => {
               className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden active:scale-[0.98] transition cursor-pointer"
             >
               {/* Image */}
-              <img
-                src={item.img}
-                alt={item.title}
-                className="w-full h-56 object-cover"
-              />
+              <div className="relative w-full h-56">
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                />
+              </div>
 
               {/* Content */}
               <div className="p-4">

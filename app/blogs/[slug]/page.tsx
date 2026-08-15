@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -80,11 +81,9 @@ export default function BlogDetailPage() {
           <div className="col-span-1" />
           <div className="col-span-6">
             {/* Cover */}
-            <img
-              src={blog.thumbnail}
-              alt={blog.title}
-              className="w-full h-[420px] object-cover rounded-3xl mb-8"
-            />
+            <div className="relative w-full h-[420px] rounded-3xl overflow-hidden mb-8">
+              <Image src={blog.thumbnail} alt={blog.title} fill sizes="(max-width: 768px) 100vw, 75vw" className="object-cover" priority />
+            </div>
 
             {/* Tags */}
             {blog.tags?.length > 0 && (
@@ -133,11 +132,13 @@ export default function BlogDetailPage() {
                     onClick={() => router.push(`/blogs/${b.slug}`)}
                     className="cursor-pointer rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-md transition group"
                   >
-                    <div className="overflow-hidden h-44">
-                      <img
+                    <div className="overflow-hidden h-44 relative">
+                      <Image
                         src={b.thumbnail}
                         alt={b.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        fill
+                        sizes="33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
                     </div>
@@ -158,8 +159,8 @@ export default function BlogDetailPage() {
 
       {/* ══ MOBILE ══ */}
       <main className="py-6 bg-white px-4 md:hidden">
-        <div className="w-full h-56 overflow-hidden rounded-2xl mb-6">
-          <img src={blog.thumbnail} alt={blog.title} className="w-full h-full object-cover" />
+        <div className="relative w-full h-56 rounded-2xl overflow-hidden mb-6">
+          <Image src={blog.thumbnail} alt={blog.title} fill sizes="100vw" className="object-cover" priority />
         </div>
 
         {blog.tags?.length > 0 && (
@@ -199,7 +200,9 @@ export default function BlogDetailPage() {
                   onClick={() => router.push(`/blogs/${b.slug}`)}
                   className="cursor-pointer rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden active:scale-[0.98] transition"
                 >
-                  <img src={b.thumbnail} alt={b.title} className="w-full h-44 object-cover" loading="lazy" />
+                  <div className="relative w-full h-44 overflow-hidden">
+                    <Image src={b.thumbnail} alt={b.title} fill sizes="100vw" className="object-cover" loading="lazy" />
+                  </div>
                   <div className="p-4">
                     <p className="text-xs text-slate-500 mb-1">{new Date(b.date).toDateString()}</p>
                     <h3 className="text-sm font-semibold text-slate-900">{b.title}</h3>

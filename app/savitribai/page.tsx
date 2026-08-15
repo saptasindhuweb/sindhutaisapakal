@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import DonateCTA from "@/components/shared/DonateCTA";
 import savitribaiData from "@/lib/data/savitribai.json";
 
@@ -46,7 +47,7 @@ const Savitribai = () => {
 
         <div className="col-span-2 grid grid-cols-2 gap-4 ">
           {typedSavitribaiData.images.map((img, i) => (
-            <img key={i} src={img.src} alt={img.alt} className="rounded-2xl shadow-md" />
+            <Image key={i} src={img.src} alt={img.alt} width={300} height={300} className="rounded-2xl shadow-md w-full h-auto" loading="lazy" />
           ))}
         </div>
 

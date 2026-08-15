@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import DonateCTA from "@/components/shared/DonateCTA";
 import gopikaData from "@/lib/data/gopika.json";
 
@@ -55,14 +56,19 @@ const Gopika = () => {
           </div>
 
           <div className="col-span-2 relative flex justify-start ml-12">
-            <img
+            <Image
               src={typedGopikaData.hero.primaryImage}
               alt={typedGopikaData.hero.primaryAlt}
-              className="rounded-2xl shadow-lg w-48 h-48 relative z-10"
+              width={192}
+              height={192}
+              className="rounded-2xl shadow-lg w-48 h-48 object-cover relative z-10"
+              priority
             />
-            <img
+            <Image
               src={typedGopikaData.hero.secondaryImage}
               alt={typedGopikaData.hero.secondaryAlt}
+              width={220}
+              height={220}
               className="rounded-2xl shadow-xl w-55 absolute top-32 -right-5"
             />
           </div>
@@ -82,7 +88,7 @@ const Gopika = () => {
           <div className="col-span-1" />
           <div className="col-span-6 grid grid-cols-5 gap-8 mt-12">
             {typedGopikaData.galleryImages.map((img, i) => (
-              <img key={i} src={img} alt="Gopika Gallery" className="rounded-2xl shadow-md" />
+              <Image key={i} src={img} alt="Gopika Gallery" width={256} height={256} className="rounded-2xl shadow-md w-full h-auto" />
             ))}
           </div>
           <div className="col-span-1" />
@@ -103,16 +109,25 @@ const Gopika = () => {
           <p className="text-xs font-semibold mb-4">{typedGopikaData.hero.yearLabel}</p>
 
           <div className="flex gap-3 mb-8">
-            <img
-              src={typedGopikaData.hero.primaryImage}
-              alt={typedGopikaData.hero.primaryAlt}
-              className="w-1/2 h-30 object-cover rounded-xl shadow-md"
-            />
-            <img
-              src={typedGopikaData.hero.secondaryImage}
-              alt={typedGopikaData.hero.secondaryAlt}
-              className="w-1/2 h-30 object-cover rounded-xl shadow-md"
-            />
+            <div className="relative w-1/2 h-30 rounded-xl overflow-hidden shadow-md">
+              <Image
+                src={typedGopikaData.hero.primaryImage}
+                alt={typedGopikaData.hero.primaryAlt}
+                fill
+                sizes="50vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="relative w-1/2 h-30 rounded-xl overflow-hidden shadow-md">
+              <Image
+                src={typedGopikaData.hero.secondaryImage}
+                alt={typedGopikaData.hero.secondaryAlt}
+                fill
+                sizes="50vw"
+                className="object-cover"
+              />
+            </div>
           </div>
 
           <div className="text-gray-700 text-sm leading-relaxed space-y-4 text-justify">
@@ -127,7 +142,7 @@ const Gopika = () => {
 
           <div className="grid grid-cols-2 gap-4">
             {typedGopikaData.galleryImages.map((img, i) => (
-              <img key={i} src={img} alt="Gopika Gallery" className="w-full h-32 object-cover rounded-xl shadow-sm" />
+              <Image key={i} src={img} alt="Gopika Gallery" width={400} height={128} className="w-full h-32 object-cover rounded-xl shadow-sm" />
             ))}
           </div>
         </section>

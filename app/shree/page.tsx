@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import DonateCTA from "@/components/shared/DonateCTA";
 import shreeData from "@/lib/data/shree.json";
 
@@ -47,7 +48,7 @@ const Shree = () => {
 
         <div className="col-span-6 grid grid-cols-4 gap-8">
           {typedShreeData.images.map((img, i) => (
-            <img key={i} src={img} alt="Shree Manshanti Chatralay" className="rounded-2xl shadow-md" />
+            <Image key={i} src={img} alt="Shree Manshanti Chatralay" width={300} height={300} className="rounded-2xl shadow-md w-full h-auto" loading="lazy" />
           ))}
         </div>
 

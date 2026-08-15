@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image";
 import { useState } from "react";
 import DonateCTA from "@/components/shared/DonateCTA";
 import { IoChevronForward } from "react-icons/io5";
@@ -350,9 +351,11 @@ const Donate = () => {
                                 <p className="font-semibold mb-4">
                                     UPI ID : saptasindhumahila132@sbi
                                 </p>
-                                <img
+                                <Image
                                     src="/assets/images/branding/qr-code.png"
                                     alt="UPI QR Code"
+                                    width={288}
+                                    height={288}
                                     className="mx-auto w-72"
                                 />
                             </div>
@@ -567,9 +570,11 @@ const Donate = () => {
                             UPI ID: saptasindhumahila132@sbi
                         </p>
 
-                        <img
+                        <Image
                             src="/assets/images/branding/qr-code.png"
                             alt="UPI QR Code"
+                            width={208}
+                            height={208}
                             className="mx-auto w-52"
                         />
                     </div>

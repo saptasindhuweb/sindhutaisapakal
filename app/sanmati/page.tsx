@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import ImageLightbox from "@/components/shared/ImageLightbox";
 import sanmatiData from "@/lib/data/sanmati.json";
@@ -110,15 +111,20 @@ const SanmatiBalNiketan = () => {
             </div>
 
             <div className="col-span-2 relative flex justify-start">
-              <img
+              <Image
                 src={typedSanmatiData.heroImages.primary.src}
                 alt={typedSanmatiData.heroImages.primary.alt}
+                width={200}
+                height={200}
                 className="w-50 rounded-2xl shadow-lg relative z-10"
+                priority
               />
 
-              <img
+              <Image
                 src={typedSanmatiData.heroImages.secondary.src}
                 alt={typedSanmatiData.heroImages.secondary.alt}
+                width={220}
+                height={220}
                 className="w-55 rounded-2xl shadow-xl absolute top-30 -right-6"
               />
             </div>
@@ -151,11 +157,15 @@ const SanmatiBalNiketan = () => {
               <div className="columns-1 sm:columns-2 md:columns-4 gap-6 space-y-6">
                 {sectionImages[activeTab as Exclude<TabKey, "successStories">].map((img, i) => (
                   <div key={i} className="break-inside-avoid rounded-2xl overflow-hidden">
-                    <img
+                    <Image
                       src={img}
                       alt=""
-                      className="w-full object-cover rounded-2xl cursor-zoom-in"
+                      width={800}
+                      height={600}
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
+                      className="w-full h-auto object-cover rounded-2xl cursor-zoom-in"
                       onClick={() => setExpandedImage(img)}
+                      loading="lazy"
                     />
                   </div>
                 ))}
@@ -174,7 +184,7 @@ const SanmatiBalNiketan = () => {
                   {typedSanmatiData.successStories.map((story, i) => {
                     return (
                       <div key={i} className="text-center transition-all duration-300 rounded-2xl border border-slate-200 bg-white p-4">
-                        <img src={story.image} alt={story.name} className="w-full h-52 object-cover rounded-xl mb-4" />
+                        <Image src={story.image} alt={story.name} width={400} height={208} className="w-full h-52 object-cover rounded-xl mb-4" loading="lazy" />
 
                         <h4 className="font-semibold text-sm">{story.name}</h4>
                         <p className="text-xs text-gray-600">{story.subtitle}</p>
@@ -209,16 +219,12 @@ const SanmatiBalNiketan = () => {
           <p className="text-xs text-gray-600 mb-6">{typedSanmatiData.yearInfoMobile}</p>
 
           <div className="mb-8 flex items-center justify-center gap-2">
-            <img
-              src={typedSanmatiData.heroImages.primary.src}
-              alt={typedSanmatiData.heroImages.primary.alt}
-              className="w-full h-30 object-cover rounded-2xl shadow-md"
-            />
-            <img
-              src={typedSanmatiData.heroImages.secondary.src}
-              alt={typedSanmatiData.heroImages.secondary.alt}
-              className="w-full h-30 object-cover rounded-2xl shadow-md"
-            />
+            <div className="relative w-full h-30 rounded-2xl overflow-hidden shadow-md">
+              <Image src={typedSanmatiData.heroImages.primary.src} alt={typedSanmatiData.heroImages.primary.alt} fill sizes="50vw" className="object-cover" priority />
+            </div>
+            <div className="relative w-full h-30 rounded-2xl overflow-hidden shadow-md">
+              <Image src={typedSanmatiData.heroImages.secondary.src} alt={typedSanmatiData.heroImages.secondary.alt} fill sizes="50vw" className="object-cover" />
+            </div>
           </div>
 
           <div className="text-gray-700 text-sm leading-relaxed space-y-4 text-justify">
@@ -249,11 +255,15 @@ const SanmatiBalNiketan = () => {
             <div className="columns-2 gap-4 space-y-4">
               {sectionImages[activeTab as Exclude<TabKey, "successStories">].map((img, i) => (
                 <div key={i} className="break-inside-avoid rounded-xl overflow-hidden">
-                  <img
+                  <Image
                     src={img}
                     alt=""
-                    className="w-full object-cover rounded-xl"
+                    width={600}
+                    height={450}
+                    sizes="50vw"
+                    className="w-full h-auto object-cover rounded-xl"
                     onClick={() => setExpandedImage(img)}
+                    loading="lazy"
                   />
                 </div>
               ))}
@@ -270,7 +280,7 @@ const SanmatiBalNiketan = () => {
 
               {typedSanmatiData.successStories.map((story, i) => (
                 <div key={i} className="text-center">
-                  <img src={story.image} alt={story.name} className="w-full h-64 object-cover rounded-2xl mb-4" />
+                  <Image src={story.image} alt={story.name} width={400} height={256} className="w-full h-64 object-cover rounded-2xl mb-4" loading="lazy" />
                   <h4 className="font-semibold text-sm">{story.name}</h4>
                   <p className="text-xs text-gray-600">{story.subtitle}</p>
                   <p className="text-xs text-gray-500">{story.extra}</p>

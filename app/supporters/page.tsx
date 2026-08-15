@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const mainSupporters = [
   { name: "Bharati Vidyapeeth", img: "/assets/images/supporters/bharti.png" },
   { name: "Nobel Hospital", img: "/assets/images/supporters/nobel.png" },
@@ -30,7 +32,9 @@ const SupportersPage = () => {
             <div className="grid md:grid-cols-2 gap-8">
               {mainSupporters.map((supporter) => (
                 <div key={supporter.name} className="bg-gray-100 p-4 rounded-xl text-center">
-                  <img src={supporter.img} className="rounded-lg mb-4 w-full h-40 object-cover" alt={supporter.name} />
+                  <div className="relative h-40 rounded-lg overflow-hidden mb-4">
+                    <Image src={supporter.img} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" alt={supporter.name} />
+                  </div>
                   <p className="font-medium text-lg py-2 px-3">{supporter.name}</p>
                 </div>
               ))}
@@ -55,8 +59,10 @@ const SupportersPage = () => {
 
           <div className="grid grid-cols-2 gap-4">
             {mainSupporters.map((supporter) => (
-              <div key={supporter.name} className="bg-gray-100 p-3 rounded-xl text-center">
-                <img src={supporter.img} alt={supporter.name} className="rounded-lg mb-3 h-24 w-full object-cover" />
+                <div key={supporter.name} className="bg-gray-100 p-3 rounded-xl text-center">
+                <div className="relative h-24 rounded-lg overflow-hidden mb-3">
+                  <Image src={supporter.img} fill sizes="50vw" className="object-cover" alt={supporter.name} />
+                </div>
                 <p className="font-medium text-sm">{supporter.name}</p>
               </div>
             ))}

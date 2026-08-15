@@ -1,5 +1,7 @@
 'use client';
 
+import Image from "next/image";
+
 interface AlbumCardProps {
   cover: string;
   title: string;
@@ -14,11 +16,15 @@ export default function AlbumCard({ cover, title, photoCount, onClick }: AlbumCa
       className="relative rounded-2xl overflow-hidden cursor-pointer group shadow-md hover:shadow-xl transition-shadow duration-300"
     >
       {/* Cover image */}
-      <img
-        src={cover}
-        alt={title}
-        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-      />
+      <div className="relative w-full h-64">
+        <Image
+          src={cover}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
 
       {/* Gradient overlay — always visible, deepens on hover */}
       <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent transition-opacity duration-300 group-hover:from-black/90 group-hover:via-black/40" />

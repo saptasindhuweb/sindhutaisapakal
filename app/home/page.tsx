@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import DonateCTA from "@/components/shared/DonateCTA";
 import LegacySection from "@/components/shared/LegacySection";
@@ -77,11 +78,16 @@ const Home = () => {
               </div>
 
               <div className="flex justify-end">
-                <img
-                  src="/assets/images/founders/1.png"
-                  alt="Sindhutai Sapkal"
-                  className="rounded-3xl max-w-md w-full object-cover"
-                />
+                <div className="relative rounded-3xl max-w-md w-full h-auto overflow-hidden">
+                  <Image
+                    src="/assets/images/founders/1.png"
+                    alt="Sindhutai Sapkal"
+                    width={448}
+                    height={560}
+                    className="rounded-3xl max-w-md w-full object-cover"
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -97,9 +103,11 @@ const Home = () => {
         <div className=" col-span-6">
           <div className=" grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <img
+            <Image
               src="/assets/images/founders/2.png"
               alt="Children with Mai"
+              width={448}
+              height={448}
               className="rounded-3xl max-w-md w-full object-cover"
             />
           </div>

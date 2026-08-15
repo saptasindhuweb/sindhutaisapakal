@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Skeleton } from "@/components/ui/skeleton";
 import DonateCTA from "@/components/shared/DonateCTA";
@@ -29,7 +30,9 @@ function EventCard({ m, onNavigate }: { m: MilestoneDoc; onNavigate: (m: Milesto
       onClick={() => onNavigate(m)}
       className="cursor-pointer rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-md transition"
     >
-      <img src={m.thumbnail} alt={m.title} className="w-full h-48 object-cover" loading="lazy" />
+      <div className="relative w-full h-48">
+        <Image src={m.thumbnail} alt={m.title} fill sizes="(max-width: 1200px) 50vw, 33vw" className="object-cover" loading="lazy" />
+      </div>
       <div className="p-5">
         <p className="text-xs text-slate-500 mb-2">{new Date(m.date).toDateString()}</p>
         <h3 className="text-lg font-semibold text-slate-900 mb-2 leading-snug">{m.title}</h3>
@@ -46,7 +49,9 @@ function EventCardMobile({ m, onNavigate }: { m: MilestoneDoc; onNavigate: (m: M
       onClick={() => onNavigate(m)}
       className="cursor-pointer rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden active:scale-[0.98] transition"
     >
-      <img src={m.thumbnail} alt={m.title} className="w-full h-44 object-cover" loading="lazy" />
+      <div className="relative w-full h-44">
+        <Image src={m.thumbnail} alt={m.title} fill sizes="100vw" className="object-cover" loading="lazy" />
+      </div>
       <div className="p-4">
         <p className="text-xs text-slate-500 mb-1">{new Date(m.date).toDateString()}</p>
         <h3 className="text-base font-semibold text-slate-900 mb-1 leading-snug">{m.title}</h3>

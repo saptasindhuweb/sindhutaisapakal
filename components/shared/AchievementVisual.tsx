@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 type AchievementVisualProps = {
   imageSrc: string;
@@ -17,11 +18,11 @@ const AchievementVisual: React.FC<AchievementVisualProps> = ({ imageSrc, positio
         }}
       >
         <div className="w-full h-full overflow-hidden bg-gray-200 rounded-md">
-          <img
+          <Image
             src={imageSrc}
             alt="Achievement"
-            className="w-full h-full scale-110"
-            // style={{ objectPosition: position }}
+            fill
+            className="scale-110 object-cover"
           />
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import DonateCTA from "@/components/shared/DonateCTA";
 import OrgSlider from "@/components/shared/OrgSlider";
 import StatsSection from "@/components/shared/StatsSection";
@@ -82,8 +83,16 @@ const Home = () => {
           <CarouselContent>
             {typedHomeData.heroImages.map((img, index) => (
               <CarouselItem key={index}>
-                <div className="w-full h-[220px] sm:h-[350px] md:h-[500px] lg:h-[650px] xl:h-[780px]">
-                  <img src={img} alt={`Hero slide ${index + 1}`} className="w-full h-full object-cover" />
+                <div className="relative w-full h-[220px] sm:h-[350px] md:h-[500px] lg:h-[650px] xl:h-[780px]">
+                  <Image
+                    src={img}
+                    alt={`Hero slide ${index + 1}`}
+                    fill
+                    sizes="100vw"
+                    className="object-cover"
+                    priority={index === 0}
+                    loading={index === 0 ? undefined : "lazy"}
+                  />
                 </div>
               </CarouselItem>
             ))}
@@ -113,11 +122,16 @@ const Home = () => {
             </div>
 
             <div className="flex justify-end">
-              <img
-                src={typedHomeData.sections.maai.image}
-                alt={typedHomeData.sections.maai.alt}
-                className="rounded-3xl max-w-md w-full object-cover h-[420px] object-[center_25%]"
-              />
+              <div className="relative rounded-3xl max-w-md w-full h-[420px] overflow-hidden">
+                <Image
+                  src={typedHomeData.sections.maai.image}
+                  alt={typedHomeData.sections.maai.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-[center_25%]"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -129,13 +143,16 @@ const Home = () => {
           <div className="gap-12 items-center">
             <div className="flex flex-col items-center gap-4">
               <div className="flex justify-end">
-                <img
-                  src={typedHomeData.sections.maai.image}
-                  alt={typedHomeData.sections.maai.alt}
-                  className="rounded-3xl max-w-md w-full object-cover h-[320px] object-[center_25%]"
-                />
+                <div className="relative rounded-3xl max-w-md w-full h-[320px] overflow-hidden">
+                  <Image
+                    src={typedHomeData.sections.maai.image}
+                    alt={typedHomeData.sections.maai.alt}
+                    fill
+                    sizes="100vw"
+                    className="object-cover object-[center_25%]"
+                  />
+                </div>
               </div>
-
               <h2 className="text-xl font-bold leading-tight text-center">
                 {typedHomeData.sections.maai.title} <br />
                 {typedHomeData.sections.maai.subtitle}
@@ -162,11 +179,15 @@ const Home = () => {
         <div className="col-span-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <img
-                src={typedHomeData.sections.legacy.image}
-                alt={typedHomeData.sections.legacy.alt}
-                className="rounded-3xl h-[420px] max-w-md w-full object-cover"
-              />
+              <div className="relative rounded-3xl h-[420px] max-w-md w-full overflow-hidden">
+                <Image
+                  src={typedHomeData.sections.legacy.image}
+                  alt={typedHomeData.sections.legacy.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
 
             <div>
@@ -191,13 +212,16 @@ const Home = () => {
           <div className="gap-12 items-center">
             <div className="flex flex-col items-center gap-4">
               <div className="flex justify-end">
-                <img
-                  src={typedHomeData.sections.legacy.image}
-                  alt={typedHomeData.sections.legacy.alt}
-                  className="rounded-3xl max-w-md w-full object-cover h-[320px] object-[center_25%]"
-                />
+                <div className="relative rounded-3xl max-w-md w-full h-[320px] overflow-hidden">
+                  <Image
+                    src={typedHomeData.sections.legacy.image}
+                    alt={typedHomeData.sections.legacy.alt}
+                    fill
+                    sizes="100vw"
+                    className="object-cover object-[center_25%]"
+                  />
+                </div>
               </div>
-
               <h2 className="text-xl font-bold leading-tight text-center">{typedHomeData.sections.legacy.title}</h2>
 
               <p className="mt-4 text-gray-600 leading-relaxed text-justify">{typedHomeData.sections.legacy.paragraphs[0]}</p>
@@ -253,7 +277,9 @@ const Home = () => {
                     }
                     className="cursor-pointer rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden hover:shadow-md transition"
                   >
-                    <img src={item.thumbnail} alt={item.title} className="w-full h-48 object-cover" />
+                    <div className="relative w-full h-48">
+                      <Image src={item.thumbnail} alt={item.title} fill sizes="(max-width: 1200px) 50vw, 33vw" className="object-cover" loading="lazy" />
+                    </div>
                     <div className="p-5">
                       <p className="text-xs text-slate-500 mb-2">{new Date(item.date).toDateString()}</p>
                       <h3 className="text-lg font-semibold text-slate-900 mb-2">{item.title}</h3>
@@ -304,7 +330,9 @@ const Home = () => {
                   }
                   className="cursor-pointer rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden active:scale-[0.98] transition"
                 >
-                  <img src={item.thumbnail} alt={item.title} className="w-full h-52 object-cover" />
+                  <div className="relative w-full h-52">
+                    <Image src={item.thumbnail} alt={item.title} fill sizes="100vw" className="object-cover" loading="lazy" />
+                  </div>
                   <div className="p-4">
                     <p className="text-xs text-slate-500 mb-2">{new Date(item.date).toDateString()}</p>
                     <h3 className="text-base font-semibold text-slate-900 mb-2 leading-snug">{item.title}</h3>
