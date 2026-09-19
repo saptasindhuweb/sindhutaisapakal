@@ -103,7 +103,7 @@ export default function BlogsPage() {
       {/* ── Desktop ── */}
       <div className="max-sm:hidden py-16">
         {/* Header */}
-        <div className="grid grid-cols-8 mb-10">
+        <div data-scroll-section className="grid grid-cols-8 mb-10">
           <div className="col-span-1 flex items-center justify-end pr-2">
             <span className="w-16 h-0.5 bg-black" />
           </div>
@@ -169,7 +169,7 @@ export default function BlogsPage() {
 
       {/* ── Mobile ── */}
       <div className="md:hidden px-4 py-10">
-        <div className="flex items-center gap-3 mb-2">
+        <div data-scroll-section className="flex items-center gap-3 mb-2">
           <span className="w-10 h-0.5 bg-black" />
           <h1 className="text-2xl font-bold tracking-wide">BLOG</h1>
         </div>

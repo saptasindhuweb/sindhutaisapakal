@@ -81,7 +81,7 @@ export default function BlogDetailPage() {
           <div className="col-span-1" />
           <div className="col-span-6">
             {/* Cover */}
-            <div className="relative w-full h-[420px] rounded-3xl overflow-hidden mb-8">
+            <div data-scroll-section className="relative w-full h-[420px] rounded-3xl overflow-hidden mb-8">
               <Image src={blog.thumbnail} alt={blog.title} fill sizes="(max-width: 768px) 100vw, 75vw" className="object-cover" priority />
             </div>
 
@@ -99,7 +99,7 @@ export default function BlogDetailPage() {
               </div>
             )}
 
-            <h1 className="text-4xl font-bold leading-tight mb-4">{blog.title}</h1>
+            <h1 data-scroll-section className="text-4xl font-bold leading-tight mb-4">{blog.title}</h1>
 
             <div className="flex items-center gap-3 text-sm text-slate-500 mb-10">
               <span>{blog.author}</span>
@@ -110,7 +110,7 @@ export default function BlogDetailPage() {
             </div>
 
             {/* Content */}
-            <div className="prose prose-slate max-w-none text-slate-800 leading-relaxed whitespace-pre-line text-base">
+            <div data-scroll-section className="prose prose-slate max-w-none text-slate-800 leading-relaxed whitespace-pre-line text-base">
               {blog.content}
             </div>
           </div>
@@ -119,7 +119,7 @@ export default function BlogDetailPage() {
 
         {/* Related blogs */}
         {related.length > 0 && (
-          <div className="mt-20 grid grid-cols-8">
+          <div data-scroll-section className="mt-20 grid grid-cols-8">
             <div className="col-span-1 flex items-center justify-end pr-2">
               <span className="w-16 h-0.5 bg-black" />
             </div>
@@ -159,7 +159,7 @@ export default function BlogDetailPage() {
 
       {/* ══ MOBILE ══ */}
       <main className="py-6 bg-white px-4 md:hidden">
-        <div className="relative w-full h-56 rounded-2xl overflow-hidden mb-6">
+        <div data-scroll-section className="relative w-full h-56 rounded-2xl overflow-hidden mb-6">
           <Image src={blog.thumbnail} alt={blog.title} fill sizes="100vw" className="object-cover" priority />
         </div>
 
@@ -173,7 +173,7 @@ export default function BlogDetailPage() {
           </div>
         )}
 
-        <h1 className="text-2xl font-bold leading-tight mb-3">{blog.title}</h1>
+        <h1 data-scroll-section className="text-2xl font-bold leading-tight mb-3">{blog.title}</h1>
 
         <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 mb-8">
           <span>{blog.author}</span>
@@ -183,12 +183,12 @@ export default function BlogDetailPage() {
           <span>{blog.readTimeMinutes} min read</span>
         </div>
 
-        <div className="text-sm text-slate-800 leading-relaxed whitespace-pre-line">
+        <div data-scroll-section className="text-sm text-slate-800 leading-relaxed whitespace-pre-line">
           {blog.content}
         </div>
 
         {related.length > 0 && (
-          <div className="mt-14">
+          <div data-scroll-section className="mt-14">
             <div className="flex items-center gap-3 mb-6">
               <span className="w-10 h-0.5 bg-black" />
               <h2 className="text-lg font-bold tracking-wide">MORE FROM THE BLOG</h2>

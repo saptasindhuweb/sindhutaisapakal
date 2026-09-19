@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
 import ImageLoadTracker from "@/components/shared/ImageLoadTracker";
+import ScrollAnimations from "@/components/shared/ScrollAnimations";
 import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
@@ -88,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
         <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
         {/* JSON-LD – Organisation structured data (boosts rich results + text-to-code ratio) */}
@@ -143,7 +144,7 @@ export default function RootLayout({
       >
         <Header />
         <ImageLoadTracker />
-        {children}
+        <ScrollAnimations>{children}</ScrollAnimations>
         <Toaster
           position="top-center"
           toastOptions={{

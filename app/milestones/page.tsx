@@ -172,7 +172,7 @@ const MilestonesPage = () => {
       </section>
 
       {/* Mobile */}
-      <div className={`md:hidden px-4 py-10 ${bg}`}>
+      <div data-scroll-section className={`md:hidden px-4 py-10 ${bg}`}>
         <SectionHeader title={title} desktop={false} />
         {loading ? (
           <div className="space-y-5">
@@ -192,12 +192,12 @@ const MilestonesPage = () => {
   return (
     <main className="w-full bg-white">
       {/* Page title – desktop */}
-      <div className="py-16 grid grid-cols-8 max-sm:hidden">
+      <div data-scroll-section className="py-16 grid grid-cols-8 max-sm:hidden">
         <div className="col-span-1 flex items-center justify-end pr-2"><span className="w-16 h-0.5 bg-black" /></div>
         <h1 className="text-3xl font-bold tracking-wide col-span-6">MILESTONES</h1>
       </div>
       {/* Page title – mobile */}
-      <div className="md:hidden px-4 pt-10 flex items-center gap-3">
+      <div data-scroll-section className="md:hidden px-4 pt-10 flex items-center gap-3">
         <span className="w-10 h-0.5 bg-black" />
         <h1 className="text-2xl font-bold tracking-wide">MILESTONES</h1>
       </div>

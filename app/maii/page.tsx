@@ -60,10 +60,11 @@ const Maai: React.FC = () => {
   useEffect(() => {
     const hash = window.location.hash;
     if (!hash) return;
-    setTimeout(() => {
+    const timeout = window.setTimeout(() => {
       const el = document.getElementById(hash.slice(1));
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (el) el.scrollIntoView({ behavior: "auto", block: "start" });
     }, 300);
+    return () => window.clearTimeout(timeout);
   }, []);
 
   return (

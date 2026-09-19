@@ -100,7 +100,7 @@ const Home = () => {
         </Carousel>
       </section>
 
-      <section className="bg-white py-10 grid grid-cols-8 max-sm:hidden">
+      <section className="bg-white py-10 hidden md:grid grid-cols-8">
         <div className="col-span-1"></div>
         <div className="col-span-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -142,7 +142,7 @@ const Home = () => {
         <div className="col-span-6">
           <div className="gap-12 items-center">
             <div className="flex flex-col items-center gap-4">
-              <div className="flex justify-end">
+              <div className="flex w-full justify-center">
                 <div className="relative rounded-3xl max-w-md w-full h-[320px] overflow-hidden">
                   <Image
                     src={typedHomeData.sections.maai.image}
@@ -174,7 +174,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="bg-white py-20 grid grid-cols-8 max-sm:hidden">
+      <section className="bg-white py-20 hidden md:grid grid-cols-8">
         <div className="col-span-1"></div>
         <div className="col-span-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -211,7 +211,7 @@ const Home = () => {
         <div className="col-span-6">
           <div className="gap-12 items-center">
             <div className="flex flex-col items-center gap-4">
-              <div className="flex justify-end">
+              <div className="flex w-full justify-center">
                 <div className="relative rounded-3xl max-w-md w-full h-[320px] overflow-hidden">
                   <Image
                     src={typedHomeData.sections.legacy.image}

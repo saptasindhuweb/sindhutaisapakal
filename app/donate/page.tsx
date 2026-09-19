@@ -118,10 +118,10 @@ const Donate = () => {
                             </p>
 
                             <button
-                                onClick={() =>
-                                    document
-                                        .getElementById("donation-form")
-                                        ?.scrollIntoView({ behavior: "smooth" })
+                                onClick={(event) =>
+                                    event.currentTarget.closest("main")
+                                        ?.querySelector("[data-donation-form]")
+                                        ?.scrollIntoView({ behavior: "auto" })
                                 }
                                 className="bg-sky-500 hover:bg-yellow-500 text-black font-semibold px-8 py-2 rounded-lg"
                             >
@@ -134,7 +134,7 @@ const Donate = () => {
                 </section>
 
 
-                <section className="grid grid-cols-8 bg-[#fff7e6] pb-20">
+                <section data-donation-form className="grid grid-cols-8 bg-[#fff7e6] pb-20">
                     <div className="col-span-1" />
 
                     <div className="col-span-6 flex justify-center">
@@ -390,10 +390,10 @@ const Donate = () => {
                         </p>
 
                         <button
-                            onClick={() =>
-                                document
-                                    .getElementById("donation-form")
-                                    ?.scrollIntoView({ behavior: "smooth" })
+                            onClick={(event) =>
+                                event.currentTarget.closest("main")
+                                    ?.querySelector("[data-donation-form]")
+                                    ?.scrollIntoView({ behavior: "auto" })
                             }
                             className="w-fit bg-sky-500 text-black font-semibold px-6 py-2 rounded-md active:scale-95 transition"
                         >
@@ -404,7 +404,7 @@ const Donate = () => {
 
 
                 {/* ===== DONATION FORM ===== */}
-                <section id="donation-form" className="bg-[#fff7e6] py-12 px-4">
+                <section id="donation-form" data-donation-form className="bg-[#fff7e6] py-12 px-4">
 
                     <div className="bg-white rounded-2xl shadow-lg p-6">
 

@@ -21,7 +21,7 @@ const EventDetailPage = () => {
                 <div className="col-span-1" />
                 <div className="col-span-6">
                     {/* COVER */}
-                    <div className="relative w-full h-[500px] rounded-3xl overflow-hidden mb-10">
+                    <div data-scroll-section className="relative w-full h-[500px] rounded-3xl overflow-hidden mb-10">
                       <Image src={event.coverImage} alt={event.title ?? ''} fill sizes="(max-width: 768px) 100vw, 75vw" className="object-cover" priority />
                     </div>
 
@@ -30,18 +30,18 @@ const EventDetailPage = () => {
                         {new Date(event.date).toDateString()}
                     </p>
 
-                    <h1 className="text-3xl font-bold mb-6">
+                    <h1 data-scroll-section className="text-3xl font-bold mb-6">
                         {event.title}
                     </h1>
 
-                    <p className="text-gray-700 leading-relaxed mb-10">
+                    <p data-scroll-section className="text-gray-700 leading-relaxed mb-10">
                         {event.description}
                     </p>
 
                     {/* EXTRA PHOTOS */}
                     {/* EXTRA PHOTOS — MASONRY GRID */}
                     {event.images && event.images.length > 0 && (
-                        <div className="mb-16">
+                        <div data-scroll-section className="mb-16">
                             <h2 className="text-2xl font-bold mb-6">
                                 Event Gallery
                             </h2>
@@ -70,7 +70,7 @@ const EventDetailPage = () => {
                                 Upcoming Events
                             </h2>
 
-                            <div className="grid md:grid-cols-3 gap-6">
+                            <div data-scroll-section className="grid md:grid-cols-3 gap-6">
                                 {upcomingEvents.map((item) => (
                                     <div
                                         key={item.id}
@@ -103,7 +103,7 @@ const EventDetailPage = () => {
             <main className="py-4 bg-white px-4 md:hidden">
 
                 {/* COVER */}
-                <div className="relative w-full h-64 rounded-2xl overflow-hidden mb-8">
+                <div data-scroll-section className="relative w-full h-64 rounded-2xl overflow-hidden mb-8">
                   <Image src={event.coverImage} alt={event.title ?? ''} fill sizes="100vw" className="object-cover" priority />
                 </div>
 
@@ -112,17 +112,17 @@ const EventDetailPage = () => {
                     {new Date(event.date).toDateString()}
                 </p>
 
-                <h1 className="text-2xl font-bold mb-5">
+                <h1 data-scroll-section className="text-2xl font-bold mb-5">
                     {event.title}
                 </h1>
 
-                <p className="text-sm text-gray-700 leading-relaxed mb-10">
+                <p data-scroll-section className="text-sm text-gray-700 leading-relaxed mb-10">
                     {event.description}
                 </p>
 
                 {/* EVENT GALLERY */}
                 {event.images && event.images.length > 0 && (
-                    <div className="mb-14">
+                    <div data-scroll-section className="mb-14">
                         <h2 className="text-lg font-bold mb-6">
                             Event Gallery
                         </h2>
@@ -147,7 +147,7 @@ const EventDetailPage = () => {
 
                 {/* UPCOMING EVENTS */}
                 {upcomingEvents.length > 0 && (
-                    <div>
+                    <div data-scroll-section>
                         <h2 className="text-lg font-bold mb-6">
                             Upcoming Events
                         </h2>
